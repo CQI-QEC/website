@@ -56,33 +56,33 @@ async fn main() -> Result<()> {
 
     let listener = tokio::net::TcpListener::bind(&addr).await?;
 
+    let cors_layer = CorsLayer::new()
+        .allow_headers([ACCEPT, CONTENT_TYPE])
+        .max_age(Duration::from_secs(86400))
+        .allow_origin(
+            std::env::var("CORS_ORIGIN")
+                .unwrap_or_else(|_| "*".to_string())
+                .parse::<HeaderValue>()?,
+        )
+        .allow_methods(vec![
+            Method::GET,
+            Method::POST,
+            Method::PUT,
+            Method::DELETE,
+            Method::OPTIONS,
+            Method::HEAD,
+            Method::PATCH,
+        ]);
+
+    let compression_layer = CompressionLayer::new()
+        .quality(CompressionLevel::Precise(4))
+        .compress_when(SizeAbove::new(512));
+
     axum::serve(
         listener,
         router
-            .layer(
-                CorsLayer::new()
-                    .allow_headers([ACCEPT, CONTENT_TYPE])
-                    .max_age(Duration::from_secs(86400))
-                    .allow_origin(
-                        std::env::var("CORS_ORIGIN")
-                            .unwrap_or_else(|_| "*".to_string())
-                            .parse::<HeaderValue>()?,
-                    )
-                    .allow_methods(vec![
-                        Method::GET,
-                        Method::POST,
-                        Method::PUT,
-                        Method::DELETE,
-                        Method::OPTIONS,
-                        Method::HEAD,
-                        Method::PATCH,
-                    ]),
-            )
-            .layer(
-                CompressionLayer::new()
-                    .quality(CompressionLevel::Precise(4))
-                    .compress_when(SizeAbove::new(512)),
-            )
+            .layer(cors_layer)
+            .layer(compression_layer)
             .layer(TraceLayer::new_for_http())
             .into_make_service(),
     )
