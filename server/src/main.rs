@@ -1,12 +1,10 @@
-#![forbid(unsafe_code)]
-
 use std::{net::SocketAddr, sync::Arc, time::Duration};
 
 use axum::{
     extract::Request,
     http::{
         header::{ACCEPT, CONTENT_TYPE},
-        request, HeaderValue, Method, StatusCode,
+        HeaderValue, Method, StatusCode,
     },
     middleware::{self, Next},
     response::Response,
