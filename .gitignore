@@ -12,3 +12,5 @@ node_modules/
 pnpm-lock.yaml
 public/
 target/
+.direnv/
+nix-direnv-reload
