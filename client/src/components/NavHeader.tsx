@@ -1,6 +1,6 @@
 import { JSX, createSignal, onMount } from "solid-js"
 import { isDark, setIsDark } from "../stores/isDark"
-
+import { locale, setLocale, t } from "../stores/locale"
 import { A } from "@solidjs/router"
 import PrefetchLink from "./PrefetchLink"
 import closeMenuIcon from "../../assets/close.svg"
@@ -9,9 +9,9 @@ import lightModeIcon from "../../assets/sun.svg"
 import menuIcon from "../../assets/menu.svg"
 
 const NavHeader = (): JSX.Element => {
-    const [menuIsOpen, setMenuIsOpen] = createSignal(false)
-    let hamburgerButton: HTMLButtonElement | undefined
-    let hamburgerMenu: HTMLDivElement | undefined
+    const [menuIsOpen, setMenuIsOpen] = createSignal(false);
+    let hamburgerButton: HTMLButtonElement | undefined;
+    let hamburgerMenu: HTMLDivElement | undefined;
 
     const links = [
         {
@@ -22,33 +22,43 @@ const NavHeader = (): JSX.Element => {
             to: "/about",
             name: "About",
         },
-    ]
+    ];
 
     onMount(() => {
         if (isDark()) {
-            document.documentElement.classList.add("dark")
+            document.documentElement.classList.add("dark");
         }
-    })
+    });
 
     /**
      * Swap between light and dark theme, saving the choice to local storage.
      */
     const toggleTheme = (): void => {
-        document.documentElement.classList.toggle("dark")
-        localStorage.setItem("theme", isDark() ? "light" : "dark")
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark() ? "light" : "dark");
 
-        setIsDark(!isDark())
+        setIsDark(!isDark());
+    };
+
+    const toggleLanguage = (): void => {
+        if (locale() === "en") {
+            localStorage.setItem("locale", "fr");
+            setLocale("fr")
+        } else {
+            localStorage.setItem("locale", "en");
+            setLocale("en")
+        }
     }
 
     /**
      * Opens or closes the hamburger menu.
      */
     const toggleHamburgerMenu = (): void => {
-        hamburgerButton?.classList.toggle("hidden")
-        hamburgerMenu?.classList.toggle("hidden")
+        hamburgerButton?.classList.toggle("hidden");
+        hamburgerMenu?.classList.toggle("hidden");
 
-        setMenuIsOpen(!menuIsOpen)
-    }
+        setMenuIsOpen(!menuIsOpen);
+    };
 
     const HamburgerMenu = (): JSX.Element => {
         return (
@@ -66,6 +76,13 @@ const NavHeader = (): JSX.Element => {
                                 height="40px"
                                 class="flex self-center"
                             />
+                        </button>
+
+                        <button
+                            onClick={toggleLanguage}
+                            class="flex h-[48px] w-[48px] border-none bg-transparent"
+                        >
+                            {t("lang_placeholder")}
                         </button>
 
                         <button
@@ -115,6 +132,11 @@ const NavHeader = (): JSX.Element => {
                     )
                 })}
 
+                <li class="ml-4 flex">
+                    <button onClick={toggleLanguage} class="ml-4 flex border-none">
+                        {t("lang_placeholder")}
+                    </button>
+                </li>
                 <li class="flex justify-center items-center">
                     <button onClick={toggleTheme} class="ml-4 flex border-none">
                         <img
@@ -132,7 +154,7 @@ const NavHeader = (): JSX.Element => {
     return (
         <header class="flex w-full items-center justify-between p-4 ">
             <h1 class="text-3xl font-bold">
-                <A href="/">Template</A>
+                <A href="/">{t("cqi")}</A>
             </h1>
 
             <nav>
@@ -157,4 +179,4 @@ const NavHeader = (): JSX.Element => {
     )
 }
 
-export default NavHeader
+export default NavHeader;

@@ -25,7 +25,7 @@ const PrefetchLink = ({
                 import(`../routes/${file}.tsx`)
             })
         }
-    })
+    });
 
     return (
         <A

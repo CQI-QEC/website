@@ -26,6 +26,6 @@ const ExternalLink = ({
             {children}
         </a>
     )
-}
+};
 
-export default ExternalLink
+export default ExternalLink;
