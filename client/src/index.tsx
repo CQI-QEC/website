@@ -18,7 +18,7 @@ declare global {
 const Home = lazy(() => import("./routes/Home"));
 const About = lazy(() => import("./routes/About"));
 const NotFound = lazy(() => import("./routes/NotFound"));
-const Competition = lazy(() => import("./routes/Competition"));
+const Competition = lazy(() => import("./routes/Competitions"));
 const Team = lazy(() => import("./routes/Team"));
 const Partners = lazy(() => import("./routes/Partners"));
 const Documents = lazy(() => import("./routes/Documents"));

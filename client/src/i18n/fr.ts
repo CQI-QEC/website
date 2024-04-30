@@ -1,6 +1,6 @@
 export const dict = {
     cqi: "CQI",
-    lang_placeholder: "FR",
+    lang: "FR",
     home: "Accueil",
     about: "À propos",
     competitions: "Compétitions",
@@ -8,4 +8,9 @@ export const dict = {
     partners: "Partenaires",
     documents: "Documents",
     login: "Connexion",
+    days: "jours",
+    hours: "heures",
+    minutes: "minutes",
+    seconds: "secondes",
+    madeBy: "Créé par",
 };

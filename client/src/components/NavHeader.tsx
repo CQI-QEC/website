@@ -17,26 +17,32 @@ const NavHeader = (): JSX.Element => {
         return [
             {
                 to: "/about",
+                file: "About",
                 name: t("about"),
             },
             {
                 to: "/competitions",
+                file: "Competitions",
                 name: t("competitions"),
             },
             {
                 to: "/team",
+                file: "Team",
                 name: t("team"),
             },
             {
                 to: "/partners",
+                file: "Partners",
                 name: t("partners"),
             },
             {
                 to: "/documents",
+                file: "Documents",
                 name: t("documents"),
             },
             {
                 to: "/login",
+                file: "Login",
                 name: t("login"),
             },
         ]
@@ -100,7 +106,7 @@ const NavHeader = (): JSX.Element => {
                             onClick={toggleLanguage}
                             class="flex h-[48px] w-[48px] border-none bg-transparent"
                         >
-                            {t("lang_placeholder")}
+                            {t("lang")}
                         </button>
 
                         <button
@@ -123,13 +129,13 @@ const NavHeader = (): JSX.Element => {
                                 <li class="ml-4 flex h-fit w-fit">
                                     <PrefetchLink
                                         to={link.to}
-                                        file={link.name}
+                                        file={link.file}
                                         onClick={toggleHamburgerMenu}
                                     >
                                         {link.name}
                                     </PrefetchLink>
                                 </li>
-                            )
+                            );
                         })}
                     </ul>
                 </div>
@@ -143,7 +149,7 @@ const NavHeader = (): JSX.Element => {
                 {links().map((link) => {
                     return (
                         <li class="ml-4 flex">
-                            <PrefetchLink to={link.to} file={link.name}>
+                            <PrefetchLink to={link.to} file={link.file}>
                                 {link.name}
                             </PrefetchLink>
                         </li>
@@ -152,7 +158,7 @@ const NavHeader = (): JSX.Element => {
 
                 <li class="ml-4 flex">
                     <button onClick={toggleLanguage} class="ml-4 flex border-none">
-                        {t("lang_placeholder")}
+                        {t("lang")}
                     </button>
                 </li>
                 <li class="flex justify-center items-center">
@@ -172,7 +178,7 @@ const NavHeader = (): JSX.Element => {
     return (
         <header class="flex w-full items-center justify-between p-4 ">
             <h1 class="text-3xl font-bold">
-                <A href="/">{t("cqi")}</A>
+                <A href="/">{t("cqi") + " - 2025"}</A>
             </h1>
 
             <nav>
