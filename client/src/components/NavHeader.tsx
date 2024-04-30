@@ -13,16 +13,34 @@ const NavHeader = (): JSX.Element => {
     let hamburgerButton: HTMLButtonElement | undefined;
     let hamburgerMenu: HTMLDivElement | undefined;
 
-    const links = [
-        {
-            to: "/",
-            name: "Home",
-        },
-        {
-            to: "/about",
-            name: "About",
-        },
-    ];
+    const links = () => {
+        return [
+            {
+                to: "/about",
+                name: t("about"),
+            },
+            {
+                to: "/competitions",
+                name: t("competitions"),
+            },
+            {
+                to: "/team",
+                name: t("team"),
+            },
+            {
+                to: "/partners",
+                name: t("partners"),
+            },
+            {
+                to: "/documents",
+                name: t("documents"),
+            },
+            {
+                to: "/login",
+                name: t("login"),
+            },
+        ]
+    };
 
     onMount(() => {
         if (isDark()) {
@@ -100,7 +118,7 @@ const NavHeader = (): JSX.Element => {
                     </div>
 
                     <ul class="flex grow flex-col justify-center gap-8">
-                        {links.map((link) => {
+                        {links().map((link) => {
                             return (
                                 <li class="ml-4 flex h-fit w-fit">
                                     <PrefetchLink
@@ -122,7 +140,7 @@ const NavHeader = (): JSX.Element => {
     const StandardMenu = (): JSX.Element => {
         return (
             <ul class="hidden h-fit text-xl font-bold lg:flex">
-                {links.map((link) => {
+                {links().map((link) => {
                     return (
                         <li class="ml-4 flex">
                             <PrefetchLink to={link.to} file={link.name}>
