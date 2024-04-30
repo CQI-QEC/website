@@ -2,7 +2,6 @@
 .env
 .log
 .vscode
-assets/
 build/
 bun.lockb
 Cargo.lock
