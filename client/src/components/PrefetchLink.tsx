@@ -35,7 +35,7 @@ const PrefetchLink = ({
         >
             {children}
         </A>
-    )
+    );
 }
 
-export default PrefetchLink
+export default PrefetchLink;

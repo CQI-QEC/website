@@ -36,7 +36,7 @@ const About = () => {
         <div class="flex w-full flex-col items-start justify-center gap-2">
             <h2 class="text-3xl font-bold">{t("aboutPage.about")}</h2>
             <h3 class="text-2xl font-semibold">{t("aboutPage.delegations")}</h3>
-            <p>La Compétition Québécoise d’Ingénierie regroupe 14 délégations de 11 Universités différentes. Chaque délégation est chapeautée par son association étudiante.</p>
+            <p>{t("aboutPage.description")}</p>
             <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
                 {
                     universities.map(({uni, url}) => {
@@ -53,7 +53,7 @@ const About = () => {
                     })
                 }
             </div>
-            <div class="flex flex-wrap flex-row gap-4  bg-light-primary p-4">
+            <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
                 {
                     asso.map(({asso, url}) => {
                         let src = "/asso/" + asso + "Logo.webp";
