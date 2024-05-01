@@ -18,12 +18,12 @@ const NavHeader = (): JSX.Element => {
             {
                 to: "/about",
                 file: "About",
-                name: t("about"),
+                name: t("aboutPage.about"),
             },
             {
                 to: "/competitions",
                 file: "Competitions",
-                name: t("competitions"),
+                name: t("competitionsPage.competitions"),
             },
             {
                 to: "/team",

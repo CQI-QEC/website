@@ -49,10 +49,10 @@ const Countdown = () => {
   
     return (
       <div class="flex flex-row items-center justify-center gap-3">
-        <CountdownCard id="days" label={() => {return t("days");}} current={() => { return timerDetails().days;}} />
-        <CountdownCard id="hours" label={() => {return t("hours");}} current={() => { return timerDetails().hours;}} />
-        <CountdownCard id="minutes" label={() => {return t("minutes");}} current={() => { return timerDetails().minutes;}} />
-        <CountdownCard id="seconds" label={() => {return t("seconds");}} current={() => { return timerDetails().seconds;}} />
+        <CountdownCard id="days" label={() => {return t("homePage.days");}} current={() => { return timerDetails().days;}} />
+        <CountdownCard id="hours" label={() => {return t("homePage.hours");}} current={() => { return timerDetails().hours;}} />
+        <CountdownCard id="minutes" label={() => {return t("homePage.minutes");}} current={() => { return timerDetails().minutes;}} />
+        <CountdownCard id="seconds" label={() => {return t("homePage.seconds");}} current={() => { return timerDetails().seconds;}} />
       </div>
     );
 };
