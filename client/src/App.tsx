@@ -1,5 +1,5 @@
 import { ParentProps } from "solid-js"
-import { Footer } from "./components/Footer"
+import Footer from "./components/Footer"
 import NavHeader from "./components/NavHeader"
 
 export const App = (props: ParentProps) => {
