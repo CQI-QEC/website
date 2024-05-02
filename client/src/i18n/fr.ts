@@ -8,8 +8,15 @@ const homePage = {
 
 const aboutPage = {
     about: "À propos",
-    delegations: "Les délégations",
-    description: "La Compétition Québécoise d’Ingénierie regroupe 14 délégations de 11 Universités différentes. Chaque délégation est chapeautée par son association étudiante.",
+    description: "La 40e édition de la CQI se tiendra en 2025 à Polytechnique Montréal. Cette compétition d’ingénierie réunit 13 campus de 11 universités différentes partout au Québec pour que des centaines d’étudiants en génie de la province s’affronte. La compétition québécoise d’ingénierie est chapeautée par la Confédération pour le rayonnement étudiant en ingénierie du Québec (CRÉIQ) et permet aux étudiants en génie de démontrer leurs talents dans des épreuves théoriques et pratiques.",
+    delegations: {
+        title: "Les délégations",
+        description: "La Compétition Québécoise d’Ingénierie regroupe 14 délégations de 11 Universités différentes. Chaque délégation est chapeautée par son association étudiante.",
+    },
+    thematic: {
+        title: "Thématique",
+        description: "Voyage dans le temps est une thématique intéressante puisqu’il laisse place à un monde de souvenirs ou bien un monde d’idées futuristes, que ce soit l’invention de la roue ou bien les voitures volantes, tout est possible lorsqu’on voyage dans les différentes époques. Pour chaque découverte, la profession d’ingénieur a pris une place centrale pour permettre la réalisation d’idées novatrices qui semblaient, à un certain moment dans l’histoire, irréalistes.",
+    }
 };
 
 const competitionsPage = {

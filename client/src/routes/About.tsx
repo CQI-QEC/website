@@ -1,4 +1,5 @@
 import ExternalLink from "../components/ExternalLink";
+import { H2, H3, P } from "../components/Text";
 import { t } from "../stores/locale";
 
 const About = () => {
@@ -34,9 +35,12 @@ const About = () => {
     ];
     return (
         <div class="flex w-full flex-col items-start justify-center gap-2">
-            <h2 class="text-3xl font-bold">{t("aboutPage.about")}</h2>
-            <h3 class="text-2xl font-semibold">{t("aboutPage.delegations")}</h3>
-            <p>{t("aboutPage.description")}</p>
+            <H2>{t("aboutPage.about")}</H2>
+            <P>{t("aboutPage.description")}</P>
+            <H3>{t("aboutPage.thematic.title")}</H3>
+            <P>{t("aboutPage.thematic.description")}</P>
+            <H3>{t("aboutPage.delegations.title")}</H3>
+            <P>{t("aboutPage.delegations.description")}</P>
             <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
                 {
                     universities.map(({uni, url}) => {

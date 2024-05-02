@@ -2,7 +2,7 @@ import { createSignal, onCleanup } from "solid-js";
 import CountdownCard from "./CountdownCard";
 import { t } from "../stores/locale";
 
-const timeBetweenDates = () => {
+function timeBetweenDates() {
     const validFromDate = new Date();
     const validTillDate = new Date("18 January 2025 08:00 UTC-05");
     const difference = validTillDate.getTime() - validFromDate.getTime();
@@ -36,7 +36,7 @@ const timeBetweenDates = () => {
     };
 };
 
-const Countdown = () => {
+export default function Countdown() {
     const [timerDetails, setTimerDetails] = createSignal(
       timeBetweenDates().timeData
     );
@@ -56,5 +56,3 @@ const Countdown = () => {
       </div>
     );
 };
-  
-export default Countdown;

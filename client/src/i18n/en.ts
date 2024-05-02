@@ -8,8 +8,15 @@ const homePage = {
 
 const aboutPage = {
     about: "About",
-    delegations: "Delegations",
-    description: "The Quebec Engineering Competition gathers 14 delegations of 11 different universities. Each delegation is overseed by its student association.",
+    description: "The 40th edition of the QEC will be held in 2025 at Polytechnique Montréal. This engineering competition brings together 13 campuses from 11 different universities across Quebec so that hundreds of engineering students in the province can compete. The Quebec Engineering Competition is overseen by the CRÉIQ and allows engineering students to demonstrate their talents in theoretical and practical tests.",
+    delegations: {
+        title: "Delegations",
+        description: "The Quebec Engineering Competition gathers 14 delegations of 11 different universities. Each delegation is overseed by its student association.",
+    },
+    thematic: {
+        title: "Thematic",
+        description: "Traveling through time is an interesting theme because it leaves room for a world of memories or a world of futuristic ideas, whether it be the invention of the wheel or flying cars, anything is possible when traveling through different eras. For each discovery, the engineering profession has taken a central place to allow the realization of innovative ideas that seemed, at a certain moment in history, unrealistic.",
+    }
 };
 
 const competitionsPage = {
