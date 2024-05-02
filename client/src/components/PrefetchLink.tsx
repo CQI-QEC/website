@@ -3,39 +3,30 @@ import { JSX, onMount } from "solid-js"
 import { A } from "@solidjs/router"
 import { dataSaver } from "../stores/dataSaver"
 
-/**
- * Wrapper around links that prefetches the route during the next available idle
- * frame.
- */
-const PrefetchLink = ({
-    to,
-    file,
-    onClick: handleClick,
-    children,
-}: {
+interface Props {
     to: string
     file: string
     onClick?: () => void
     children: JSX.Element
-}): JSX.Element => {
+}
+
+export default function PrefetchLink(props: Props) {
     onMount(() => {
         // Only prefetch if the user is not using the Save-Data header.
         if (!dataSaver) {
             requestIdleCallback(() => {
-                import(`../routes/${file}.tsx`)
+                import(`../routes/${props.file}.tsx`)
             })
         }
     });
 
     return (
         <A
-            href={to}
-            onClick={handleClick}
+            href={props.to}
+            onClick={props.onClick}
             class="border-b-2 border-b-light-highlight hover:text-light-highlight dark:border-b-dark-highlight  dark:hover:text-dark-highlight"
         >
-            {children}
+            {props.children}
         </A>
     );
 }
-
-export default PrefetchLink;

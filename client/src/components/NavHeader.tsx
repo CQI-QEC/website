@@ -8,7 +8,7 @@ import darkModeIcon from "../../assets/moon.svg"
 import lightModeIcon from "../../assets/sun.svg"
 import menuIcon from "../../assets/menu.svg"
 
-const NavHeader = (): JSX.Element => {
+export default function NavHeader() {
     const [menuIsOpen, setMenuIsOpen] = createSignal(false);
     let hamburgerButton: HTMLButtonElement | undefined;
     let hamburgerMenu: HTMLDivElement | undefined;
@@ -202,5 +202,3 @@ const NavHeader = (): JSX.Element => {
         </header>
     )
 }
-
-export default NavHeader;

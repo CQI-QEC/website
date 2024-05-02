@@ -34,7 +34,7 @@ function timeBetweenDates() {
       timeData,
       difference
     };
-};
+}
 
 export default function Countdown() {
     const [timerDetails, setTimerDetails] = createSignal(
@@ -55,4 +55,4 @@ export default function Countdown() {
         <CountdownCard id="seconds" label={() => {return t("homePage.seconds");}} current={() => { return timerDetails().seconds;}} />
       </div>
     );
-};
+}
