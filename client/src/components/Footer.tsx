@@ -7,5 +7,5 @@ export default function Footer() {
             </span>
             <span>{new Date().getFullYear()} {t("madeBy")} Marc-Antoine Manningham</span>
         </footer>
-    )
+    );
 }

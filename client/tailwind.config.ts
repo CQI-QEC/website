@@ -9,12 +9,6 @@ export default {
                     secondary: "#131313",
                     highlight: "#17d87d",
                 },
-                dark: {
-                    // This color is also inlined in `index.html`.
-                    primary: "#131313",
-                    secondary: "#dddbd8",
-                    highlight: "#17d87d",
-                },
             },
         },
         plugins: [],

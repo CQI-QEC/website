@@ -1,5 +1,4 @@
 use std::{net::SocketAddr, sync::Arc, time::Duration};
-
 use axum::{
     extract::Request,
     http::{

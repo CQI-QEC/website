@@ -24,7 +24,7 @@ const competitionsPage = {
     description: "The Quebec Engineering Competition gathers 9 competitions targeting different skills related to engineering.",
     senior: {
         title: "Senior design",
-        description: "The senior design is the cornerstone of the Engineering Competition. Teams of four person registred in this category have twelve hours to produce a prototype that can respond to a problem that was presented the day of the competition. At the end of this marathon, these teams show the relevance of their solution by completing, in front of a public, the task asked with the help of their prototype. This competition is typicaly reserved to the students that have a minimum of 60 credits completed in their bachelor's degree.",
+        description: "The senior design is the cornerstone of the Quebec Engineering Competition. Teams of four person registred in this category have twelve hours to produce a prototype that can respond to a problem that was presented the day of the competition. At the end of this marathon, these teams show the relevance of their solution by completing, in front of a public, the task asked with the help of their prototype. This competition is typicaly reserved to the students that have a minimum of 60 credits completed in their bachelor's degree.",
     },
     junior: {
         title: "Junior design",

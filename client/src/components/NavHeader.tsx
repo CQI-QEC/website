@@ -1,11 +1,8 @@
-import { JSX, createSignal, onMount } from "solid-js"
-import { isDark, setIsDark } from "../stores/isDark"
+import { JSX, createSignal } from "solid-js"
 import { locale, setLocale, t } from "../stores/locale"
 import { A } from "@solidjs/router"
 import PrefetchLink from "./PrefetchLink"
 import closeMenuIcon from "../../assets/close.svg"
-import darkModeIcon from "../../assets/moon.svg"
-import lightModeIcon from "../../assets/sun.svg"
 import menuIcon from "../../assets/menu.svg"
 
 export default function NavHeader() {
@@ -25,43 +22,27 @@ export default function NavHeader() {
                 file: "Competitions",
                 name: t("competitionsPage.competitions"),
             },
-            {
-                to: "/team",
-                file: "Team",
-                name: t("team"),
-            },
-            {
-                to: "/partners",
-                file: "Partners",
-                name: t("partners"),
-            },
-            {
-                to: "/documents",
-                file: "Documents",
-                name: t("documents"),
-            },
-            {
-                to: "/login",
-                file: "Login",
-                name: t("login"),
-            },
+            // {
+            //     to: "/team",
+            //     file: "Team",
+            //     name: t("team"),
+            // },
+            // {
+            //     to: "/partners",
+            //     file: "Partners",
+            //     name: t("partners"),
+            // },
+            // {
+            //     to: "/documents",
+            //     file: "Documents",
+            //     name: t("documents"),
+            // },
+            // {
+            //     to: "/login",
+            //     file: "Login",
+            //     name: t("login"),
+            // },
         ]
-    };
-
-    onMount(() => {
-        if (isDark()) {
-            document.documentElement.classList.add("dark");
-        }
-    });
-
-    /**
-     * Swap between light and dark theme, saving the choice to local storage.
-     */
-    const toggleTheme = (): void => {
-        document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", isDark() ? "light" : "dark");
-
-        setIsDark(!isDark());
     };
 
     const toggleLanguage = (): void => {
@@ -90,19 +71,6 @@ export default function NavHeader() {
                 <div class="absolute right-0 top-0 z-10 flex h-full w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl dark:bg-dark-primary dark:bg-opacity-60">
                     <div class="flex items-center justify-between">
                         <button
-                            onClick={toggleTheme}
-                            class="flex h-[48px] w-[48px] border-none bg-transparent"
-                        >
-                            <img
-                                src={isDark() ? lightModeIcon : darkModeIcon}
-                                alt="change theme"
-                                width="40px"
-                                height="40px"
-                                class="flex self-center"
-                            />
-                        </button>
-
-                        <button
                             onClick={toggleLanguage}
                             class="flex h-[48px] w-[48px] border-none bg-transparent"
                         >
@@ -118,7 +86,6 @@ export default function NavHeader() {
                                 alt="close menu"
                                 width="44px"
                                 height="44px"
-                                class={isDark() ? "invert" : ""}
                             />
                         </button>
                     </div>
@@ -161,16 +128,6 @@ export default function NavHeader() {
                         {t("lang")}
                     </button>
                 </li>
-                <li class="flex justify-center items-center">
-                    <button onClick={toggleTheme} class="ml-4 flex border-none">
-                        <img
-                            src={isDark() ? lightModeIcon : darkModeIcon}
-                            alt="change theme"
-                            width="32px"
-                            height="32px"
-                        />
-                    </button>
-                </li>
             </ul>
         )
     }
@@ -192,7 +149,6 @@ export default function NavHeader() {
                         width="44px"
                         height="44px"
                         alt="open menu"
-                        class={isDark() ? "invert" : "invert-0"}
                     />
                 </button>
 
