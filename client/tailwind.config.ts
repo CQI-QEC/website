@@ -2,6 +2,9 @@ export default {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         extend: {
+            fontFamily: {
+                "futur": ["K2D"]
+            },
             colors: {
                 light: {
                     // This color is also inlined in `index.html`.
