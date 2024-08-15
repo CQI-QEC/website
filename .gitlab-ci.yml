@@ -6,7 +6,6 @@ before_script:
   - bun i
 pages:
   script:
-    - cd client
     - bun run build
     - mv dist ../public
   artifacts:
