@@ -1,0 +1,1 @@
+import{i as t,b as r,t as n}from"./index-D3FeZMrT.js";import{a as o}from"./Text-CDy2N967.js";var a=n('<div class="flex w-full flex-col items-center justify-center">');const i=()=>(()=>{var e=a();return t(e,r(o,{children:"Connection"})),e})();export{i as default};
