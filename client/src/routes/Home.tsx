@@ -8,8 +8,10 @@ const Home = () => {
     return (
         <div class="flex w-full flex-col items-center justify-center">
             <FixedImage></FixedImage>
-            <SectionTitle title={t("aboutPage.about")}></SectionTitle>
-            <P>{t("aboutPage.description")}</P>
+            <div class="flex flex-col p-4 gap-4">
+                <SectionTitle title={t("aboutPage.about")}></SectionTitle>
+                <P>{t("aboutPage.description")}</P>
+            </div>
             <Countdown />
         </div>
     )

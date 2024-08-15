@@ -1,7 +1,7 @@
 
 export default function () {
     return (
-        <div class="flex w-full h-96" style="background-image: url('/competition/home.webp');">
-        </div>
+        <img class="flex w-full h-[42rem] object-cover object-top" src="/competition/home.webp">
+        </img>
     );
 }

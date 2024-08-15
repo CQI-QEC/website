@@ -7,7 +7,7 @@ export const App = (props: ParentProps) => {
         <div class="flex w-full min-h-full flex-col bg-light-primary text-light-secondary transition dark:bg-dark-primary dark:text-dark-secondary">
             <NavHeader />
 
-            <main class="flex h-full w-full grow flex-col items-center p-4">
+            <main class="flex h-full w-full grow flex-col items-center">
                 {props.children}
             </main>
 

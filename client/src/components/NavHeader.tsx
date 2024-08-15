@@ -133,7 +133,7 @@ export default function NavHeader() {
     }
 
     return (
-        <header class="flex w-full items-center justify-between p-4 ">
+        <header class="fixed top-0 flex w-full items-center justify-between p-4 backdrop-blur">
             <h1 class="text-3xl font-bold">
                 <A href="/">{t("cqi") + " - 2025"}</A>
             </h1>
