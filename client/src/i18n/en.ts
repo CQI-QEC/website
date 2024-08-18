@@ -4,6 +4,7 @@ const homePage = {
     hours: "hours",
     minutes: "minutes",
     seconds: "seconds",
+    cqi: "Québec Engineering Competition"
 };
 
 const aboutPage = {

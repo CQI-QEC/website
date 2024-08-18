@@ -1,7 +1,9 @@
+import { ParentProps } from "solid-js";
 
-export default function () {
+export default function (props: ParentProps) {
     return (
-        <img class="flex w-full h-[42rem] object-cover object-top" src="/competition/home.webp">
-        </img>
+        <div class="flex w-full h-[42rem] object-cover object-top justify-center items-center bg-cover" style="background-image: url('/competition/home.webp')">
+            {props.children}
+        </div>
     );
 }

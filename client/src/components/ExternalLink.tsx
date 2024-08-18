@@ -10,9 +10,9 @@ export default function ExternalLink(props: Props) {
     return (
         <a
             class={
-                "font-bold hover:text-light-highlight dark:hover:text-dark-highlight" +
+                "font-bold hover:text-light-highlight" +
                 (props.underline
-                    ? " border-b-2 border-b-light-highlight dark:border-b-dark-highlight"
+                    ? " border-b-2 border-b-light-highlight"
                     : "")
             }
             href={props.to}

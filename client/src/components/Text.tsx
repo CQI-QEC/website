@@ -30,6 +30,6 @@ export function P(props: Props) {
 
 export function P2(props: Props) {
     return (
-        <p class="font-normal text-gray-700 dark:text-gray-400 text-justify transition">{props.children}</p>
+        <p class="font-normal text-gray-700 text-justify transition">{props.children}</p>
     );
 }

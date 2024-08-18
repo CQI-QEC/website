@@ -68,7 +68,7 @@ export default function NavHeader() {
     const HamburgerMenu = (): JSX.Element => {
         return (
             <div ref={hamburgerMenu} class={menuIsOpen() ? "" : "hidden"}>
-                <div class="absolute right-0 top-0 z-10 flex h-full w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl dark:bg-dark-primary dark:bg-opacity-60">
+                <div class="z-10 flex h-full w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl">
                     <div class="flex items-center justify-between">
                         <button
                             onClick={toggleLanguage}
@@ -133,7 +133,7 @@ export default function NavHeader() {
     }
 
     return (
-        <header class="fixed top-0 flex w-full items-center justify-between p-4 backdrop-blur">
+        <header class="text-white absolute top-0 flex w-full items-center justify-between p-4 backdrop-blur">
             <h1 class="text-3xl font-bold">
                 <A href="/">{t("cqi") + " - 2025"}</A>
             </h1>
