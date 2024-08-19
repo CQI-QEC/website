@@ -24,7 +24,7 @@ export default function PrefetchLink(props: Props) {
         <A
             href={props.to}
             onClick={props.onClick}
-            class="border-b-2 border-b-light-highlight hover:text-light-highlight"
+            class="hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight transition"
         >
             {props.children}
         </A>

@@ -1,8 +1,13 @@
-import { ParentProps } from "solid-js";
+import { JSX } from "solid-js/jsx-runtime";
 
-export default function (props: ParentProps) {
+interface Props {
+    url: string;
+    children?: JSX.Element;
+}
+
+export default function (props: Props) {
     return (
-        <div class="flex flex-col gap-2 w-full h-[42rem] object-cover object-top justify-center items-center bg-cover" style="background-image: url('/competition/home.webp')">
+        <div class="bg-fixed flex flex-col gap-2 w-full h-[32rem] object-cover object-top justify-center items-center bg-cover" style={"background-image: url('" + props.url + "')"}>
             {props.children}
         </div>
     );
