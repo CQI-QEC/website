@@ -4,7 +4,7 @@ import NavHeader from "./components/NavHeader"
 
 export const App = (props: ParentProps) => {
     return (
-        <div class="flex w-full min-h-full flex-col bg-light-primary text-light-secondary transition">
+        <div class="flex min-h-full w-full flex-col bg-light-primary text-light-secondary transition">
             <NavHeader />
 
             <main class="flex h-full w-full grow flex-col items-center">

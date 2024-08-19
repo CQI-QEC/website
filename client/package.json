@@ -10,8 +10,6 @@
     "dev": "vite",
     "build": "vite build",
     "fmt": "prettier --config .prettierrc --write  \"src/*.{ts,html,css,cjs,json,tsx}\"",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "eslint --fix --fix-type problem,suggestion \"**/*.{ts,tsx}\"",
     "tsc": "tsc --noEmit",
     "tsc:watch": "tsc --noEmit --watch"
   },
