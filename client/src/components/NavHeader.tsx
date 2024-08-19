@@ -12,16 +12,16 @@ export default function NavHeader() {
 
     const links = () => {
         return [
-            {
-                to: "/about",
-                file: "About",
-                name: t("aboutPage.about"),
-            },
-            {
-                to: "/competitions",
-                file: "Competitions",
-                name: t("competitionsPage.competitions"),
-            },
+            // {
+            //     to: "/about",
+            //     file: "About",
+            //     name: t("aboutPage.about"),
+            // },
+            // {
+            //     to: "/competitions",
+            //     file: "Competitions",
+            //     name: t("competitionsPage.competitions"),
+            // },
             // {
             //     to: "/team",
             //     file: "Team",
@@ -32,11 +32,11 @@ export default function NavHeader() {
             //     file: "Partners",
             //     name: t("partners"),
             // },
-            // {
-            //     to: "/documents",
-            //     file: "Documents",
-            //     name: t("documents"),
-            // },
+            {
+                to: "/documents",
+                file: "Documents",
+                name: t("documents"),
+            },
             // {
             //     to: "/login",
             //     file: "Login",
@@ -68,7 +68,7 @@ export default function NavHeader() {
     const HamburgerMenu = (): JSX.Element => {
         return (
             <div ref={hamburgerMenu} class={menuIsOpen() ? "" : "hidden"}>
-                <div class="z-10 flex h-full w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl">
+                <div class="absolute right-0 top-0 z-10 flex h-screen w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl">
                     <div class="flex items-center justify-between">
                         <button
                             onClick={toggleLanguage}
@@ -133,7 +133,7 @@ export default function NavHeader() {
     }
 
     return (
-        <header class="text-white absolute top-0 flex w-full items-center justify-between p-4 backdrop-blur">
+        <header class="text-white absolute top-0 flex w-full items-center justify-between p-4">
             <h1 class="text-3xl font-bold">
                 <A href="/">{t("cqi") + " - 2025"}</A>
             </h1>
