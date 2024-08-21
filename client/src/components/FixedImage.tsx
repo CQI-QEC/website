@@ -7,7 +7,7 @@ interface Props {
 
 export default function (props: Props) {
     return (
-        <div class="bg-fixed flex flex-col gap-2 w-full h-[32rem] object-cover object-top justify-center items-center bg-cover" style={"background-image: url('" + props.url + "')"}>
+        <div class="bg-fixed flex flex-col gap-2 w-full h-[30rem] object-cover object-top justify-center items-center bg-cover" style={"background-image: url('" + props.url + "')"}>
             {props.children}
         </div>
     );
