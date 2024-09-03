@@ -4,7 +4,9 @@ const homePage = {
     hours: "hours",
     minutes: "minutes",
     seconds: "seconds",
-    cqi: "Québec Engineering Competition"
+    cqi: "Québec Engineering Competition",
+    edition: "40th edition",
+    location: "16 to 19 January 2025, Polytechnique Montréal"
 };
 
 const aboutPage = {

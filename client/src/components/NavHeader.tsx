@@ -12,16 +12,16 @@ export default function NavHeader() {
 
     const links = () => {
         return [
-            // {
-            //     to: "/about",
-            //     file: "About",
-            //     name: t("aboutPage.about"),
-            // },
-            // {
-            //     to: "/competitions",
-            //     file: "Competitions",
-            //     name: t("competitionsPage.competitions"),
-            // },
+            {
+                to: "/about",
+                file: "About",
+                name: t("aboutPage.about"),
+            },
+            {
+                to: "/competitions",
+                file: "Competitions",
+                name: t("competitionsPage.competitions"),
+            },
             // {
             //     to: "/team",
             //     file: "Team",
@@ -68,7 +68,7 @@ export default function NavHeader() {
     const HamburgerMenu = (): JSX.Element => {
         return (
             <div ref={hamburgerMenu} class={menuIsOpen() ? "" : "hidden"}>
-                <div class="absolute right-0 top-0 z-10 flex h-screen w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl">
+                <div class="absolute right-0 top-0 z-10 flex h-screen w-full flex-col justify-center bg-black bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl">
                     <div class="flex items-center justify-between">
                         <button
                             onClick={toggleLanguage}

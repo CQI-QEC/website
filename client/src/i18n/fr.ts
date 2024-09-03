@@ -4,7 +4,9 @@ const homePage = {
     hours: "heures",
     minutes: "minutes",
     seconds: "secondes",
-    cqi: "Compétition Québécoise d'Ingénierie"
+    cqi: "Compétition Québécoise d'Ingénierie",
+    edition: "40e édition",
+    location: "16 au 19 janvier 2025, Polytechnique Montréal"
 };
 
 const aboutPage = {

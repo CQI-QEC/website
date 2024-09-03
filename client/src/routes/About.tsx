@@ -1,5 +1,6 @@
 import ExternalLink from "../components/ExternalLink";
-import { H2, H3, P } from "../components/Text";
+import FixedImage from "../components/FixedImage";
+import { H3, P } from "../components/Text";
 import { t } from "../stores/locale";
 
 const About = () => {
@@ -35,43 +36,47 @@ const About = () => {
     ];
     return (
         <div class="flex w-full flex-col items-start justify-center gap-2">
-            <H2>{t("aboutPage.about")}</H2>
-            <P>{t("aboutPage.description")}</P>
-            <H3>{t("aboutPage.thematic.title")}</H3>
-            <P>{t("aboutPage.thematic.description")}</P>
-            <H3>{t("aboutPage.delegations.title")}</H3>
-            <P>{t("aboutPage.delegations.description")}</P>
-            <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
-                {
-                    universities.map(({uni, url}) => {
-                        let src = "/uni/" + uni + "Logo.webp";
-                        return (
-                            <ExternalLink to={url}>
-                                <img
-                                    class="h-20"
-                                    src={src}
-                                    alt={uni}
-                                />
-                            </ExternalLink>
-                        );
-                    })
-                }
-            </div>
-            <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
-                {
-                    asso.map(({asso, url}) => {
-                        let src = "/asso/" + asso + "Logo.webp";
-                        return (
-                            <ExternalLink to={url}>
-                                <img
-                                    class="h-28"
-                                    src={src}
-                                    alt={asso}
-                                />
-                            </ExternalLink>
-                        );
-                    })
-                }
+            <FixedImage url="/competition/home.webp">
+                <h1 class="font-futur text-white text-center text-6xl">{t("aboutPage.about")}</h1>
+            </FixedImage>
+            <div class="flex flex-col p-4 m-4 box-border">
+                <P>{t("aboutPage.description")}</P>
+                <H3>{t("aboutPage.thematic.title")}</H3>
+                <P>{t("aboutPage.thematic.description")}</P>
+                <H3>{t("aboutPage.delegations.title")}</H3>
+                <P>{t("aboutPage.delegations.description")}</P>
+                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
+                    {
+                        universities.map(({uni, url}) => {
+                            let src = "/uni/" + uni + "Logo.webp";
+                            return (
+                                <ExternalLink to={url}>
+                                    <img
+                                        class="h-20"
+                                        src={src}
+                                        alt={uni}
+                                    />
+                                </ExternalLink>
+                            );
+                        })
+                    }
+                </div>
+                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
+                    {
+                        asso.map(({asso, url}) => {
+                            let src = "/asso/" + asso + "Logo.webp";
+                            return (
+                                <ExternalLink to={url}>
+                                    <img
+                                        class="h-28"
+                                        src={src}
+                                        alt={asso}
+                                    />
+                                </ExternalLink>
+                            );
+                        })
+                    }
+                </div>
             </div>
         </div>
     );

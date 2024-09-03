@@ -8,11 +8,11 @@ interface Props {
 
 export default function CountdownCard(props: Props) {
     return (
-        <div class="relative perspective">
+        <div class="justify-center relative perspective">
             <div
-                class="flex items-center justify-center relative rounded-t-lg h-10 w-20 lg:h-28 lg:w-44"
+                class="flex items-center justify-center relative rounded-t-lg h-10 w-20 lg:h-20 lg:w-44"
             >
-                <p class="text-center text-4xl lg:text-7xl font-bold z-10">
+                <p class="absolute top-5 lg:top-12 text-center text-4xl lg:text-7xl font-bold z-10">
                     {props.current()}
                 </p>
                 <svg width="100%" height="100%" class="absolute">
@@ -26,11 +26,8 @@ export default function CountdownCard(props: Props) {
             </div>
 
             <div
-                class="flex items-center justify-center relative rounded-t-lg h-10 w-20 lg:h-28 lg:w-44"
+                class="flex items-center justify-center relative rounded-t-lg h-10 w-20 lg:h-20 lg:w-44"
             >
-                <p class="text-center text-4xl lg:text-7xl font-bold z-10" data-testid={props.id}>
-                    {props.current()}
-                </p>
                 <svg width="100%" height="100%" class="absolute">
                     <mask id={`${props.id}-m2`} fill="#fff">
                         <rect id={`${props.id}-r2`} width="100%" height="100%" />
