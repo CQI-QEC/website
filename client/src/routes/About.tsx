@@ -36,7 +36,7 @@ const About = () => {
     ];
     return (
         <div class="flex w-full flex-col items-start justify-center gap-2">
-            <FixedImage url="/competition/home.webp">
+            <FixedImage url="/competition/documents.webp">
                 <h1 class="font-futur text-white text-center text-6xl">{t("aboutPage.about")}</h1>
             </FixedImage>
             <div class="flex flex-col p-4 m-4 box-border">

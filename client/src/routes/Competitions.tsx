@@ -17,7 +17,7 @@ const Competition = () => {
     ];
     return (
         <div>
-            <FixedImage url="/competition/home.webp">
+            <FixedImage url="/competition/compe.webp">
                 <h1 class="font-futur text-white text-center text-6xl">{t("competitionsPage.competitions")}</h1>
             </FixedImage>
             <div class="flex w-full flex-col items-center justify-center gap-4 p-8 text-center">
@@ -26,7 +26,7 @@ const Competition = () => {
                     {
                         competitions.map((competition) => {
                             return (
-                                <Card theme="w-5/12" img={"/competition/" + competition + ".jpg"}>
+                                <Card theme="w-5/12" img={"/competition/" + competition + ".webp"}>
                                    <H3>{t(("competitionsPage." + competition + ".title") as any)}</H3>
                                     <P2>{t(("competitionsPage." + competition + ".description") as any)}</P2>
                                 </Card>
