@@ -17,7 +17,7 @@ const Competition = () => {
     ];
     return (
         <div>
-            <FixedImage url="/competition/compe.webp">
+            <FixedImage url="/banners/competitions.png" height="38rem">
                 <h1 class="font-futur text-white text-center text-6xl">{t("competitionsPage.competitions")}</h1>
             </FixedImage>
             <div class="flex w-full flex-col items-center justify-center gap-4 p-8 text-center">

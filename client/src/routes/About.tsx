@@ -36,10 +36,10 @@ const About = () => {
     ];
     return (
         <div class="flex w-full flex-col items-start justify-center gap-2">
-            <FixedImage url="/competition/documents.webp">
+            <FixedImage url="/banners/about.png" height="30rem">
                 <h1 class="font-futur text-white text-center text-6xl">{t("aboutPage.about")}</h1>
             </FixedImage>
-            <div class="flex flex-col p-4 m-4 box-border">
+            <div class="-mt-8 flex flex-col p-4 m-4 box-border">
                 <P>{t("aboutPage.description")}</P>
                 <H3>{t("aboutPage.thematic.title")}</H3>
                 <P>{t("aboutPage.thematic.description")}</P>
