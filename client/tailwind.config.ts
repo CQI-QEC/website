@@ -3,7 +3,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                "futur": ["K2D"]
+                "futur": ["K2D"],
+                "condensed": ["Asap Condensed"],
             },
             colors: {
                 light: {

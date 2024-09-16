@@ -16,4 +16,11 @@ body,
         font-display: swap;
         src: url(/fonts/K2D-Regular.ttf);
     }
+    @font-face {
+        font-family: "Asap Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(/fonts/AsapCondensed-Regular.ttf);
+    }
 }

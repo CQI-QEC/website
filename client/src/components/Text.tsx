@@ -24,12 +24,12 @@ export function H3(props: Props) {
 
 export function P(props: Props) {
     return (
-        <p class="mb-3 text-lg md:text-xl text-justify w-full font-futur transition">{props.children}</p>
+        <p class="mb-3 text-lg md:text-xl text-justify w-full font-condensed transition">{props.children}</p>
     );
 }
 
 export function P2(props: Props) {
     return (
-        <p class="font-normal text-gray-700 text-justify transition font-futur">{props.children}</p>
+        <p class="font-normal text-gray-700 text-justify transition font-condensed">{props.children}</p>
     );
 }
