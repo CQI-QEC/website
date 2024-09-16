@@ -6,12 +6,15 @@ const homePage = {
     seconds: "secondes",
     cqi: "Compétition Québécoise d'Ingénierie",
     edition: "40e édition",
-    location: "16 au 19 janvier 2025, Polytechnique Montréal"
+    location: "16 au 19 janvier 2025, Polytechnique Montréal",
+    description: "La CQI est une compétition réunissant 11 universités de la province et des centaines de membres de la communauté étudiante en génie qui excellent et se démarquent dans le domaine. La CQI vise à faire rayonner le savoir-faire et le savoir-être des futur(e)s ingénieur(e)s par le biais d'épreuves techniques multidisciplinaires.",
 };
 
 const aboutPage = {
     about: "À propos",
-    description: "La CQI est une compétition réunissant 11 universités de la province et des centaines de membres de la communauté étudiante en génie qui excellent et se démarquent dans le domaine. La CQI vise à faire rayonner le savoir-faire et le savoir-être des futur(e)s ingénieur(e)s par le biais d'épreuves techniques multidisciplinaires.",
+    description1: "La 40e édition de la CQI se tiendra du 16 au 19 janvier 2025 à Polytechnique Montréal. Cette compétition d’ingénierie réunit 13 campus de 11 universités différentes partout au Québec pour que des centaines d’étudiants en génie de la province s’affronte.",
+    description2: "La Compétition Québécoise d’Ingénierie (CQI) est chapeautée par la Confédération pour le Rayonnement Étudiant en Ingénierie du Québec (CRÉIQ) et permet aux étudiants en génie de démontrer leurs talents par le biais d’épreuves théoriques et pratiques.",
+    description3: "La compétition est mise sur pied par un comité organisateur regroupant des étudiantes au 1er cycle ainsi qu’au 2e cycle qui ont à coeur l’implication étudiante.",
     delegations: {
         title: "Les délégations",
         description: "La Compétition Québécoise d’Ingénierie regroupe 14 délégations de 11 Universités différentes. Chaque délégation est chapeautée par son association étudiante.",

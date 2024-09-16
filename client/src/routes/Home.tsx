@@ -15,7 +15,7 @@ const Home = () => {
             <div class="-mt-16 flex flex-col gap-4">
                 <div class="flex flex-col p-4 gap-4">
                     <SectionTitle title={t("aboutPage.about")}></SectionTitle>
-                    <P>{t("aboutPage.description")}</P>
+                    <P>{t("homePage.description")}</P>
                 </div>
                 <img src="/banners/infographie.png" width="100%" />
                 <Countdown />

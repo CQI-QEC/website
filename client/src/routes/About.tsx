@@ -39,8 +39,10 @@ const About = () => {
             <FixedImage url="/banners/about.png" height="30rem">
                 <h1 class="font-futur text-white text-center text-6xl">{t("aboutPage.about")}</h1>
             </FixedImage>
-            <div class="-mt-8 flex flex-col p-4 m-4 box-border">
-                <P>{t("aboutPage.description")}</P>
+            <div class="-mt-8 flex flex-col px-16 m-4 box-border">
+                <P>{t("aboutPage.description1")}</P>
+                <P>{t("aboutPage.description2")}</P>
+                <P>{t("aboutPage.description3")}</P>
                 <H3>{t("aboutPage.thematic.title")}</H3>
                 <P>{t("aboutPage.thematic.description")}</P>
                 <H3>{t("aboutPage.delegations.title")}</H3>

@@ -6,12 +6,15 @@ const homePage = {
     seconds: "seconds",
     cqi: "Québec Engineering Competition",
     edition: "40th edition",
-    location: "16 to 19 January 2025, Polytechnique Montréal"
+    location: "16 to 19 January 2025, Polytechnique Montréal",
+    description: "The 40th edition of the QEC will be held in 2025 at Polytechnique Montréal. This engineering competition brings together 13 campuses from 11 different universities across Quebec so that hundreds of engineering students in the province can compete. The Quebec Engineering Competition is overseen by the CRÉIQ and allows engineering students to demonstrate their talents in theoretical and practical tests.",
 };
 
 const aboutPage = {
     about: "About",
-    description: "The 40th edition of the QEC will be held in 2025 at Polytechnique Montréal. This engineering competition brings together 13 campuses from 11 different universities across Quebec so that hundreds of engineering students in the province can compete. The Quebec Engineering Competition is overseen by the CRÉIQ and allows engineering students to demonstrate their talents in theoretical and practical tests.",
+    description1: "The 40th edition of the QEC will be held from 16 to 19 January 2025 at Polytechnique Montréal. This engineering competition brings together 13 campuses from 11 different universities across Quebec so that hundreds of engineering students in the province can compete.",
+    description2: "The Quebec Engineering Competition (QEC) is overseen by the Quebec Student Engineering Confederation (CRÉIQ) and allows engineering students to demonstrate their talents through theoretical and practical tests.",
+    description3: "The competition is organized by a committee of undergraduate and graduate students who are committed to student involvement.",
     delegations: {
         title: "Delegations",
         description: "The Quebec Engineering Competition gathers 14 delegations of 11 different universities. Each delegation is overseed by its student association.",
