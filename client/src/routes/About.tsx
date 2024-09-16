@@ -35,11 +35,11 @@ const About = () => {
         {uni: "macdonald", url: "https://www.mcgill.ca/macdonald/"},
     ];
     return (
-        <div class="flex w-full flex-col items-start justify-center gap-2">
+        <div class="flex w-full flex-col items-start justify-center gap-4">
             <FixedImage url="/banners/about.png" height="30rem">
                 <h1 class="font-futur text-white text-center text-6xl">{t("aboutPage.about")}</h1>
             </FixedImage>
-            <div class="-mt-8 flex flex-col px-16 m-4 box-border">
+            <div class="flex flex-col px-32 m-4 box-border gap-4">
                 <P>{t("aboutPage.description1")}</P>
                 <P>{t("aboutPage.description2")}</P>
                 <P>{t("aboutPage.description3")}</P>

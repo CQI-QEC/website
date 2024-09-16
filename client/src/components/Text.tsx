@@ -18,18 +18,18 @@ export function H2(props: Props) {
 
 export function H3(props: Props) {
     return (
-        <h3 class="text-2xl font-semibold font-futur transition">{props.children}</h3>
+        <h3 class="text-4xl font-semibold font-futur transition">{props.children}</h3>
     );
 }
 
 export function P(props: Props) {
     return (
-        <p class="mb-3 text-lg md:text-xl text-justify w-full font-condensed transition">{props.children}</p>
+        <p class="mb-3 text-3xl text-justify w-full font-condensed transition">{props.children}</p>
     );
 }
 
 export function P2(props: Props) {
     return (
-        <p class="font-normal text-gray-700 text-justify transition font-condensed">{props.children}</p>
+        <p class="text-2xl text-gray-700 text-justify transition font-condensed">{props.children}</p>
     );
 }

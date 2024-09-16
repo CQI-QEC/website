@@ -22,12 +22,12 @@ const Competition = () => {
             </FixedImage>
             <div class="-mt-8 flex w-full flex-col items-center justify-center gap-4 p-8 text-center">
                 <P>{t("competitionsPage.description")}</P>
-                <div class="flex w-full flex-row flex-wrap gap-4 items-start justify-around">
+                <div class="grid grid-rows-4 grid-flow-col gap-8">
                     {
                         competitions.map((competition) => {
                             return (
-                                <Card theme="w-5/12" img={"/competition/" + competition + ".webp"}>
-                                   <H3>{t(("competitionsPage." + competition + ".title") as any)}</H3>
+                                <Card theme="w-full" img={"/competition/" + competition + ".webp"}>
+                                    <H3>{t(("competitionsPage." + competition + ".title") as any)}</H3>
                                     <P2>{t(("competitionsPage." + competition + ".description") as any)}</P2>
                                 </Card>
                             );
