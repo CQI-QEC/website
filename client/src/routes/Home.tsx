@@ -6,17 +6,20 @@ import { t } from "../stores/locale";
 
 const Home = () => {
     return (
-        <div class="flex w-full flex-col items-center justify-center text-center">
-            <FixedImage url="/competition/home.webp">
+        <div class="flex w-full flex-col">
+            <FixedImage url="/banners/home.png" height="44rem">
                 <p class="font-futur text-2xl text-green-400">{t("homePage.edition")}</p>
                 <h1 class="font-futur text-white text-center text-6xl" style="word-spacing: 100vw;">{t("homePage.cqi")}</h1>
                 <p class="font-futur text-green-400 text-2xl">{t("homePage.location")}</p>
             </FixedImage>
-            <div class="flex flex-col p-4 gap-4">
-                <SectionTitle title={t("aboutPage.about")}></SectionTitle>
-                <P>{t("aboutPage.description")}</P>
+            <div class="-mt-16 flex flex-col gap-4">
+                <div class="flex flex-col p-4 gap-4">
+                    <SectionTitle title={t("aboutPage.about")}></SectionTitle>
+                    <P>{t("aboutPage.description")}</P>
+                </div>
+                <img src="/banners/infographie.png" width="100%" />
+                <Countdown />
             </div>
-            <Countdown />
         </div>
     )
 };
