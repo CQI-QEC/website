@@ -17,7 +17,7 @@ const Home = () => {
                     <SectionTitle title={t("aboutPage.about")}></SectionTitle>
                     <P>{t("homePage.description")}</P>
                 </div>
-                <img src="/banners/infographie.png" width="100%" />
+                <img src="/banners/infographie.svg" width="100%" />
                 <Countdown />
             </div>
         </div>

@@ -1,4 +1,6 @@
 import FixedImage from "../components/FixedImage";
+import { P } from "../components/Text";
+import { t } from "../stores/locale";
 
 const Documents = () => {
     return (
@@ -7,8 +9,7 @@ const Documents = () => {
                 <h1 class="font-futur text-white text-center text-6xl">Documents</h1>
             </FixedImage>
             <div class="-mt-32 h-full w-full flex flex-row items-center justify-center p-4 gap-4 font-futur text-xl font-bold">
-                <a href="/doc/Plan de partenariat 2025 FR.pdf" target="_blank" class="bg-green-400 p-4 rounded-xl">Plan de partenariat FR</a>
-                <a href="/doc/Plan de partenariat 2025 EN.pdf" target="_blank" class="bg-green-400 p-4 rounded-xl">Sponsorship Plan EN</a>
+                <P>{t("documents.description")}</P>
             </div>
         </div>
     )

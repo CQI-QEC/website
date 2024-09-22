@@ -35,7 +35,7 @@ export default function NavHeader() {
             {
                 to: "/documents",
                 file: "Documents",
-                name: t("documents"),
+                name: t("documents.documents"),
             },
             // {
             //     to: "/login",

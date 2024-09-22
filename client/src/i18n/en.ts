@@ -66,6 +66,11 @@ const competitionsPage = {
     }
 };
 
+const documents = {
+    documents: "Documents",
+    description: "The documents section is currently under construction. Please come back later.",
+};
+
 export const dict = {
     cqi: "QEC",
     lang: "EN",
@@ -74,7 +79,7 @@ export const dict = {
     competitionsPage: competitionsPage,
     team: "Team",
     partners: "Partners",
-    documents: "Documents",
+    documents: documents,
     login: "Login",
     madeBy: "Made by",
 };

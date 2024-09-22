@@ -66,6 +66,11 @@ const competitionsPage = {
     }
 };
 
+const documents = {
+    documents : "Documents",
+    description: "Vous trouverez ici les documents importants pour la compétition.",
+}
+
 export const dict = {
     cqi: "CQI",
     lang: "FR",
@@ -74,7 +79,7 @@ export const dict = {
     competitionsPage: competitionsPage,
     team: "Exécutif",
     partners: "Partenaires",
-    documents: "Documents",
+    documents: documents,
     login: "Connexion",
     madeBy: "Créé par",
 };
