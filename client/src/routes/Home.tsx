@@ -7,7 +7,7 @@ import { t } from "../stores/locale";
 const Home = () => {
     return (
         <div class="flex w-full flex-col">
-            <FixedImage url="/banners/home.png" height="48rem">
+            <FixedImage url="/banners/home.svg" height="48rem">
                 <p class="font-futur text-2xl text-green-400">{t("homePage.edition")}</p>
                 <h1 class="font-futur text-white text-center text-6xl" style="word-spacing: 100vw;">{t("homePage.cqi")}</h1>
                 <p class="font-futur text-green-400 text-2xl">{t("homePage.location")}</p>

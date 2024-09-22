@@ -17,7 +17,7 @@ const Competition = () => {
     ];
     return (
         <div>
-            <FixedImage url="/banners/competitions.png" height="38rem">
+            <FixedImage url="/banners/competitions.svg" height="36rem">
                 <h1 class="font-futur text-white text-center text-6xl">{t("competitionsPage.competitions")}</h1>
             </FixedImage>
             <div class="-mt-8 flex w-full flex-col items-center justify-center gap-4 p-8 text-center">
