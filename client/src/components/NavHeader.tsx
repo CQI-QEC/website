@@ -22,11 +22,11 @@ export default function NavHeader() {
                 file: "Competitions",
                 name: t("competitionsPage.competitions"),
             },
-            {
-                to: "/team",
-                file: "Team",
-                name: t("team"),
-            },
+            // {
+            //     to: "/team",
+            //     file: "Team",
+            //     name: t("team"),
+            // },
             {
                 to: "/partners",
                 file: "Partners",
@@ -112,7 +112,7 @@ export default function NavHeader() {
 
     const StandardMenu = (): JSX.Element => {
         return (
-            <ul class="hidden h-fit text-xl font-bold lg:flex">
+            <ul class="hidden h-fit text-2xl lg:flex font-condensed">
                 {links().map((link) => {
                     return (
                         <li class="ml-4 flex">
@@ -134,7 +134,7 @@ export default function NavHeader() {
 
     return (
         <header class="text-white absolute top-0 flex w-full items-center justify-between p-4">
-            <h1 class="text-3xl font-bold">
+            <h1 class="text-3xl font-bold font-condensed">
                 <A href="/"><img src="/banners/logo.png" width="192em"></img></A>
             </h1>
 
