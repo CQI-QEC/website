@@ -22,11 +22,11 @@ export default function NavHeader() {
                 file: "Competitions",
                 name: t("competitionsPage.competitions"),
             },
-            // {
-            //     to: "/team",
-            //     file: "Team",
-            //     name: t("team"),
-            // },
+            {
+                to: "/team",
+                file: "Team",
+                name: t("team"),
+            },
             {
                 to: "/partners",
                 file: "Partners",
