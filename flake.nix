@@ -19,10 +19,16 @@
       {
         devShells.default = pkgs.mkShell rec {
           name = "bun-project";
-
+          buildInputs = with pkgs ; [
+            pkg-config
+            openssl.dev
+            openssl
+            postgresql_16
+          ];
           packages = with pkgs; [
             bun
           ];
+          LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.openssl ];
         };
       });
 }
