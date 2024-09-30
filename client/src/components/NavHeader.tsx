@@ -37,11 +37,11 @@ export default function NavHeader() {
                 file: "Documents",
                 name: t("documents.documents"),
             },
-            // {
-            //     to: "/login",
-            //     file: "Login",
-            //     name: t("login"),
-            // },
+            {
+                to: "/login",
+                file: "Login",
+                name: t("login"),
+            },
         ]
     };
 
