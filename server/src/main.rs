@@ -1,4 +1,5 @@
 use std::{net::SocketAddr, sync::Arc, time::Duration};
+
 use axum::{
     extract::Request,
     http::{
@@ -10,6 +11,7 @@ use axum::{
     routing::get,
     Router,
 };
+use sqlx::PgPool;
 use tower_http::{
     compression::{predicate::SizeAbove, CompressionLayer},
     cors::CorsLayer,
@@ -23,27 +25,29 @@ type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 pub type SharedState = Arc<AppState>;
 
+pub mod participant;
+
 #[derive(Clone)]
 pub struct AppState {
-    //db: PgPool,
+    _db: PgPool,
 }
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    dotenvy::dotenv().ok();
+    dotenvy::dotenv()?;
 
     tracing_subscriber::fmt()
         .compact()
         .with_env_filter(EnvFilter::from_default_env())
         .init();
 
-    //let db =
-    //    PgPool::connect(&std::env::var("DATABASE_URL").unwrap_or_else(|_| {
-    //        "postgres://postgres:postgres@localhost:5432/postgres".to_string()
-    //    }))
-    //    .await?;
+    let _db =
+        PgPool::connect(&std::env::var("DATABASE_URL").unwrap_or_else(|_| {
+            "postgres://postgres:postgres@localhost:5432/postgres".to_string()
+        }))
+        .await?;
 
-    let state = Arc::new(AppState { });
+    let state = Arc::new(AppState { _db });
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
 
     let router = Router::new()
