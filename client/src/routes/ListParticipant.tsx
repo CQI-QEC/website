@@ -23,17 +23,36 @@ export default function ListParticipant() {
         </thead>
         <tbody>
           <tr class="border-b border-gray-200">
-            <td class="p-4">John</td>
-            <td class="p-4">Doe</td>
-            <td class="p-4">Senior</td>
-            <td class="p-4">john@example.com</td>
-            <td class="p-4 flex flex-row gap-4">
+            <td class="text-center p-4">John</td>
+            <td class="text-center p-4">Doe</td>
+            <td class="text-center p-4">Senior</td>
+            <td class="text-center p-4">john@example.com</td>
+            <td class="text-center p-4 flex flex-row gap-4">
                 <PrefetchLink to="/participant/xyz" file="AdditionalForm" >
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Plus d'informations</button>
                 </PrefetchLink>
                 <PrefetchLink to="/participant/xyz" file="AdditionalForm" >
                     <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Supprimer le participant</button>
                 </PrefetchLink>
+            </td>
+          </tr>
+          <tr class="border-b border-gray-200">
+            <td class="p-4">
+              <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
+            </td>
+            <td class="p-4">
+              <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
+            </td>
+            <td class="p-4">
+              <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
+            </td>
+            <td class="p-4">
+              <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
+            </td>
+            <td class="p-4">
+              <PrefetchLink to="/participant/xyz" file="AdditionalForm" >
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Ajouter un participant</button>
+              </PrefetchLink>
             </td>
           </tr>
 

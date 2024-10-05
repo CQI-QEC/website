@@ -22,7 +22,7 @@ export default function LoginForm() {
                 <Field name="email">
                     {(_field, props) =>
                         <div>
-                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse courriel</label>
                             <div class="mt-2">
                                 <input {...props} id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
                             </div>
@@ -34,10 +34,10 @@ export default function LoginForm() {
                     {(_field, props) => 
                         <div>
                             <div class="flex items-center justify-between">
-                                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                                <div class="text-sm">
+                                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
+                                {/* <div class="text-sm">
                                     <a href="#" class="font-semibold text-light-highlight hover:text-light-highlight">Forgot password?</a>
-                                </div>
+                                </div> */}
                             </div>
                             <div class="mt-2">
                                 <input {...props} id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
