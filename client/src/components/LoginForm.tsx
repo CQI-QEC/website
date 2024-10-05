@@ -1,22 +1,19 @@
-import { Setter } from "solid-js";
 import { createForm, SubmitHandler } from '@modular-forms/solid';
-
-interface Props {
-    setLogging: Setter<boolean>;
-}
+import { useNavigate } from "@solidjs/router";
 
 type InfoLoginForm = {
   email: string;
   password: string;
 };
 
-export default function LoginForm(props: Props) {
+export default function LoginForm() {
     const [_loginForm, { Form, Field }] = createForm<InfoLoginForm>();
+    const navigate = useNavigate();
 
     const handleSubmit: SubmitHandler<InfoLoginForm> = (values, event) => {
         event.preventDefault();
         console.log(values);
-        props.setLogging(false);
+        navigate("/leader");
     };
 
     return (

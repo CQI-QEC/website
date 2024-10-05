@@ -23,21 +23,21 @@ export interface BaseParticipant {
     first_name: string;
     last_name: string;
     university_name: string;
+    email: string;
 }
 
-export interface Participant {
+export type Participant = {
     /// Created by the delegation manager
     medical_conditions: string;
     allergies: string;
     pronouns: string;
     competition: Competition;
     company_name: string;
-    email: string;
     phone_number: string;
     tshirt_size: TshirtSize;
-    proof_studies: Blob;
-    photo: Blob;
-    cv: Blob;
+    proof_studies: File;
+    photo: File;
+    cv: File;
     comments: string;
     study_proof: string;
     emergency_contact: string;
