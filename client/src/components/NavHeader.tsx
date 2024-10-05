@@ -98,6 +98,7 @@ export default function NavHeader() {
                                         to={link.to}
                                         file={link.file}
                                         onClick={toggleHamburgerMenu}
+                                        class="hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight transition"
                                     >
                                         {link.name}
                                     </PrefetchLink>
@@ -116,7 +117,7 @@ export default function NavHeader() {
                 {links().map((link) => {
                     return (
                         <li class="ml-4 flex">
-                            <PrefetchLink to={link.to} file={link.file}>
+                            <PrefetchLink to={link.to} file={link.file} class="hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight transition">
                                 {link.name}
                             </PrefetchLink>
                         </li>

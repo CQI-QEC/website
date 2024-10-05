@@ -8,6 +8,7 @@ interface Props {
     file: string
     onClick?: () => void
     children: JSX.Element
+    class?: string
 }
 
 export default function PrefetchLink(props: Props) {
@@ -24,7 +25,7 @@ export default function PrefetchLink(props: Props) {
         <A
             href={props.to}
             onClick={props.onClick}
-            class="hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight transition"
+            class={props.class}
         >
             {props.children}
         </A>

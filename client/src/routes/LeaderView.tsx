@@ -23,8 +23,8 @@ export default function LeaderView() {
                 <PrefetchLink to="/additional-form" file="AdditionalForm" >
                     <BigButton text="Changer mes renseignements personnels" />
                 </PrefetchLink>
-                <PrefetchLink to="/add-participant" file="AddParticipant" >
-                    <BigButton text="Ajouter un participant" />
+                <PrefetchLink to="/list-participant" file="AddParticipant" >
+                    <BigButton text="Liste des participants" />
                 </PrefetchLink>
             </div>
         </div>

@@ -1,17 +1,25 @@
 import { createForm, SubmitHandler } from '@modular-forms/solid';
 import { Participant } from '../model/participant';
+import FixedImage from '../components/FixedImage';
+import { useNavigate } from '@solidjs/router';
 
 
 export default function AdditionalForm() {
+    const navigate = useNavigate();
     const [_loginForm, { Form, Field }] = createForm<Participant>();
 
     const handleSubmit: SubmitHandler<Participant> = (values, event) => {
         event.preventDefault();
         console.log(values);
+        navigate("/leader");
     };
 
     return (
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="flex w-full flex-col items-center justify-center">
+            <FixedImage url="/banners/documents.svg" height="32rem">
+                <h1 class="font-futur text-white text-center text-6xl">{"Tableau de bord des chefs"}</h1>
+            </FixedImage>
+            <div class="-mt-32 sm:mx-auto sm:w-full sm:max-w-sm">
             <Form class="space-y-6" action="#" method="post" onSubmit={handleSubmit}>
                 <Field name="medical_conditions">
                     {(_field, props) =>
@@ -38,9 +46,11 @@ export default function AdditionalForm() {
                 
 
                 <div>
-                    <button type="submit" class="flex w-full justify-center rounded-md bg-light-highlight px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight">Ajouter les détails personnels</button>
+                    <button type="submit" class="flex w-full justify-center rounded-md bg-light-highlight px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight">Envoyer les renseignements personnels</button>
                 </div>
             </Form>
         </div>
+        </div>
+        
     );
 }
