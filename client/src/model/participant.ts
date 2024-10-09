@@ -31,15 +31,14 @@ export type Participant = {
     medical_conditions: string;
     allergies: string;
     pronouns: string;
-    competition: Competition;
-    company_name: string;
     phone_number: string;
     tshirt_size: TshirtSize;
+    competitions: Competition;
     proof_studies: File;
     photo: File;
     cv: File;
     comments: string;
     study_proof: string;
     emergency_contact: string;
-    has_monthly_opus_card: boolean;
+    has_monthly_opus_card: string;
 }
