@@ -20,7 +20,7 @@ type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 pub type SharedState = Arc<AppState>;
 
 pub mod config;
-pub mod data;
+pub mod model;
 pub mod routes;
 
 #[derive(Clone)]

@@ -1,7 +1,6 @@
 CREATE TABLE co (
     id UUID PRIMARY KEY,
-    university_name TEXT NOT NULL,
-    role TEXT NOT NULL,
+    specific_role TEXT NOT NULL,
     medical_conditions TEXT NOT NULL,
     allergies TEXT NOT NULL,
     pronouns TEXT NOT NULL,
@@ -11,7 +10,6 @@ CREATE TABLE co (
     emergency_contact TEXT NOT NULL,
     has_monthly_opus_card BOOLEAN NOT NULL,
     reduced_mobility TEXT NOT NULL,
-    study_proof BYTEA,
     photo BYTEA,
     cv BYTEA
 );

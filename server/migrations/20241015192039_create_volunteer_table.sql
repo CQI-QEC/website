@@ -10,7 +10,6 @@ CREATE TABLE volunteer (
     emergency_contact TEXT NOT NULL,
     has_monthly_opus_card BOOLEAN NOT NULL,
     reduced_mobility TEXT NOT NULL,
-    study_proof BYTEA,
     photo BYTEA,
     cv BYTEA
 );

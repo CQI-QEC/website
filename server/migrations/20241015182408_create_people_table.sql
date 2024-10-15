@@ -3,5 +3,6 @@ CREATE TABLE people (
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     email TEXT NOT NULL,
-    university_name TEXT
+    university_name TEXT,
+    role TEXT NOT NULL
 );
