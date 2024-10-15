@@ -11,6 +11,8 @@ use axum::{
     routing::get,
     Router,
 };
+use config::Config;
+use participant::Participant;
 use sqlx::PgPool;
 use tower_http::{
     compression::{predicate::SizeAbove, CompressionLayer},
@@ -20,34 +22,64 @@ use tower_http::{
     CompressionLevel,
 };
 use tracing_subscriber::EnvFilter;
+use uuid::Uuid;
 
 type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 pub type SharedState = Arc<AppState>;
 
+pub mod config;
 pub mod participant;
 
 #[derive(Clone)]
 pub struct AppState {
-    _db: PgPool,
+    db: PgPool,
 }
 
 #[tokio::main]
 async fn main() -> Result<()> {
     dotenvy::dotenv()?;
 
+    let config = Config::from_env();
     tracing_subscriber::fmt()
         .compact()
         .with_env_filter(EnvFilter::from_default_env())
         .init();
 
-    let _db =
-        PgPool::connect(&std::env::var("DATABASE_URL").unwrap_or_else(|_| {
-            "postgres://postgres:postgres@localhost:5432/postgres".to_string()
-        }))
-        .await?;
+    let db = PgPool::connect(&config.database_url).await?;
 
-    let state = Arc::new(AppState { _db });
+    let participant = Participant {
+        id: Uuid::new_v4(),
+        first_name: "John".to_string(),
+        last_name: "Doe".to_string(),
+        university_name: "Example University".to_string(),
+        medical_conditions: "".to_string(),
+        allergies: "".to_string(),
+        pronouns: "he/him".to_string(),
+        competition: "Example Competition".to_string(),
+        email: "john.doe@example.com".to_string(),
+        phone_number: "123-456-7890".to_string(),
+        tshirt_size: "M".to_string(),
+        study_proof: vec![],
+        photo: vec![],
+        cv: vec![],
+        comments: "".to_string(),
+        emergency_contact: "Jane Doe".to_string(),
+        has_monthly_opus_card: false,
+        reduced_mobility: "".to_string(),
+    };
+
+    println!(
+        "{:?}",
+        Participant::get_all_participants(&db).await.unwrap()
+    );
+    participant.write_to_database(&db).await.unwrap();
+    println!(
+        "{:?}",
+        Participant::get_all_participants(&db).await.unwrap()
+    );
+
+    let state = Arc::new(AppState { db });
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
 
     let router = Router::new()

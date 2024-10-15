@@ -1,5 +1,5 @@
 [package]
-name = "template-axum-solidjs-spa"
+name = "backend_cqi"
 authors = ["Rob Wagner <rob@sombia.com>"]
 license = ""
 repository = "https://github.com/robertwayne/template-axum-solidjs-spa"
@@ -13,7 +13,11 @@ dotenvy = { version = "0.15" }
 lettre = "0.11.9"
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
-sqlx = { version = "0.8.2", features = ["runtime-tokio-rustls", "postgres"] }
+sqlx = { version = "0.8.2", features = [
+    "runtime-tokio-rustls",
+    "postgres",
+    "uuid",
+] }
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 tower = { version = "0.5", default-features = false, features = ["util"] }
 tower-http = { version = "0.6", default-features = false, features = [
@@ -24,6 +28,7 @@ tower-http = { version = "0.6", default-features = false, features = [
 ] }
 tracing = { version = "0.1", default-features = false, features = ["std"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.10.0", features = ["v4", "serde"] }
 
 [profile.release]
 opt-level = 3
