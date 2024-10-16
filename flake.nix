@@ -24,10 +24,19 @@
             openssl.dev
             openssl
             postgresql_16
+            pgadmin4
           ];
           packages = with pkgs; [
             bun
           ];
+          DB_USER="postgres";
+          DB_PASSWORD="password";
+          DB_NAME="dev";
+          DB_PORT="5432";
+          DB_HOST="localhost";
+          DATABASE_URL="postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}";
+
+          TS_RS_EXPORT_DIR = "../client/src/binding";
           LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.openssl ];
         };
       });

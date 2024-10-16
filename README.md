@@ -1,28 +1,105 @@
-# Template: Axum / SolidJS SPA
+# Site web CQI 2025
 
-## Backend
+Bienvenue dans le site web de la CQI! Ce projet est une application web construite avec SolidJS pour le frontend et Axum (Rust) pour le backend. L'application est conçue pour être performante, sécurisée et facile à maintenir.
 
-- **[Axum](https://github.com/tokio-rs/axum)**
-- **[PostgreSQL](https://www.postgresql.org)**
+## Table des matières
 
-## Frontend
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Démarrage](#démarrage)
+- [Structure du projet](#structure-du-projet)
+- [Fonctionnalités](#fonctionnalités)
+- [Contribuer](#contribuer)
+- [Licence](#licence)
 
-- **[SolidJS](https://github.com/solidjs/solid)**
-- **[Solid Router](https://github.com/solidjs/solid-router)**
-- **[TypeScript](https://www.typescriptlang.org)**
-- **[Tailwind CSS](https://tailwindcss.com)**
-- **[Bun](https://bun.sh/) & [Vite](https://vitejs.dev/)**
+## Prérequis
 
-## Getting Started
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
-- Clone the repository: `git clone
- https://github.com/robertwayne/template-axum-solidjs-spa`
-- Change `.env.TEMPLATE` to `.env` and set your Postgres credentials _(if not
-  using defaults)_.
-- Install your dependencies with `bun i`.
-- Build the client with `bun run build` from inside the `/client` directory.
-  _Alternatively, you can use `bun run dev` to run the client with the vite dev
-  server._
-- Run the server with `cargo run` from inside the `/server` directory.
-  - If you're serving from axum, visit `http://127.0.0.1:3000`.
-  - If you're serving from vite, visit `http://127.0.0.1:8000`.
+- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
+- [Rust](https://www.rust-lang.org/) (version stable)
+- [PostgreSQL](https://www.postgresql.org/) (pour la base de données)
+
+## Installation
+
+Clonez le dépôt et installez les dépendances pour le frontend et le backend.
+
+```bash
+git clone https://github.com/votre-utilisateur/cqi-qec2025.git
+cd cqi-qec2025
+
+# Installer les dépendances du frontend
+cd client
+npm install
+
+# Installer les dépendances du backend
+cd ../server
+cargo build
+```
+
+## Configuration
+
+Créez un fichier `.env` dans le répertoire `server` et ajoutez les variables d'environnement nécessaires :
+
+```env
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
+```
+
+Assurez-vous que PostgreSQL est en cours d'exécution et que la base de données spécifiée dans `DATABASE_URL` est créée.
+
+## Démarrage
+
+Pour démarrer l'application, vous devez lancer à la fois le serveur backend et le serveur frontend.
+
+### Démarrer le backend
+
+```bash
+cd server
+cargo run
+```
+
+### Démarrer le frontend
+
+```bash
+cd client
+bun dev
+```
+
+## Structure du projet
+
+Voici un aperçu de la structure du projet :
+
+```
+cqi-qec2025/
+├── client/                # Code source du frontend
+│   ├── public/            # Fichiers statiques
+│   ├── src/               # Code source de l'application SolidJS
+│   ├── package.json       # Dépendances et scripts npm
+│   └── ...                # Autres fichiers de configuration
+├── server/                # Code source du backend
+│   ├── src/               # Code source de l'application Axum
+│   ├── Cargo.toml         # Dépendances et configuration de Rust
+│   └── ...                # Autres fichiers de configuration
+└── README.md              # Ce fichier
+```
+
+## Technologies
+
+- **Frontend** : Construit avec SolidJS, un framework JavaScript réactif et performant.
+- **Backend** : Construit avec Axum, un framework web rapide et sécurisé pour Rust.
+- **Base de données** : Utilise PostgreSQL pour le stockage des données.
+
+## Contribuer
+
+Les contributions sont les bienvenues ! Veuillez suivre les étapes ci-dessous pour contribuer :
+
+1. Forkez le dépôt.
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/ma-fonctionnalité`).
+3. Commitez vos modifications (`git commit -am 'Ajoute une nouvelle fonctionnalité'`).
+4. Poussez votre branche (`git push origin feature/ma-fonctionnalité`).
+5. Ouvrez une Pull Request.
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.

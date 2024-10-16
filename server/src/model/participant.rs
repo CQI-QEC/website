@@ -1,11 +1,12 @@
 use serde::{Deserialize, Serialize};
 use sqlx::PgPool;
+use ts_rs::TS;
 use uuid::Uuid;
 
 use super::role::Role;
 use crate::utility::{deserialize_base64, serialize_base64};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, TS)]
 pub struct MinimalParticipant {
     pub role: Role,
     pub first_name: String,
@@ -33,7 +34,8 @@ impl MinimalParticipant {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, sqlx::FromRow)]
+#[derive(Debug, Serialize, Deserialize, sqlx::FromRow, TS)]
+#[ts(export)]
 pub struct Participant {
     pub id: Uuid,
     pub role: Role,

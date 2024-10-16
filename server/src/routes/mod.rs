@@ -1,6 +1,6 @@
 use axum::{
     http::StatusCode,
-    routing::{get, patch},
+    routing::{delete, get, patch},
     Router,
 };
 
@@ -20,9 +20,11 @@ fn api_handler(state: SharedState) -> Router {
         .route("/health", get(|| async { (StatusCode::OK, "OK") }))
         .route(
             "/participant",
-            patch(patch_participant::patch_participant)
-                .post(new_participant::new_participant)
-                .delete(delete_participant::delete_participant),
+            patch(patch_participant::patch_participant).post(new_participant::new_participant),
+        )
+        .route(
+            "/participant/:id",
+            delete(delete_participant::delete_participant),
         )
         .route("/participants", get(get_participants::get_participants))
         .with_state(state)
