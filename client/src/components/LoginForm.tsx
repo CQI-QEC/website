@@ -1,55 +1,76 @@
-import { createForm, SubmitHandler } from '@modular-forms/solid';
-import { useNavigate } from "@solidjs/router";
+import {
+    createForm,
+    minLength,
+    required,
+    SubmitHandler,
+} from "@modular-forms/solid"
+import { useNavigate } from "@solidjs/router"
+import { TextInput } from "../components/forms/TextInput"
 
 type InfoLoginForm = {
-  email: string;
-  password: string;
-};
+    email: string
+    password: string
+}
 
 export default function LoginForm() {
-    const [_loginForm, { Form, Field }] = createForm<InfoLoginForm>();
-    const navigate = useNavigate();
+    const [_loginForm, { Form, Field }] = createForm<InfoLoginForm>()
+    const navigate = useNavigate()
 
     const handleSubmit: SubmitHandler<InfoLoginForm> = (values, event) => {
-        event.preventDefault();
-        console.log(values);
-        navigate("/leader");
-    };
+        event.preventDefault()
+        console.log(values)
+        navigate("/leader")
+    }
 
     return (
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <Form class="space-y-6" action="#" method="post" onSubmit={handleSubmit}>
+            <Form class="space-y-6" onSubmit={handleSubmit}>
                 <Field name="email">
-                    {(_field, props) =>
-                        <div>
-                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse courriel</label>
-                            <div class="mt-2">
-                                <input {...props} id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
-                            </div>
-                        </div>
-                    }
+                    {(field, props) => (
+                        <TextInput
+                            {...props}
+                            value={field.value}
+                            error={field.error}
+                            label="Email"
+                            type="email"
+                            placeholder="exemple@courriel.com"
+                            required
+                        />
+                    )}
                 </Field>
 
-                <Field name="password">
-                    {(_field, props) => 
-                        <div>
-                            <div class="flex items-center justify-between">
-                                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
-                                {/* <div class="text-sm">
-                                    <a href="#" class="font-semibold text-light-highlight hover:text-light-highlight">Forgot password?</a>
-                                </div> */}
-                            </div>
-                            <div class="mt-2">
-                                <input {...props} id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-highlight sm:text-sm sm:leading-6"/>
-                            </div>
-                        </div>
-                    }
+                <Field
+                    name="password"
+                    validate={[
+                        required("Please enter your password."),
+                        minLength(
+                            8,
+                            "You password must have 8 characters or more.",
+                        ),
+                    ]}
+                >
+                    {(field, props) => (
+                        <TextInput
+                            {...props}
+                            value={field.value}
+                            error={field.error}
+                            type="password"
+                            label="Password"
+                            placeholder="********"
+                            required
+                        />
+                    )}
                 </Field>
 
                 <div>
-                    <button type="submit" class="flex w-full justify-center rounded-md bg-light-highlight px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight">Sign in</button>
+                    <button
+                        type="submit"
+                        class="flex w-full justify-center rounded-md bg-light-highlight py-3 text-sm font-semibold text-white shadow-sm"
+                    >
+                        Sign in
+                    </button>
                 </div>
             </Form>
         </div>
-    );
+    )
 }

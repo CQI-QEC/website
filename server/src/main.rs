@@ -7,7 +7,7 @@ use std::{
 use auth::keys::Keys;
 use axum::http::{
     header::{ACCEPT, CONTENT_TYPE},
-    HeaderValue, Method,
+    Method,
 };
 use config::Config;
 use rand::distributions::Alphanumeric;
@@ -66,11 +66,7 @@ async fn main() -> Result<()> {
     let cors_layer = CorsLayer::new()
         .allow_headers([ACCEPT, CONTENT_TYPE])
         .max_age(Duration::from_secs(86400))
-        .allow_origin(
-            std::env::var("CORS_ORIGIN")
-                .unwrap_or_else(|_| "*".to_string())
-                .parse::<HeaderValue>()?,
-        )
+        .allow_origin(tower_http::cors::Any)
         .allow_methods(vec![
             Method::GET,
             Method::POST,
