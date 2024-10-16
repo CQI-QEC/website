@@ -22,7 +22,7 @@ use tower_http::{
 };
 use tracing_subscriber::EnvFilter;
 
-type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
+pub type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 pub type SharedState = Arc<AppState>;
 

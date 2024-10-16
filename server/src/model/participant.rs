@@ -3,10 +3,13 @@ use serde_with::{base64::Base64, base64::Standard, formats::Padded, serde_as};
 use sqlx::PgPool;
 use uuid::Uuid;
 
+use super::role::Role;
+
 #[serde_as]
 #[derive(Debug, Serialize, Deserialize, sqlx::FromRow)]
-pub struct ParticipantInfo {
+pub struct Participant {
     pub id: Uuid,
+    pub role: Role,
     pub university_name: String,
     pub medical_conditions: String,
     pub allergies: String,
@@ -26,16 +29,33 @@ pub struct ParticipantInfo {
     pub cv: Vec<u8>,
 }
 
-impl ParticipantInfo {
-    pub async fn get_all_participants(conn: &PgPool) -> Result<Vec<Self>, sqlx::Error> {
+impl Participant {
+    pub async fn get_participants(db: &PgPool) -> Result<Vec<Self>, sqlx::Error> {
         sqlx::query_as("SELECT * FROM participants")
-            .fetch_all(conn)
+            .fetch_all(db)
+            .await
+    }
+
+    pub async fn get_participants_from_university(
+        db: &PgPool,
+        university: &str,
+    ) -> Result<Vec<Self>, sqlx::Error> {
+        sqlx::query_as("SELECT * FROM participants WHERE university_name = $1")
+            .bind(university)
+            .fetch_all(db)
+            .await
+    }
+
+    pub async fn get_participant(db: &PgPool) -> Result<Self, sqlx::Error> {
+        sqlx::query_as("SELECT * FROM participants WHERE id = $1")
+            .bind(Uuid::new_v4())
+            .fetch_one(db)
             .await
     }
 
     // pub async fn read_from_database(uid: &str) -> Self {}
 
-    pub async fn write_to_database(&self, conn: &PgPool) -> Result<(), sqlx::Error> {
+    pub async fn write_to_database(&self, db: &PgPool) -> Result<(), sqlx::Error> {
         sqlx::query!(
                 r#"INSERT INTO participants (id, university_name, medical_conditions, allergies, pronouns, competition, phone_number, tshirt_size, study_proof, photo, cv, comments, emergency_contact, has_monthly_opus_card, reduced_mobility)
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)"#,
@@ -55,7 +75,7 @@ impl ParticipantInfo {
                 self.has_monthly_opus_card,
                 self.reduced_mobility
             )
-            .execute(conn)
+            .execute(db)
             .await?;
         Ok(())
     }

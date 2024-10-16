@@ -1,4 +1,3 @@
-/// Strongly inspired by https://www.shuttle.dev/blog/2024/02/21/using-jwt-auth-rust
 use jsonwebtoken::{DecodingKey, EncodingKey};
 
 pub struct Keys {

@@ -1,2 +1,4 @@
-pub mod participant_info;
-pub mod people;
+pub mod admin;
+pub mod participant;
+pub mod role;
+pub mod staff;

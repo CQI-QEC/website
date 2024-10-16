@@ -5,14 +5,17 @@ use axum_extra::{
 };
 use jsonwebtoken::{decode, Validation};
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
-use crate::KEYS;
+use crate::{model::role::Role, KEYS};
 
 use super::auth_error::AuthError;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Claims {
-    username: String,
+    id: Uuid,
+    role: Role,
+    university: String,
     exp: usize,
 }
 

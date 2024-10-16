@@ -1,6 +1,12 @@
+CREATE TYPE role AS ENUM ('participant', 'organizer', 'volunteer', 'chef');
+
 CREATE TABLE participants (
     id UUID PRIMARY KEY,
-    university_name TEXT NOT NULL,
+    role TEXT NOT NULL,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    university_name TEXT,
     medical_conditions TEXT NOT NULL,
     allergies TEXT NOT NULL,
     pronouns TEXT NOT NULL,
