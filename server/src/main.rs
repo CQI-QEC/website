@@ -1,10 +1,17 @@
-use std::{net::SocketAddr, sync::Arc, time::Duration};
+use std::{
+    net::SocketAddr,
+    sync::{Arc, LazyLock},
+    time::Duration,
+};
 
+use auth::keys::Keys;
 use axum::http::{
     header::{ACCEPT, CONTENT_TYPE},
     HeaderValue, Method,
 };
 use config::Config;
+use rand::distributions::Alphanumeric;
+use rand::distributions::DistString;
 use routes::api_router;
 use sqlx::PgPool;
 use tower_http::{
@@ -19,9 +26,15 @@ type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 pub type SharedState = Arc<AppState>;
 
+pub mod auth;
 pub mod config;
 pub mod model;
 pub mod routes;
+
+static KEYS: LazyLock<Keys> = LazyLock::new(|| {
+    let secret = Alphanumeric.sample_string(&mut rand::thread_rng(), 60);
+    Keys::new(secret.as_bytes())
+});
 
 #[derive(Clone)]
 pub struct AppState {
