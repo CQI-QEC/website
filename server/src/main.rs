@@ -30,6 +30,7 @@ pub mod auth;
 pub mod config;
 pub mod model;
 pub mod routes;
+pub mod utility;
 
 static KEYS: LazyLock<Keys> = LazyLock::new(|| {
     let secret = Alphanumeric.sample_string(&mut rand::thread_rng(), 60);
