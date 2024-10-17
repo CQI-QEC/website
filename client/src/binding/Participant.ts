@@ -5,9 +5,9 @@ import type { Role } from "./Role";
 export type Participant = {
   id: string;
   role: Role;
+  email: string;
   first_name: string;
   last_name: string;
-  email: string;
   university_name: string | null;
   medical_conditions: string | null;
   allergies: string | null;

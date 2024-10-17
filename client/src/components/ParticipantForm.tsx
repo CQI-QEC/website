@@ -1,17 +1,24 @@
 import { Info, PlusCircle, Trash } from "phosphor-solid-js"
-import { Participant } from "../binding/Participant"
 import { MinimalParticipant } from "../binding/MinimalParticipant"
 import { createResource, For } from "solid-js"
 import { createForm } from "@modular-forms/solid"
 import { Select } from "./forms/Select"
 import { TextInput } from "./forms/TextInput"
+import { ParticipantPreview } from "../binding/ParticipantPreview"
 
 interface ParticipantRowProps {
-    participant: Participant
+    participant: ParticipantPreview
+    refetch: () => void
 }
 
 function ParticipantRow(props: ParticipantRowProps) {
     const p = props.participant
+    const deleteParticipant = async () => {
+        await fetch("http://localhost:3000/api/participant/" + p.id, {
+            method: "DELETE",
+        })
+        props.refetch()
+    }
     return (
         <tr class="border-b border-gray-200">
             <td class="p-2 text-center">{p.first_name}</td>
@@ -20,10 +27,17 @@ function ParticipantRow(props: ParticipantRowProps) {
             <td class="p-2 text-center">{p.competition}</td>
             <td class="p-2 text-center">{p.role}</td>
             <td class="flex flex-row gap-4 p-2 text-center">
-                <button class="rounded bg-blue-500 p-1 font-bold text-white hover:bg-blue-700">
+                <button
+                    type="button"
+                    class="rounded bg-blue-500 p-1 font-bold text-white hover:bg-blue-700"
+                >
                     <Info class="h-8 w-8"></Info>
                 </button>
-                <button class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700">
+                <button
+                    type="button"
+                    class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700"
+                    onClick={deleteParticipant}
+                >
                     <Trash class="h-8 w-8"></Trash>
                 </button>
             </td>
@@ -34,24 +48,23 @@ function ParticipantRow(props: ParticipantRowProps) {
 async function fetchParticipants() {
     const response = await fetch("http://localhost:3000/api/participants")
     const data = await response.json()
+    console.log(data)
     return data
 }
 
 export default function ParticipantForm() {
-    const [user] = createResource(fetchParticipants)
+    const [user, { refetch }] = createResource(fetchParticipants)
     const [form, { Form, Field }] = createForm<MinimalParticipant>()
     const onSubmit = async (data: MinimalParticipant) => {
         console.log(data)
-        const response = await fetch("http://localhost:3000/api/participant", {
+        await fetch("http://localhost:3000/api/participant", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
         })
-        console.log(response)
-        const result = await response.json()
-        console.log(result)
+        refetch()
     }
     return (
         <Form onSubmit={onSubmit}>
@@ -71,7 +84,7 @@ export default function ParticipantForm() {
                             Compétition
                         </th>
                         <th class="border-b border-gray-300 p-2 text-center">
-                            Rôles
+                            Rôle
                         </th>
                         <th class="border-b border-gray-300 p-2 text-center">
                             Actions
@@ -80,8 +93,11 @@ export default function ParticipantForm() {
                 </thead>
                 <tbody>
                     <For each={user()}>
-                        {(participant: Participant) => (
-                            <ParticipantRow participant={participant} />
+                        {(participant: ParticipantPreview) => (
+                            <ParticipantRow
+                                participant={participant}
+                                refetch={refetch}
+                            />
                         )}
                     </For>
                     <tr class="border-b border-gray-200">
@@ -174,8 +190,38 @@ export default function ParticipantForm() {
                                                 value: "conception_innovatrice",
                                             },
                                             {
-                                                label: "Projet de recherche au cycle supérieur",
+                                                label: "Cycle supérieur",
                                                 value: "cycle_superieur",
+                                            },
+                                        ]}
+                                        required
+                                    />
+                                )}
+                            </Field>
+                        </td>
+                        <td class="p-2">
+                            <Field name="role">
+                                {(field, props) => (
+                                    <Select
+                                        {...props}
+                                        value={field.value}
+                                        error={field.error}
+                                        options={[
+                                            {
+                                                label: "CO/Directeur",
+                                                value: "organizer",
+                                            },
+                                            {
+                                                label: "Volontaire",
+                                                value: "volunteer",
+                                            },
+                                            {
+                                                label: "Chef",
+                                                value: "chef",
+                                            },
+                                            {
+                                                label: "Participant",
+                                                value: "participant",
                                             },
                                         ]}
                                         required
