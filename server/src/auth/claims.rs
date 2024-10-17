@@ -24,6 +24,9 @@ pub struct Claims {
 }
 
 impl Claims {
+    fn is_expired(&self) -> bool {
+        self.exp < (Utc::now().timestamp() as usize)
+    }
     pub async fn new(email: String, password: String, db: &PgPool) -> Option<Self> {
         let user = sqlx::query!(
             r#"SELECT id, role AS "role: Role", password_hash, university_name FROM participants WHERE email = $1"#,
@@ -74,7 +77,9 @@ where
         // Decode the user data
         let token_data = decode::<Claims>(bearer.token(), &KEYS.decoding, &Validation::default())
             .map_err(|_| AuthError::InvalidToken)?;
-
+        if token_data.claims.is_expired() {
+            return Err(AuthError::ExpiredToken);
+        }
         Ok(token_data.claims)
     }
 }

@@ -25,6 +25,7 @@ export function ProtectedRoute(props: ProtectedRouteProps) {
         console.log(response)
 
         if (response.error) {
+            localStorage.removeItem("token")
             navigate("/login")
         }
     })

@@ -10,5 +10,5 @@ pub struct AuthResponse {
 
 pub async fn test_token(claims: Claims) -> impl IntoResponse {
     let auth = AuthResponse { role: claims.role };
-    (StatusCode::OK, Json(auth))
+    (StatusCode::OK, Json(auth)).into_response()
 }

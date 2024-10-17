@@ -1,20 +1,27 @@
-import FixedImage from "../components/FixedImage";
-import LoginForm from "../components/LoginForm";
-import { t } from "../stores/locale";
+import { createEffect } from "solid-js"
+import FixedImage from "../components/FixedImage"
+import LoginForm from "../components/LoginForm"
+import { t } from "../stores/locale"
+import { useNavigate } from "@solidjs/router"
 
+export default function Login() {
+    const navigate = useNavigate()
 
-const Login = () => {
+    createEffect(async () => {
+        const token = localStorage.getItem("token")
+        if (!token) return
+        navigate("/dashboard")
+    })
     return (
         <div class="flex w-full flex-col items-center justify-center">
             <FixedImage url="/banners/documents.svg" height="32rem">
-                <h1 class="font-futur text-white text-center text-6xl">{t("login")}</h1>
+                <h1 class="text-center font-futur text-6xl text-white">
+                    {t("login")}
+                </h1>
             </FixedImage>
-            <div class="-mt-32 h-full w-full flex flex-col items-center justify-center p-4 gap-4 font-futur text-xl font-bold">
-                <LoginForm/>
+            <div class="-mt-32 flex h-full w-full flex-col items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+                <LoginForm />
             </div>
         </div>
     )
-};
-
-export default Login;
-
+}
