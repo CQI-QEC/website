@@ -23,7 +23,7 @@ const Team = lazy(() => import("./routes/Team"))
 const Partners = lazy(() => import("./routes/Partners"))
 const Documents = lazy(() => import("./routes/Documents"))
 const Login = lazy(() => import("./routes/Login"))
-const LeaderView = lazy(() => import("./routes/LeaderView"))
+const Dashboard = lazy(() => import("./routes/Dashboard"))
 const AdditionalForm = lazy(() => import("./routes/AdditionalForm"))
 const ListParticipant = lazy(() => import("./routes/ListParticipant"))
 
@@ -39,7 +39,7 @@ if (app) {
                 <Route path="/partners" component={Partners} />
                 <Route path="/documents" component={Documents} />
                 <Route path="/login" component={Login} />
-                <Route path="/leader" component={LeaderView} />
+                <Route path="/dashboard" component={Dashboard} />
                 <Route path="/additional-form" component={AdditionalForm} />
                 <Route path="/list-participant" component={ListParticipant} />
                 <Route path="*" component={NotFound} />

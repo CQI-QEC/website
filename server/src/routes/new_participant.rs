@@ -1,6 +1,6 @@
 use axum::{extract::State, http::StatusCode, response::IntoResponse, Json};
 
-use crate::{model::participant::MinimalParticipant, SharedState};
+use crate::{model::minimal_participant::MinimalParticipant, SharedState};
 
 pub async fn new_participant(
     State(state): State<SharedState>,

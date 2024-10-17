@@ -1,6 +1,6 @@
 use axum::{extract::State, http::StatusCode, response::IntoResponse, Json};
 
-use crate::{model::participant::ParticipantPreview, SharedState};
+use crate::{model::preview_participant::ParticipantPreview, SharedState};
 
 pub async fn get_participants(State(state): State<SharedState>) -> impl IntoResponse {
     match ParticipantPreview::get_participants(&state.db).await {

@@ -6,7 +6,7 @@ use std::{
 
 use auth::keys::Keys;
 use axum::http::{
-    header::{ACCEPT, CONTENT_TYPE},
+    header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},
     Method,
 };
 use config::Config;
@@ -64,7 +64,7 @@ async fn main() -> Result<()> {
     let listener = tokio::net::TcpListener::bind(&addr).await?;
 
     let cors_layer = CorsLayer::new()
-        .allow_headers([ACCEPT, CONTENT_TYPE])
+        .allow_headers([ACCEPT, CONTENT_TYPE, AUTHORIZATION])
         .max_age(Duration::from_secs(86400))
         .allow_origin(tower_http::cors::Any)
         .allow_methods(vec![

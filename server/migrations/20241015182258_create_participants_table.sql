@@ -5,7 +5,7 @@ CREATE TYPE COMPETITION AS ENUM ('none', 'conception_senior', 'conception_junior
 CREATE TABLE participants (
     id UUID PRIMARY KEY,
     role ROLE NOT NULL,
-    email TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
     password_hash TEXT NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,

@@ -1,8 +1,3 @@
-use argon2::{password_hash::SaltString, Argon2, PasswordHasher};
-use rand::{
-    distributions::{Alphanumeric, DistString},
-    rngs::OsRng,
-};
 use serde::{Deserialize, Serialize};
 use sqlx::PgPool;
 use ts_rs::TS;
@@ -10,82 +5,6 @@ use uuid::Uuid;
 
 use super::{competition::Competition, role::Role};
 use crate::utility::{deserialize_base64, serialize_base64};
-
-#[derive(Debug, Serialize, Deserialize, TS, sqlx::FromRow)]
-#[ts(export)]
-pub struct MinimalParticipant {
-    pub first_name: String,
-    pub last_name: String,
-    pub email: String,
-    pub competition: Competition,
-    pub role: Role,
-}
-
-impl MinimalParticipant {
-    pub async fn get_participants(db: &PgPool) -> Result<Vec<Self>, sqlx::Error> {
-        sqlx::query_as("SELECT * FROM participants")
-            .fetch_all(db)
-            .await
-    }
-
-    pub async fn get_participants_from_university(
-        db: &PgPool,
-        university: &str,
-    ) -> Result<Vec<Self>, sqlx::Error> {
-        sqlx::query_as("SELECT * FROM participants WHERE university_name = $1")
-            .bind(university)
-            .fetch_all(db)
-            .await
-    }
-
-    pub async fn write_to_database(&self, db: &PgPool) -> Result<(), sqlx::Error> {
-        let id = Uuid::new_v4();
-        let password = Alphanumeric.sample_string(&mut rand::thread_rng(), 16);
-        let salt = SaltString::generate(&mut OsRng);
-        let argon2 = Argon2::default();
-        let password_hash = argon2
-            .hash_password(password.as_bytes(), &salt)
-            .unwrap()
-            .to_string();
-        sqlx::query!(
-            r#"INSERT INTO participants (id, role, email, password_hash, first_name, last_name, competition, university_name)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"#,
-            id,
-            self.role as Role,
-            self.email,
-            password_hash,
-            self.first_name,
-            self.last_name,
-            self.competition as Competition,
-            "test"
-        )
-        .execute(db)
-        .await?;
-        Ok(())
-    }
-}
-
-#[derive(Debug, Serialize, Deserialize, TS, sqlx::FromRow)]
-#[ts(export)]
-pub struct ParticipantPreview {
-    pub id: Uuid,
-    pub first_name: String,
-    pub last_name: String,
-    pub email: String,
-    pub role: Role,
-    pub competition: Competition,
-    pub contain_cv: bool,
-}
-
-impl ParticipantPreview {
-    pub async fn get_participants(db: &PgPool) -> Result<Vec<Self>, sqlx::Error> {
-        sqlx::query_as::<_, Self>(
-            r#"SELECT id, first_name, last_name, email, role, competition, cv IS NOT NULL as contain_cv FROM participants"#
-        )
-        .fetch_all(db)
-        .await
-    }
-}
 
 #[derive(Debug, Serialize, Deserialize, sqlx::FromRow, TS)]
 #[ts(export)]

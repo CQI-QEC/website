@@ -16,10 +16,23 @@ export default function LoginForm() {
     const [_loginForm, { Form, Field }] = createForm<InfoLoginForm>()
     const navigate = useNavigate()
 
-    const handleSubmit: SubmitHandler<InfoLoginForm> = (values, event) => {
+    const handleSubmit: SubmitHandler<InfoLoginForm> = async (
+        values,
+        event,
+    ) => {
         event.preventDefault()
-        console.log(values)
-        navigate("/leader")
+        const request = await fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+        })
+        const response = await request.json()
+        if (!response.error) {
+            localStorage.setItem("token", response.access_token)
+            navigate("/dashboard")
+        }
     }
 
     return (
