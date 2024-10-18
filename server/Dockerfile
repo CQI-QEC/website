@@ -1,4 +1,6 @@
-FROM rustlang/rust:nightly-alpine as builder
+FROM rustlang/rust:nightly-alpine AS builder
+
+ENV SQLX_OFFLINE true
 
 #Install libc equivalent
 RUN apk add --no-cache musl-dev

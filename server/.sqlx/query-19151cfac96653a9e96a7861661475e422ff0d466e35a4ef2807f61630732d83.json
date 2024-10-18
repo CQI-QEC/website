@@ -1,0 +1,51 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO participants (id, role, email, password_hash, first_name, last_name, competition, university_name)\n                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        {
+          "Custom": {
+            "name": "role",
+            "kind": {
+              "Enum": [
+                "participant",
+                "organizer",
+                "volunteer",
+                "chef"
+              ]
+            }
+          }
+        },
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        {
+          "Custom": {
+            "name": "competition",
+            "kind": {
+              "Enum": [
+                "none",
+                "conception_senior",
+                "conception_junior",
+                "debats_oratoires",
+                "reingenierie",
+                "genie_conseil",
+                "communication_scientifique",
+                "programmation",
+                "conception_innovatrice",
+                "cycle_superieur"
+              ]
+            }
+          }
+        },
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "19151cfac96653a9e96a7861661475e422ff0d466e35a4ef2807f61630732d83"
+}

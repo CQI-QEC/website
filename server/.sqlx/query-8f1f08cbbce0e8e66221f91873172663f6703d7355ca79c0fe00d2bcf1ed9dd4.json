@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO participants (id, university_name, medical_conditions, allergies, pronouns, competition, phone_number, tshirt_size, study_proof, photo, cv, comments, emergency_contact, has_monthly_opus_card, reduced_mobility)\n                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        {
+          "Custom": {
+            "name": "competition",
+            "kind": {
+              "Enum": [
+                "none",
+                "conception_senior",
+                "conception_junior",
+                "debats_oratoires",
+                "reingenierie",
+                "genie_conseil",
+                "communication_scientifique",
+                "programmation",
+                "conception_innovatrice",
+                "cycle_superieur"
+              ]
+            }
+          }
+        },
+        "Text",
+        "Text",
+        "Bytea",
+        "Bytea",
+        "Bytea",
+        "Text",
+        "Text",
+        "Bool",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "8f1f08cbbce0e8e66221f91873172663f6703d7355ca79c0fe00d2bcf1ed9dd4"
+}
