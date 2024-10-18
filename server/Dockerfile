@@ -1,6 +1,6 @@
 FROM rustlang/rust:nightly-alpine AS builder
 
-ENV SQLX_OFFLINE true
+ENV SQLX_OFFLINE=true
 
 #Install libc equivalent
 RUN apk add --no-cache musl-dev
@@ -11,14 +11,13 @@ RUN apk add --no-cache libressl-dev
 RUN mkdir -p /app
 WORKDIR /app
 COPY . .
-WORKDIR /app/server
 
 # Build the app
 RUN cargo build --release
 
 FROM alpine AS runner
 # Copy the server binary to the /app directory
-COPY --from=builder /app/server/target/release/backend_cqi /app/
+COPY --from=builder /app/target/release/backend_cqi /app/
 
 WORKDIR /app
 # Set any required env variables and
