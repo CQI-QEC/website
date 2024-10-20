@@ -1,8 +1,5 @@
 use argon2::{password_hash::SaltString, Argon2, PasswordHasher};
-use rand::{
-    distributions::{Alphanumeric, DistString},
-    rngs::OsRng,
-};
+use rand::rngs::OsRng;
 use serde::{Deserialize, Serialize};
 use sqlx::PgPool;
 use ts_rs::TS;
@@ -27,9 +24,8 @@ impl MinimalParticipant {
             .await
     }
 
-    pub async fn write_to_database(&self, db: &PgPool) -> Result<(), sqlx::Error> {
+    pub async fn write_to_database(&self, password: &str, db: &PgPool) -> Result<(), sqlx::Error> {
         let id = Uuid::new_v4();
-        let password = Alphanumeric.sample_string(&mut rand::thread_rng(), 16);
         tracing::info!("Generated password: {}", password); // TODO: remove this debug line
         let salt = SaltString::generate(&mut OsRng);
         let argon2 = Argon2::default();
