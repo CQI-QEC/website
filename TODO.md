@@ -3,8 +3,7 @@
 - Email confirmation for creating the account
 - Password reset after account creation
 - Client side field validation
-- Containerize the application
+- Deployment
+
 - Traduction
-
-
 - Search functionality

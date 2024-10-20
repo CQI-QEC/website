@@ -46,7 +46,11 @@ function ParticipantRow(props: ParticipantRowProps) {
 }
 
 async function fetchParticipants() {
-    const response = await fetch("http://localhost:3000/api/participants")
+    const response = await fetch("http://localhost:3000/api/participants", {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+    })
     const data = await response.json()
     console.log(data)
     return data
@@ -55,12 +59,15 @@ async function fetchParticipants() {
 export default function ParticipantForm() {
     const [user, { refetch }] = createResource(fetchParticipants)
     const [form, { Form, Field }] = createForm<MinimalParticipant>()
+    const token = localStorage.getItem("token")
+    console.log(token)
     const onSubmit = async (data: MinimalParticipant) => {
         console.log(data)
         await fetch("http://localhost:3000/api/participant", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify(data),
         })
