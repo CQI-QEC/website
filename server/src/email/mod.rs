@@ -1,5 +1,7 @@
+pub mod error;
 pub mod oauth;
 
+use error::{EmailError, SendEmailResponseError};
 use reqwest::{Client, StatusCode};
 use serde::Serialize;
 
@@ -65,14 +67,18 @@ impl EmailClient {
         subject: impl Into<String>,
         body: impl Into<String>,
         to_address: impl Into<String>,
-    ) -> Result<(), String> {
+    ) -> Result<(), EmailError> {
         let subject = subject.into();
         let body = body.into();
         let to_address = to_address.into();
-        if let Err(_) = self
+        if let Err(e) = self
             .try_send_email(subject.clone(), body.clone(), to_address.clone())
             .await
         {
+            match e {
+                EmailError::InvalidToken => (),
+                _ => return Err(e),
+            }
             self.access_token = self
                 .oauth
                 .get_access_token(&self.client)
@@ -88,10 +94,10 @@ impl EmailClient {
 
     async fn try_send_email(
         &self,
-        to_address: impl Into<String>,
         subject: impl Into<String>,
         body: impl Into<String>,
-    ) -> Result<(), String> {
+        to_address: impl Into<String>,
+    ) -> Result<(), EmailError> {
         let url = format!(
             "https://graph.microsoft.com/v1.0/users/{}/sendMail",
             self.oauth.user_id
@@ -120,11 +126,15 @@ impl EmailClient {
             .json(&message)
             .send()
             .await
-            .map_err(|e| e.to_string())?;
+            .map_err(|e| EmailError::Network(e))?;
 
         match response.status() {
             StatusCode::ACCEPTED => Ok(()),
-            _ => Err(response.text().await.map_err(|e| e.to_string())?.into()),
+            _ => Err(response
+                .json::<SendEmailResponseError>()
+                .await
+                .map_err(|e| EmailError::Network(e))?
+                .into()),
         }
     }
 }

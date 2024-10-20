@@ -5,6 +5,11 @@ import { createForm } from "@modular-forms/solid"
 import { Select } from "./forms/Select"
 import { TextInput } from "./forms/TextInput"
 import { ParticipantPreview } from "../binding/ParticipantPreview"
+import {
+    deleteParticipant,
+    fetchParticipants,
+    submitMinimalParticipant,
+} from "../request/routes"
 
 interface ParticipantRowProps {
     participant: ParticipantPreview
@@ -13,10 +18,8 @@ interface ParticipantRowProps {
 
 function ParticipantRow(props: ParticipantRowProps) {
     const p = props.participant
-    const deleteParticipant = async () => {
-        await fetch("http://localhost:3000/api/participant/" + p.id, {
-            method: "DELETE",
-        })
+    const deleteParticipantOnClick = async () => {
+        await deleteParticipant(p)
         props.refetch()
     }
     return (
@@ -36,7 +39,7 @@ function ParticipantRow(props: ParticipantRowProps) {
                 <button
                     type="button"
                     class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700"
-                    onClick={deleteParticipant}
+                    onClick={deleteParticipantOnClick}
                 >
                     <Trash class="h-8 w-8"></Trash>
                 </button>
@@ -45,32 +48,13 @@ function ParticipantRow(props: ParticipantRowProps) {
     )
 }
 
-async function fetchParticipants() {
-    const response = await fetch("http://localhost:3000/api/participants", {
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-    })
-    const data = await response.json()
-    console.log(data)
-    return data
-}
-
 export default function ParticipantForm() {
     const [user, { refetch }] = createResource(fetchParticipants)
     const [form, { Form, Field }] = createForm<MinimalParticipant>()
     const token = localStorage.getItem("token")
     console.log(token)
     const onSubmit = async (data: MinimalParticipant) => {
-        console.log(data)
-        await fetch("http://localhost:3000/api/participant", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify(data),
-        })
+        await submitMinimalParticipant(data)
         refetch()
     }
     return (

@@ -6,29 +6,16 @@ import {
 } from "@modular-forms/solid"
 import { useNavigate } from "@solidjs/router"
 import { TextInput } from "../components/forms/TextInput"
-
-type InfoLoginForm = {
-    email: string
-    password: string
-}
+import { AuthPayload } from "../binding/AuthPayload"
+import { login } from "../request/routes"
 
 export default function LoginForm() {
-    const [_loginForm, { Form, Field }] = createForm<InfoLoginForm>()
+    const [_loginForm, { Form, Field }] = createForm<AuthPayload>()
     const navigate = useNavigate()
 
-    const handleSubmit: SubmitHandler<InfoLoginForm> = async (
-        values,
-        event,
-    ) => {
+    const handleSubmit: SubmitHandler<AuthPayload> = async (values, event) => {
         event.preventDefault()
-        const request = await fetch("http://localhost:3000/api/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values),
-        })
-        const response = await request.json()
+        const response = await login(values)
         if (!response.error) {
             localStorage.setItem("token", response.access_token)
             navigate("/dashboard")

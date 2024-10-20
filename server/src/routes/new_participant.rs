@@ -15,7 +15,6 @@ pub async fn new_participant(
         .lock()
         .await
         .send_email(
-            &participant.email,
             "Inscription CQI/QEC 2025",
             format!(
                 r#"
@@ -42,6 +41,7 @@ https://cqi-qec.qc.ca/login
                 &participant.email,
                 &password
             ),
+            &participant.email,
         )
         .await
     {

@@ -1,13 +1,15 @@
 use axum::{extract::State, Json};
 use jsonwebtoken::{encode, Header};
 use serde::Deserialize;
+use ts_rs::TS;
 
 use crate::{
     auth::{auth_body::AuthBody, auth_error::AuthError, claims::Claims},
     SharedState, KEYS,
 };
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, TS)]
+#[ts(export)]
 pub struct AuthPayload {
     email: String,
     password: String,
