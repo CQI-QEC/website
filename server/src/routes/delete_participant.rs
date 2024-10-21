@@ -17,13 +17,18 @@ pub async fn delete_participant(
     Path(id): Path<Uuid>,
 ) -> impl IntoResponse {
     match claims.role {
-        Role::Volunteer | Role::Participant => {
-            return (StatusCode::FORBIDDEN, "Forbidden").into_response()
+        Role::Organizer => match Participant::delete_from_database(id, &state.db).await {
+            Ok(_) => (StatusCode::CREATED, "Participant deleted".to_string()),
+            Err(e) => (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()),
+        },
+        Role::Chef => {
+            match Participant::delete_from_database_university(id, claims.university, &state.db)
+                .await
+            {
+                Ok(_) => (StatusCode::CREATED, "Participant deleted".to_string()),
+                Err(e) => (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()),
+            }
         }
-        _ => {}
-    }
-    match Participant::delete_from_database(id, &state.db).await {
-        Ok(_) => (StatusCode::CREATED, "Participant deleted".to_string()).into_response(),
-        Err(e) => (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()).into_response(),
+        _ => (StatusCode::FORBIDDEN, "Forbidden".to_string()),
     }
 }

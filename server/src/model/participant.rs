@@ -1,3 +1,5 @@
+use argon2::{password_hash::SaltString, Argon2, PasswordHasher};
+use rand::rngs::OsRng;
 use serde::{Deserialize, Serialize};
 use sqlx::PgPool;
 use ts_rs::TS;
@@ -82,6 +84,42 @@ impl Participant {
         sqlx::query!(r#"DELETE FROM participants WHERE id = $1"#, id)
             .execute(db)
             .await?;
+        Ok(())
+    }
+
+    pub async fn delete_from_database_university(
+        id: Uuid,
+        university: String,
+        db: &PgPool,
+    ) -> Result<(), sqlx::Error> {
+        sqlx::query!(
+            r#"DELETE FROM participants WHERE id = $1 AND university_name = $2"#,
+            id,
+            university
+        )
+        .execute(db)
+        .await?;
+        Ok(())
+    }
+
+    pub async fn change_password(
+        id: Uuid,
+        password: String,
+        db: &PgPool,
+    ) -> Result<(), sqlx::Error> {
+        let salt = SaltString::generate(&mut OsRng);
+        let argon2 = Argon2::default();
+        let password_hash = argon2
+            .hash_password(password.as_bytes(), &salt)
+            .unwrap()
+            .to_string();
+        sqlx::query!(
+            "UPDATE participants SET password_hash = $1 WHERE id = $2",
+            password_hash,
+            id
+        )
+        .execute(db)
+        .await?;
         Ok(())
     }
 }

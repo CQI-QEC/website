@@ -1,11 +1,12 @@
 use axum::{
     http::StatusCode,
-    routing::{delete, get, patch, post},
+    routing::{delete, get, patch, post, put},
     Router,
 };
 
 use crate::SharedState;
 
+pub mod change_password;
 pub mod delete_participant;
 pub mod get_participants;
 pub mod login;
@@ -31,5 +32,6 @@ fn api_handler(state: SharedState) -> Router {
         .route("/participants", get(get_participants::get_participants))
         .route("/login", post(login::login))
         .route("/test", get(test_token::test_token))
+        .route("/password", put(change_password::change_password))
         .with_state(state)
 }

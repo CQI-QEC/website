@@ -26,6 +26,7 @@ const Login = lazy(() => import("./routes/Login"))
 const Dashboard = lazy(() => import("./routes/Dashboard"))
 const AdditionalForm = lazy(() => import("./routes/AdditionalForm"))
 const ListParticipant = lazy(() => import("./routes/ListParticipant"))
+const ChangePassword = lazy(() => import("./routes/ChangePassword"))
 
 const app = document.getElementById("app")
 if (app) {
@@ -42,6 +43,10 @@ if (app) {
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/additional-form" component={AdditionalForm} />
                 <Route path="/list-participant" component={ListParticipant} />
+                <Route
+                    path="/change-password/:token?"
+                    component={ChangePassword}
+                />
                 <Route path="*" component={NotFound} />
             </Router>
         ),

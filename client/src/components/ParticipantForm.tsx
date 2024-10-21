@@ -48,13 +48,20 @@ function ParticipantRow(props: ParticipantRowProps) {
     )
 }
 
+async function fetchWrapper() {
+    console.log("fetching")
+    const participants = await fetchParticipants()
+    console.log(participants)
+    return participants
+}
+
 export default function ParticipantForm() {
-    const [user, { refetch }] = createResource(fetchParticipants)
+    const [user, { refetch }] = createResource(fetchWrapper)
     const [form, { Form, Field }] = createForm<MinimalParticipant>()
-    const token = localStorage.getItem("token")
-    console.log(token)
     const onSubmit = async (data: MinimalParticipant) => {
+        console.log("submitting")
         await submitMinimalParticipant(data)
+        console.log("refetching")
         refetch()
     }
     return (
