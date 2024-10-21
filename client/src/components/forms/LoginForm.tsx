@@ -80,7 +80,7 @@ export default function LoginForm() {
                 <div>
                     <button
                         type="submit"
-                        class="flex w-full justify-center rounded-md bg-light-highlight py-3 text-sm font-semibold text-white shadow-sm"
+                        class="flex w-full justify-center rounded-md bg-light-highlight py-3 font-semibold text-white shadow-sm"
                     >
                         {t("loginPage.signIn")}
                     </button>

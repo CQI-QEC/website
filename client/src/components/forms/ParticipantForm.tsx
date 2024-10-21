@@ -57,7 +57,7 @@ async function fetchWrapper() {
 
 export default function ParticipantForm() {
     const [user, { refetch }] = createResource(fetchWrapper)
-    const [form, { Form, Field }] = createForm<MinimalParticipant>()
+    const [_form, { Form, Field }] = createForm<MinimalParticipant>()
     const onSubmit = async (data: MinimalParticipant) => {
         console.log("submitting")
         await submitMinimalParticipant(data)

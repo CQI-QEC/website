@@ -27,9 +27,31 @@ impl Claims {
     fn is_expired(&self) -> bool {
         self.exp < (Utc::now().timestamp() as usize)
     }
+    // For use only when sending a token for an email
+    pub async fn create_token_for_password_reset(email: String, db: &PgPool) -> Option<String> {
+        let exp = (Utc::now().naive_utc() + chrono::naive::Days::new(2))
+            .and_utc()
+            .timestamp() as usize;
+        let info = sqlx::query!(
+            r#"SELECT id, role AS "role: Role", university FROM participants WHERE email = $1"#,
+            email
+        )
+        .fetch_one(db)
+        .await
+        .ok()?;
+        let claims = Claims {
+            id: info.id,
+            role: info.role,
+            university: info.university.unwrap_or_default(),
+            exp,
+        };
+        let token =
+            jsonwebtoken::encode(&jsonwebtoken::Header::default(), &claims, &KEYS.encoding).ok()?;
+        Some(token)
+    }
     pub async fn new(email: String, password: String, db: &PgPool) -> Option<Self> {
         let user = sqlx::query!(
-            r#"SELECT id, role AS "role: Role", password_hash, university_name FROM participants WHERE email = $1"#,
+            r#"SELECT id, role AS "role: Role", password_hash, university FROM participants WHERE email = $1"#,
             email
         )
         .fetch_one(db)
@@ -48,7 +70,7 @@ impl Claims {
 
         let id = user.id;
         let role = user.role;
-        let university = user.university_name.unwrap_or("".to_string());
+        let university = user.university.unwrap_or_default();
         let exp = (Utc::now().naive_utc() + chrono::naive::Days::new(1))
             .and_utc()
             .timestamp() as usize;

@@ -16,7 +16,7 @@ pub struct Participant {
     pub email: String,
     pub first_name: String,
     pub last_name: String,
-    pub university_name: Option<String>,
+    pub university: Option<String>,
     pub medical_conditions: Option<String>,
     pub allergies: Option<String>,
     pub pronouns: Option<String>,
@@ -57,10 +57,10 @@ impl Participant {
 
     pub async fn write_to_database(&self, db: &PgPool) -> Result<(), sqlx::Error> {
         sqlx::query!(
-                r#"INSERT INTO participants (id, university_name, medical_conditions, allergies, pronouns, competition, phone_number, tshirt_size, study_proof, photo, cv, comments, emergency_contact, has_monthly_opus_card, reduced_mobility)
+                r#"INSERT INTO participants (id, university, medical_conditions, allergies, pronouns, competition, phone_number, tshirt_size, study_proof, photo, cv, comments, emergency_contact, has_monthly_opus_card, reduced_mobility)
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)"#,
                 self.id,
-                self.university_name,
+                self.university,
                 self.medical_conditions,
                 self.allergies,
                 self.pronouns,
@@ -93,7 +93,7 @@ impl Participant {
         db: &PgPool,
     ) -> Result<(), sqlx::Error> {
         sqlx::query!(
-            r#"DELETE FROM participants WHERE id = $1 AND university_name = $2"#,
+            r#"DELETE FROM participants WHERE id = $1 AND university = $2"#,
             id,
             university
         )
