@@ -1,5 +1,5 @@
 import FixedImage from "../components/FixedImage"
-import ParticipantForm from "../components/ParticipantForm"
+import ParticipantForm from "../components/forms/ParticipantForm"
 import { ProtectedRoute } from "../components/ProtectedRoute"
 
 export default function ListParticipant() {

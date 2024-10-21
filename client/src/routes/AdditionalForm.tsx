@@ -1,8 +1,8 @@
 import { createForm, SubmitHandler } from "@modular-forms/solid"
-import { Participant } from "../model/participant"
 import FixedImage from "../components/FixedImage"
 import { useNavigate } from "@solidjs/router"
 import { ProtectedRoute } from "../components/ProtectedRoute"
+import { Participant } from "../binding/Participant"
 
 export default function AdditionalForm() {
     const navigate = useNavigate()

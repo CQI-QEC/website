@@ -5,9 +5,9 @@ import {
     SubmitHandler,
 } from "@modular-forms/solid"
 import { useNavigate } from "@solidjs/router"
-import { TextInput } from "../components/forms/TextInput"
-import { AuthPayload } from "../binding/AuthPayload"
-import { login } from "../request/routes"
+import { AuthPayload } from "../../binding/AuthPayload"
+import { login } from "../../request/routes"
+import { TextInput } from "../forms-component/TextInput"
 
 export default function LoginForm() {
     const [_loginForm, { Form, Field }] = createForm<AuthPayload>()

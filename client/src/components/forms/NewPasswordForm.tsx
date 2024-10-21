@@ -1,7 +1,7 @@
 import { createForm } from "@modular-forms/solid"
-import { ChangePasswordPayload } from "../binding/ChangePasswordPayload"
-import { changePassword } from "../request/routes"
-import { TextInput } from "./forms/TextInput"
+import { ChangePasswordPayload } from "../../binding/ChangePasswordPayload"
+import { changePassword } from "../../request/routes"
+import { TextInput } from "../forms-component/TextInput"
 
 export function NewPassword() {
     const [_form, { Form, Field }] = createForm<ChangePasswordPayload>()

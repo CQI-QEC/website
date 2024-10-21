@@ -1,8 +1,8 @@
 import { createEffect } from "solid-js"
 import FixedImage from "../components/FixedImage"
-import LoginForm from "../components/LoginForm"
 import { t } from "../stores/locale"
 import { useNavigate } from "@solidjs/router"
+import LoginForm from "../components/forms/LoginForm"
 
 export default function Login() {
     const navigate = useNavigate()
