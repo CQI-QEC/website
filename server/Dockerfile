@@ -18,6 +18,7 @@ RUN cargo build --release
 FROM alpine AS runner
 # Copy the server binary to the /app directory
 COPY --from=builder /app/target/release/backend_cqi /app/
+COPY --from=builder /app/target/release/create_admin /app/
 
 WORKDIR /app
 # Set any required env variables and

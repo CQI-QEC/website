@@ -15,12 +15,12 @@ async fn main() -> Result<()> {
     let participant = MinimalParticipant {
         first_name: "Marc-Antoine".to_string(),
         last_name: "Manningham".to_string(),
-        email: "marc-antoine.manningham@polymtl.ca".to_string(),
+        email: "mamanningham@cqi-qec.qc.ca".to_string(),
         competition: Competition::None,
         role: Role::Organizer,
     };
     participant
-        .write_to_database(&password, &db, "Polytechnique Montréal".to_string())
+        .write_to_database(&password, &db, "".to_string())
         .await?;
     println!("Password: {}", password);
     Ok(())
