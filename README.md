@@ -31,7 +31,7 @@ cd cqi-qec2025
 
 # Installer les dépendances du frontend
 cd client
-npm install
+bun install
 
 # Installer les dépendances du backend
 cd ../server

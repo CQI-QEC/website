@@ -19,7 +19,9 @@ async fn main() -> Result<()> {
         competition: Competition::None,
         role: Role::Organizer,
     };
-    participant.write_to_database(&password, &db).await?;
+    participant
+        .write_to_database(&password, &db, "Polytechnique Montréal".to_string())
+        .await?;
     println!("Password: {}", password);
     Ok(())
 }

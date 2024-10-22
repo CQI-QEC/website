@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM participants WHERE id = $1 AND university_name = $2",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "4043956ce48fb14f0409451e0291b91ad2924d0cf6aa20c56b15f960b0ede42b"
+}

@@ -22,11 +22,11 @@ export async function fetchParticipants() {
 export async function submitMinimalParticipant(
     participant: MinimalParticipant,
 ) {
-    return fetch_post("/participant", participant)
+    return await fetch_post("/participant", participant)
 }
 
 export async function deleteParticipant(p: ParticipantPreview) {
-    return fetch_delete("/participant/" + p.id)
+    return await fetch_delete("/participant/" + p.id)
 }
 
 export async function login(auth: AuthPayload) {
@@ -35,7 +35,7 @@ export async function login(auth: AuthPayload) {
 }
 
 export async function changePassword(auth: ChangePasswordPayload) {
-    const request = await fetch_put("/change_password", auth)
+    const request = await fetch_put("/password", auth)
     if (!request) {
         return { error: "No token" }
     }
@@ -43,9 +43,9 @@ export async function changePassword(auth: ChangePasswordPayload) {
 }
 
 export async function testAuth() {
-    if (!localStorage.getItem("token")) {
+    const request = await fetch_get("/test")
+    if (!request) {
         return { error: "No token" }
     }
-    const request = await fetch_get("/test")
     return await request.json()
 }

@@ -23,4 +23,4 @@ WORKDIR /app
 # Set any required env variables and
 EXPOSE 3000
 # Run the server
-CMD ["/app/aep-schedule-website"]
+CMD ["/app/backend_cqi"]

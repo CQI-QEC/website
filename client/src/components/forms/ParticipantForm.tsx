@@ -1,15 +1,15 @@
 import { Info, PlusCircle, Trash } from "phosphor-solid-js"
-import { MinimalParticipant } from "../binding/MinimalParticipant"
+import { MinimalParticipant } from "../../binding/MinimalParticipant"
 import { createResource, For } from "solid-js"
 import { createForm } from "@modular-forms/solid"
-import { Select } from "./forms/Select"
-import { TextInput } from "./forms/TextInput"
-import { ParticipantPreview } from "../binding/ParticipantPreview"
+import { Select } from "../forms-component/Select"
+import { TextInput } from "../forms-component/TextInput"
+import { ParticipantPreview } from "../../binding/ParticipantPreview"
 import {
     deleteParticipant,
     fetchParticipants,
     submitMinimalParticipant,
-} from "../request/routes"
+} from "../../request/routes"
 
 interface ParticipantRowProps {
     participant: ParticipantPreview
@@ -57,7 +57,7 @@ async function fetchWrapper() {
 
 export default function ParticipantForm() {
     const [user, { refetch }] = createResource(fetchWrapper)
-    const [form, { Form, Field }] = createForm<MinimalParticipant>()
+    const [_form, { Form, Field }] = createForm<MinimalParticipant>()
     const onSubmit = async (data: MinimalParticipant) => {
         console.log("submitting")
         await submitMinimalParticipant(data)

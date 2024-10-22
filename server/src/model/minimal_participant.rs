@@ -24,7 +24,12 @@ impl MinimalParticipant {
             .await
     }
 
-    pub async fn write_to_database(&self, password: &str, db: &PgPool) -> Result<(), sqlx::Error> {
+    pub async fn write_to_database(
+        &self,
+        password: &str,
+        db: &PgPool,
+        university: String,
+    ) -> Result<(), sqlx::Error> {
         let id = Uuid::new_v4();
         tracing::info!("Generated password: {}", password); // TODO: remove this debug line
         let salt = SaltString::generate(&mut OsRng);
@@ -34,7 +39,7 @@ impl MinimalParticipant {
             .unwrap()
             .to_string();
         sqlx::query!(
-            r#"INSERT INTO participants (id, role, email, password_hash, first_name, last_name, competition, university_name)
+            r#"INSERT INTO participants (id, role, email, password_hash, first_name, last_name, competition, university)
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"#,
             id,
             self.role as Role,
@@ -43,7 +48,7 @@ impl MinimalParticipant {
             self.first_name,
             self.last_name,
             self.competition as Competition,
-            "test"
+            university
         )
         .execute(db)
         .await?;

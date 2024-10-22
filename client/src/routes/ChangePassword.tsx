@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "@solidjs/router"
 import { createEffect } from "solid-js"
 import { testAuth } from "../request/routes"
 import FixedImage from "../components/FixedImage"
-import { NewPassword } from "../components/NewPasswordForm"
+import { NewPassword } from "../components/forms/NewPasswordForm"
 
 export default function ChangePassword() {
     const params = useParams()

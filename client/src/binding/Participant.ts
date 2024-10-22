@@ -8,7 +8,7 @@ export type Participant = {
   email: string;
   first_name: string;
   last_name: string;
-  university_name: string | null;
+  university: string | null;
   medical_conditions: string | null;
   allergies: string | null;
   pronouns: string | null;
