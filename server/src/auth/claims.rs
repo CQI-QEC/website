@@ -42,7 +42,7 @@ impl Claims {
         let claims = Claims {
             id: info.id,
             role: info.role,
-            university: info.university.unwrap_or_default(),
+            university: info.university,
             exp,
         };
         let token =
@@ -70,7 +70,7 @@ impl Claims {
 
         let id = user.id;
         let role = user.role;
-        let university = user.university.unwrap_or_default();
+        let university = user.university;
         let exp = (Utc::now().naive_utc() + chrono::naive::Days::new(1))
             .and_utc()
             .timestamp() as usize;

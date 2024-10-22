@@ -16,10 +16,11 @@ pub struct Participant {
     pub email: String,
     pub first_name: String,
     pub last_name: String,
-    pub university: Option<String>,
+    pub university: String,
     pub medical_conditions: Option<String>,
     pub allergies: Option<String>,
     pub pronouns: Option<String>,
+    pub supper: Option<String>,
     pub competition: Option<Competition>,
     pub phone_number: Option<String>,
     pub tshirt_size: Option<String>,
@@ -57,23 +58,23 @@ impl Participant {
 
     pub async fn write_to_database(&self, db: &PgPool) -> Result<(), sqlx::Error> {
         sqlx::query!(
-                r#"INSERT INTO participants (id, university, medical_conditions, allergies, pronouns, competition, phone_number, tshirt_size, study_proof, photo, cv, comments, emergency_contact, has_monthly_opus_card, reduced_mobility)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)"#,
-                self.id,
-                self.university,
+                r#"UPDATE participants SET (medical_conditions, allergies, supper, pronouns, competition, phone_number, tshirt_size, comments, emergency_contact, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)
+                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) WHERE id = $15"#,
                 self.medical_conditions,
                 self.allergies,
+                self.supper,
                 self.pronouns,
                 self.competition as Option<Competition>,
                 self.phone_number,
                 self.tshirt_size,
-                self.study_proof,
-                self.photo,
-                self.cv,
                 self.comments,
                 self.emergency_contact,
                 self.has_monthly_opus_card,
-                self.reduced_mobility
+                self.reduced_mobility,
+                self.study_proof,
+                self.photo,
+                self.cv,
+                self.id
             )
             .execute(db)
             .await?;

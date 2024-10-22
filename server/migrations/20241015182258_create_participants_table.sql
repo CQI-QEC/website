@@ -10,7 +10,7 @@ CREATE TABLE participants (
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     competition COMPETITION NOT NULL,
-    university TEXT,
+    university TEXT NOT NULL,
     medical_conditions TEXT,
     allergies TEXT,
     supper TEXT,

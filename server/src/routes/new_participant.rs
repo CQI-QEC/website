@@ -48,7 +48,10 @@ https://cqi-qec.qc.ca/login
         return (StatusCode::BAD_REQUEST, e.to_string()).into_response();
     };
 
-    if let Err(e) = participant.write_to_database(&password, &state.db).await {
+    if let Err(e) = participant
+        .write_to_database(&password, &state.db, _claims.university)
+        .await
+    {
         return (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()).into_response();
     };
 
