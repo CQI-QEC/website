@@ -29,8 +29,6 @@ services:
       - "traefik.http.services.backend-cqi.loadbalancer.server.port=6942"
       - "traefik.http.routers.backend-cqi.entrypoints=websecure"
       - "traefik.http.routers.backend-cqi.tls.certresolver=myresolver"
-    ports:
-      - "80:80" # Or any other port your web app uses
     env_file:
       - ./.env # Copy the .env file into the container
     depends_on:
