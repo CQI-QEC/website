@@ -1,0 +1,49 @@
+services:
+  reverse-proxy:
+    image: traefik:v3.1
+    command:
+      - "--providers.docker=true"
+      - "--entryPoints.web.address=:80"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.myresolver.acme.email=mamanningham@cqi-qec.qc.ca" # change this to your email
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    environment:
+      - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  backend-cqi:
+    image: registry.git.step.polymtl.ca/lemark/cqi-qec2025:main
+    container_name: backend_cqi_container
+    labels:
+      - "traefik.http.routers.backend-cqi.rule=Host(`api.cqi-qec.qc.ca`)" # Put the URL here
+      - "traefik.http.services.backend-cqi.loadbalancer.server.port=6942"
+      - "traefik.http.routers.backend-cqi.entrypoints=websecure"
+      - "traefik.http.routers.backend-cqi.tls.certresolver=myresolver"
+    ports:
+      - "80:80" # Or any other port your web app uses
+    env_file:
+      - ./.env # Copy the .env file into the container
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:

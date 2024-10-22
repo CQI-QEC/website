@@ -15,10 +15,6 @@ pub mod patch_participant;
 pub mod test_token;
 
 pub fn api_router(state: SharedState) -> Router {
-    Router::new().nest("/api", api_handler(state))
-}
-
-fn api_handler(state: SharedState) -> Router {
     Router::new()
         .route("/health", get(|| async { (StatusCode::OK, "OK") }))
         .route(
