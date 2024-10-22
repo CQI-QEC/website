@@ -30,7 +30,9 @@ services:
       - "traefik.http.routers.backend-cqi.entrypoints=websecure"
       - "traefik.http.routers.backend-cqi.tls.certresolver=myresolver"
     env_file:
-      - ./.env # Copy the .env file into the container
+      - ./.env
+    volumes:
+      - ./.env:/app/.env
     depends_on:
       - postgres
   postgres:
@@ -41,6 +43,8 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
       - "5432:5432"
+    env_file:
+      - ./.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
 volumes:

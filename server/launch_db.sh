@@ -13,7 +13,6 @@ fi
 set -x
 set -eo pipefail
 
-
 docker run \
     -e POSTGRES_USER=${DB_USER} \
     -e POSTGRES_PASSWORD=${DB_PASSWORD} \
@@ -28,5 +27,4 @@ done
 
 >&2 echo "Postgres is up and running on port ${DB_PORT}"
 
-sqlx database create
-sqlx migrate run
+bash configure_db.sh
