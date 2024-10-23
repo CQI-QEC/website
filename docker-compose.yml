@@ -21,7 +21,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   backend-cqi:
     image: registry.git.step.polymtl.ca/lemark/cqi-qec2025:main
-    container_name: backend_cqi_container
+    ports:
+      - "6942:80"
     labels:
       - "traefik.http.routers.backend-cqi.rule=Host(`api.cqi-qec.qc.ca`)" # Put the URL here
       - "traefik.http.services.backend-cqi.loadbalancer.server.port=6942"
@@ -31,16 +32,23 @@ services:
       - ./.env
     volumes:
       - ./.env:/app/.env
+    networks:
+      - database_bridge
     depends_on:
       - postgres
-  postgres:
+  database:
     image: postgres
-    container_name: postgres_container
+    restart: always
     ports:
       - "5432:5432"
     env_file:
       - ./.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - database_bridge
 volumes:
   postgres_data:
+networks:
+  database_bridge:
+    driver: bridge
