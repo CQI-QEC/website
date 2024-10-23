@@ -13,6 +13,7 @@ pub mod get_participants;
 pub mod login;
 pub mod new_participant;
 pub mod patch_participant;
+pub mod send_email_reset;
 pub mod test_token;
 
 pub fn api_router(state: SharedState) -> Router {
@@ -29,6 +30,6 @@ pub fn api_router(state: SharedState) -> Router {
         .route("/participants", get(get_participants::get_participants))
         .route("/login", post(login::login))
         .route("/test", get(test_token::test_token))
-        .route("/password", put(change_password::change_password))
+        .route("/password", put(change_password::change_password).post(send_email_reset::send_email_reset))
         .with_state(state)
 }

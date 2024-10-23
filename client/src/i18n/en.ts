@@ -98,6 +98,27 @@ const loginPage = {
     signIn: "Sign in",
 }
 
+const additionalInfo = {
+    medicalConditions: "Medical conditions",
+    medicalConditionsLabel:
+        "Please specify any medical conditions that we should be aware of.",
+    allergies: "Allergies",
+    allergiesLabel: "Please specify any allergies that we should be aware of.",
+    pronouns: "Pronouns",
+    pronounsLabel: "Please specify your pronouns.",
+    vegetarianLabel: "Are you vegetarian?",
+    vegetarian: "Vegetarian",
+    phoneNumber: "Phone number",
+    phoneNumberLabel: "Please specify your phone number.",
+    emergencyContact: "Emergency contact",
+    emergencyContactLabel: "Please specify your emergency contact.",
+    hasMonthlyOpusCard: "Do you have a monthly OPUS card?",
+    reducedMobility: "Any acommodation for reduced mobility?",
+    studyProof: "Study proof",
+    photo: "Photo",
+    cv: "CV",
+}
+
 export const dict = {
     cqi: "QEC",
     lang: "EN",
@@ -109,5 +130,6 @@ export const dict = {
     documents: documents,
     login: "Login",
     loginPage: loginPage,
+    additionalInfo: additionalInfo,
     madeBy: "Made by",
 }

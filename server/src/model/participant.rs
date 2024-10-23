@@ -16,12 +16,13 @@ pub struct Participant {
     pub email: String,
     pub first_name: String,
     pub last_name: String,
+    pub competition: Competition,
     pub university: University,
     pub medical_conditions: Option<String>,
     pub allergies: Option<String>,
     pub pronouns: Option<String>,
     pub supper: Option<String>,
-    pub competition: Option<Competition>,
+    pub is_vegetarian: Option<bool>,
     pub phone_number: Option<String>,
     pub tshirt_size: Option<String>,
     pub comments: Option<String>,
@@ -70,13 +71,12 @@ impl Participant {
 
     pub async fn write_to_database(&self, db: &PgPool) -> Result<(), sqlx::Error> {
         sqlx::query!(
-                r#"UPDATE participants SET (medical_conditions, allergies, supper, pronouns, competition, phone_number, tshirt_size, comments, emergency_contact, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)
-                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) WHERE id = $15"#,
+                r#"UPDATE participants SET (medical_conditions, allergies, is_vegetarian, pronouns, phone_number, tshirt_size, comments, emergency_contact, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)
+                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) WHERE id = $14"#,
                 self.medical_conditions,
                 self.allergies,
-                self.supper,
+                self.is_vegetarian,
                 self.pronouns,
-                self.competition as Option<Competition>,
                 self.phone_number,
                 self.tshirt_size,
                 self.comments,
