@@ -23,8 +23,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   backend-cqi:
     image: registry.git.step.polymtl.ca/lemark/cqi-qec2025:main
-    ports:
-      - "3000:3000"
     labels:
       - "traefik.http.routers.backend-cqi.rule=Host(`api.cqi-qec.qc.ca`)" # Put the URL here
       - "traefik.http.services.backend-cqi.loadbalancer.server.port=3000"
