@@ -2,6 +2,8 @@ CREATE TYPE ROLE AS ENUM ('participant', 'organizer', 'volunteer', 'chef');
 
 CREATE TYPE COMPETITION AS ENUM ('none', 'conception_senior', 'conception_junior', 'debats_oratoires', 'reingenierie', 'genie_conseil', 'communication_scientifique', 'programmation', 'conception_innovatrice', 'cycle_superieur');
 
+CREATE TYPE UNIVERSITY AS ENUM ('uqac', 'uqar', 'uqat', 'uqo', 'uqtr', 'mcgill', 'mcgill_macdonald', 'concordia', 'ets', 'polymtl', 'ulaval', 'ulaval-agriculture', 'uds', 'none');
+
 CREATE TABLE participants (
     id UUID PRIMARY KEY,
     role ROLE NOT NULL,
@@ -14,6 +16,7 @@ CREATE TABLE participants (
     medical_conditions TEXT,
     allergies TEXT,
     supper TEXT,
+    is_vegetarian BOOLEAN,
     pronouns TEXT,
     phone_number TEXT,
     tshirt_size TEXT,

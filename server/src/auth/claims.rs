@@ -1,4 +1,4 @@
-use crate::model::role::Role;
+use crate::model::{role::Role, university::University};
 use argon2::{password_hash::PasswordVerifier, Argon2, PasswordHash};
 use axum::{async_trait, extract::FromRequestParts, http::request::Parts, RequestPartsExt};
 use axum_extra::{
@@ -19,7 +19,7 @@ use super::auth_error::AuthError;
 pub struct Claims {
     pub id: Uuid,
     pub role: Role,
-    pub university: String,
+    pub university: University,
     pub exp: usize,
 }
 
@@ -33,7 +33,7 @@ impl Claims {
             .and_utc()
             .timestamp() as usize;
         let info = sqlx::query!(
-            r#"SELECT id, role AS "role: Role", university FROM participants WHERE email = $1"#,
+            r#"SELECT id, role AS "role: Role", university AS "university: University" FROM participants WHERE email = $1"#,
             email
         )
         .fetch_one(db)
@@ -51,7 +51,7 @@ impl Claims {
     }
     pub async fn new(email: String, password: String, db: &PgPool) -> Option<Self> {
         let user = sqlx::query!(
-            r#"SELECT id, role AS "role: Role", password_hash, university FROM participants WHERE email = $1"#,
+            r#"SELECT id, role AS "role: Role", password_hash, university AS "university: University" FROM participants WHERE email = $1"#,
             email
         )
         .fetch_one(db)

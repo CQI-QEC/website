@@ -8,6 +8,7 @@ use crate::SharedState;
 
 pub mod change_password;
 pub mod delete_participant;
+pub mod get_participant;
 pub mod get_participants;
 pub mod login;
 pub mod new_participant;

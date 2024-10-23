@@ -14,17 +14,17 @@ set -x
 set -eo pipefail
 
 docker run \
-    -e POSTGRES_USER=${DB_USER} \
-    -e POSTGRES_PASSWORD=${DB_PASSWORD} \
-    -p "${DB_PORT}":5432 \
+    -e POSTGRES_USER=${POSTGRES_USER} \
+    -e POSTGRES_PASSWORD=${POSTGRES_PASSWORD} \
+    -p "${POSTGRES_PORT}":5432 \
     -d postgres
 
-export PGPASSWORD=${DB_PASSWORD}
+export PGPASSWORD=${POSTGRES_PASSWORD}
 until psql -h "${POSTGRES_HOST}" -U "${POSTGRES_USER}" -p "${POSTGRES_PORT}" -d "postgres" -c '\q'; do
   >&2 echo "Postgres is unavailable - sleeping"
   sleep 1
 done
 
->&2 echo "Postgres is up and running on port ${DB_PORT}"
+>&2 echo "Postgres is up and running on port ${POSTGRES_PORT}"
 
 bash configure_db.sh

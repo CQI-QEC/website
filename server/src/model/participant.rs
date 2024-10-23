@@ -5,7 +5,7 @@ use sqlx::PgPool;
 use ts_rs::TS;
 use uuid::Uuid;
 
-use super::{competition::Competition, role::Role};
+use super::{competition::Competition, role::Role, university::University};
 use crate::utility::{deserialize_base64, serialize_base64};
 
 #[derive(Debug, Serialize, Deserialize, sqlx::FromRow, TS)]
@@ -16,7 +16,7 @@ pub struct Participant {
     pub email: String,
     pub first_name: String,
     pub last_name: String,
-    pub university: String,
+    pub university: University,
     pub medical_conditions: Option<String>,
     pub allergies: Option<String>,
     pub pronouns: Option<String>,
@@ -49,9 +49,21 @@ pub struct Participant {
 }
 
 impl Participant {
-    pub async fn get_participant(db: &PgPool) -> Result<Self, sqlx::Error> {
+    pub async fn get_participant(id: Uuid, db: &PgPool) -> Result<Self, sqlx::Error> {
         sqlx::query_as("SELECT * FROM participants WHERE id = $1")
-            .bind(Uuid::new_v4())
+            .bind(id)
+            .fetch_one(db)
+            .await
+    }
+
+    pub async fn get_participant_with_university(
+        id: Uuid,
+        university: University,
+        db: &PgPool,
+    ) -> Result<Self, sqlx::Error> {
+        sqlx::query_as("SELECT * FROM participants WHERE id = $1 AND university = $2")
+            .bind(id)
+            .bind(university)
             .fetch_one(db)
             .await
     }
@@ -90,13 +102,13 @@ impl Participant {
 
     pub async fn delete_from_database_university(
         id: Uuid,
-        university: String,
+        university: University,
         db: &PgPool,
     ) -> Result<(), sqlx::Error> {
         sqlx::query!(
             r#"DELETE FROM participants WHERE id = $1 AND university = $2"#,
             id,
-            university
+            university as University
         )
         .execute(db)
         .await?;

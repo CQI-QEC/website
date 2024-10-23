@@ -3,7 +3,7 @@ use sqlx::PgPool;
 use ts_rs::TS;
 use uuid::Uuid;
 
-use super::{competition::Competition, role::Role};
+use super::{competition::Competition, role::Role, university::University};
 
 #[derive(Debug, Serialize, Deserialize, TS, sqlx::FromRow)]
 #[ts(export)]
@@ -28,7 +28,7 @@ impl ParticipantPreview {
 
     pub async fn get_participants_from_university(
         db: &PgPool,
-        university: &str,
+        university: University,
     ) -> Result<Vec<Self>, sqlx::Error> {
         sqlx::query_as("SELECT * FROM participants WHERE university_name = $1")
             .bind(university)

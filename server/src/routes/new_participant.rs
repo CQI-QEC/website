@@ -4,11 +4,15 @@ use rand::distributions::{Alphanumeric, DistString};
 use crate::{auth::claims::Claims, model::minimal_participant::MinimalParticipant, SharedState};
 
 pub async fn new_participant(
-    _claims: Claims,
+    claims: Claims,
     State(state): State<SharedState>,
     Json(participant): Json<MinimalParticipant>,
 ) -> impl IntoResponse {
     let password = Alphanumeric.sample_string(&mut rand::thread_rng(), 16);
+
+    if participant.university != claims.university {
+        return (StatusCode::FORBIDDEN, "Forbidden").into_response();
+    }
 
     if let Err(e) = state
         .email
@@ -48,10 +52,7 @@ https://cqi-qec.qc.ca/login
         return (StatusCode::BAD_REQUEST, e.to_string()).into_response();
     };
 
-    if let Err(e) = participant
-        .write_to_database(&password, &state.db, _claims.university)
-        .await
-    {
+    if let Err(e) = participant.write_to_database(&password, &state.db).await {
         return (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()).into_response();
     };
 
