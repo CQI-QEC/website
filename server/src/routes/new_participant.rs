@@ -21,8 +21,7 @@ pub async fn new_participant(
         .send_email(
             "Inscription CQI/QEC 2025",
             format!(
-                r#"
-Bienvenue {} {},
+                r#"Bienvenue {} {},
 Vous avez été inscrit à la compétition CQI/QEC 2025.
 Votre courriel est : {}
 Votre mot de passe est : {}
@@ -34,8 +33,7 @@ You have been registered for the CQI/QEC 2025 competition.
 Your email is : {}
 Your password is : {}
 You can log in at the following address :
-https://cqi-qec.qc.ca/login
-        "#,
+https://cqi-qec.qc.ca/login"#,
                 &participant.first_name,
                 &participant.last_name,
                 &participant.email,

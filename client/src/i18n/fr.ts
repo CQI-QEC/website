@@ -96,6 +96,8 @@ const loginPage = {
     email: "Courriel",
     password: "Mot de passe",
     signIn: "Se connecter",
+    forgotPassword: "Mot de passe oublié?",
+    resetEmailSent: "Courriel de réinitialisation envoyé",
 }
 
 const additionalInfo = {

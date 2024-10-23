@@ -96,6 +96,8 @@ const loginPage = {
     email: "Email",
     password: "Password",
     signIn: "Sign in",
+    forgotPassword: "Forgot password?",
+    resetEmailSent: "An email has been sent to reset your password.",
 }
 
 const additionalInfo = {

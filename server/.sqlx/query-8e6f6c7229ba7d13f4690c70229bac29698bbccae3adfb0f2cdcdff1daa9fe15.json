@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "SELECT id, role AS \"role: Role\", university FROM participants WHERE email = $1",
+  "query": "SELECT id, role AS \"role: Role\", university AS \"university: University\" FROM participants WHERE email = $1",
   "describe": {
     "columns": [
       {
@@ -27,7 +27,7 @@
       },
       {
         "ordinal": 2,
-        "name": "university",
+        "name": "university: University",
         "type_info": "Text"
       }
     ],
@@ -42,5 +42,5 @@
       false
     ]
   },
-  "hash": "e08b705c8f710fe9496a9b72c258fed4cd4c7952a9c5cb2a6f8e5564758c3fce"
+  "hash": "8e6f6c7229ba7d13f4690c70229bac29698bbccae3adfb0f2cdcdff1daa9fe15"
 }

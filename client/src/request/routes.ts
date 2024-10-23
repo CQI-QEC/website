@@ -1,5 +1,6 @@
 import { AuthPayload } from "../binding/AuthPayload"
 import { ChangePasswordPayload } from "../binding/ChangePasswordPayload"
+import { EmailResetPayload } from "../binding/EmailResetPayload"
 import { MinimalParticipant } from "../binding/MinimalParticipant"
 import { ParticipantPreview } from "../binding/ParticipantPreview"
 import {
@@ -48,4 +49,8 @@ export async function testAuth() {
         return { error: "No token" }
     }
     return await request.json()
+}
+
+export async function resetEmail(email: EmailResetPayload) {
+    return await fetch_post_no_token("/password", email)
 }
