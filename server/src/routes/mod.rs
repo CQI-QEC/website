@@ -25,11 +25,14 @@ pub fn api_router(state: SharedState) -> Router {
         )
         .route(
             "/participant/:id",
-            delete(delete_participant::delete_participant),
+            delete(delete_participant::delete_participant).get(get_participant::get_participant),
         )
         .route("/participants", get(get_participants::get_participants))
         .route("/login", post(login::login))
         .route("/test", get(test_token::test_token))
-        .route("/password", put(change_password::change_password).post(send_email_reset::send_email_reset))
+        .route(
+            "/password",
+            put(change_password::change_password).post(send_email_reset::send_email_reset),
+        )
         .with_state(state)
 }

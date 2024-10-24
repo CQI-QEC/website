@@ -4,6 +4,8 @@ CREATE TYPE COMPETITION AS ENUM ('none', 'conception_senior', 'conception_junior
 
 CREATE TYPE UNIVERSITY AS ENUM ('uqac', 'uqar', 'uqat', 'uqo', 'uqtr', 'mcgill', 'mcgill_macdonald', 'concordia', 'ets', 'polymtl', 'ulaval', 'ulaval-agriculture', 'uds', 'none');
 
+CREATE TYPE TSHIRT_SIZE AS ENUM ('xs', 's', 'm', 'l', 'xl', 'xxl');
+
 CREATE TABLE participants (
     id UUID PRIMARY KEY,
     role ROLE NOT NULL,
@@ -19,7 +21,7 @@ CREATE TABLE participants (
     is_vegetarian BOOLEAN,
     pronouns TEXT,
     phone_number TEXT,
-    tshirt_size TEXT,
+    tshirt_size TSHIRT_SIZE,
     comments TEXT,
     emergency_contact TEXT,
     has_monthly_opus_card BOOLEAN,

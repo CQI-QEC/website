@@ -17,6 +17,9 @@ export function ProtectedRoute(props: ProtectedRouteProps) {
             localStorage.removeItem("token")
             navigate("/login")
         }
+        localStorage.setItem("id", response.id)
+        localStorage.setItem("role", response.role)
+        localStorage.setItem("university", response.university)
     })
 
     return <>{props.children}</>

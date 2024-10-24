@@ -42,7 +42,7 @@ export function FileInput(props: FileInputProps) {
     )
 
     return (
-        <div class={clsx("px-8 lg:px-10", props.class)}>
+        <div>
             <InputLabel
                 name={props.name}
                 label={props.label}

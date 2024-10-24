@@ -1,4 +1,4 @@
-import { Info, PlusCircle, Trash } from "phosphor-solid-js"
+import { PlusCircle, Trash } from "phosphor-solid-js"
 import { MinimalParticipant } from "../../binding/MinimalParticipant"
 import { createResource, For } from "solid-js"
 import { createForm } from "@modular-forms/solid"
@@ -30,12 +30,12 @@ function ParticipantRow(props: ParticipantRowProps) {
             <td class="p-2 text-center">{p.competition}</td>
             <td class="p-2 text-center">{p.role}</td>
             <td class="flex flex-row gap-4 p-2 text-center">
-                <button
+                {/* <button
                     type="button"
                     class="rounded bg-blue-500 p-1 font-bold text-white hover:bg-blue-700"
                 >
                     <Info class="h-8 w-8"></Info>
-                </button>
+                </button> */}
                 <button
                     type="button"
                     class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700"

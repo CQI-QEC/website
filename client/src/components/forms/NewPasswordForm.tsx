@@ -3,15 +3,19 @@ import { ChangePasswordPayload } from "../../binding/ChangePasswordPayload"
 import { changePassword } from "../../request/routes"
 import { TextInput } from "../forms-component/TextInput"
 import { SubmitError } from "../forms-component/SubmitError"
-import { createSignal } from "solid-js"
+import { createEffect, createSignal } from "solid-js"
 
 export function NewPassword() {
     const [_form, { Form, Field }] = createForm<ChangePasswordPayload>()
     const [error, setError] = createSignal<string | null>(null)
 
     const onSubmit = async (data: ChangePasswordPayload) => {
-        await changePassword(data)
+        const response = await changePassword(data)
+        if (response.error) {
+            setError("Erreur lors du changement de mot de passe")
+        }
     }
+    createEffect(async () => {})
     return (
         <Form onSubmit={onSubmit} class="flex flex-col gap-8">
             <Field name="new_password">

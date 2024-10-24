@@ -4,7 +4,7 @@ use axum::response::IntoResponse;
 use axum::Json;
 use uuid::Uuid;
 
-use crate::model::participant::Participant;
+use crate::model::participant_info::ParticipantInfo;
 use crate::{auth::claims::Claims, model::role::Role, SharedState};
 
 pub async fn get_participant(
@@ -14,7 +14,7 @@ pub async fn get_participant(
 ) -> impl IntoResponse {
     match claims.role {
         Role::Organizer | Role::Volunteer => {
-            match Participant::get_participant(id, &state.db).await {
+            match ParticipantInfo::get_participant(id, &state.db).await {
                 Ok(participant) => (StatusCode::OK, Json(participant)).into_response(),
                 Err(e) => {
                     tracing::error!("Failed to get participant: {}", e);
@@ -23,7 +23,7 @@ pub async fn get_participant(
             }
         }
         Role::Chef => {
-            match Participant::get_participant_with_university(id, claims.university, &state.db)
+            match ParticipantInfo::get_participant_with_university(id, claims.university, &state.db)
                 .await
             {
                 Ok(participant) => (StatusCode::OK, Json(participant)).into_response(),
@@ -35,7 +35,7 @@ pub async fn get_participant(
         }
         Role::Participant => {
             if id == claims.id {
-                match Participant::get_participant(id, &state.db).await {
+                match ParticipantInfo::get_participant(id, &state.db).await {
                     Ok(participant) => (StatusCode::OK, Json(participant)).into_response(),
                     Err(e) => {
                         tracing::error!("Failed to get participant: {}", e);

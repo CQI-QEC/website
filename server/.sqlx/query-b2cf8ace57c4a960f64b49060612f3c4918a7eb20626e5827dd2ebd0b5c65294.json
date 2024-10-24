@@ -10,7 +10,21 @@
         "Bool",
         "Text",
         "Text",
-        "Text",
+        {
+          "Custom": {
+            "name": "tshirt_size",
+            "kind": {
+              "Enum": [
+                "xs",
+                "s",
+                "m",
+                "l",
+                "xl",
+                "xxl"
+              ]
+            }
+          }
+        },
         "Text",
         "Text",
         "Bool",

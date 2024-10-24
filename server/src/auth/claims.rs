@@ -9,13 +9,15 @@ use chrono::Utc;
 use jsonwebtoken::{decode, Validation};
 use serde::{Deserialize, Serialize};
 use sqlx::PgPool;
+use ts_rs::TS;
 use uuid::Uuid;
 
 use crate::KEYS;
 
 use super::auth_error::AuthError;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, TS)]
+#[ts(export)]
 pub struct Claims {
     pub id: Uuid,
     pub role: Role,
