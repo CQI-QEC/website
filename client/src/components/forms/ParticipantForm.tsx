@@ -29,6 +29,9 @@ function ParticipantRow(props: ParticipantRowProps) {
             <td class="p-2 text-center">{p.email}</td>
             <td class="p-2 text-center">{p.competition}</td>
             <td class="p-2 text-center">{p.role}</td>
+            {localStorage.getItem("role") === "organizer" && (
+                <td class="p-2 text-center">{p.university}</td>
+            )}
             <td class="flex flex-row gap-4 p-2 text-center">
                 {/* <button
                     type="button"
@@ -36,13 +39,16 @@ function ParticipantRow(props: ParticipantRowProps) {
                 >
                     <Info class="h-8 w-8"></Info>
                 </button> */}
-                <button
-                    type="button"
-                    class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700"
-                    onClick={deleteParticipantOnClick}
-                >
-                    <Trash class="h-8 w-8"></Trash>
-                </button>
+
+                {localStorage.getItem("role") !== "volunteer" && (
+                    <button
+                        type="button"
+                        class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700"
+                        onClick={deleteParticipantOnClick}
+                    >
+                        <Trash class="h-8 w-8"></Trash>
+                    </button>
+                )}
             </td>
         </tr>
     )
@@ -53,6 +59,43 @@ async function fetchWrapper() {
     const participants = await fetchParticipants()
     console.log(participants)
     return participants
+}
+
+function getGivableRole() {
+    const role = localStorage.getItem("role")
+    if (role == "organizer") {
+        return [
+            {
+                label: "CO/Directeur",
+                value: "organizer",
+            },
+            {
+                label: "Volontaire",
+                value: "volunteer",
+            },
+            {
+                label: "Chef",
+                value: "chef",
+            },
+            {
+                label: "Participant",
+                value: "participant",
+            },
+        ]
+    } else if (role == "chef") {
+        return [
+            {
+                label: "Chef",
+                value: "chef",
+            },
+            {
+                label: "Participant",
+                value: "participant",
+            },
+        ]
+    } else {
+        return []
+    }
 }
 
 export default function ParticipantForm() {
@@ -84,6 +127,11 @@ export default function ParticipantForm() {
                         <th class="border-b border-gray-300 p-2 text-center">
                             Rôle
                         </th>
+                        {localStorage.getItem("role") === "organizer" && (
+                            <th class="border-b border-gray-300 p-2 text-center">
+                                Université
+                            </th>
+                        )}
                         <th class="border-b border-gray-300 p-2 text-center">
                             Actions
                         </th>
@@ -98,141 +146,198 @@ export default function ParticipantForm() {
                             />
                         )}
                     </For>
-                    <tr class="border-b border-gray-200">
-                        <td class="p-2">
-                            <Field name="first_name">
-                                {(field, props) => (
-                                    <TextInput
-                                        {...props}
-                                        value={field.value}
-                                        error={field.error}
-                                        class="w-52"
-                                        type="text"
-                                        placeholder="Prénom"
-                                        required
-                                    />
-                                )}
-                            </Field>
-                        </td>
-                        <td class="p-2">
-                            <Field name="last_name">
-                                {(field, props) => (
-                                    <TextInput
-                                        {...props}
-                                        value={field.value}
-                                        error={field.error}
-                                        class="w-52"
-                                        type="text"
-                                        placeholder="Nom"
-                                        required
-                                    />
-                                )}
-                            </Field>
-                        </td>
-                        <td class="p-2">
-                            <Field name="email">
-                                {(field, props) => (
-                                    <TextInput
-                                        {...props}
-                                        value={field.value}
-                                        error={field.error}
-                                        type="email"
-                                        placeholder="exemple@courriel.com"
-                                        required
-                                    />
-                                )}
-                            </Field>
-                        </td>
-                        <td class="p-2">
-                            <Field name="competition">
-                                {(field, props) => (
-                                    <Select
-                                        {...props}
-                                        value={field.value}
-                                        error={field.error}
-                                        options={[
-                                            {
-                                                label: "Aucune",
-                                                value: "none",
-                                            },
-                                            {
-                                                label: "Conception Senior",
-                                                value: "conception_senior",
-                                            },
-                                            {
-                                                label: "Conception Junior",
-                                                value: "conception_junior",
-                                            },
-                                            {
-                                                label: "Débats oratoires",
-                                                value: "debats_oratoires",
-                                            },
-                                            {
-                                                label: "Reingénierie",
-                                                value: "reingenierie",
-                                            },
-                                            {
-                                                label: "Génie Conseil",
-                                                value: "genie_conseil",
-                                            },
-                                            {
-                                                label: "Communication Scientifique",
-                                                value: "communication_scientifique",
-                                            },
-                                            {
-                                                label: "Programmation",
-                                                value: "programmation",
-                                            },
-                                            {
-                                                label: "Conception innovatrice",
-                                                value: "conception_innovatrice",
-                                            },
-                                            {
-                                                label: "Cycle supérieur",
-                                                value: "cycle_superieur",
-                                            },
-                                        ]}
-                                        required
-                                    />
-                                )}
-                            </Field>
-                        </td>
-                        <td class="p-2">
-                            <Field name="role">
-                                {(field, props) => (
-                                    <Select
-                                        {...props}
-                                        value={field.value}
-                                        error={field.error}
-                                        options={[
-                                            {
-                                                label: "CO/Directeur",
-                                                value: "organizer",
-                                            },
-                                            {
-                                                label: "Volontaire",
-                                                value: "volunteer",
-                                            },
-                                            {
-                                                label: "Chef",
-                                                value: "chef",
-                                            },
-                                            {
-                                                label: "Participant",
-                                                value: "participant",
-                                            },
-                                        ]}
-                                        required
-                                    />
-                                )}
-                            </Field>
-                        </td>
-                        <td class="p-2">
-                            <button class="rounded bg-green-500 p-1 font-bold text-white hover:bg-green-700">
-                                <PlusCircle class="h-8 w-8"></PlusCircle>
-                            </button>
-                        </td>
-                    </tr>
+                    {localStorage.getItem("role") !== "volunteer" && (
+                        <tr class="border-b border-gray-200">
+                            <td class="p-2">
+                                <Field name="first_name">
+                                    {(field, props) => (
+                                        <TextInput
+                                            {...props}
+                                            value={field.value}
+                                            error={field.error}
+                                            class="w-52"
+                                            type="text"
+                                            placeholder="Prénom"
+                                            required
+                                        />
+                                    )}
+                                </Field>
+                            </td>
+                            <td class="p-2">
+                                <Field name="last_name">
+                                    {(field, props) => (
+                                        <TextInput
+                                            {...props}
+                                            value={field.value}
+                                            error={field.error}
+                                            class="w-52"
+                                            type="text"
+                                            placeholder="Nom"
+                                            required
+                                        />
+                                    )}
+                                </Field>
+                            </td>
+                            <td class="p-2">
+                                <Field name="email">
+                                    {(field, props) => (
+                                        <TextInput
+                                            {...props}
+                                            value={field.value}
+                                            error={field.error}
+                                            type="email"
+                                            placeholder="exemple@courriel.com"
+                                            required
+                                        />
+                                    )}
+                                </Field>
+                            </td>
+                            <td class="p-2">
+                                <Field name="competition">
+                                    {(field, props) => (
+                                        <Select
+                                            {...props}
+                                            value={field.value}
+                                            error={field.error}
+                                            options={[
+                                                {
+                                                    label: "Aucune",
+                                                    value: "none",
+                                                },
+                                                {
+                                                    label: "Conception Senior",
+                                                    value: "conception_senior",
+                                                },
+                                                {
+                                                    label: "Conception Junior",
+                                                    value: "conception_junior",
+                                                },
+                                                {
+                                                    label: "Débats oratoires",
+                                                    value: "debats_oratoires",
+                                                },
+                                                {
+                                                    label: "Reingénierie",
+                                                    value: "reingenierie",
+                                                },
+                                                {
+                                                    label: "Génie Conseil",
+                                                    value: "genie_conseil",
+                                                },
+                                                {
+                                                    label: "Communication Scientifique",
+                                                    value: "communication_scientifique",
+                                                },
+                                                {
+                                                    label: "Programmation",
+                                                    value: "programmation",
+                                                },
+                                                {
+                                                    label: "Conception innovatrice",
+                                                    value: "conception_innovatrice",
+                                                },
+                                                {
+                                                    label: "Cycle supérieur",
+                                                    value: "cycle_superieur",
+                                                },
+                                            ]}
+                                            required
+                                        />
+                                    )}
+                                </Field>
+                            </td>
+                            <td class="p-2">
+                                <Field name="role">
+                                    {(field, props) => (
+                                        <Select
+                                            {...props}
+                                            value={field.value}
+                                            error={field.error}
+                                            options={getGivableRole()}
+                                            required
+                                        />
+                                    )}
+                                </Field>
+                            </td>
+                            {localStorage.getItem("role") === "organizer" && (
+                                <td class="p-2">
+                                    <Field name="university">
+                                        {(field, props) => (
+                                            <Select
+                                                {...props}
+                                                value="none"
+                                                error={field.error}
+                                                options={[
+                                                    {
+                                                        label: "UQAC",
+                                                        value: "uqac",
+                                                    },
+                                                    {
+                                                        label: "UQAR",
+                                                        value: "uqar",
+                                                    },
+                                                    {
+                                                        label: "UQAT",
+                                                        value: "uqat",
+                                                    },
+                                                    {
+                                                        label: "UQO",
+                                                        value: "uqo",
+                                                    },
+                                                    {
+                                                        label: "UQTR",
+                                                        value: "uqtr",
+                                                    },
+                                                    {
+                                                        label: "McGill",
+                                                        value: "mcgill",
+                                                    },
+                                                    {
+                                                        label: "McGill Macdonald",
+                                                        value: "mcgill_macdonald",
+                                                    },
+                                                    {
+                                                        label: "Concordia",
+                                                        value: "concordia",
+                                                    },
+                                                    {
+                                                        label: "ETS",
+                                                        value: "ets",
+                                                    },
+                                                    {
+                                                        label: "PolyMTL",
+                                                        value: "polymtl",
+                                                    },
+                                                    {
+                                                        label: "ULaval",
+                                                        value: "ulaval",
+                                                    },
+                                                    {
+                                                        label: "ULaval Agroalimentaire",
+                                                        value: "ulaval-agriculture",
+                                                    },
+                                                    {
+                                                        label: "UDS",
+                                                        value: "uds",
+                                                    },
+                                                    {
+                                                        label: "Aucune",
+                                                        value: "none",
+                                                    },
+                                                ]}
+                                                required
+                                            />
+                                        )}
+                                    </Field>
+                                </td>
+                            )}
+                            <td class="p-2">
+                                <button class="rounded bg-green-500 p-1 font-bold text-white hover:bg-green-700">
+                                    <PlusCircle class="h-8 w-8"></PlusCircle>
+                                </button>
+                            </td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
         </Form>

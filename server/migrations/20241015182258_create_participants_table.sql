@@ -14,7 +14,7 @@ CREATE TABLE participants (
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     competition COMPETITION NOT NULL,
-    university TEXT NOT NULL,
+    university UNIVERSITY NOT NULL,
     medical_conditions TEXT,
     allergies TEXT,
     supper TEXT,

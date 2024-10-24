@@ -1,7 +1,11 @@
 use axum::{extract::State, http::StatusCode, response::IntoResponse, Json};
 use rand::distributions::{Alphanumeric, DistString};
 
-use crate::{auth::claims::Claims, model::minimal_participant::MinimalParticipant, SharedState};
+use crate::{
+    auth::claims::Claims,
+    model::{minimal_participant::MinimalParticipant, role::Role},
+    SharedState,
+};
 
 pub async fn new_participant(
     claims: Claims,
@@ -10,7 +14,14 @@ pub async fn new_participant(
 ) -> impl IntoResponse {
     let password = Alphanumeric.sample_string(&mut rand::thread_rng(), 16);
 
-    if participant.university != claims.university {
+    if claims.role == Role::Volunteer || claims.role == Role::Participant {
+        return (StatusCode::FORBIDDEN, "Forbidden").into_response();
+    }
+
+    if claims.role == Role::Chef
+        && ((participant.role == Role::Organizer || participant.role == Role::Volunteer)
+            || participant.university != claims.university)
+    {
         return (StatusCode::FORBIDDEN, "Forbidden").into_response();
     }
 

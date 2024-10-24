@@ -42,7 +42,29 @@
             }
           }
         },
-        "Text"
+        {
+          "Custom": {
+            "name": "university",
+            "kind": {
+              "Enum": [
+                "uqac",
+                "uqar",
+                "uqat",
+                "uqo",
+                "uqtr",
+                "mcgill",
+                "mcgill_macdonald",
+                "concordia",
+                "ets",
+                "polymtl",
+                "ulaval",
+                "ulaval-agriculture",
+                "uds",
+                "none"
+              ]
+            }
+          }
+        }
       ]
     },
     "nullable": []

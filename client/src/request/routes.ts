@@ -25,7 +25,11 @@ export async function fetchParticipants() {
 export async function submitMinimalParticipant(
     participant: MinimalParticipant,
 ) {
-    return await fetch_post("/participant", participant)
+    const payload: any = participant
+    if (localStorage.getItem("role") == "chef") {
+        payload.university = localStorage.getItem("university")
+    }
+    return await fetch_post("/participant", payload)
 }
 
 export async function deleteParticipant(p: ParticipantPreview) {
