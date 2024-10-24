@@ -96,6 +96,30 @@ const loginPage = {
     email: "Email",
     password: "Password",
     signIn: "Sign in",
+    forgotPassword: "Forgot password?",
+    resetEmailSent: "An email has been sent to reset your password.",
+}
+
+const additionalInfo = {
+    medicalConditions: "Medical conditions",
+    medicalConditionsLabel:
+        "Please specify any medical conditions that we should be aware of.",
+    allergies: "Allergies",
+    allergiesLabel: "Please specify any allergies that we should be aware of.",
+    pronouns: "Pronouns",
+    pronounsLabel: "Please specify your pronouns.",
+    vegetarianLabel: "Are you vegetarian?",
+    phoneNumber: "Phone number",
+    phoneNumberLabel: "Please specify your phone number.",
+    tshirtSize: "T-shirt size",
+    emergencyContact: "Emergency contact",
+    emergencyContactLabel: "Please specify your emergency contact.",
+    hasMonthlyOpusCard: "Do you have a monthly OPUS card?",
+    reducedMobilityLabel: "Any acommodation for reduced mobility?",
+    reducedMobility: "What do you need?",
+    studyProofLabel: "Study proof",
+    photoLabel: "Photo",
+    cvLabel: "CV",
 }
 
 export const dict = {
@@ -109,5 +133,6 @@ export const dict = {
     documents: documents,
     login: "Login",
     loginPage: loginPage,
+    additionalInfo: additionalInfo,
     madeBy: "Made by",
 }

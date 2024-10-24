@@ -1,5 +1,8 @@
 use backend_cqi::{
-    model::{competition::Competition, minimal_participant::MinimalParticipant, role::Role},
+    model::{
+        competition::Competition, minimal_participant::MinimalParticipant, role::Role,
+        university::University,
+    },
     Result,
 };
 use rand::distributions::{Alphanumeric, DistString};
@@ -18,10 +21,9 @@ async fn main() -> Result<()> {
         email: "mamanningham@cqi-qec.qc.ca".to_string(),
         competition: Competition::None,
         role: Role::Organizer,
+        university: University::Polymtl,
     };
-    participant
-        .write_to_database(&password, &db, "".to_string())
-        .await?;
+    participant.write_to_database(&password, &db).await?;
     println!("Password: {}", password);
     Ok(())
 }

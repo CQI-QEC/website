@@ -21,11 +21,8 @@ pub async fn get_participants(
             }
         }
         Role::Chef => {
-            match ParticipantPreview::get_participants_from_university(
-                &state.db,
-                &claims.university,
-            )
-            .await
+            match ParticipantPreview::get_participants_from_university(&state.db, claims.university)
+                .await
             {
                 Ok(participants) => return (StatusCode::OK, Json(participants)).into_response(),
                 Err(e) => {

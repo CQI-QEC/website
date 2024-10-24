@@ -3,7 +3,7 @@ use sqlx::PgPool;
 use ts_rs::TS;
 use uuid::Uuid;
 
-use super::{competition::Competition, role::Role};
+use super::{competition::Competition, role::Role, university::University};
 
 #[derive(Debug, Serialize, Deserialize, TS, sqlx::FromRow)]
 #[ts(export)]
@@ -14,13 +14,14 @@ pub struct ParticipantPreview {
     pub email: String,
     pub role: Role,
     pub competition: Competition,
+    pub university: University,
     pub contain_cv: bool,
 }
 
 impl ParticipantPreview {
     pub async fn get_participants(db: &PgPool) -> Result<Vec<Self>, sqlx::Error> {
         sqlx::query_as::<_, Self>(
-            r#"SELECT id, first_name, last_name, email, role, competition, cv IS NOT NULL as contain_cv FROM participants"#
+            r#"SELECT id, first_name, last_name, email, role, competition, university, cv IS NOT NULL as contain_cv FROM participants"#
         )
         .fetch_all(db)
         .await
@@ -28,9 +29,9 @@ impl ParticipantPreview {
 
     pub async fn get_participants_from_university(
         db: &PgPool,
-        university: &str,
+        university: University,
     ) -> Result<Vec<Self>, sqlx::Error> {
-        sqlx::query_as("SELECT * FROM participants WHERE university_name = $1")
+        sqlx::query_as("SELECT id, first_name, last_name, email, role, competition, university, cv IS NOT NULL as contain_cv FROM participants WHERE university = $1 AND (role = 'participant' OR role = 'chef')")
             .bind(university)
             .fetch_all(db)
             .await

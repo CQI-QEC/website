@@ -96,6 +96,31 @@ const loginPage = {
     email: "Courriel",
     password: "Mot de passe",
     signIn: "Se connecter",
+    forgotPassword: "Mot de passe oublié?",
+    resetEmailSent: "Courriel de réinitialisation envoyé",
+}
+
+const additionalInfo = {
+    medicalConditions: "Conditions médicales",
+    medicalConditionsLabel:
+        "Veuillez spécifier toute condition médicale dont nous devrions être informés.",
+    allergies: "Allergies",
+    allergiesLabel:
+        "Veuillez spécifier toute allergie dont nous devrions être informés.",
+    pronouns: "Pronoms",
+    pronounsLabel: "Veuillez spécifier vos pronoms.",
+    vegetarianLabel: "Êtes-vous végétarien?",
+    phoneNumber: "Numéro de téléphone",
+    phoneNumberLabel: "Veuillez spécifier votre numéro de téléphone.",
+    tshirtSize: "Taille de T-shirt",
+    emergencyContact: "Contact d'urgence",
+    emergencyContactLabel: "Veuillez spécifier votre contact d'urgence.",
+    hasMonthlyOpusCard: "Avez-vous une carte OPUS mensuelle?",
+    reducedMobilityLabel: "Besoin d'aménagement pour mobilité réduite?",
+    reducedMobility: "Qu'avez-vous besoin?",
+    studyProofLabel: "Preuve d'études",
+    photoLabel: "Photo",
+    cvLabel: "CV",
 }
 
 export const dict = {
@@ -110,4 +135,5 @@ export const dict = {
     login: "Connexion",
     madeBy: "Créé par",
     loginPage: loginPage,
+    additionalInfo: additionalInfo,
 }

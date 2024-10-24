@@ -1,0 +1,68 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id, role AS \"role: Role\", university AS \"university: University\" FROM participants WHERE email = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "role: Role",
+        "type_info": {
+          "Custom": {
+            "name": "role",
+            "kind": {
+              "Enum": [
+                "participant",
+                "organizer",
+                "volunteer",
+                "chef"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "university: University",
+        "type_info": {
+          "Custom": {
+            "name": "university",
+            "kind": {
+              "Enum": [
+                "uqac",
+                "uqar",
+                "uqat",
+                "uqo",
+                "uqtr",
+                "mcgill",
+                "mcgill_macdonald",
+                "concordia",
+                "ets",
+                "polymtl",
+                "ulaval",
+                "ulaval-agriculture",
+                "uds",
+                "none"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "8e6f6c7229ba7d13f4690c70229bac29698bbccae3adfb0f2cdcdff1daa9fe15"
+}

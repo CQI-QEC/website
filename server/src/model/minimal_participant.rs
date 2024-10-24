@@ -5,7 +5,7 @@ use sqlx::PgPool;
 use ts_rs::TS;
 use uuid::Uuid;
 
-use super::{competition::Competition, role::Role};
+use super::{competition::Competition, role::Role, university::University};
 
 #[derive(Debug, Serialize, Deserialize, TS, sqlx::FromRow)]
 #[ts(export)]
@@ -14,6 +14,7 @@ pub struct MinimalParticipant {
     pub last_name: String,
     pub email: String,
     pub competition: Competition,
+    pub university: University,
     pub role: Role,
 }
 
@@ -24,12 +25,7 @@ impl MinimalParticipant {
             .await
     }
 
-    pub async fn write_to_database(
-        &self,
-        password: &str,
-        db: &PgPool,
-        university: String,
-    ) -> Result<(), sqlx::Error> {
+    pub async fn write_to_database(&self, password: &str, db: &PgPool) -> Result<(), sqlx::Error> {
         let id = Uuid::new_v4();
         tracing::info!("Generated password: {}", password); // TODO: remove this debug line
         let salt = SaltString::generate(&mut OsRng);
@@ -48,7 +44,7 @@ impl MinimalParticipant {
             self.first_name,
             self.last_name,
             self.competition as Competition,
-            university
+            self.university as University
         )
         .execute(db)
         .await?;

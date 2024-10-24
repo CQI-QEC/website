@@ -1,5 +1,6 @@
 import { JSX, splitProps } from "solid-js"
 import { InputError } from "./InputError"
+import clsx from "clsx"
 
 type CheckboxProps = {
     ref: (element: HTMLInputElement) => void

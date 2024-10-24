@@ -1,14 +1,7 @@
 use axum::{http::StatusCode, response::IntoResponse, Json};
-use serde::{Deserialize, Serialize};
 
-use crate::{auth::claims::Claims, model::role::Role};
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct AuthResponse {
-    pub role: Role,
-}
+use crate::auth::claims::Claims;
 
 pub async fn test_token(claims: Claims) -> impl IntoResponse {
-    let auth = AuthResponse { role: claims.role };
-    (StatusCode::OK, Json(auth)).into_response()
+    (StatusCode::OK, Json(claims)).into_response()
 }

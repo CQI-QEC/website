@@ -37,9 +37,14 @@ export default function Dashboard() {
                     <PrefetchLink to="/additional-form" file="AdditionalForm">
                         <BigButton text="Changer mes renseignements personnels" />
                     </PrefetchLink>
-                    <PrefetchLink to="/list-participant" file="ListParticipant">
-                        <BigButton text="Liste des participants" />
-                    </PrefetchLink>
+                    {localStorage.getItem("role") !== "participant" && (
+                        <PrefetchLink
+                            to="/list-participant"
+                            file="ListParticipant"
+                        >
+                            <BigButton text="Liste des participants" />
+                        </PrefetchLink>
+                    )}
                     <PrefetchLink to="/change-password" file="ChangePassword">
                         <BigButton text="Changer le mot de passe" />
                     </PrefetchLink>

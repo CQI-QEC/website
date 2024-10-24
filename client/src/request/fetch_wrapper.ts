@@ -72,6 +72,7 @@ export async function fetch_patch(url: string, body: any) {
     return await fetch(import.meta.env.VITE_API_URL + url, {
         method: "PATCH",
         headers: {
+            "Content-Type": "application/json",
             Authorization: "Bearer " + token,
         },
         body: JSON.stringify(body),

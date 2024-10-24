@@ -1,0 +1,41 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE participants SET (medical_conditions, allergies, is_vegetarian, pronouns, phone_number, tshirt_size, comments, emergency_contact, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)\n                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) WHERE id = $14",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Text",
+        "Bool",
+        "Text",
+        "Text",
+        {
+          "Custom": {
+            "name": "tshirt_size",
+            "kind": {
+              "Enum": [
+                "xs",
+                "s",
+                "m",
+                "l",
+                "xl",
+                "xxl"
+              ]
+            }
+          }
+        },
+        "Text",
+        "Text",
+        "Bool",
+        "Text",
+        "Bytea",
+        "Bytea",
+        "Bytea",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "b2cf8ace57c4a960f64b49060612f3c4918a7eb20626e5827dd2ebd0b5c65294"
+}
