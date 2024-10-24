@@ -7,6 +7,7 @@ import { Select } from "../forms-component/Select"
 import { FileInput } from "../forms-component/FileInput"
 import { getParticipant, patchParticipantInfo } from "../../request/routes"
 import { createEffect } from "solid-js"
+import { t } from "../../stores/locale"
 
 export function AdditionalInfoForm() {
     const navigate = useNavigate()
@@ -37,7 +38,7 @@ export function AdditionalInfoForm() {
 
     return (
         <Form
-            class="space-y-6"
+            class="flex w-1/2 flex-col space-y-6"
             action="#"
             method="post"
             onSubmit={handleSubmit}
@@ -48,9 +49,9 @@ export function AdditionalInfoForm() {
                         {...props}
                         value={field.value || ""}
                         error={field.error}
-                        label="Conditions médicales"
+                        label={t("additionalInfo.medicalConditionsLabel")}
                         type="text"
-                        placeholder="Conditions médicales"
+                        placeholder={t("additionalInfo.medicalConditions")}
                     />
                 )}
             </Field>
@@ -61,9 +62,9 @@ export function AdditionalInfoForm() {
                         {...props}
                         value={field.value || ""}
                         error={field.error}
-                        label="Allergies"
+                        label={t("additionalInfo.allergiesLabel")}
                         type="text"
-                        placeholder="Allergies"
+                        placeholder={t("additionalInfo.allergies")}
                     />
                 )}
             </Field>
@@ -74,9 +75,9 @@ export function AdditionalInfoForm() {
                         {...props}
                         value={field.value || ""}
                         error={field.error}
-                        label="Pronoms"
+                        label={t("additionalInfo.pronounsLabel")}
                         type="text"
-                        placeholder="Pronoms"
+                        placeholder={t("additionalInfo.pronouns")}
                     />
                 )}
             </Field>
@@ -87,7 +88,7 @@ export function AdditionalInfoForm() {
                         {...props}
                         checked={field.value || false}
                         error={field.error}
-                        label="Végétarien(ne)"
+                        label={t("additionalInfo.vegetarianLabel")}
                     />
                 )}
             </Field>
@@ -98,9 +99,9 @@ export function AdditionalInfoForm() {
                         {...props}
                         value={field.value || ""}
                         error={field.error}
-                        label="Numéro de téléphone"
+                        label={t("additionalInfo.phoneNumberLabel")}
                         type="text"
-                        placeholder="Numéro de téléphone"
+                        placeholder={t("additionalInfo.phoneNumber")}
                     />
                 )}
             </Field>
@@ -111,6 +112,7 @@ export function AdditionalInfoForm() {
                         {...props}
                         value={field.value || "m"}
                         error={field.error}
+                        label={t("additionalInfo.tshirtSize")}
                         options={[
                             {
                                 label: "XS",
@@ -141,6 +143,78 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
+            <Field name="emergency_contact">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t("additionalInfo.emergencyContactLabel")}
+                        type="text"
+                        placeholder={t("additionalInfo.emergencyContact")}
+                    />
+                )}
+            </Field>
+
+            <Field name="has_monthly_opus_card" type="boolean">
+                {(field, props) => (
+                    <Checkbox
+                        {...props}
+                        error={field.error}
+                        label={t("additionalInfo.hasMonthlyOpusCard")}
+                    />
+                )}
+            </Field>
+
+            <Field name="reduced_mobility">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t("additionalInfo.reducedMobilityLabel")}
+                        type="text"
+                        placeholder={t("additionalInfo.reducedMobility")}
+                    />
+                )}
+            </Field>
+
+            <Field name="study_proof" type="File">
+                {(field, props) => (
+                    <FileInput
+                        {...props}
+                        value={field.value}
+                        error={field.error}
+                        label={t("additionalInfo.studyProofLabel")}
+                        accept="image/*,.pdf,.doc,.docx,.odt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    />
+                )}
+            </Field>
+
+            <Field name="photo" type="File">
+                {(field, props) => (
+                    <FileInput
+                        {...props}
+                        value={field.value}
+                        error={field.error}
+                        label={t("additionalInfo.photoLabel")}
+                        accept="image/*"
+                    />
+                )}
+            </Field>
+
+            <Field name="cv" type="File">
+                {(field, props) => (
+                    <FileInput
+                        {...props}
+                        value={field.value}
+                        error={field.error}
+                        label={t("additionalInfo.cvLabel")}
+                        accept=".pdf,.doc,.docx,.odt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    />
+                )}
+            </Field>
+
             <Field name="comments">
                 {(field, props) => (
                     <TextInput
@@ -154,82 +228,10 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field name="emergency_contact">
-                {(field, props) => (
-                    <TextInput
-                        {...props}
-                        value={field.value || ""}
-                        error={field.error}
-                        label="Contact d'urgence"
-                        type="text"
-                        placeholder="Contact d'urgence"
-                    />
-                )}
-            </Field>
-
-            <Field name="has_monthly_opus_card" type="boolean">
-                {(field, props) => (
-                    <Checkbox
-                        {...props}
-                        error={field.error}
-                        label="Carte OPUS mensuelle"
-                    />
-                )}
-            </Field>
-
-            <Field name="reduced_mobility">
-                {(field, props) => (
-                    <TextInput
-                        {...props}
-                        value={field.value || ""}
-                        error={field.error}
-                        label="Mobilité réduite"
-                        type="text"
-                        placeholder="Commentaires"
-                    />
-                )}
-            </Field>
-
-            <Field name="study_proof" type="File">
-                {(field, props) => (
-                    <FileInput
-                        {...props}
-                        value={field.value}
-                        error={field.error}
-                        label="Preuve d'études"
-                        accept="image/*,.pdf,.doc,.docx,.odt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    />
-                )}
-            </Field>
-
-            <Field name="photo" type="File">
-                {(field, props) => (
-                    <FileInput
-                        {...props}
-                        value={field.value}
-                        error={field.error}
-                        label="Photo"
-                        accept="image/*"
-                    />
-                )}
-            </Field>
-
-            <Field name="cv" type="File">
-                {(field, props) => (
-                    <FileInput
-                        {...props}
-                        value={field.value}
-                        error={field.error}
-                        label="CV"
-                        accept=".pdf,.doc,.docx,.odt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    />
-                )}
-            </Field>
-
             <div>
                 <button
                     type="submit"
-                    class="flex w-full justify-center rounded-md bg-light-highlight px-3 py-1.5 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight"
+                    class="flex w-full justify-center rounded-md bg-light-highlight px-5 py-4 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight"
                 >
                     Mettre à jour les renseignements personnels
                 </button>

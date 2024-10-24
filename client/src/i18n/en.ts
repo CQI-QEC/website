@@ -109,16 +109,17 @@ const additionalInfo = {
     pronouns: "Pronouns",
     pronounsLabel: "Please specify your pronouns.",
     vegetarianLabel: "Are you vegetarian?",
-    vegetarian: "Vegetarian",
     phoneNumber: "Phone number",
     phoneNumberLabel: "Please specify your phone number.",
+    tshirtSize: "T-shirt size",
     emergencyContact: "Emergency contact",
     emergencyContactLabel: "Please specify your emergency contact.",
     hasMonthlyOpusCard: "Do you have a monthly OPUS card?",
-    reducedMobility: "Any acommodation for reduced mobility?",
-    studyProof: "Study proof",
-    photo: "Photo",
-    cv: "CV",
+    reducedMobilityLabel: "Any acommodation for reduced mobility?",
+    reducedMobility: "What do you need?",
+    studyProofLabel: "Study proof",
+    photoLabel: "Photo",
+    cvLabel: "CV",
 }
 
 export const dict = {

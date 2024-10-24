@@ -45,7 +45,7 @@ export function TextInput(props: TextInputProps) {
     )
 
     return (
-        <div class={clsx(props.class)}>
+        <div class={clsx("w-full", props.class)}>
             <InputLabel
                 name={props.name}
                 label={props.label}

@@ -101,24 +101,26 @@ const loginPage = {
 }
 
 const additionalInfo = {
-    medicalConditions: "Medical conditions",
+    medicalConditions: "Conditions médicales",
     medicalConditionsLabel:
-        "Please specify any medical conditions that we should be aware of.",
+        "Veuillez spécifier toute condition médicale dont nous devrions être informés.",
     allergies: "Allergies",
-    allergiesLabel: "Please specify any allergies that we should be aware of.",
-    pronouns: "Pronouns",
-    pronounsLabel: "Please specify your pronouns.",
-    vegetarianLabel: "Are you vegetarian?",
-    vegetarian: "Vegetarian",
-    phoneNumber: "Phone number",
-    phoneNumberLabel: "Please specify your phone number.",
-    emergencyContact: "Emergency contact",
-    emergencyContactLabel: "Please specify your emergency contact.",
-    hasMonthlyOpusCard: "Do you have a monthly OPUS card?",
-    reducedMobility: "Any acommodation for reduced mobility?",
-    studyProof: "Study proof",
-    photo: "Photo",
-    cv: "CV",
+    allergiesLabel:
+        "Veuillez spécifier toute allergie dont nous devrions être informés.",
+    pronouns: "Pronoms",
+    pronounsLabel: "Veuillez spécifier vos pronoms.",
+    vegetarianLabel: "Êtes-vous végétarien?",
+    phoneNumber: "Numéro de téléphone",
+    phoneNumberLabel: "Veuillez spécifier votre numéro de téléphone.",
+    tshirtSize: "Taille de T-shirt",
+    emergencyContact: "Contact d'urgence",
+    emergencyContactLabel: "Veuillez spécifier votre contact d'urgence.",
+    hasMonthlyOpusCard: "Avez-vous une carte OPUS mensuelle?",
+    reducedMobilityLabel: "Besoin d'aménagement pour mobilité réduite?",
+    reducedMobility: "Qu'avez-vous besoin?",
+    studyProofLabel: "Preuve d'études",
+    photoLabel: "Photo",
+    cvLabel: "CV",
 }
 
 export const dict = {

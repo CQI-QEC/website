@@ -11,7 +11,7 @@ export default function AdditionalForm() {
                         {"Tableau de bord"}
                     </h1>
                 </FixedImage>
-                <div class="-mt-32 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div class="-mt-32 flex flex-col items-center">
                     <AdditionalInfoForm />
                 </div>
             </div>
