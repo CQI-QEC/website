@@ -1,6 +1,7 @@
 import FixedImage from "../components/FixedImage"
 import { AdditionalInfoForm } from "../components/forms/AdditionnalInfoForm"
 import { ProtectedRoute } from "../components/ProtectedRoute"
+import Goback from "../components/ReturnDashboard"
 
 export default function AdditionalForm() {
     return (
@@ -11,7 +12,8 @@ export default function AdditionalForm() {
                         {"Tableau de bord"}
                     </h1>
                 </FixedImage>
-                <div class="-mt-32 flex flex-col items-center">
+                <div class="relative -mt-32 flex w-full flex-col items-center">
+                    <Goback />
                     <AdditionalInfoForm />
                 </div>
             </div>

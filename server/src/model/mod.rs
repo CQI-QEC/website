@@ -1,4 +1,5 @@
 pub mod competition;
+pub mod dietary_restriction;
 pub mod minimal_participant;
 pub mod participant_info;
 pub mod preview_participant;

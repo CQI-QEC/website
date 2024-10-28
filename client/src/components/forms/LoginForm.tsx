@@ -13,6 +13,7 @@ import { SubmitError } from "../forms-component/SubmitError"
 import { createSignal } from "solid-js"
 import { t } from "../../stores/locale"
 import PrefetchLink from "../PrefetchLink"
+import { PasswordInput } from "../forms-component/PasswordInput"
 
 export default function LoginForm() {
     const [_loginForm, { Form, Field }] = createForm<AuthPayload>()
@@ -65,13 +66,11 @@ export default function LoginForm() {
                 ]}
             >
                 {(field, props) => (
-                    <TextInput
+                    <PasswordInput
                         {...props}
                         value={field.value}
                         error={field.error}
-                        type="password"
                         label={t("loginPage.password")}
-                        placeholder="********"
                         required
                     />
                 )}

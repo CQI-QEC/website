@@ -3,6 +3,7 @@ import { createEffect } from "solid-js"
 import { testAuth } from "../request/routes"
 import FixedImage from "../components/FixedImage"
 import { NewPassword } from "../components/forms/NewPasswordForm"
+import Goback from "../components/ReturnDashboard"
 
 export default function ChangePassword() {
     const params = useParams()
@@ -26,7 +27,8 @@ export default function ChangePassword() {
                     Changement de mot de passe
                 </h1>
             </FixedImage>
-            <div class="-mt-32 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+            <div class="relative -mt-32 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+                <Goback />
                 <NewPassword />
             </div>
         </div>

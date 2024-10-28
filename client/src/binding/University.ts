@@ -12,6 +12,6 @@ export type University =
   | "ets"
   | "polymtl"
   | "ulaval"
-  | "ulaval_agriculture"
+  | "drummond"
   | "uds"
   | "none";

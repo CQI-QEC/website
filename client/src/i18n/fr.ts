@@ -109,18 +109,40 @@ const additionalInfo = {
         "Veuillez spécifier toute allergie dont nous devrions être informés.",
     pronouns: "Pronoms",
     pronounsLabel: "Veuillez spécifier vos pronoms.",
-    vegetarianLabel: "Êtes-vous végétarien?",
+    dietaryRestrictions: "Restrictions alimentaires",
     phoneNumber: "Numéro de téléphone",
     phoneNumberLabel: "Veuillez spécifier votre numéro de téléphone.",
     tshirtSize: "Taille de T-shirt",
-    emergencyContact: "Contact d'urgence",
-    emergencyContactLabel: "Veuillez spécifier votre contact d'urgence.",
-    hasMonthlyOpusCard: "Avez-vous une carte OPUS mensuelle?",
+    emergencyContactName: "Nom complet du contact d'urgence",
+    emergencyContactNameLabel: "Veuillez spécifier votre contact d'urgence.",
+    emergencyContactPhone: "Numéro de téléphone d'urgence",
+    emergencyContactPhoneLabel:
+        "Veuillez spécifier le numéro de téléphone de votre contact d'urgence.",
+    emergencyContactRelationship: "Relation avec le contact d'urgence",
+    emergencyContactRelationshipLabel:
+        "Veuillez spécifier la relation avec votre contact d'urgence.",
+    hasMonthlyOpusCard:
+        "Avez-vous une passe OPUS mensuelle pour la région de Montréal?",
     reducedMobilityLabel: "Besoin d'aménagement pour mobilité réduite?",
     reducedMobility: "Qu'avez-vous besoin?",
-    studyProofLabel: "Preuve d'études",
-    photoLabel: "Photo",
-    cvLabel: "CV",
+    studyProofLabel:
+        "Preuve d'études avec nombre de crédits (pdf/jpg/jpeg/png)",
+    photoLabel: "Photo (png/jpg/jpeg)",
+    cvLabel: "CV (pdf/docx/odt)",
+    success: "Informations ajoutées avec succès",
+    error: "Erreur lors de l'ajout des informations",
+}
+
+const dashboard = {
+    dashboard: "Tableau de bord",
+    goback: "Retour",
+}
+
+const participantsList = {
+    confirmDelete: "Êtes-vous sûr de vouloir supprimer cette personne?",
+    delete: "Supprimer",
+    cancel: "Annuler",
+    confirmDeleteTitle: "Confirmer la suppression",
 }
 
 export const dict = {
@@ -135,5 +157,7 @@ export const dict = {
     login: "Connexion",
     madeBy: "Créé par",
     loginPage: loginPage,
+    dashboard: dashboard,
+    participantsList: participantsList,
     additionalInfo: additionalInfo,
 }

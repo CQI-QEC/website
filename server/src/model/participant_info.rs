@@ -7,7 +7,9 @@ use uuid::Uuid;
 
 use crate::utility::{deserialize_base64, serialize_base64};
 
-use super::{tshirt_size::TshirtSize, university::University};
+use super::{
+    dietary_restriction::DietaryRestriction, tshirt_size::TshirtSize, university::University,
+};
 
 #[derive(Debug, Serialize, Deserialize, sqlx::FromRow, TS)]
 #[ts(export)]
@@ -16,11 +18,13 @@ pub struct ParticipantInfo {
     pub allergies: Option<String>,
     pub pronouns: Option<String>,
     pub supper: Option<String>,
-    pub is_vegetarian: Option<bool>,
     pub phone_number: Option<String>,
     pub tshirt_size: Option<TshirtSize>,
     pub comments: Option<String>,
-    pub emergency_contact: Option<String>,
+    pub dietary_restrictions: Option<DietaryRestriction>,
+    pub emergency_contact_name: Option<String>,
+    pub emergency_contact_phone: Option<String>,
+    pub emergency_contact_relationship: Option<String>,
     pub has_monthly_opus_card: Option<bool>,
     pub reduced_mobility: Option<String>,
     #[serde(
@@ -65,16 +69,18 @@ impl ParticipantInfo {
 
     pub async fn write_to_database(&self, id: Uuid, db: &PgPool) -> Result<(), sqlx::Error> {
         sqlx::query!(
-                r#"UPDATE participants SET (medical_conditions, allergies, is_vegetarian, pronouns, phone_number, tshirt_size, comments, emergency_contact, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)
-                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) WHERE id = $14"#,
+                r#"UPDATE participants SET (medical_conditions, allergies, pronouns, phone_number, tshirt_size, comments, dietary_restrictions, emergency_contact_name, emergency_contact_phone, emergency_contact_relationship, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)
+                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) WHERE id = $16"#,
                 self.medical_conditions,
                 self.allergies,
-                self.is_vegetarian,
                 self.pronouns,
                 self.phone_number,
                 self.tshirt_size as Option<TshirtSize>,
                 self.comments,
-                self.emergency_contact,
+                self.dietary_restrictions as Option<DietaryRestriction>,
+                self.emergency_contact_name,
+                self.emergency_contact_phone,
+                self.emergency_contact_relationship,
                 self.has_monthly_opus_card,
                 self.reduced_mobility,
                 self.study_proof,

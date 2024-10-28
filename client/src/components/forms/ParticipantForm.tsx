@@ -1,6 +1,6 @@
 import { PlusCircle, Trash } from "phosphor-solid-js"
 import { MinimalParticipant } from "../../binding/MinimalParticipant"
-import { createResource, For } from "solid-js"
+import { createResource, For, createSignal } from "solid-js"
 import { createForm } from "@modular-forms/solid"
 import { Select } from "../forms-component/Select"
 import { TextInput } from "../forms-component/TextInput"
@@ -10,6 +10,7 @@ import {
     fetchParticipants,
     submitMinimalParticipant,
 } from "../../request/routes"
+import { t } from "../../stores/locale"
 
 interface ParticipantRowProps {
     participant: ParticipantPreview
@@ -18,39 +19,60 @@ interface ParticipantRowProps {
 
 function ParticipantRow(props: ParticipantRowProps) {
     const p = props.participant
+    const [isModalOpen, setIsModalOpen] = createSignal(false)
+
     const deleteParticipantOnClick = async () => {
         await deleteParticipant(p)
         props.refetch()
+        setIsModalOpen(false)
     }
-    return (
-        <tr class="border-b border-gray-200">
-            <td class="p-2 text-center">{p.first_name}</td>
-            <td class="p-2 text-center">{p.last_name}</td>
-            <td class="p-2 text-center">{p.email}</td>
-            <td class="p-2 text-center">{p.competition}</td>
-            <td class="p-2 text-center">{p.role}</td>
-            {localStorage.getItem("role") === "organizer" && (
-                <td class="p-2 text-center">{p.university}</td>
-            )}
-            <td class="flex flex-row gap-4 p-2 text-center">
-                {/* <button
-                    type="button"
-                    class="rounded bg-blue-500 p-1 font-bold text-white hover:bg-blue-700"
-                >
-                    <Info class="h-8 w-8"></Info>
-                </button> */}
 
-                {localStorage.getItem("role") !== "volunteer" && (
-                    <button
-                        type="button"
-                        class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700"
-                        onClick={deleteParticipantOnClick}
-                    >
-                        <Trash class="h-8 w-8"></Trash>
-                    </button>
+    return (
+        <>
+            <tr class="border-b border-gray-200">
+                <td class="p-2 text-center">{p.first_name}</td>
+                <td class="p-2 text-center">{p.last_name}</td>
+                <td class="p-2 text-center">{p.email}</td>
+                <td class="p-2 text-center">{p.competition}</td>
+                <td class="p-2 text-center">{p.role}</td>
+                {localStorage.getItem("role") === "organizer" && (
+                    <td class="p-2 text-center">{p.university}</td>
                 )}
-            </td>
-        </tr>
+                <td class="flex flex-row gap-4 p-2 text-center">
+                    {localStorage.getItem("role") !== "volunteer" && (
+                        <button
+                            type="button"
+                            class="rounded bg-red-500 p-1 font-bold text-white hover:bg-red-700"
+                            onClick={() => setIsModalOpen(true)}
+                        >
+                            <Trash class="h-8 w-8"></Trash>
+                        </button>
+                    )}
+                </td>
+            </tr>
+            {isModalOpen() && (
+                <div class="p-1/2 absolute left-0 right-0 top-0 z-10 ml-auto mr-auto w-1/2 rounded-lg bg-gray-50 p-4 shadow-2xl">
+                    <h2 class="text-2xl font-bold">
+                        {t("participantsList.confirmDeleteTitle")}
+                    </h2>
+                    <p>{t("participantsList.confirmDelete")}</p>
+                    <div class="mt-4 flex justify-end gap-2">
+                        <button
+                            class="rounded bg-gray-500 p-2 text-white hover:bg-gray-700"
+                            onClick={() => setIsModalOpen(false)}
+                        >
+                            {t("participantsList.cancel")}
+                        </button>
+                        <button
+                            class="rounded bg-red-500 p-2 text-white hover:bg-red-700"
+                            onClick={deleteParticipantOnClick}
+                        >
+                            {t("participantsList.delete")}
+                        </button>
+                    </div>
+                </div>
+            )}
+        </>
     )
 }
 
@@ -107,6 +129,7 @@ export default function ParticipantForm() {
         console.log("refetching")
         refetch()
     }
+
     return (
         <Form onSubmit={onSubmit}>
             <table class="min-w-full border border-gray-300 bg-white">
@@ -155,7 +178,7 @@ export default function ParticipantForm() {
                                             {...props}
                                             value={field.value}
                                             error={field.error}
-                                            class="w-52"
+                                            class="w-48"
                                             type="text"
                                             placeholder="Prénom"
                                             required
@@ -170,7 +193,7 @@ export default function ParticipantForm() {
                                             {...props}
                                             value={field.value}
                                             error={field.error}
-                                            class="w-52"
+                                            class="w-48"
                                             type="text"
                                             placeholder="Nom"
                                             required
@@ -313,8 +336,8 @@ export default function ParticipantForm() {
                                                         value: "ulaval",
                                                     },
                                                     {
-                                                        label: "ULaval Agroalimentaire",
-                                                        value: "ulaval-agriculture",
+                                                        label: "Drummondville",
+                                                        value: "drummond",
                                                     },
                                                     {
                                                         label: "UDS",

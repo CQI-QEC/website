@@ -46,7 +46,7 @@ export async function changePassword(auth: ChangePasswordPayload) {
     if (!request) {
         return { error: "No token" }
     }
-    return await request.json()
+    return request
 }
 
 export async function testAuth() {
