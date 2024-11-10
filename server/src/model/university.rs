@@ -17,7 +17,7 @@ pub enum University {
     Ets,
     Polymtl,
     Ulaval,
-    UlavalAgriculture,
+    Drummond,
     Uds,
     None,
 }

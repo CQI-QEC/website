@@ -108,18 +108,40 @@ const additionalInfo = {
     allergiesLabel: "Please specify any allergies that we should be aware of.",
     pronouns: "Pronouns",
     pronounsLabel: "Please specify your pronouns.",
-    vegetarianLabel: "Are you vegetarian?",
+    dietaryRestrictions: "Dietary restrictions",
     phoneNumber: "Phone number",
     phoneNumberLabel: "Please specify your phone number.",
     tshirtSize: "T-shirt size",
-    emergencyContact: "Emergency contact",
-    emergencyContactLabel: "Please specify your emergency contact.",
-    hasMonthlyOpusCard: "Do you have a monthly OPUS card?",
+    emergencyContactName: "Emergency contact full name",
+    emergencyContactNameLabel:
+        "Please specify the name of your emergency contact.",
+    emergencyContactPhone: "Emergency contact phone number",
+    emergencyContactPhoneLabel:
+        "Please specify the phone number of your emergency contact.",
+    emergencyContactRelationship: "Emergency contact relationship",
+    emergencyContactRelationshipLabel:
+        "Please specify the relationship of your emergency contact.",
+    hasMonthlyOpusCard:
+        "Do you have a monthly OPUS card for the Montréal region?",
     reducedMobilityLabel: "Any acommodation for reduced mobility?",
     reducedMobility: "What do you need?",
-    studyProofLabel: "Study proof",
-    photoLabel: "Photo",
-    cvLabel: "CV",
+    studyProofLabel: "Study proof with number of credits (pdf/jpg/jpeg/png)",
+    photoLabel: "Photo (png/jpg/jpeg)",
+    cvLabel: "CV (pdf/docx/odt)",
+    success: "Your information has been saved.",
+    error: "An error occured. Please try again.",
+}
+
+const dashboard = {
+    dashboard: "Dashboard",
+    goback: "Go back",
+}
+
+const participantsList = {
+    confirmDeleteTitle: "Delete confirmation",
+    confirmDelete: "Are you sure you want to delete this participant?",
+    delete: "Delete",
+    cancel: "Cancel",
 }
 
 export const dict = {
@@ -133,6 +155,8 @@ export const dict = {
     documents: documents,
     login: "Login",
     loginPage: loginPage,
+    dashboard: dashboard,
     additionalInfo: additionalInfo,
+    participantsList: participantsList,
     madeBy: "Made by",
 }

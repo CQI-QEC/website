@@ -6,12 +6,15 @@ import { ParticipantInfo } from "../../binding/ParticipantInfo"
 import { Select } from "../forms-component/Select"
 import { FileInput } from "../forms-component/FileInput"
 import { getParticipant, patchParticipantInfo } from "../../request/routes"
-import { createEffect } from "solid-js"
+import { createEffect, createSignal } from "solid-js"
 import { t } from "../../stores/locale"
+import { SubmitError } from "../forms-component/SubmitError"
+import { SubmitSuccess } from "../forms-component/SubmitSuccess"
 
 export function AdditionalInfoForm() {
-    const navigate = useNavigate()
     const [loginForm, { Form, Field }] = createForm<ParticipantInfo>()
+    const [error, setError] = createSignal<string | null>(null)
+    const [success, setSuccess] = createSignal<string | null>(null)
 
     const handleSubmit: SubmitHandler<ParticipantInfo> = async (
         values,
@@ -20,9 +23,9 @@ export function AdditionalInfoForm() {
         event.preventDefault()
         const response = await patchParticipantInfo(values)
         if (response && response.status == 201) {
-            navigate("/dashboard")
+            setSuccess(t("additionalInfo.success"))
         } else {
-            console.log(response)
+            setError(t("additionalInfo.error"))
         }
     }
 
@@ -38,7 +41,7 @@ export function AdditionalInfoForm() {
 
     return (
         <Form
-            class="flex w-1/2 flex-col space-y-6"
+            class="flex w-1/3 flex-col space-y-6"
             action="#"
             method="post"
             onSubmit={handleSubmit}
@@ -82,13 +85,35 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field name="is_vegetarian" type="boolean">
+            <Field name="dietary_restrictions">
                 {(field, props) => (
-                    <Checkbox
+                    <Select
                         {...props}
-                        checked={field.value || false}
+                        value={field.value || "none"}
                         error={field.error}
-                        label={t("additionalInfo.vegetarianLabel")}
+                        label={t("additionalInfo.dietaryRestrictions")}
+                        options={[
+                            {
+                                label: "Aucune",
+                                value: "none",
+                            },
+                            {
+                                label: "Végan",
+                                value: "vegan",
+                            },
+                            {
+                                label: "Végétarien",
+                                value: "vegetarian",
+                            },
+                            {
+                                label: "Halal",
+                                value: "halal",
+                            },
+                            {
+                                label: "Autre à indiquer en commentaire",
+                                value: "other",
+                            },
+                        ]}
                     />
                 )}
             </Field>
@@ -143,15 +168,45 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field name="emergency_contact">
+            <Field name="emergency_contact_name">
                 {(field, props) => (
                     <TextInput
                         {...props}
                         value={field.value || ""}
                         error={field.error}
-                        label={t("additionalInfo.emergencyContactLabel")}
+                        label={t("additionalInfo.emergencyContactNameLabel")}
                         type="text"
-                        placeholder={t("additionalInfo.emergencyContact")}
+                        placeholder={t("additionalInfo.emergencyContactName")}
+                    />
+                )}
+            </Field>
+
+            <Field name="emergency_contact_phone">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t("additionalInfo.emergencyContactPhoneLabel")}
+                        type="text"
+                        placeholder={t("additionalInfo.emergencyContactPhone")}
+                    />
+                )}
+            </Field>
+
+            <Field name="emergency_contact_relationship">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t(
+                            "additionalInfo.emergencyContactRelationshipLabel",
+                        )}
+                        type="text"
+                        placeholder={t(
+                            "additionalInfo.emergencyContactRelationship",
+                        )}
                     />
                 )}
             </Field>
@@ -235,6 +290,8 @@ export function AdditionalInfoForm() {
                 >
                     Mettre à jour les renseignements personnels
                 </button>
+                <SubmitError error={error} />
+                <SubmitSuccess success={success} />
             </div>
         </Form>
     )

@@ -1,5 +1,6 @@
 import FixedImage from "../components/FixedImage"
 import { EmailResetForm } from "../components/forms/EmailResetForm"
+import ReturnDashboard from "../components/ReturnDashboard"
 import { t } from "../stores/locale"
 
 export default function ForgottenPassword() {
@@ -10,7 +11,8 @@ export default function ForgottenPassword() {
                     {t("loginPage.forgotPassword")}
                 </h1>
             </FixedImage>
-            <div class="-mt-32 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+            <div class="relative -mt-32 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+                <ReturnDashboard />
                 <EmailResetForm />
             </div>
         </div>
