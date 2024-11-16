@@ -105,32 +105,27 @@ const additionalInfo = {
     medicalConditionsLabel:
         "Veuillez spécifier toute condition médicale dont nous devrions être informés.",
     allergies: "Allergies",
-    allergiesLabel:
-        "Veuillez spécifier toute allergie dont nous devrions être informés.",
+    allergiesLabel: "Avez-vous des allergies/intolérances? Si oui, lesquelles?",
     pronouns: "Pronoms",
-    pronounsLabel: "Veuillez spécifier vos pronoms.",
-    dietaryRestrictions: "Restrictions alimentaires",
+    pronounsLabel: "Quel(s) pronoms souhaitez-vous utiliser?",
+    dietaryRestrictions: "Avez-vous d'autres restrictions alimentaires?",
     phoneNumber: "Numéro de téléphone",
-    phoneNumberLabel: "Veuillez spécifier votre numéro de téléphone.",
+    phoneNumberLabel: "Votre téléphone",
     tshirtSize: "Taille de T-shirt",
-    emergencyContactName: "Nom complet du contact d'urgence",
-    emergencyContactNameLabel: "Veuillez spécifier votre contact d'urgence.",
-    emergencyContactPhone: "Numéro de téléphone d'urgence",
-    emergencyContactPhoneLabel:
-        "Veuillez spécifier le numéro de téléphone de votre contact d'urgence.",
-    emergencyContactRelationship: "Relation avec le contact d'urgence",
-    emergencyContactRelationshipLabel:
-        "Veuillez spécifier la relation avec votre contact d'urgence.",
+    emergencyContactNameLabel: "Nom complet du contact d'urgence",
+    emergencyContactPhoneLabel: "Numéro de téléphone du contact d'urgence",
+    emergencyContactRelationshipLabel: "Relation avec le contact d'urgence",
     hasMonthlyOpusCard:
-        "Avez-vous une passe OPUS mensuelle pour la région de Montréal?",
-    reducedMobilityLabel: "Besoin d'aménagement pour mobilité réduite?",
-    reducedMobility: "Qu'avez-vous besoin?",
+        "Avez-vous, au moment de la CQI, une passe OPUS mensuelle pour la région de Montréal?",
+    reducedMobilityLabel:
+        "Avez-vous besoin d'aménagement pour mobilité réduite? Si oui, veuillez spécifier.",
     studyProofLabel:
         "Preuve d'études avec nombre de crédits (pdf/jpg/jpeg/png)",
-    photoLabel: "Photo (png/jpg/jpeg)",
-    cvLabel: "CV (pdf/docx/odt)",
+    photoLabel: "Photo 128x128: (png)",
+    cvLabel: "CV (pdf)",
     success: "Informations ajoutées avec succès",
     error: "Erreur lors de l'ajout des informations",
+    file: "Cliquer ou glissez-déposez un fichier",
 }
 
 const dashboard = {

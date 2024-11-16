@@ -130,6 +130,7 @@ const additionalInfo = {
     cvLabel: "CV (pdf/docx/odt)",
     success: "Your information has been saved.",
     error: "An error occured. Please try again.",
+    file: "Click or drag and drop a file",
 }
 
 const dashboard = {

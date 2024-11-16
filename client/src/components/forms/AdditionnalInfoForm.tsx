@@ -1,4 +1,3 @@
-import { useNavigate } from "@solidjs/router"
 import { createForm, setValues, SubmitHandler } from "@modular-forms/solid"
 import { TextInput } from "../forms-component/TextInput"
 import { Checkbox } from "../forms-component/Checkbox"
@@ -41,20 +40,20 @@ export function AdditionalInfoForm() {
 
     return (
         <Form
-            class="flex w-1/3 flex-col space-y-6"
+            class="flex flex-col space-y-6 p-16"
             action="#"
             method="post"
             onSubmit={handleSubmit}
         >
-            <Field name="medical_conditions">
+            <Field name="pronouns">
                 {(field, props) => (
                     <TextInput
                         {...props}
                         value={field.value || ""}
                         error={field.error}
-                        label={t("additionalInfo.medicalConditionsLabel")}
+                        label={t("additionalInfo.pronounsLabel")}
                         type="text"
-                        placeholder={t("additionalInfo.medicalConditions")}
+                        placeholder={t("additionalInfo.pronouns")}
                     />
                 )}
             </Field>
@@ -68,19 +67,6 @@ export function AdditionalInfoForm() {
                         label={t("additionalInfo.allergiesLabel")}
                         type="text"
                         placeholder={t("additionalInfo.allergies")}
-                    />
-                )}
-            </Field>
-
-            <Field name="pronouns">
-                {(field, props) => (
-                    <TextInput
-                        {...props}
-                        value={field.value || ""}
-                        error={field.error}
-                        label={t("additionalInfo.pronounsLabel")}
-                        type="text"
-                        placeholder={t("additionalInfo.pronouns")}
                     />
                 )}
             </Field>
@@ -114,6 +100,69 @@ export function AdditionalInfoForm() {
                                 value: "other",
                             },
                         ]}
+                    />
+                )}
+            </Field>
+
+            <Field name="medical_conditions">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t("additionalInfo.medicalConditionsLabel")}
+                        type="text"
+                        placeholder={t("additionalInfo.medicalConditions")}
+                    />
+                )}
+            </Field>
+
+            <Field name="reduced_mobility">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t("additionalInfo.reducedMobilityLabel")}
+                        type="text"
+                    />
+                )}
+            </Field>
+
+            <Field name="emergency_contact_name">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t("additionalInfo.emergencyContactNameLabel")}
+                        type="text"
+                    />
+                )}
+            </Field>
+
+            <Field name="emergency_contact_phone">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t("additionalInfo.emergencyContactPhoneLabel")}
+                        type="text"
+                    />
+                )}
+            </Field>
+
+            <Field name="emergency_contact_relationship">
+                {(field, props) => (
+                    <TextInput
+                        {...props}
+                        value={field.value || ""}
+                        error={field.error}
+                        label={t(
+                            "additionalInfo.emergencyContactRelationshipLabel",
+                        )}
+                        type="text"
                     />
                 )}
             </Field>
@@ -168,68 +217,12 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field name="emergency_contact_name">
-                {(field, props) => (
-                    <TextInput
-                        {...props}
-                        value={field.value || ""}
-                        error={field.error}
-                        label={t("additionalInfo.emergencyContactNameLabel")}
-                        type="text"
-                        placeholder={t("additionalInfo.emergencyContactName")}
-                    />
-                )}
-            </Field>
-
-            <Field name="emergency_contact_phone">
-                {(field, props) => (
-                    <TextInput
-                        {...props}
-                        value={field.value || ""}
-                        error={field.error}
-                        label={t("additionalInfo.emergencyContactPhoneLabel")}
-                        type="text"
-                        placeholder={t("additionalInfo.emergencyContactPhone")}
-                    />
-                )}
-            </Field>
-
-            <Field name="emergency_contact_relationship">
-                {(field, props) => (
-                    <TextInput
-                        {...props}
-                        value={field.value || ""}
-                        error={field.error}
-                        label={t(
-                            "additionalInfo.emergencyContactRelationshipLabel",
-                        )}
-                        type="text"
-                        placeholder={t(
-                            "additionalInfo.emergencyContactRelationship",
-                        )}
-                    />
-                )}
-            </Field>
-
             <Field name="has_monthly_opus_card" type="boolean">
                 {(field, props) => (
                     <Checkbox
                         {...props}
                         error={field.error}
                         label={t("additionalInfo.hasMonthlyOpusCard")}
-                    />
-                )}
-            </Field>
-
-            <Field name="reduced_mobility">
-                {(field, props) => (
-                    <TextInput
-                        {...props}
-                        value={field.value || ""}
-                        error={field.error}
-                        label={t("additionalInfo.reducedMobilityLabel")}
-                        type="text"
-                        placeholder={t("additionalInfo.reducedMobility")}
                     />
                 )}
             </Field>
@@ -283,10 +276,10 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <div>
+            <div class="flex justify-center">
                 <button
                     type="submit"
-                    class="flex w-full justify-center rounded-md bg-light-highlight px-5 py-4 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight"
+                    class="flex justify-center rounded-md bg-light-highlight px-5 py-4 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight"
                 >
                     Mettre à jour les renseignements personnels
                 </button>

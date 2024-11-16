@@ -2,6 +2,7 @@ import clsx from "clsx"
 import { createMemo, JSX, Show, splitProps } from "solid-js"
 import { InputError } from "./InputError"
 import { InputLabel } from "./InputLabel"
+import { t } from "../../stores/locale"
 
 type FileInputProps = {
     ref: (element: HTMLInputElement) => void
@@ -56,9 +57,7 @@ export function FileInput(props: FileInputProps) {
             >
                 <Show
                     when={getFiles().length}
-                    fallback={
-                        <>Click or drag and drop file{props.multiple && "s"}</>
-                    }
+                    fallback={<>{t("additionalInfo.file")}</>}
                 >
                     Selected file{props.multiple && "s"}:{" "}
                     {getFiles()

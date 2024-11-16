@@ -16,7 +16,7 @@ export function InputLabel(props: InputLabelProps) {
         <Show when={props.label}>
             <label
                 class={clsx(
-                    "inline-block font-medium md:text-lg lg:text-xl",
+                    "inline-block w-full font-medium md:text-lg lg:text-xl",
                     !props.margin && "mb-1 lg:mb-2",
                 )}
                 for={props.name}
