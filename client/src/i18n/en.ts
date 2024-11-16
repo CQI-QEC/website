@@ -105,32 +105,31 @@ const additionalInfo = {
     medicalConditionsLabel:
         "Please specify any medical conditions that we should be aware of.",
     allergies: "Allergies",
-    allergiesLabel: "Please specify any allergies that we should be aware of.",
+    allergiesLabel: "Do you have any allergies? If so, please specify.",
     pronouns: "Pronouns",
-    pronounsLabel: "Please specify your pronouns.",
+    pronounsLabel: "What are your pronouns?",
     dietaryRestrictions: "Dietary restrictions",
     phoneNumber: "Phone number",
-    phoneNumberLabel: "Please specify your phone number.",
+    phoneNumberLabel: "Your phone number.",
     tshirtSize: "T-shirt size",
-    emergencyContactName: "Emergency contact full name",
-    emergencyContactNameLabel:
-        "Please specify the name of your emergency contact.",
-    emergencyContactPhone: "Emergency contact phone number",
-    emergencyContactPhoneLabel:
-        "Please specify the phone number of your emergency contact.",
-    emergencyContactRelationship: "Emergency contact relationship",
-    emergencyContactRelationshipLabel:
-        "Please specify the relationship of your emergency contact.",
+    emergencyContact:
+        "Please provide the information of your emergency contact.",
+    emergencyContactNameLabel: "Emergency contact full name",
+    emergencyContactPhoneLabel: "Emergency contact phone number",
+    emergencyContactRelationshipLabel: "Emergency contact relationship",
     hasMonthlyOpusCard:
-        "Do you have a monthly OPUS card for the Montréal region?",
-    reducedMobilityLabel: "Any acommodation for reduced mobility?",
-    reducedMobility: "What do you need?",
+        "Do you have a monthly OPUS card for the Montréal region at the moment of the CQI?",
+    reducedMobilityLabel:
+        "Do you need reduced mobility assistance? If so, please specify below.",
     studyProofLabel: "Study proof with number of credits (pdf/jpg/jpeg/png)",
-    photoLabel: "Photo (png/jpg/jpeg)",
-    cvLabel: "CV (pdf/docx/odt)",
+    photoLabel: "Photo 512x512 (png)",
+    cvLabel: "CV (pdf)",
     success: "Your information has been saved.",
     error: "An error occured. Please try again.",
     file: "Click or drag and drop a file",
+    yes: "Yes",
+    no: "No",
+    required: "This field is required",
 }
 
 const dashboard = {

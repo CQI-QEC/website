@@ -103,7 +103,7 @@ const loginPage = {
 const additionalInfo = {
     medicalConditions: "Conditions médicales",
     medicalConditionsLabel:
-        "Veuillez spécifier toute condition médicale dont nous devrions être informés.",
+        "Veuillez spécifier toutes conditions médicales dont nous devrions être informés.",
     allergies: "Allergies",
     allergiesLabel: "Avez-vous des allergies/intolérances? Si oui, lesquelles?",
     pronouns: "Pronoms",
@@ -112,20 +112,25 @@ const additionalInfo = {
     phoneNumber: "Numéro de téléphone",
     phoneNumberLabel: "Votre téléphone",
     tshirtSize: "Taille de T-shirt",
+    emergencyContact:
+        "Veuillez fournir les informations de votre contact d'urgence",
     emergencyContactNameLabel: "Nom complet du contact d'urgence",
     emergencyContactPhoneLabel: "Numéro de téléphone du contact d'urgence",
     emergencyContactRelationshipLabel: "Relation avec le contact d'urgence",
     hasMonthlyOpusCard:
         "Avez-vous, au moment de la CQI, une passe OPUS mensuelle pour la région de Montréal?",
     reducedMobilityLabel:
-        "Avez-vous besoin d'aménagement pour mobilité réduite? Si oui, veuillez spécifier.",
+        "Avez-vous besoin d'aménagement pour mobilité réduite? Si oui, veuillez spécifier ci-dessous.",
     studyProofLabel:
         "Preuve d'études avec nombre de crédits (pdf/jpg/jpeg/png)",
-    photoLabel: "Photo 128x128: (png)",
+    photoLabel: "Photo 512x512: (png)",
     cvLabel: "CV (pdf)",
     success: "Informations ajoutées avec succès",
     error: "Erreur lors de l'ajout des informations",
     file: "Cliquer ou glissez-déposez un fichier",
+    yes: "Oui",
+    no: "Non",
+    required: "Cette information est requise",
 }
 
 const dashboard = {
