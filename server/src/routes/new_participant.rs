@@ -19,8 +19,8 @@ pub async fn new_participant(
     }
 
     if claims.role == Role::Chef
-        && ((participant.role == Role::Organizer || participant.role == Role::Volunteer)
-            || participant.university != claims.university)
+    // && ((participant.role == Role::Organizer || participant.role == Role::Volunteer)
+    // || participant.university != claims.university)
     {
         return (StatusCode::FORBIDDEN, "Forbidden").into_response();
     }

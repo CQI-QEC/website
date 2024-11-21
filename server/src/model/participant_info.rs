@@ -8,12 +8,19 @@ use uuid::Uuid;
 use crate::utility::{deserialize_base64, serialize_base64};
 
 use super::{
-    dietary_restriction::DietaryRestriction, tshirt_size::TshirtSize, university::University,
+    competition::Competition, dietary_restriction::DietaryRestriction, role::Role,
+    tshirt_size::TshirtSize, university::University,
 };
 
 #[derive(Debug, Serialize, Deserialize, sqlx::FromRow, TS)]
 #[ts(export)]
 pub struct ParticipantInfo {
+    pub first_name: String,
+    pub last_name: String,
+    pub email: String,
+    pub role: Role,
+    pub competition: Competition,
+    pub university: University,
     pub medical_conditions: Option<String>,
     pub allergies: Option<String>,
     pub pronouns: Option<String>,

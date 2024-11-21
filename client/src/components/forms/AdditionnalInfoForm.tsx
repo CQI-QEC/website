@@ -5,7 +5,6 @@ import {
     SubmitHandler,
 } from "@modular-forms/solid"
 import { TextInput } from "../forms-component/TextInput"
-import { Checkbox } from "../forms-component/Checkbox"
 import { ParticipantInfo } from "../../binding/ParticipantInfo"
 import { Select } from "../forms-component/Select"
 import { FileInput } from "../forms-component/FileInput"
@@ -15,7 +14,6 @@ import { t } from "../../stores/locale"
 import { SubmitError } from "../forms-component/SubmitError"
 import { SubmitSuccess } from "../forms-component/SubmitSuccess"
 import { YesNo } from "../forms-component/YesNo"
-import { InputLabel } from "../forms-component/InputLabel"
 
 export function AdditionalInfoForm() {
     const [loginForm, { Form, Field }] = createForm<ParticipantInfo>()
@@ -52,6 +50,12 @@ export function AdditionalInfoForm() {
             method="post"
             onSubmit={handleSubmit}
         >
+            <div class="flex w-full flex-col gap-1 font-medium md:text-lg lg:text-xl">
+                <span>Nom : {localStorage.getItem("name")}</span>
+                <span>Université : {localStorage.getItem("university")}</span>
+                <span>Rôle: {localStorage.getItem("role")}</span>
+                <span>Compétition: {localStorage.getItem("competition")}</span>
+            </div>
             <Field
                 name="pronouns"
                 validate={[required(t("additionalInfo.required"))]}
@@ -345,10 +349,10 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <div class="flex flex-col justify-center">
+            <div class="flex flex-col items-center justify-center">
                 <button
                     type="submit"
-                    class="flex justify-center rounded-md bg-light-highlight px-5 py-4 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight"
+                    class="flex w-fit justify-center rounded-md bg-light-highlight px-5 py-4 text-xl font-semibold leading-6 text-white shadow-sm hover:bg-light-highlight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-highlight"
                 >
                     Mettre à jour les renseignements personnels
                 </button>

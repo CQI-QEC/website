@@ -205,7 +205,7 @@ export default function ParticipantForm() {
                                 />
                             )}
                         </For>
-                        {localStorage.getItem("role") !== "volunteer" && (
+                        {localStorage.getItem("role") == "organizer" && (
                             <tr class="border-b border-gray-200">
                                 <td class="p-2">
                                     <Field name="first_name">
