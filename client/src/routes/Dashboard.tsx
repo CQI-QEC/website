@@ -34,14 +34,9 @@ export default function Dashboard() {
                     </h1>
                 </FixedImage>
                 <div class="-mt-32 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
-                    {localStorage.getItem("role") == "organizer" && (
-                        <PrefetchLink
-                            to="/additional-form"
-                            file="AdditionalForm"
-                        >
-                            <BigButton text="Changer mes renseignements personnels" />
-                        </PrefetchLink>
-                    )}
+                    <PrefetchLink to="/additional-form" file="AdditionalForm">
+                        <BigButton text="Changer mes renseignements personnels" />
+                    </PrefetchLink>
                     {localStorage.getItem("role") != "participant" && (
                         <PrefetchLink
                             to="/list-participant"

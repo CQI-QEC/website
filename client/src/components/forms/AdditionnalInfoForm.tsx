@@ -362,6 +362,47 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
+            <div class="text-xl">
+                <p>
+                    En cliquant sur mettre à jour les renseignements personnels
+                </p>
+                <ul class="list-disc">
+                    <li>
+                        J'ai lu et j'accepte{" "}
+                        <a
+                            href="/public/doc/Politique_de_disciplineFR.pdf"
+                            target="_blank"
+                            class="text-blue-500"
+                        >
+                            la politique de discipline de la CREIQ.
+                        </a>
+                    </li>
+                    <li>
+                        J'ai lu et j'accepte{" "}
+                        <a
+                            href="/public/doc/politiquebcapg.pdf"
+                            target="_blank"
+                            class="text-blue-500"
+                        >
+                            le code de conduite du BCAPG
+                        </a>
+                    </li>
+                    <li>
+                        Je consens à ce que mon image sur les photographies
+                        ainsi que ma voix et mon image dans les enregistrements
+                        vidéo soient utilisés pour tout type de promotion de la
+                        CQI ou de la CREIQ.
+                    </li>
+                    <li>
+                        Je consens à ce que mon adresse courriel soit transmise
+                        à Génium et que ceux-ci me transmettent des offres
+                        promotionnelles. Il sera possible de se retirer de cette
+                        liste de courriel à tout moment à la suite de la
+                        compétition.
+                    </li>
+                </ul>
+            </div>
+
             <div class="flex flex-col items-center justify-center">
                 <button
                     type="submit"
