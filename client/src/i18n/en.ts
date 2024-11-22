@@ -130,6 +130,7 @@ const additionalInfo = {
     yes: "Yes",
     no: "No",
     required: "This field is required",
+    food: "I confirm that I have filled out the food forms.",
 }
 
 const dashboard = {

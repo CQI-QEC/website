@@ -10,7 +10,7 @@ import { Select } from "../forms-component/Select"
 import { FileInput } from "../forms-component/FileInput"
 import { getParticipant, patchParticipantInfo } from "../../request/routes"
 import { createEffect, createSignal } from "solid-js"
-import { t } from "../../stores/locale"
+import { locale, t } from "../../stores/locale"
 import { SubmitError } from "../forms-component/SubmitError"
 import { SubmitSuccess } from "../forms-component/SubmitSuccess"
 import { YesNo } from "../forms-component/YesNo"
@@ -58,6 +58,21 @@ export function AdditionalInfoForm() {
                     Lien pour le formulaire des repas à remplir aussi
                 </span>
             </a>
+            <Field
+                name="food_forms_completed"
+                type="boolean"
+                validate={[required(t("additionalInfo.required"))]}
+            >
+                {(field, props) => (
+                    <YesNo
+                        {...props}
+                        value={"no"}
+                        error={field.error}
+                        label={t("additionalInfo.food")}
+                        required
+                    />
+                )}
+            </Field>
             <div class="flex w-full flex-col gap-1 font-medium md:text-lg lg:text-xl">
                 <span>
                     Bonjour {info()?.first_name} {info()?.last_name}
@@ -362,46 +377,108 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <div class="text-xl">
-                <p>
-                    En cliquant sur mettre à jour les renseignements personnels
-                </p>
-                <ul class="list-disc">
-                    <li>
-                        J'ai lu et j'accepte{" "}
-                        <a
-                            href="/public/doc/Politique_de_disciplineFR.pdf"
-                            target="_blank"
-                            class="text-blue-500"
-                        >
-                            la politique de discipline de la CREIQ.
-                        </a>
-                    </li>
-                    <li>
-                        J'ai lu et j'accepte{" "}
-                        <a
-                            href="/public/doc/politiquebcapg.pdf"
-                            target="_blank"
-                            class="text-blue-500"
-                        >
-                            le code de conduite du BCAPG
-                        </a>
-                    </li>
-                    <li>
-                        Je consens à ce que mon image sur les photographies
-                        ainsi que ma voix et mon image dans les enregistrements
-                        vidéo soient utilisés pour tout type de promotion de la
-                        CQI ou de la CREIQ.
-                    </li>
-                    <li>
-                        Je consens à ce que mon adresse courriel soit transmise
-                        à Génium et que ceux-ci me transmettent des offres
-                        promotionnelles. Il sera possible de se retirer de cette
-                        liste de courriel à tout moment à la suite de la
-                        compétition.
-                    </li>
-                </ul>
-            </div>
+            {locale() == "fr" && (
+                <div class="text-xl">
+                    <p>
+                        En cliquant sur mettre à jour les renseignements
+                        personnels
+                    </p>
+                    <ul class="list-disc">
+                        <li>
+                            J'ai lu et j'accepte{" "}
+                            <a
+                                href="/doc/Politique_de_discipline_FR.pdf"
+                                target="_blank"
+                                class="text-blue-500"
+                            >
+                                la politique de discipline de la CREIQ.
+                            </a>
+                        </li>
+                        <li>
+                            J'ai lu et j'accepte{" "}
+                            <a
+                                href="/doc/Politique_BIPCV.pdf"
+                                target="_blank"
+                                class="text-blue-500"
+                            >
+                                le code de conduite du BIPCV
+                            </a>
+                        </li>
+                        <li>
+                            J'ai lu et j'accepte{" "}
+                            <a
+                                href="/doc/Reglement_CQI_FR.pdf"
+                                target="_blank"
+                                class="text-blue-500"
+                            >
+                                le règlement de la CQI.
+                            </a>
+                        </li>
+                        <li>
+                            Je consens à ce que mon image sur les photographies
+                            ainsi que ma voix et mon image dans les
+                            enregistrements vidéo soient utilisés pour tout type
+                            de promotion de la CQI ou de la CREIQ.
+                        </li>
+                        <li>
+                            Je consens à ce que mon adresse courriel soit
+                            transmise à Génium et que ceux-ci me transmettent
+                            des offres promotionnelles. Il sera possible de se
+                            retirer de cette liste de courriel à tout moment à
+                            la suite de la compétition.
+                        </li>
+                    </ul>
+                </div>
+            )}
+
+            {locale() == "en" && (
+                <div class="text-xl">
+                    <p>By clicking on "Update personal information":</p>
+                    <ul class="list-disc">
+                        <li>
+                            I have read and agree to{" "}
+                            <a
+                                href="/doc/Politique_de_discipline_EN.pdf"
+                                target="_blank"
+                                class="text-blue-500"
+                            >
+                                the CREIQ disciplinary policy.
+                            </a>
+                        </li>
+                        <li>
+                            I have read and agree to{" "}
+                            <a
+                                href="/doc/Politique_BIPCV.pdf"
+                                target="_blank"
+                                class="text-blue-500"
+                            >
+                                the BIPCV code of conduct.
+                            </a>
+                        </li>
+                        <li>
+                            I have read and agree to{" "}
+                            <a
+                                href="/doc/Rulebook_QEC_EN.pdf"
+                                target="_blank"
+                                class="text-blue-500"
+                            >
+                                the CQI rules.
+                            </a>
+                        </li>
+                        <li>
+                            I consent to my image in photographs, as well as my
+                            voice and image in video recordings, being used for
+                            any type of promotion of CQI or CREIQ.
+                        </li>
+                        <li>
+                            I consent to my email address being shared with
+                            Génium, who may send me promotional offers. It will
+                            be possible to unsubscribe from this mailing list at
+                            any time after the competition.
+                        </li>
+                    </ul>
+                </div>
+            )}
 
             <div class="flex flex-col items-center justify-center">
                 <button

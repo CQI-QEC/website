@@ -6,6 +6,7 @@ import type { University } from "./University";
 export type MinimalParticipant = {
   first_name: string;
   last_name: string;
+  food_forms_completed: boolean | null;
   email: string;
   competition: Competition;
   university: University;

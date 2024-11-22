@@ -19,6 +19,7 @@ pub struct ParticipantInfo {
     pub last_name: Option<String>,
     pub email: Option<String>,
     pub role: Option<Role>,
+    pub food_forms_completed: Option<bool>,
     pub competition: Option<Competition>,
     pub university: Option<University>,
     pub medical_conditions: Option<String>,
@@ -76,8 +77,9 @@ impl ParticipantInfo {
 
     pub async fn write_to_database(&self, id: Uuid, db: &PgPool) -> Result<(), sqlx::Error> {
         sqlx::query!(
-                r#"UPDATE participants SET (medical_conditions, allergies, pronouns, phone_number, tshirt_size, comments, dietary_restrictions, emergency_contact_name, emergency_contact_phone, emergency_contact_relationship, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)
-                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) WHERE id = $16"#,
+                r#"UPDATE participants SET (food_forms_completed, medical_conditions, allergies, pronouns, phone_number, tshirt_size, comments, dietary_restrictions, emergency_contact_name, emergency_contact_phone, emergency_contact_relationship, has_monthly_opus_card, reduced_mobility, study_proof, photo, cv)
+                = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) WHERE id = $17"#,
+                self.food_forms_completed,
                 self.medical_conditions,
                 self.allergies,
                 self.pronouns,

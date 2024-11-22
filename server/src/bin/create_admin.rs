@@ -19,6 +19,7 @@ async fn main() -> Result<()> {
         first_name: "Marc-Antoine".to_string(),
         last_name: "Manningham".to_string(),
         email: "mamanningham@cqi-qec.qc.ca".to_string(),
+        food_forms_completed: None,
         competition: Competition::None,
         role: Role::Organizer,
         university: University::Polymtl,

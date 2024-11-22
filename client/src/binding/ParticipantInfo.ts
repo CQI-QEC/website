@@ -10,6 +10,7 @@ export type ParticipantInfo = {
   last_name: string | null;
   email: string | null;
   role: Role | null;
+  food_forms_completed: boolean | null;
   competition: Competition | null;
   university: University | null;
   medical_conditions: string | null;

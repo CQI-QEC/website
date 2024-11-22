@@ -12,6 +12,7 @@ use super::{competition::Competition, role::Role, university::University};
 pub struct MinimalParticipant {
     pub first_name: String,
     pub last_name: String,
+    pub food_forms_completed: Option<bool>,
     pub email: String,
     pub competition: Competition,
     pub university: University,
