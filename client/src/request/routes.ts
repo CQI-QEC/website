@@ -103,6 +103,8 @@ export async function patchParticipantInfo(info: ParticipantInfo) {
     } else {
         payload.cv = ""
     }
+    console.log(info)
+    console.log(payload)
     return await fetch_patch("/participant", payload)
 }
 

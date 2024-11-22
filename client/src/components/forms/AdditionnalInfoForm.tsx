@@ -33,12 +33,15 @@ export function AdditionalInfoForm() {
         }
     }
 
+    const [info, setInfo] = createSignal<ParticipantInfo | null>(null)
+
     createEffect(async () => {
         const id = localStorage.getItem("id")
         if (!id) return
         const response = await getParticipant(id)
         if (!response.error) {
             const participant = response as ParticipantInfo
+            setInfo(participant)
             setValues(loginForm, participant)
         }
     })
@@ -50,11 +53,21 @@ export function AdditionalInfoForm() {
             method="post"
             onSubmit={handleSubmit}
         >
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vqE-tygNokyiBaLolpqM-SIriDaTmJhLspWYwmEq8p1UMThJVFdBU0pHV1RSWE82NTBQVlBJTThGTi4u">
+                <span class="text-xl font-bold text-blue-700">
+                    Lien pour le formulaire des repas à remplir aussi
+                </span>
+            </a>
             <div class="flex w-full flex-col gap-1 font-medium md:text-lg lg:text-xl">
-                <span>Nom : {localStorage.getItem("name")}</span>
-                <span>Université : {localStorage.getItem("university")}</span>
-                <span>Rôle: {localStorage.getItem("role")}</span>
-                <span>Compétition: {localStorage.getItem("competition")}</span>
+                <span>
+                    Bonjour {info()?.first_name} {info()?.last_name}
+                </span>
+                <span>Votre délégation est {info()?.university}</span>
+                {info() != null && info()?.competition != "none" && (
+                    <span>
+                        vous faites la compétition {info()?.competition}
+                    </span>
+                )}
             </div>
             <Field
                 name="pronouns"

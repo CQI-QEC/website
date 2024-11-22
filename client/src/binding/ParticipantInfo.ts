@@ -6,12 +6,12 @@ import type { TshirtSize } from "./TshirtSize";
 import type { University } from "./University";
 
 export type ParticipantInfo = {
-  first_name: string;
-  last_name: string;
-  email: string;
-  role: Role;
-  competition: Competition;
-  university: University;
+  first_name: string | null;
+  last_name: string | null;
+  email: string | null;
+  role: Role | null;
+  competition: Competition | null;
+  university: University | null;
   medical_conditions: string | null;
   allergies: string | null;
   pronouns: string | null;

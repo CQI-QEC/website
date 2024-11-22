@@ -15,12 +15,12 @@ use super::{
 #[derive(Debug, Serialize, Deserialize, sqlx::FromRow, TS)]
 #[ts(export)]
 pub struct ParticipantInfo {
-    pub first_name: String,
-    pub last_name: String,
-    pub email: String,
-    pub role: Role,
-    pub competition: Competition,
-    pub university: University,
+    pub first_name: Option<String>,
+    pub last_name: Option<String>,
+    pub email: Option<String>,
+    pub role: Option<Role>,
+    pub competition: Option<Competition>,
+    pub university: Option<University>,
     pub medical_conditions: Option<String>,
     pub allergies: Option<String>,
     pub pronouns: Option<String>,
