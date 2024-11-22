@@ -66,6 +66,7 @@ function ParticipantRow(props: ParticipantRowProps) {
                 {localStorage.getItem("role") === "organizer" && (
                     <td class="p-2 text-center">{p.university}</td>
                 )}
+                <td class="">{p.contain_cv ? "✔️" : "❌"}</td>
                 <td class="flex flex-row gap-4 p-2 text-center">
                     {localStorage.getItem("role") !== "volunteer" && (
                         <button
@@ -191,6 +192,9 @@ export default function ParticipantForm() {
                                     Université
                                 </th>
                             )}
+                            <th class="border-b border-gray-300 p-2 text-center">
+                                Infos données
+                            </th>
                             <th class="border-b border-gray-300 p-2 text-center">
                                 Actions
                             </th>
