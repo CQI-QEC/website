@@ -1,2 +1,2 @@
 bun run build
-zip -r dist.zip dist/
+zip -r dist.zip dist/*

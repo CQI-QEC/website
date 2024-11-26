@@ -20,7 +20,6 @@ export function NewPassword() {
             setSuccess("Votre mot de passe a été changé avec succès")
         }
     }
-    createEffect(async () => {})
     return (
         <Form onSubmit={onSubmit} class="flex flex-col gap-8">
             <Field

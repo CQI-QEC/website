@@ -121,8 +121,7 @@ const additionalInfo = {
         "Avez-vous, au moment de la CQI, une passe OPUS mensuelle pour la région de Montréal?",
     reducedMobilityLabel:
         "Avez-vous besoin d'aménagement pour mobilité réduite? Si oui, veuillez spécifier ci-dessous.",
-    studyProofLabel:
-        "Preuve d'études avec nombre de crédits (pdf/jpg/jpeg/png)",
+    studyProofLabel: "Preuve d'études avec nombre de crédits (pdf)",
     photoLabel: "Photo 512x512: (png)",
     cvLabel: "CV (pdf)",
     success: "Informations ajoutées avec succès",

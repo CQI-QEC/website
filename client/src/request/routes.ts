@@ -13,7 +13,7 @@ import {
     fetch_put,
 } from "./fetch_wrapper"
 
-export async function fetchParticipants() {
+export async function fetchParticipants(): Promise<ParticipantPreview[]> {
     const request = await fetch_get("/participants")
     if (!request) {
         return []
@@ -61,51 +61,8 @@ export async function resetEmail(email: EmailResetPayload) {
     return await fetch_post_no_token("/password", email)
 }
 
-function getBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader()
-
-        // Event listener when the file reading is completed
-        reader.onload = () => {
-            // `reader.result` contains the base64 string
-            const base64String = reader.result as string
-            const base64StringSplit = base64String.split(",")[1]
-            if (!base64StringSplit) {
-                reject(new Error("Failed to convert file to base64"))
-            }
-            resolve(base64StringSplit) // Removing the base64 prefix
-        }
-
-        // Event listener for any error
-        reader.onerror = () => {
-            reject(new Error("Failed to convert file to base64"))
-        }
-
-        // Reading the file as a data URL (which contains base64 encoded string)
-        reader.readAsDataURL(file)
-    })
-}
-
 export async function patchParticipantInfo(info: ParticipantInfo) {
-    const payload: any = info
-    if (info.study_proof) {
-        payload.study_proof = await getBase64(info.study_proof)
-    } else {
-        payload.study_proof = ""
-    }
-    if (info.photo) {
-        payload.photo = await getBase64(info.photo)
-    } else {
-        payload.photo = ""
-    }
-    if (info.cv) {
-        payload.cv = await getBase64(info.cv)
-    } else {
-        payload.cv = ""
-    }
-    console.log(info)
-    console.log(payload)
-    return await fetch_patch("/participant", payload)
+    return await fetch_patch("/participant", info)
 }
 
 export async function getParticipant(id: string) {

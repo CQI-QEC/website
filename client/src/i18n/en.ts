@@ -121,7 +121,7 @@ const additionalInfo = {
         "Do you have a monthly OPUS card for the Montréal region at the moment of the CQI?",
     reducedMobilityLabel:
         "Do you need reduced mobility assistance? If so, please specify below.",
-    studyProofLabel: "Study proof with number of credits (pdf/jpg/jpeg/png)",
+    studyProofLabel: "Study proof with number of credits (pdf)",
     photoLabel: "Photo 512x512 (png)",
     cvLabel: "CV (pdf)",
     success: "Your information has been saved.",

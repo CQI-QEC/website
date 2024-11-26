@@ -1,4 +1,4 @@
-import { PlusCircle, Trash } from "phosphor-solid-js"
+import { Info, PlusCircle, Trash } from "phosphor-solid-js"
 import { MinimalParticipant } from "../../binding/MinimalParticipant"
 import { createResource, For, createSignal } from "solid-js"
 import { createForm } from "@modular-forms/solid"
@@ -11,6 +11,7 @@ import {
     submitMinimalParticipant,
 } from "../../request/routes"
 import { t } from "../../stores/locale"
+import { A } from "@solidjs/router"
 
 interface ParticipantRowProps {
     participant: ParticipantPreview
@@ -66,7 +67,7 @@ function ParticipantRow(props: ParticipantRowProps) {
                 {localStorage.getItem("role") === "organizer" && (
                     <td class="p-2 text-center">{p.university}</td>
                 )}
-                <td class="">{p.contain_cv ? "✔️" : "❌"}</td>
+                <td class="p-2 text-center">{p.contain_cv ? "✔️" : "❌"}</td>
                 <td class="flex flex-row gap-4 p-2 text-center">
                     {localStorage.getItem("role") !== "volunteer" && (
                         <button
@@ -77,6 +78,12 @@ function ParticipantRow(props: ParticipantRowProps) {
                             <Trash class="h-8 w-8"></Trash>
                         </button>
                     )}
+                    <A
+                        class="rounded bg-blue-500 p-1 font-bold text-white hover:bg-red-700"
+                        href={"/participant-info/" + p.id}
+                    >
+                        <Info class="h-8 w-8"></Info>
+                    </A>
                 </td>
             </tr>
             {isModalOpen() && (
@@ -143,12 +150,30 @@ function getGivableRole() {
 }
 
 export default function ParticipantForm() {
-    const [user, { refetch }] = createResource(fetchParticipants)
     const [_form, { Form, Field }] = createForm<MinimalParticipant>()
     const onSubmit = async (data: MinimalParticipant) => {
         await submitMinimalParticipant(data)
         refetch()
     }
+
+    const [search, setSearch] = createSignal("")
+    const [competitionSearched, setCompetitionSearched] = createSignal("")
+    const [userFetched, { refetch }] = createResource(fetchParticipants)
+
+    const user = () => {
+        if (userFetched() == undefined) {
+            return []
+        }
+        return userFetched().filter((p: ParticipantPreview) => {
+            return (
+                p.university.toLowerCase().includes(search().toLowerCase()) &&
+                p.competition
+                    .toLowerCase()
+                    .includes(competitionSearched().toLowerCase())
+            )
+        })
+    }
+
     const download = () => {
         const csv = jsonToCsv(user())
         const blob = new Blob([csv], { type: "text/csv" })
@@ -162,12 +187,26 @@ export default function ParticipantForm() {
 
     return (
         <div class="flex flex-col gap-4">
-            <button
-                onclick={download}
-                class="w-64 rounded bg-blue-500 p-2 text-white hover:bg-blue-700"
-            >
-                Télécharger CSV
-            </button>
+            <div class="flex flex-row gap-4">
+                <button
+                    onclick={download}
+                    class="w-64 rounded bg-blue-500 p-2 text-white hover:bg-blue-700"
+                >
+                    Télécharger CSV
+                </button>
+                <input
+                    type="text"
+                    class="w-64 rounded border-2 border-gray-300 p-2"
+                    placeholder="Filtrer par université"
+                    onInput={(e) => setSearch(e.target.value)}
+                />
+                <input
+                    type="text"
+                    class="w-64 rounded border-2 border-gray-300 p-2"
+                    placeholder="Filtrer par compétition"
+                    onInput={(e) => setCompetitionSearched(e.target.value)}
+                />
+            </div>
             <Form onSubmit={onSubmit}>
                 <table class="min-w-full border border-gray-300 bg-white">
                     <thead>
@@ -193,7 +232,7 @@ export default function ParticipantForm() {
                                 </th>
                             )}
                             <th class="border-b border-gray-300 p-2 text-center">
-                                Infos données
+                                Infos
                             </th>
                             <th class="border-b border-gray-300 p-2 text-center">
                                 Actions
@@ -201,14 +240,17 @@ export default function ParticipantForm() {
                         </tr>
                     </thead>
                     <tbody>
-                        <For each={user()}>
-                            {(participant: ParticipantPreview) => (
-                                <ParticipantRow
-                                    participant={participant}
-                                    refetch={refetch}
-                                />
-                            )}
-                        </For>
+                        {user() && (
+                            <For each={user()}>
+                                {(participant: ParticipantPreview) => (
+                                    <ParticipantRow
+                                        participant={participant}
+                                        refetch={refetch}
+                                    />
+                                )}
+                            </For>
+                        )}
+
                         {localStorage.getItem("role") == "organizer" && (
                             <tr class="border-b border-gray-200">
                                 <td class="p-2">

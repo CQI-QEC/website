@@ -14,6 +14,31 @@ import { locale, t } from "../../stores/locale"
 import { SubmitError } from "../forms-component/SubmitError"
 import { SubmitSuccess } from "../forms-component/SubmitSuccess"
 import { YesNo } from "../forms-component/YesNo"
+import DownloadPdf from "../DownloadPdf"
+function getBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+
+        // Event listener when the file reading is completed
+        reader.onload = () => {
+            // `reader.result` contains the base64 string
+            const base64String = reader.result as string
+            const base64StringSplit = base64String.split(",")[1]
+            if (!base64StringSplit) {
+                reject(new Error("Failed to convert file to base64"))
+            }
+            resolve(base64StringSplit) // Removing the base64 prefix
+        }
+
+        // Event listener for any error
+        reader.onerror = () => {
+            reject(new Error("Failed to convert file to base64"))
+        }
+
+        // Reading the file as a data URL (which contains base64 encoded string)
+        reader.readAsDataURL(file)
+    })
+}
 
 export function AdditionalInfoForm() {
     const [loginForm, { Form, Field }] = createForm<ParticipantInfo>()
@@ -21,15 +46,28 @@ export function AdditionalInfoForm() {
     const [success, setSuccess] = createSignal<string | null>(null)
 
     const handleSubmit: SubmitHandler<ParticipantInfo> = async (
-        values,
+        info,
         event,
     ) => {
         event.preventDefault()
-        const response = await patchParticipantInfo(values)
-        if (response && response.status == 201) {
+        const payload: any = info
+        if (info.study_proof) {
+            payload.study_proof = await getBase64(info.study_proof)
+        }
+        if (info.photo) {
+            payload.photo = await getBase64(info.photo)
+        }
+        if (info.cv) {
+            payload.cv = await getBase64(info.cv)
+        }
+        const response = await patchParticipantInfo(payload)
+        if (!response) {
+            setError("Aucune authentification")
+        } else if (response.status == 201) {
+            setInfo(payload)
             setSuccess(t("additionalInfo.success"))
         } else {
-            setError(t("additionalInfo.error"))
+            setError((await response.json()).error)
         }
     }
 
@@ -114,10 +152,7 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field
-                name="dietary_restrictions"
-                validate={[required(t("additionalInfo.required"))]}
-            >
+            <Field name="dietary_restrictions">
                 {(field, props) => (
                     <Select
                         {...props}
@@ -146,7 +181,6 @@ export function AdditionalInfoForm() {
                                 value: "other",
                             },
                         ]}
-                        required
                     />
                 )}
             </Field>
@@ -252,10 +286,7 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field
-                name="tshirt_size"
-                validate={[required(t("additionalInfo.required"))]}
-            >
+            <Field name="tshirt_size">
                 {(field, props) => (
                     <Select
                         {...props}
@@ -288,7 +319,6 @@ export function AdditionalInfoForm() {
                                 value: "xxl",
                             },
                         ]}
-                        required
                     />
                 )}
             </Field>
@@ -309,22 +339,27 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field
-                name="study_proof"
-                type="File"
-                validate={[required(t("additionalInfo.required"))]}
-            >
+            <Field name="study_proof" type="File">
                 {(field, props) => (
                     <FileInput
                         {...props}
-                        value={field.value}
                         error={field.error}
                         label={t("additionalInfo.studyProofLabel")}
-                        accept="image/*,.pdf"
-                        required
+                        accept=".pdf"
                     />
                 )}
             </Field>
+            {info() && (
+                <DownloadPdf
+                    base64={info().study_proof}
+                    file_name={
+                        info().first_name +
+                        "_" +
+                        info().last_name +
+                        "_study_proof.pdf"
+                    }
+                />
+            )}
 
             <Field
                 name="photo"
@@ -334,14 +369,20 @@ export function AdditionalInfoForm() {
                 {(field, props) => (
                     <FileInput
                         {...props}
-                        value={field.value}
                         error={field.error}
                         label={t("additionalInfo.photoLabel")}
-                        accept="image/*"
+                        accept=".png"
                         required
                     />
                 )}
             </Field>
+            {info() && info().photo && (
+                <img
+                    width="256"
+                    height="256"
+                    src={"data:image/png;base64," + info().photo}
+                ></img>
+            )}
 
             <Field
                 name="cv"
@@ -351,7 +392,6 @@ export function AdditionalInfoForm() {
                 {(field, props) => (
                     <FileInput
                         {...props}
-                        value={field.value}
                         error={field.error}
                         label={t("additionalInfo.cvLabel")}
                         accept=".pdf"
@@ -360,10 +400,16 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            <Field
-                name="comments"
-                validate={[required(t("additionalInfo.required"))]}
-            >
+            {info() && (
+                <DownloadPdf
+                    base64={info().cv as unknown as string}
+                    file_name={
+                        info().first_name + "_" + info().last_name + "_cv.pdf"
+                    }
+                />
+            )}
+
+            <Field name="comments">
                 {(field, props) => (
                     <TextInput
                         {...props}
