@@ -52,19 +52,23 @@ export function AdditionalInfoForm() {
         event.preventDefault()
         const payload: any = info
         console.log(info)
+        payload.food_forms_completed =
+            (info.food_forms_completed as unknown as string) == "true"
+        payload.has_monthly_opus_card =
+            (info.has_monthly_opus_card as unknown as string) == "true"
         try {
-          if (info.study_proof) {
-              payload.study_proof = await getBase64(info.study_proof)
-          }
-          if (info.photo) {
-              payload.photo = await getBase64(info.photo)
-          }
-          if (info.cv) {
-              payload.cv = await getBase64(info.cv)
-          }
+            if (info.study_proof) {
+                payload.study_proof = await getBase64(info.study_proof)
+            }
+            if (info.photo) {
+                payload.photo = await getBase64(info.photo)
+            }
+            if (info.cv) {
+                payload.cv = await getBase64(info.cv)
+            }
         } catch (e) {
             setError("Erreur lors de la conversion des fichiers")
-          return;
+            return
         }
         const response = await patchParticipantInfo(payload)
         if (!response) {
@@ -73,7 +77,7 @@ export function AdditionalInfoForm() {
             setInfo(payload)
             setSuccess(t("additionalInfo.success"))
         } else {
-            setError((await response.json()).error)
+            setError(await response.text())
         }
     }
 
@@ -105,7 +109,7 @@ export function AdditionalInfoForm() {
             </a>
             <Field
                 name="food_forms_completed"
-                type="boolean"
+                type="string"
                 validate={[required(t("additionalInfo.required"))]}
             >
                 {(field, props) => (
@@ -332,7 +336,7 @@ export function AdditionalInfoForm() {
 
             <Field
                 name="has_monthly_opus_card"
-                type="boolean"
+                type="string"
                 validate={[required(t("additionalInfo.required"))]}
             >
                 {(field, props) => (

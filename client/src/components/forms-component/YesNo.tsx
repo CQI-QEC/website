@@ -48,7 +48,7 @@ export function YesNo(props: YesNoProps) {
                             class="h-4 w-4 cursor-pointer lg:h-5 lg:w-5"
                             type="radio"
                             id={`${props.name}-yes`}
-                            value="yes"
+                            value="true"
                             checked={props.value}
                             aria-invalid={!!props.error}
                             aria-errormessage={`${props.name}-error`}
@@ -63,7 +63,7 @@ export function YesNo(props: YesNoProps) {
                             class="h-4 w-4 cursor-pointer lg:h-5 lg:w-5"
                             type="radio"
                             id={`${props.name}-no`}
-                            value="no"
+                            value="false"
                             checked={!props.value}
                             aria-invalid={!!props.error}
                             aria-errormessage={`${props.name}-error`}

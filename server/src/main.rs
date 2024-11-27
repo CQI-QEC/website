@@ -1,5 +1,6 @@
 use std::{net::SocketAddr, time::Duration};
 
+use axum::extract::DefaultBodyLimit;
 use axum::http::{
     header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},
     Method,
@@ -56,6 +57,7 @@ async fn main() -> Result<()> {
             .layer(cors_layer)
             .layer(compression_layer)
             .layer(TraceLayer::new_for_http())
+            .layer(DefaultBodyLimit::max(32 * 1024 * 1024))
             .into_make_service(),
     )
     .await?;
