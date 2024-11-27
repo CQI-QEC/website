@@ -51,14 +51,20 @@ export function AdditionalInfoForm() {
     ) => {
         event.preventDefault()
         const payload: any = info
-        if (info.study_proof) {
-            payload.study_proof = await getBase64(info.study_proof)
-        }
-        if (info.photo) {
-            payload.photo = await getBase64(info.photo)
-        }
-        if (info.cv) {
-            payload.cv = await getBase64(info.cv)
+        console.log(info)
+        try {
+          if (info.study_proof) {
+              payload.study_proof = await getBase64(info.study_proof)
+          }
+          if (info.photo) {
+              payload.photo = await getBase64(info.photo)
+          }
+          if (info.cv) {
+              payload.cv = await getBase64(info.cv)
+          }
+        } catch (e) {
+            setError("Erreur lors de la conversion des fichiers")
+          return;
         }
         const response = await patchParticipantInfo(payload)
         if (!response) {
