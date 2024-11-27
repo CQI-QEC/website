@@ -6,7 +6,7 @@ import { t } from "../../stores/locale"
 type YesNoProps = {
     ref: (element: HTMLInputElement) => void
     name: string
-    value?: "yes" | "no"
+    value?: boolean
     onInput: JSX.EventHandler<HTMLInputElement, InputEvent>
     onChange: JSX.EventHandler<HTMLInputElement, Event>
     onBlur: JSX.EventHandler<HTMLInputElement, FocusEvent>
@@ -49,7 +49,7 @@ export function YesNo(props: YesNoProps) {
                             type="radio"
                             id={`${props.name}-yes`}
                             value="yes"
-                            checked={props.value === "yes"}
+                            checked={props.value}
                             aria-invalid={!!props.error}
                             aria-errormessage={`${props.name}-error`}
                         />
@@ -64,7 +64,7 @@ export function YesNo(props: YesNoProps) {
                             type="radio"
                             id={`${props.name}-no`}
                             value="no"
-                            checked={props.value === "no"}
+                            checked={!props.value}
                             aria-invalid={!!props.error}
                             aria-errormessage={`${props.name}-error`}
                         />

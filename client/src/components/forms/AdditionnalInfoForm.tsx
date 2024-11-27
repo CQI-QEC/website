@@ -77,6 +77,7 @@ export function AdditionalInfoForm() {
         const id = localStorage.getItem("id")
         if (!id) return
         const response = await getParticipant(id)
+        console.log(response)
         if (!response.error) {
             const participant = response as ParticipantInfo
             setInfo(participant)
@@ -104,7 +105,7 @@ export function AdditionalInfoForm() {
                 {(field, props) => (
                     <YesNo
                         {...props}
-                        value={"no"}
+                        value={field.value || false}
                         error={field.error}
                         label={t("additionalInfo.food")}
                         required
@@ -331,7 +332,7 @@ export function AdditionalInfoForm() {
                 {(field, props) => (
                     <YesNo
                         {...props}
-                        value={"no"}
+                        value={field.value || false}
                         error={field.error}
                         label={t("additionalInfo.hasMonthlyOpusCard")}
                         required
@@ -344,18 +345,22 @@ export function AdditionalInfoForm() {
                     <FileInput
                         {...props}
                         error={field.error}
+                        value={
+                            (typeof field.value !== "string" && field.value) ||
+                            undefined
+                        }
                         label={t("additionalInfo.studyProofLabel")}
                         accept=".pdf"
                     />
                 )}
             </Field>
-            {info() && (
+            {info() && info()?.study_proof && (
                 <DownloadPdf
-                    base64={info().study_proof}
+                    base64={info()?.study_proof as unknown as string}
                     file_name={
-                        info().first_name +
+                        info()?.first_name +
                         "_" +
-                        info().last_name +
+                        info()?.last_name +
                         "_study_proof.pdf"
                     }
                 />
@@ -370,17 +375,21 @@ export function AdditionalInfoForm() {
                     <FileInput
                         {...props}
                         error={field.error}
+                        value={
+                            (typeof field.value !== "string" && field.value) ||
+                            undefined
+                        }
                         label={t("additionalInfo.photoLabel")}
                         accept=".png"
                         required
                     />
                 )}
             </Field>
-            {info() && info().photo && (
+            {info() && info()?.photo && (
                 <img
                     width="256"
                     height="256"
-                    src={"data:image/png;base64," + info().photo}
+                    src={"data:image/png;base64," + info()?.photo}
                 ></img>
             )}
 
@@ -393,6 +402,10 @@ export function AdditionalInfoForm() {
                     <FileInput
                         {...props}
                         error={field.error}
+                        value={
+                            (typeof field.value !== "string" && field.value) ||
+                            undefined
+                        }
                         label={t("additionalInfo.cvLabel")}
                         accept=".pdf"
                         required
@@ -400,11 +413,11 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            {info() && (
+            {info() && info()?.cv && (
                 <DownloadPdf
-                    base64={info().cv as unknown as string}
+                    base64={info()?.cv as unknown as string}
                     file_name={
-                        info().first_name + "_" + info().last_name + "_cv.pdf"
+                        info()?.first_name + "_" + info()?.last_name + "_cv.pdf"
                     }
                 />
             )}
@@ -413,7 +426,10 @@ export function AdditionalInfoForm() {
                 {(field, props) => (
                     <TextInput
                         {...props}
-                        value={field.value || ""}
+                        value={
+                            (typeof field.value !== "string" && field.value) ||
+                            undefined
+                        }
                         error={field.error}
                         label="Commentaires"
                         class="w-full"

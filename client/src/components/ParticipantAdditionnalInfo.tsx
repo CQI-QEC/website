@@ -85,17 +85,13 @@ export default function ParticipantAdditionnalInfo() {
                             </p>
                             <p>
                                 <span class="font-medium">
-                                    Dietary Restrictions:
-                                </span>{" "}
+                                    Dietary Restrictions:{" "}
+                                </span>
                                 {user().dietary_restrictions}
                             </p>
                             <p>
                                 <span class="font-medium">Allergies:</span>{" "}
                                 {user().allergies}
-                            </p>
-                            <p>
-                                <span class="font-medium">Supper:</span>{" "}
-                                {user().supper}
                             </p>
                         </div>
 
@@ -141,37 +137,47 @@ export default function ParticipantAdditionnalInfo() {
                             </h2>
                             <p>
                                 <span class="font-medium">Study Proof:</span>{" "}
-                                <DownloadPdf
-                                    base64={user().study_proof}
-                                    file_name={
-                                        user().first_name +
-                                        "_" +
-                                        user().last_name +
-                                        "_study_proof.pdf"
-                                    }
-                                />
+                                {user().study_proof === "" && "No study proof"}
+                                {user().study_proof !== "" && (
+                                    <DownloadPdf
+                                        base64={user().study_proof}
+                                        file_name={
+                                            user().first_name +
+                                            "_" +
+                                            user().last_name +
+                                            "_study_proof.pdf"
+                                        }
+                                    />
+                                )}
                             </p>
                             <p>
                                 <span class="font-medium">Photo:</span>{" "}
-                                <img
-                                    width="256"
-                                    height="256"
-                                    src={
-                                        "data:image/png;base64," + user().photo
-                                    }
-                                ></img>
+                                {user().cv === "" && "No photo uploaded"}
+                                {user().cv !== "" && (
+                                    <img
+                                        width="256"
+                                        height="256"
+                                        src={
+                                            "data:image/png;base64," +
+                                            user().photo
+                                        }
+                                    ></img>
+                                )}
                             </p>
                             <p>
                                 <span class="font-medium">CV:</span>{" "}
-                                <DownloadPdf
-                                    base64={user().cv}
-                                    file_name={
-                                        user().first_name +
-                                        "_" +
-                                        user().last_name +
-                                        "_cv.pdf"
-                                    }
-                                />
+                                {user().cv === "" && "No CV uploaded"}
+                                {user().cv !== "" && (
+                                    <DownloadPdf
+                                        base64={user().cv}
+                                        file_name={
+                                            user().first_name +
+                                            "_" +
+                                            user().last_name +
+                                            "_cv.pdf"
+                                        }
+                                    />
+                                )}
                             </p>
                             <p>
                                 <span class="font-medium">
