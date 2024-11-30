@@ -16,6 +16,9 @@ import { SubmitSuccess } from "../forms-component/SubmitSuccess"
 import { YesNo } from "../forms-component/YesNo"
 import DownloadPdf from "../DownloadPdf"
 function getBase64(file: File): Promise<string> {
+    if (typeof file == "string") {
+        return Promise.resolve(file)
+    }
     return new Promise((resolve, reject) => {
         const reader = new FileReader()
 
@@ -27,7 +30,7 @@ function getBase64(file: File): Promise<string> {
             if (!base64StringSplit) {
                 reject(new Error("Failed to convert file to base64"))
             }
-            resolve(base64StringSplit) // Removing the base64 prefix
+            resolve(base64StringSplit as string) // Removing the base64 prefix
         }
 
         // Event listener for any error
@@ -45,26 +48,32 @@ export function AdditionalInfoForm() {
     const [error, setError] = createSignal<string | null>(null)
     const [success, setSuccess] = createSignal<string | null>(null)
 
+    const [info, setInfo] = createSignal<ParticipantInfo | null>(null)
+
     const handleSubmit: SubmitHandler<ParticipantInfo> = async (
-        info,
+        participant_info,
         event,
     ) => {
         event.preventDefault()
-        const payload: any = info
-        console.log(info)
+        const payload: any = participant_info
+        console.log(participant_info)
         payload.food_forms_completed =
-            (info.food_forms_completed as unknown as string) == "true"
+            (participant_info.food_forms_completed as unknown as string) ==
+            "true"
         payload.has_monthly_opus_card =
-            (info.has_monthly_opus_card as unknown as string) == "true"
+            (participant_info.has_monthly_opus_card as unknown as string) ==
+            "true"
         try {
-            if (info.study_proof) {
-                payload.study_proof = await getBase64(info.study_proof)
+            if (participant_info.study_proof) {
+                payload.study_proof = await getBase64(
+                    participant_info.study_proof,
+                )
             }
-            if (info.photo) {
-                payload.photo = await getBase64(info.photo)
+            if (participant_info.photo) {
+                payload.photo = await getBase64(participant_info.photo)
             }
-            if (info.cv) {
-                payload.cv = await getBase64(info.cv)
+            if (participant_info.cv) {
+                payload.cv = await getBase64(participant_info.cv)
             }
         } catch (e) {
             setError("Erreur lors de la conversion des fichiers")
@@ -80,8 +89,6 @@ export function AdditionalInfoForm() {
             setError(await response.text())
         }
     }
-
-    const [info, setInfo] = createSignal<ParticipantInfo | null>(null)
 
     createEffect(async () => {
         const id = localStorage.getItem("id")
