@@ -6,9 +6,9 @@ import closeMenuIcon from "../../assets/close.svg"
 import menuIcon from "../../assets/menu.svg"
 
 export default function NavHeader() {
-    const [menuIsOpen, setMenuIsOpen] = createSignal(false);
-    let hamburgerButton: HTMLButtonElement | undefined;
-    let hamburgerMenu: HTMLDivElement | undefined;
+    const [menuIsOpen, setMenuIsOpen] = createSignal(false)
+    let hamburgerButton: HTMLButtonElement | undefined
+    let hamburgerMenu: HTMLDivElement | undefined
 
     const links = () => {
         return [
@@ -37,20 +37,15 @@ export default function NavHeader() {
                 file: "Documents",
                 name: t("documents.documents"),
             },
-            {
-                to: "/login",
-                file: "Login",
-                name: t("login"),
-            },
         ]
-    };
+    }
 
     const toggleLanguage = (): void => {
         if (locale() === "en") {
-            localStorage.setItem("locale", "fr");
+            localStorage.setItem("locale", "fr")
             setLocale("fr")
         } else {
-            localStorage.setItem("locale", "en");
+            localStorage.setItem("locale", "en")
             setLocale("en")
         }
     }
@@ -59,11 +54,11 @@ export default function NavHeader() {
      * Opens or closes the hamburger menu.
      */
     const toggleHamburgerMenu = (): void => {
-        hamburgerButton?.classList.toggle("hidden");
-        hamburgerMenu?.classList.toggle("hidden");
+        hamburgerButton?.classList.toggle("hidden")
+        hamburgerMenu?.classList.toggle("hidden")
 
-        setMenuIsOpen(!menuIsOpen);
-    };
+        setMenuIsOpen(!menuIsOpen)
+    }
 
     const HamburgerMenu = (): JSX.Element => {
         return (
@@ -98,12 +93,12 @@ export default function NavHeader() {
                                         to={link.to}
                                         file={link.file}
                                         onClick={toggleHamburgerMenu}
-                                        class="hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight transition"
+                                        class="transition hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight"
                                     >
                                         {link.name}
                                     </PrefetchLink>
                                 </li>
-                            );
+                            )
                         })}
                     </ul>
                 </div>
@@ -113,11 +108,15 @@ export default function NavHeader() {
 
     const StandardMenu = (): JSX.Element => {
         return (
-            <ul class="hidden h-fit text-2xl lg:flex font-condensed">
+            <ul class="hidden h-fit font-condensed text-2xl lg:flex">
                 {links().map((link) => {
                     return (
                         <li class="ml-4 flex">
-                            <PrefetchLink to={link.to} file={link.file} class="hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight transition">
+                            <PrefetchLink
+                                to={link.to}
+                                file={link.file}
+                                class="transition hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight"
+                            >
                                 {link.name}
                             </PrefetchLink>
                         </li>
@@ -125,7 +124,10 @@ export default function NavHeader() {
                 })}
 
                 <li class="ml-4 flex">
-                    <button onClick={toggleLanguage} class="ml-4 flex border-none">
+                    <button
+                        onClick={toggleLanguage}
+                        class="ml-4 flex border-none"
+                    >
                         {t("lang")}
                     </button>
                 </li>
@@ -134,9 +136,11 @@ export default function NavHeader() {
     }
 
     return (
-        <header class="text-white absolute top-0 flex w-full items-center justify-between p-4">
-            <h1 class="text-3xl font-bold font-condensed">
-                <A href="/"><img src="/banners/logo.png" width="192em"></img></A>
+        <header class="absolute top-0 flex w-full items-center justify-between p-4 text-white">
+            <h1 class="font-condensed text-3xl font-bold">
+                <A href="/">
+                    <img src="/banners/logo.png" width="192em"></img>
+                </A>
             </h1>
 
             <nav>

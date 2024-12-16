@@ -3,10 +3,17 @@ import { JSX } from "solid-js"
 interface Props {
     img?: string
     theme?: string
+    height?: string
     children: JSX.Element
 }
 
 export default function Cards(props: Props) {
+    let height
+    if (!props.height) {
+        height = 12
+    } else {
+        height = props.height
+    }
     return (
         <div
             class={
@@ -16,8 +23,14 @@ export default function Cards(props: Props) {
         >
             {props.img !== undefined && (
                 <div
-                    class="h-72 w-full rounded-t-lg bg-cover bg-bottom"
-                    style={"background-image: url('" + props.img + "')"}
+                    class={"w-full rounded-t-lg bg-cover bg-top"}
+                    style={
+                        "background-image: url('" +
+                        props.img +
+                        "');height: " +
+                        height +
+                        "rem;"
+                    }
                 ></div>
             )}
             <div class="p-5">{props.children}</div>
