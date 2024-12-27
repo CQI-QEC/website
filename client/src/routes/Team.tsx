@@ -42,7 +42,7 @@ const Team = () => {
         {
             name: "Marie Rheault-Leclair",
             role: "VP-Conscience Sociale",
-            image: "/team/co/marie.png",
+            image: "/team/co/marie.jpg",
         },
     ]
 
@@ -55,7 +55,7 @@ const Team = () => {
         {
             name: "Catherine Tessier",
             role: "Directrice Évenementielle",
-            image: "Catherine Tessier - Directrice Évenementielle.JPG",
+            image: "Catherine Tessier - Directrice Évenementiel.JPG",
         },
         {
             name: "Danick Thibault",
@@ -141,6 +141,11 @@ const Team = () => {
             name: "Éloise Brosseau",
             role: "Directrice Programmation",
             image: "Éloise Brosseau - Directrice Programmation.JPG",
+        },
+        {
+            name: "Sarah Roberge",
+            role: "Directrice À La Chefferie",
+            image: "Sarah Roberge - Directrice Chefs.JPG",
         },
     ]
 
