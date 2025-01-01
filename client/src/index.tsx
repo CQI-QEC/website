@@ -29,6 +29,7 @@ const ListParticipant = lazy(() => import("./routes/ListParticipant"))
 const ChangePassword = lazy(() => import("./routes/ChangePassword"))
 const ForgottenPassword = lazy(() => import("./routes/ForgottenPassword"))
 const ParticipantInfo = lazy(() => import("./routes/ParticipantInfo"))
+const IndividualPartner = lazy(() => import("./routes/IndividualPartner"))
 
 const app = document.getElementById("app")
 if (app) {
@@ -57,6 +58,7 @@ if (app) {
                     path="/participant-info/:id"
                     component={ParticipantInfo}
                 />
+                <Route path="/partners/:name" component={IndividualPartner} />
                 <Route path="*" component={NotFound} />
             </Router>
         ),
