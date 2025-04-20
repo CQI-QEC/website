@@ -22,7 +22,7 @@ const Competition = () => {
             </FixedImage>
             <div class="-mt-8 flex w-full flex-col items-center justify-center gap-4 p-8 text-center">
                 <P>{t("competitionsPage.description")}</P>
-            <div class="grid grid-flow-row grid-cols-3 gap-8">
+            <div class="grid grid-flow-row lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
                     {
                         competitions.map((competition) => {
                             return (

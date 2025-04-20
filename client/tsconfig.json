@@ -30,6 +30,6 @@
         "skipLibCheck": true,
         "pretty": true
     },
-    "include": ["src/**/*", "*.d.ts"],
+    "include": ["src/**/*", "svg.d.ts"],
     "exclude": ["node_modules"]
 }

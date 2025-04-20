@@ -157,7 +157,7 @@ const Team = () => {
                 </h1>
             </FixedImage>
             <div class="-mt-20 font-futur text-xl font-bold">
-                <div class="grid grid-cols-4 gap-8 px-48">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-12 sm:px-48">
                     {team.map((member) => {
                         return (
                             <Cards height="20" img={member.image}>
@@ -167,7 +167,7 @@ const Team = () => {
                         )
                     })}
                 </div>
-                <div class="grid grid-cols-6 gap-4 p-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4">
                     {director.map((member) => {
                         return (
                             <Cards img={"/team/directeur/" + member.image}>
