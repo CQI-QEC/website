@@ -157,17 +157,17 @@ const Team = () => {
                 </h1>
             </FixedImage>
             <div class="-mt-20 font-futur text-xl font-bold">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-12 sm:px-48">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-12 sm:px-48 mx-auto">
                     {team.map((member) => {
                         return (
-                            <Cards height="20" img={member.image}>
+                            <Cards small={true} img={member.image}>
                                 <h2>{member.name}</h2>
                                 <p>{member.role}</p>
                             </Cards>
                         )
                     })}
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4 px-12">
                     {director.map((member) => {
                         return (
                             <Cards img={"/team/directeur/" + member.image}>

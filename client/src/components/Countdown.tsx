@@ -1,10 +1,11 @@
 import { createSignal, onCleanup } from "solid-js"
 import CountdownCard from "./CountdownCard"
 import { t } from "../stores/locale"
+import globalInfoNumbers from "../stores/globalInfoNumbers"
 
 function timeBetweenDates() {
     const validFromDate = new Date()
-    const validTillDate = new Date("16 January 2025 08:00 UTC-05")
+    const validTillDate = new Date(`${globalInfoNumbers.FIRST_DAY_COMPETITION} January ${globalInfoNumbers.YEAR} 08:00 UTC-05`)
     const difference = validTillDate.getTime() - validFromDate.getTime()
 
     let timeData = {

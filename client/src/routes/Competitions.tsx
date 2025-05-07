@@ -29,7 +29,9 @@ const Competition = () => {
                                 <Card theme="w-full" img={"/competition/" + competition + ".webp"}>
                                     <H3>{t(("competitionsPage." + competition + ".title") as any)}</H3>
                                     <P2>{t(("competitionsPage." + competition + ".description") as any)}</P2>
+                                    <a href="https://drive.google.com/drive/u/0/my-drive">Lien Drive!</a>
                                 </Card>
+                                
                             );
                         })
                     }
