@@ -26,7 +26,7 @@ const aboutPage = {
     delegations: {
         title: `Delegations`,
         description:
-            `The Quebec Engineering Competition gathers ${globals.QUANTITY_DELEGATIONS} delegations of ${globals.QUANTITY_UNIVERSITIES} different universities. Each delegation is overseed by its student association.`,
+            `The Quebec Engineering Competition gathers ${globals.QUANTITY_DELEGATIONS} delegations of ${globals.QUANTITY_UNIVERSITIES} different universities. Each delegation is overseen by its student association.`,
     },
     // TODO : Change the Theme
     thematic: {
