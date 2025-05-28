@@ -1,6 +1,5 @@
 import { useParams } from "@solidjs/router"
 import FixedImage from "../components/FixedImage"
-import Goback from "../components/ReturnDashboard"
 import PrefetchLink from "../components/PrefetchLink"
 import { CaretCircleLeft } from "phosphor-solid-js"
 import { t } from "../stores/locale"
@@ -27,7 +26,7 @@ export default function Dashboard() {
         partnerDescriptions[partnerName as any] || "Description not available."
     return (
         <div class="flex w-full flex-col items-center justify-center">
-            <NavHeader />
+            <NavHeader background={true}/>
             <FixedImage url="/banners/documents.svg" height="32rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {partnerName}

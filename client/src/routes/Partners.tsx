@@ -54,7 +54,7 @@ const Partners = () => {
 
     return (
         <div class="flex w-full flex-col items-center justify-center">
-            <NavHeader />
+            <NavHeader background={true}/>
             <FixedImage url="/banners/partner.jpg" height="28rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {t("partners")}

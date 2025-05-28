@@ -8,7 +8,7 @@ import menuIcon from "../../assets/menu.svg"
 const links = () => {
     return [
         {
-            to: "/about",
+            to: "/#about",
             file: "About",
             name: t("aboutPage.about"),
         },
@@ -45,7 +45,11 @@ const toggleLanguage = (): void => {
     }
 }
 
-export default function NavHeader() {
+interface NavHeaderProps {
+    background?: boolean
+}
+
+export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
     const [menuIsOpen, setMenuIsOpen] = createSignal(false)
     let hamburgerButton: HTMLButtonElement | undefined
     let hamburgerMenu: HTMLDivElement | undefined
@@ -108,7 +112,7 @@ export default function NavHeader() {
     //#region Standard menu
     const StandardMenu = (): JSX.Element => {
         return (
-            <ul class="hidden h-fit font-condensed text-2xl lg:flex text-shadow-lg/20">
+            <ul class="hidden h-fit font-condensed text-2xl lg:flex">
                 {links().map((link) => {
                     return (
                         <li class="ml-4 flex">
@@ -137,7 +141,7 @@ export default function NavHeader() {
     //#endregion
 
     return (
-        <header class="top-0 h-[10vh] flex w-full items-center justify-between p-4 text-white absolute">
+        <header class= {"top-0 h-[10vh] flex w-full items-center justify-between p-4 text-white absolute " + (navHeaderProps.background ? " bg-red-900/50 bg-blend-luminosity backdrop-blur-md" : " ")}>
             <h1 class="font-condensed text-3xl font-bold md:pl-0 lg:pl-8">
                 <A href="/">
                     <img src="/logo.jpg" class="h-24"></img>

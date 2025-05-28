@@ -10,7 +10,8 @@ const homePage = {
     seconds: `secondes`,
     cqi: `Compétition Québécoise d'Ingénierie`,
     edition: `${globals.EDITION_NUMBER}e édition`,
-    location: `${globals.FIRST_DAY_COMPETITION} au ${globals.LAST_DAY_COMPETITION} janvier ${globals.YEAR}, ${HostingUniversityName}`,
+    date: `${globals.FIRST_DAY_COMPETITION} au ${globals.LAST_DAY_COMPETITION} janvier ${globals.YEAR}`,
+    location:`${HostingUniversityName}`,
     description:
         `La CQI est une compétition réunissant ${globals.QUANTITY_UNIVERSITIES} universités de la province et des centaines de membres de la communauté étudiante en génie qui excellent et se démarquent dans le domaine. La CQI vise à faire rayonner le savoir-faire et le savoir-être des futur(e)s ingénieur(e)s par le biais d'épreuves techniques multidisciplinaires.`,
 }

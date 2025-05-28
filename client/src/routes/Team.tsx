@@ -121,7 +121,7 @@ const Team = () => {
 
     return (
         <div class="flex w-full flex-col items-center justify-center">
-            <NavHeader />
+            <NavHeader background={true}/>
             <FixedImage url="/banners/team.jpg" height="40rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {t("team")}

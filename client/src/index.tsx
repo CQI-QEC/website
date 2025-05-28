@@ -16,7 +16,6 @@ declare global {
 }
 
 const Home = lazy(() => import("./routes/Home"))
-const About = lazy(() => import("./routes/About"))
 const NotFound = lazy(() => import("./routes/NotFound"))
 const Competition = lazy(() => import("./routes/Competitions"))
 const Team = lazy(() => import("./routes/Team"))
@@ -37,7 +36,6 @@ if (app) {
         () => (
             <Router root={App}>
                 <Route path="/" component={Home} />
-                <Route path="/about" component={About} />
                 <Route path="/competitions" component={Competition} />
                 <Route path="/team" component={Team} />
                 <Route path="/partners" component={Partners} />

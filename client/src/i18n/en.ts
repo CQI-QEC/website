@@ -10,7 +10,8 @@ const homePage = {
     seconds: `seconds`,
     cqi: `Québec Engineering Competition`,
     edition: `${globals.EDITION_NUMBER}th edition`,
-    location: `${globals.FIRST_DAY_COMPETITION} to ${globals.LAST_DAY_COMPETITION} January ${globals.YEAR}, ${HostingUniversityName}`,
+    date: `${globals.FIRST_DAY_COMPETITION} to ${globals.LAST_DAY_COMPETITION} January ${globals.YEAR}`,
+    location: `${HostingUniversityName}`,
     description:
         `The ${globals.EDITION_NUMBER}th edition of the QEC will be held in ${globals.YEAR} at the ${HostingUniversityName}. This engineering competition brings together 14 campuses from 11 different universities across Quebec so that hundreds of engineering students in the province can compete. The Quebec Engineering Competition is overseen by the CRÉIQ and allows engineering students to demonstrate their talents in theoretical and practical tests.`,
 }
