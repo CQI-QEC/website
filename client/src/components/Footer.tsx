@@ -3,7 +3,8 @@ import { t } from "../stores/locale"
 
 export default function Footer() {
     return (
-        <footer class="flex w-full flex-col items-center gap-1 p-2 bg-[#ecab1b]">
+        //
+        <footer class="flex w-full flex-col items-center gap-1 p-2 bg-orange-100">
             <p>
                 <a href="https://www.facebook.com/profile.php?id=61576017996819" class="text-black hover:text-white transition-colors">
                     <FacebookLogo size={24} class="inline mx-2" />

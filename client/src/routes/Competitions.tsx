@@ -28,9 +28,9 @@ const Competition = () => {
             <FixedImage url="/banners/competitions.jpg" height="36rem" extra_classes="justify-center items-center">
                 <h1 class="font-futur text-white text-center text-6xl">{t("competitionsPage.competitions")}</h1>
             </FixedImage>
-            <div class="flex w-full h-4 bg-red-900"></div>
-            <div class="flex w-full flex-col items-center justify-center p-8 md:p-24 w-1/3 text-center">
-                <P>{t("competitionsPage.description")}</P>
+            <div class="flex w-full h-2 bg-red-900"></div>
+            <div class="flex w-full flex-col items-center justify-center px-8 pt-8 md:px-24 md:pt-18 w-1/3 text-center">
+                <p class="text-3xl text-justify w-fit px-2 font-condensed transition mr-auto border-[.8rem] rounded-xl border-emerald-600">{t("competitionsPage.description")}</p>
                 <div class="grid grid-flow-row grid-cols-1 w-full">
                     {
                         competitions.map((competition,i) => {
@@ -64,6 +64,9 @@ const Competition = () => {
                     }
                 </div>
             </div>
+            <div class="flex w-full h-4 bg-emerald-600"></div>
+            <div class="flex w-full h-8 bg-slate-900" style={"background-image: url('/misc/road_bright.svg');"}></div>
+            <div class="flex w-full h-4 bg-emerald-600"></div>
         </div>
     )
 };

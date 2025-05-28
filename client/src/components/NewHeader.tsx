@@ -108,7 +108,7 @@ export default function NavHeader() {
     //#region Standard menu
     const StandardMenu = (): JSX.Element => {
         return (
-            <ul class="hidden h-fit font-condensed text-2xl lg:flex">
+            <ul class="hidden h-fit font-condensed text-2xl lg:flex text-shadow-lg/20">
                 {links().map((link) => {
                     return (
                         <li class="ml-4 flex">
