@@ -36,34 +36,33 @@ const Competition = () => {
                         competitions.map((competition,i) => {
                             return (
                             <>
+                                {/* 1 Competition plus its sidebar */}
                                 <div class="w-full flex">
-                                    {i%2===0 ? <div class="min-h-fit ml-auto bg-emerald-600 md:w-4"></div> : null}
+                                    {i%2===0 ? <div class="min-h-fit ml-auto md:w-4 bg-slate-900 bg-repeat-y border-x-2 border-emerald-600" style={"background-image: url('/misc/up_road.svg');"}></div> : null}
                                     <Card theme="w-full md:w-3/5 md:my-4 md:mx-4" img={"/competition/" + competition.name + ".jpg"}>
                                         <H3>{t(("competitionsPage." + competition.name + ".title") as any)}</H3>
                                         <P2>{t(("competitionsPage." + competition.name + ".description") as any)}</P2>
                                         
                                         {/* { competition.driveLink ? <a href={competition.driveLink}>Lien Drive!</a> : null }  */}
                                     </Card>
-                                    {i%2===1 ? <div class="min-h-fit mr-auto bg-emerald-600 md:w-4"></div> : null}
-                                    </div>
-                                    {
-                                        i!==competitions.length-1 ?
-                                        <div class="flex w-full h-4">
-                                            {i%2===0 ?<span class="md:h-4 md:w-12 bg-emerald-600 ml-auto rounded-bl-lg"></span>:<span class="h-4 md:w-12 bg-emerald-600 ml-auto rounded-tl-lg"></span>}
-                                            <span class="md:w-1/5 bg-emerald-600 md:h-4"></span>
-                                            {i%2===0 ?<span class="md:h-4 md:w-12 bg-emerald-600 mr-auto rounded-tr-lg"></span>:<span class="h-4 md:w-12 bg-emerald-600 mr-auto rounded-br-lg"></span>}
-                                        </div>
-                                        :null
-                                    }
-                                    <div>
-
+                                    {i%2===1 ? <div class="min-h-fit mr-auto md:w-4 bg-slate-900 bg-repeat-y border-x-2 border-emerald-600" style={"background-image: url('/misc/up_road.svg');"}></div> : null}
                                 </div>
-                            </>    
-                            );
+                                {/* MiddleRoad */}
+                                {
+                                    i!==competitions.length-1 ?
+                                    <div class="flex w-full h-4">
+                                        {i%2===0 ?<span class="md:h-4 md:w-12 border-y-2 border-emerald-600 bg-slate-900 ml-auto rounded-bl-lg" style={"background-image: url('/misc/road_bright.svg');"}></span>:<span class="h-4 md:w-12 border-y-2 border-emerald-600 bg-slate-900 ml-auto rounded-tl-lg" style={"background-image: url('/misc/road_bright.svg');"}></span>}
+                                        <span class="md:w-1/5 bg-slate-900 border-y-2 border-emerald-600 md:h-4" style={"background-image: url('/misc/road_bright.svg');"}></span>
+                                        {i%2===0 ?<span class="md:h-4 md:w-12 border-y-2 border-emerald-600 bg-slate-900 mr-auto rounded-tr-lg" style={"background-image: url('/misc/road_bright.svg');"}></span>:<span class="h-4 md:w-12 border-y-2 border-emerald-600 bg-slate-900 mr-auto rounded-br-lg" style={"background-image: url('/misc/road_bright.svg');"}></span>}
+                                    </div>
+                                    :null
+                                }
+                            </>);
                         })
                     }
                 </div>
             </div>
+            {/* Road at the end of the page */}
             <div class="flex w-full h-4 bg-emerald-600"></div>
             <div class="flex w-full h-8 bg-slate-900" style={"background-image: url('/misc/road_bright.svg');"}></div>
             <div class="flex w-full h-4 bg-emerald-600"></div>
