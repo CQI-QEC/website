@@ -137,7 +137,7 @@ export default function NavHeader() {
     //#endregion
 
     return (
-        <header class="top-0 h-[10vh] flex w-full items-center justify-between p-4 text-white bg-red-950">
+        <header class="top-0 h-[10vh] flex w-full items-center justify-between p-4 text-white absolute">
             <h1 class="font-condensed text-3xl font-bold md:pl-0 lg:pl-8">
                 <A href="/">
                     <img src="/logo.jpg" class="h-24"></img>

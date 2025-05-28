@@ -3,6 +3,7 @@ import FixedImage from "../components/FixedImage"
 import { t } from "../stores/locale"
 import { useNavigate } from "@solidjs/router"
 import LoginForm from "../components/forms/LoginForm"
+import NavHeader from "../components/NewHeader"
 
 export default function Login() {
     const navigate = useNavigate()
@@ -14,6 +15,7 @@ export default function Login() {
     })
     return (
         <div class="flex w-full flex-col items-center justify-center">
+            <NavHeader />
             <FixedImage url="/banners/documents.svg" height="32rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {t("login")}

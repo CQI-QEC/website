@@ -1,5 +1,6 @@
 import ExternalLink from "../components/ExternalLink";
 import FixedImage from "../components/FixedImage";
+import NavHeader from "../components/NewHeader";
 import { H3, P } from "../components/Text";
 import { t } from "../stores/locale";
 
@@ -36,52 +37,55 @@ const universities = [
 
 const About = () => {
     return (
-        <div class="flex w-full flex-col items-start justify-center gap-4">
-            <FixedImage url="/banners/about.png" height="30rem">
-                <h1 class="font-futur text-white text-center text-6xl">{t("aboutPage.about")}</h1>
-            </FixedImage>
-            <div class="flex flex-col px-32 m-4 box-border gap-4">
-                <P>{t("aboutPage.description1")}</P>
-                <P>{t("aboutPage.description2")}</P>
-                <P>{t("aboutPage.description3")}</P>
-                <H3>{t("aboutPage.thematic.title")}</H3>
-                <P>{t("aboutPage.thematic.description")}</P>
-                <H3>{t("aboutPage.delegations.title")}</H3>
-                <P>{t("aboutPage.delegations.description")}</P>
-                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
-                    {
-                        universities.map(({uni, url}) => {
-                            let src = "/uni/" + uni + "Logo.webp";
-                            return (
-                                <ExternalLink to={url}>
-                                    <img
-                                        class="h-20"
-                                        src={src}
-                                        alt={uni}
-                                    />
-                                </ExternalLink>
-                            );
-                        })
-                    }
-                </div>
-                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
-                    {
-                        asso.map(({asso, url}) => {
-                            let src = "/asso/" + asso + "Logo.webp";
-                            return (
-                                <ExternalLink to={url}>
-                                    <img
-                                        class="h-28"
-                                        src={src}
-                                        alt={asso}
-                                    />
-                                </ExternalLink>
-                            );
-                        })
-                    }
+        <>
+            <NavHeader />
+            <div class="flex w-full flex-col items-start justify-center gap-4">
+                <FixedImage url="/banners/about.png" height="30rem">
+                    <h1 class="font-futur text-white text-center text-6xl">{t("aboutPage.about")}</h1>
+                </FixedImage>
+                <div class="flex flex-col px-32 m-4 box-border gap-4">
+                    <P>{t("aboutPage.description1")}</P>
+                    <P>{t("aboutPage.description2")}</P>
+                    <P>{t("aboutPage.description3")}</P>
+                    <H3>{t("aboutPage.thematic.title")}</H3>
+                    <P>{t("aboutPage.thematic.description")}</P>
+                    <H3>{t("aboutPage.delegations.title")}</H3>
+                    <P>{t("aboutPage.delegations.description")}</P>
+                    <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
+                        {
+                            universities.map(({uni, url}) => {
+                                let src = "/uni/" + uni + "Logo.webp";
+                                return (
+                                    <ExternalLink to={url}>
+                                        <img
+                                            class="h-20"
+                                            src={src}
+                                            alt={uni}
+                                        />
+                                    </ExternalLink>
+                                );
+                            })
+                        }
+                    </div>
+                    <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
+                        {
+                            asso.map(({asso, url}) => {
+                                let src = "/asso/" + asso + "Logo.webp";
+                                return (
+                                    <ExternalLink to={url}>
+                                        <img
+                                            class="h-28"
+                                            src={src}
+                                            alt={asso}
+                                        />
+                                    </ExternalLink>
+                                );
+                            })
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

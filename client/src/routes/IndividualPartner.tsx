@@ -4,6 +4,7 @@ import Goback from "../components/ReturnDashboard"
 import PrefetchLink from "../components/PrefetchLink"
 import { CaretCircleLeft } from "phosphor-solid-js"
 import { t } from "../stores/locale"
+import NavHeader from "../components/NewHeader"
 
 export default function Dashboard() {
     const params = useParams()
@@ -26,6 +27,7 @@ export default function Dashboard() {
         partnerDescriptions[partnerName as any] || "Description not available."
     return (
         <div class="flex w-full flex-col items-center justify-center">
+            <NavHeader />
             <FixedImage url="/banners/documents.svg" height="32rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {partnerName}

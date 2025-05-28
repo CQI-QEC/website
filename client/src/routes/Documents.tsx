@@ -1,10 +1,12 @@
 import FixedImage from "../components/FixedImage"
+import NavHeader from "../components/NewHeader"
 import { P } from "../components/Text"
 import { t } from "../stores/locale"
 
 const Documents = () => {
     return (
         <div class="flex w-full flex-col items-center justify-center">
+            <NavHeader />
             <FixedImage url="/banners/documents.svg" height="32rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     Documents

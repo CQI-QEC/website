@@ -5,6 +5,7 @@ interface CardProps {
     theme?: string
     small?: boolean
     children: JSX.Element
+    extra_classes?: string
 }
 
 export default function Cards(props: CardProps) {
@@ -12,12 +13,12 @@ export default function Cards(props: CardProps) {
         <div
             class={
                 "rounded-lg border border-zinc-200 bg-white shadow transition" +
-                props.theme
+                props.theme + (props.extra_classes ? " " + props.extra_classes : "")
             }
         >
             {props.img !== undefined && (
                 <div
-                    class={`w-full rounded-t-lg bg-cover bg-top ` + (props.small ? `h-[12rem] xl:h-[20rem]` : `h-[12rem] xl:h-[20rem]`)}
+                    class={`w-full rounded-t-lg bg-cover bg-center ` + (props.small ? `h-[12rem] xl:h-[20rem]` : `h-[12rem] xl:h-[20rem]`)}
                     style={
                         "background-image: url('" +
                         props.img +

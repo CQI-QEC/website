@@ -1,157 +1,128 @@
 import Cards from "../components/Card"
 import FixedImage from "../components/FixedImage"
+import NavHeader from "../components/NewHeader";
 import { t } from "../stores/locale"
 
+interface Presidents {
+    name: string;
+    role: string;
+    image: string;
+    email?: string;
+}
+
+// TODO: add all the emails
 const Team = () => {
-    let team = [
+    let team : Presidents[] = [
         {
-            name: "Laure Jalbert-Drouin",
-            role: "Présidente",
-            image: "/team/co/laure.jpg",
+            name: "Marc-André Baril",
+            role: "Président",
+            image: "/team/co/baril.jpg",
+            email: "president@cqi.qc.ca"
         },
         {
-            name: "Cassie-Anais Savoie",
+            name: "Britany Lévesque",
             role: "VP-Logistique",
-            image: "/team/co/cassie.jpg",
+            image: "/team/co/levesque.jpg",
         },
         {
-            name: "Thomas Prévost",
-            role: "VP-Commandites",
-            image: "/team/co/thomas.jpg",
-        },
-        {
-            name: "Gaya Mehenni",
+            name: "Alexandrine Ducharme",
             role: "VP-Compétitions",
-            image: "/team/co/gaya.jpg",
+            image: "/team/co/ducharme.jpg",
         },
+        // {
+        //     name: "Philippine Grimont",
+        //     role: "Trésorerie",
+        //     image: "/team/co/philippine.jpg",
+        // },
         {
-            name: "Philippine Grimont",
-            role: "Trésorerie",
-            image: "/team/co/philippine.jpg",
-        },
-        {
-            name: "Sandrinne Bourque",
+            name: "Dahly Ann Smith",
             role: "VP-Communications",
-            image: "/team/co/sandrinne.jpg",
+            image: "/team/co/smith.jpg",
         },
         {
-            name: "Marc-Antoine Manningham",
-            role: "VP-Technique",
-            image: "/team/co/marcantoine.jpg",
+            name: "Gabriel Lapointe",
+            role: "VP-Partenariats",
+            image: "/team/co/lapointe.jpg",
         },
         {
-            name: "Marie Rheault-Leclair",
+            name: "Juliane Barette",
             role: "VP-Conscience Sociale",
-            image: "/team/co/marie.jpg",
+            image: "/team/co/barette.jpg",
         },
     ]
 
     const director = [
         {
-            name: "Alexis Foulon",
-            role: "Directeur Programmation",
-            image: "Alexis Foulon - Directeur Programmation.JPG",
-        },
-        {
-            name: "Catherine Tessier",
-            role: "Directrice Évenementielle",
-            image: "Catherine Tessier - Directrice Évenementiel.JPG",
-        },
-        {
-            name: "Danick Thibault",
-            role: "Directeur Senior",
-            image: "Danick Thibault - Directeur Senior.JPG",
-        },
-        {
-            name: "Floranne Lague",
-            role: "Directrice Communication scientifique",
-            image: "Floranne Lague - Directrice Communication scientifique.JPG",
-        },
-        {
-            name: "Julien Bourque",
-            role: "Directeur Programmation",
-            image: "Julien Bourque - Directeur Programmation.JPG",
-        },
-        {
-            name: "Justine Major",
-            role: "Directrice Débats oratoires",
-            image: "Justine Major - Directrice Débats oratoires.JPG",
-        },
-        {
-            name: "Kayla Charky",
-            role: "Directrice Génie conseil",
-            image: "Kayla Charky - Directrice Génie conseil .JPG",
-        },
-        {
-            name: "Laurence Lefrançois",
-            role: "Directrice Bénévoles",
-            image: "Laurence Lefrançois - Directrice Bénévoles.JPG",
-        },
-        {
-            name: "Leandro Pereira",
-            role: "Directeur junior",
-            image: "Leandro Pereira - Directeur junior.JPG",
-        },
-        {
-            name: "Madeleine Lepage",
-            role: "Directrice Génie conseil",
-            image: "Madeleine Lepage - Directrice Génie conseil .jpg",
-        },
-        {
-            name: "Marc-André Baril",
-            role: "Directeur Senior",
-            image: "Marc-André Baril - Directeur Senior.JPG",
-        },
-        {
-            name: "Marie Rouillard",
-            role: "Directrice Partenariats",
-            image: "Marie Rouillard - Directrice Partenariats.JPG",
-        },
-        {
-            name: "Mikael Perrot",
-            role: "Directeur Cycles supérieurs",
-            image: "Mikael Perrot - Directeur Cycles supérieurs .JPG",
-        },
-        {
-            name: "Nicolas Ouellette",
-            role: "Directeur Réingénierie",
-            image: "Nicolas Ouellette - Directeur Réingénierie.JPG",
-        },
-        {
-            name: "Samuel Roch",
+            name: "Alexandre Boucher",
             role: "Directeur Junior",
-            image: "Samuel Roch - Directeur Junior.JPG",
+            image: "boucher.jpg",
         },
         {
-            name: "Simon Fortier",
+            name: "Joanie Théroux",
+            role: "Directrice Junior",
+            image: "theroux.jpg",
+        },
+        {
+            name: "Zachary Désaulniers",
+            role: "Directeur Junior",
+            image: "deso.jpg",
+        },
+        {
+            name: "Dylan Renaud",
             role: "Directeur Réingénierie",
-            image: "Simon Fortier - Directeur Réingénierie.JPG",
+            image: "renaud.jpg",
         },
         {
-            name: "Thomas Scarlett",
-            role: "Directeur Conception innovatrice",
-            image: "Thomas Scarlett - Directeur Conception innovatrice.JPG",
+            name: "Nicolas Payeur",
+            role: "Directeur Puzzle hero",
+            image: "payeur.jpg",
         },
         {
-            name: "Élise Cloutier",
-            role: "Directrice Conception innovatrice",
-            image: "Élise Cloutier - Directrice Conception innovatrice .JPG",
+            name: "Émile Reny-Déry",
+            role: "Directeur Puzzle hero",
+            image: "reny-dery.jpg",
         },
         {
-            name: "Éloise Brosseau",
-            role: "Directrice Programmation",
-            image: "Éloise Brosseau - Directrice Programmation.JPG",
+            name: "Antony Martel",
+            role: "Directeur Puzzle hero",
+            image: "martel.jpg",
         },
         {
-            name: "Sarah Roberge",
-            role: "Directrice À La Chefferie",
-            image: "Sarah Roberge - Directrice Chefs.JPG",
+            name: "Justin Héroux",
+            role: "Directeur Conception Innovatrice",
+            image: "heroux.jpg",
+        },
+        {
+            name: "Philippine Grimont",
+            role: "Directrice Génie Conseil",
+            image: "grimont.jpg",
+        },
+        {
+            name: "Laure Jalbert-Drouin",
+            role: "Directrice Génie Conseil",
+            image: "laure.jpg",
+        },
+        {
+            name: "Nathaniel Girard",
+            role: "Directeur Programmation",
+            image: "nate.jpg",
+        },
+        {
+            name: "Marc-Anthony Girard",
+            role: "Directeur Programmation",
+            image: "girard.jpg",
+        },
+        {
+            name: "Médéric Chalifour",
+            role: "Directeur Sénior",
+            image: "chalifour.jpg",
         },
     ]
 
     return (
         <div class="flex w-full flex-col items-center justify-center">
-            <FixedImage url="/banners/team.svg" height="40rem">
+            <NavHeader />
+            <FixedImage url="/banners/team.jpg" height="40rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {t("team")}
                 </h1>
@@ -163,6 +134,7 @@ const Team = () => {
                             <Cards small={true} img={member.image}>
                                 <h2>{member.name}</h2>
                                 <p>{member.role}</p>
+                                {member.email ? <a href={"mailto:" + member.email} class="text-emerald-500 hover:underline">{member.email}</a> : null}
                             </Cards>
                         )
                     })}

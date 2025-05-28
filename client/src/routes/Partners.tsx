@@ -1,4 +1,5 @@
 import FixedImage from "../components/FixedImage"
+import NavHeader from "../components/NewHeader"
 import { H1 } from "../components/Text"
 import { t } from "../stores/locale"
 
@@ -53,14 +54,15 @@ const Partners = () => {
 
     return (
         <div class="flex w-full flex-col items-center justify-center">
-            <FixedImage url="/banners/partner.svg" height="28rem">
+            <NavHeader />
+            <FixedImage url="/banners/partner.jpg" height="28rem">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {t("partners")}
                 </h1>
             </FixedImage>
 
             <div class="flex w-full flex-col items-center gap-4 px-16">
-                <div class="-mt-4 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+                <div class="mt-4 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
                     <a
                         href="/doc/Plan de partenariat 2025 FR.pdf"
                         target="_blank"

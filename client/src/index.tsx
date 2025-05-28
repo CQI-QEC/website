@@ -42,23 +42,25 @@ if (app) {
                 <Route path="/team" component={Team} />
                 <Route path="/partners" component={Partners} />
                 <Route path="/documents" component={Documents} />
-                <Route path="/login" component={Login} />
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/additional-form" component={AdditionalForm} />
-                <Route path="/list-participant" component={ListParticipant} />
+                <Route path="/partners/:name" component={IndividualPartner} />
+                
+                {/* <Route path="/login" component={Login} /> */}
+                {/* <Route path="/list-participant" component={ListParticipant} />
                 <Route
                     path="/change-password/:token?"
                     component={ChangePassword}
-                />
-                <Route
+                /> */}
+                {/* <Route
                     path="/forgotten-password"
                     component={ForgottenPassword}
-                />
-                <Route
+                /> */}
+                {/* <Route
                     path="/participant-info/:id"
                     component={ParticipantInfo}
-                />
-                <Route path="/partners/:name" component={IndividualPartner} />
+                /> */}
+
                 <Route path="*" component={NotFound} />
             </Router>
         ),
