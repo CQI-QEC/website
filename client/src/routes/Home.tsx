@@ -59,13 +59,15 @@ const Home = () => {
                     <CaretDoubleDown size={32} weight="bold" class="text-emerald-400" />
                 </a>
             </FixedImage>
-            <div class="flex flex-col px-32 pt-8 box-border gap-4" id="about">
+            <div class="flex flex-col px-2 md:px-32 pt-8 box-border gap-4" id="about">
                 <H3>{t("aboutPage.about")}</H3>
                 <P>{t("aboutPage.description1")}</P>
                 <P>{t("aboutPage.description2")}</P>
                 <P>{t("aboutPage.description3")}</P>
                 <H3>{t("aboutPage.thematic.title")}</H3>
                 <P>{t("aboutPage.thematic.description")}</P>
+                <P>{t("aboutPage.thematic.description2")}</P>
+                <P>{t("aboutPage.thematic.description3")}</P>
                 <H3>{t("aboutPage.delegations.title")}</H3>
                 <P>{t("aboutPage.delegations.description")}</P>
                 <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">

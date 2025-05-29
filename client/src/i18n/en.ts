@@ -33,7 +33,9 @@ const aboutPage = {
     thematic: {
         title: `Theme`,
         description:
-            `Traveling through time is an interesting theme because it leaves room for a world of memories or a world of futuristic ideas, whether it be the invention of the wheel or flying cars, anything is possible when traveling through different eras. For each discovery, the engineering profession has taken a central place to allow the realization of innovative ideas that seemed, at a certain moment in history, unrealistic.`,
+            `In a literary approach, the expression “let’s step off the beaten path” evokes the natural setting in which the campus is rooted, reinforcing its connection to the surrounding wooded environment.`,
+        description2: "Moreover, this phrase illustrates a desire for innovation and a break from convention, highlighting a bold and creative mindset.",
+        description3:"Framed in an inclusive way, this theme fosters solidarity among participants and reflects the spirit of cohesion and mutual support that defines the Drummondville student community, a true “tight-knit family.”"
     },
 }
 

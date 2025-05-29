@@ -3,13 +3,13 @@ import PrefetchLink from "../components/PrefetchLink"
 
 const NotFound = () => {
     return (
-        <div class="flex w-full flex-col items-center justify-center">
-            <NavHeader />
-            <h2 class="mb-6 text-3xl font-bold">Page Not Found</h2>
+        <div class="flex w-full flex-col items-center justify-center h-full">
+            <NavHeader background={true}/>
+            <div>
+                <h2 class="text-3xl font-bold mt-[15vh]">Page Not Found</h2>
+                <PrefetchLink to="/" file="Home">Return to Home</PrefetchLink>
+            </div>
 
-            <PrefetchLink to="/" file="Home">
-                Return to Home
-            </PrefetchLink>
         </div>
     )
 }

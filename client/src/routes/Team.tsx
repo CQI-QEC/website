@@ -17,41 +17,67 @@ const Team = () => {
             name: "Marc-André Baril",
             role: "Président",
             image: "/team/co/baril.jpg",
-            email: "president@cqi.qc.ca"
+            email: "mabaril@cqi-qec.qc.ca"
         },
         {
             name: "Britany Lévesque",
             role: "VP-Logistique",
             image: "/team/co/levesque.jpg",
+            email: "blevesque@cqi-qec.qc.ca"
         },
         {
             name: "Alexandrine Ducharme",
             role: "VP-Compétitions",
             image: "/team/co/ducharme.jpg",
+            email: "aducharme@cqi-qec.qc.ca"
         },
-        // {
-        //     name: "Philippine Grimont",
-        //     role: "Trésorerie",
-        //     image: "/team/co/philippine.jpg",
-        // },
         {
             name: "Dahly Ann Smith",
             role: "VP-Communications",
             image: "/team/co/smith.jpg",
+            email: "dasmith@cqi-qec.qc.ca"
         },
         {
             name: "Gabriel Lapointe",
             role: "VP-Partenariats",
             image: "/team/co/lapointe.jpg",
+            email: "glapointe@cqi-qec.qc.ca"
         },
         {
-            name: "Juliane Barette",
+            name: "Juliane Barrette",
             role: "VP-Conscience Sociale",
             image: "/team/co/barette.jpg",
+            email: "jbarrette@cqi-qec.qc.ca"
+        },
+        {
+            name: "Jacob Rioux",
+            role: "Trésorerie",
+            email: "jrioux@cqi-qec.qc.ca",
+            image: ""
         },
     ]
 
     const director = [
+        {   
+            name: "Ély Thomas",
+            role: "Directeur Partenariats",
+            image: "thomas.jpg",
+        },
+        {
+            name:"Émy Désaulniers",
+            role: "Directrice Logistique",
+            image: "desaulniers.jpg",
+        },
+        {
+            name:"Jérome Lussier",
+            role: "Directeur Bénévoles",
+            image: "tyrone.jpg",
+        },
+        {
+            name: "Rémi Drouin",
+            role: "Directeur Expérience Participant",
+            image: "drouin.jpg",
+        },
         {
             name: "Alexandre Boucher",
             role: "Directeur Junior",

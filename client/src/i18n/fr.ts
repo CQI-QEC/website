@@ -23,7 +23,7 @@ const aboutPage = {
     description2:
         `La Compétition Québécoise d’Ingénierie (CQI) est chapeautée par la Confédération pour le Rayonnement Étudiant en Ingénierie du Québec (CRÉIQ) et permet aux étudiants en génie de démontrer leurs talents par le biais d’épreuves théoriques et pratiques.`,
     description3:
-        `La compétition est mise sur pied par un comité organisateur regroupant des étudiantes au 1er cycle ainsi qu’au 2e cycle qui ont à coeur l’implication étudiante.`,
+        `La compétition est mise sur pied par un comité organisateur regroupant des étudiant.e.s au 1er cycle ainsi qu’au 2e cycle qui ont à coeur l’implication étudiante.`,
     delegations: {
         title: `Les délégations`,
         description:
@@ -32,7 +32,10 @@ const aboutPage = {
     thematic: {
         title: `Thématique`,
         description:
-            `Voyage dans le temps est une thématique intéressante puisqu’il laisse place à un monde de souvenirs ou bien un monde d’idées futuristes, que ce soit l’invention de la roue ou bien les voitures volantes, tout est possible lorsqu’on voyage dans les différentes époques. Pour chaque découverte, la profession d’ingénieur a pris une place centrale pour permettre la réalisation d’idées novatrices qui semblaient, à un certain moment dans l’histoire, irréalistes.`,
+            `Dans une approche littéraire, l’expression « sortons des sentiers battus » évoque le cadre naturel dans lequel s’ancre le campus, renforçant son lien avec l’environnement boisé qui l’entoure.`,
+        description2:
+            "Par ailleurs, cette phrase illustre une volonté d’innovation et de dépassement des conventions, soulignant une démarche audacieuse et créative.",
+        description3: "Formulé de manière inclusive, ce thème encourage la solidarité entre les participants et reflète l’esprit de cohésion et d’entraide propre à la communauté étudiante drummondvilloise, véritable « famille tissée serrée »."
     },
 }
 
