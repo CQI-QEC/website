@@ -39,14 +39,14 @@ const Competition = () => {
                             <>
                                 {/* 1 Competition plus its sidebar */}
                                 <div class="w-full flex">
-                                    {i%2===0 ? <div class="min-h-fit ml-auto md:w-6 bg-slate-900 bg-repeat-y border-x-4 border-emerald-600" style={"background-image: url('/misc/up_road.svg');"}></div> : null}
+                                    {i%2===0 ? <div class="min-h-fit ml-auto md:w-6 bg-slate-900 bg-repeat-y md:border-x-4 md:border-emerald-600" style={"background-image: url('/misc/up_road.svg');"}></div> : null}
                                     <Card theme="w-full md:w-3/5 md:my-4 md:mx-4" img={"/competition/" + competition.name + ".jpg"}>
                                         <H3>{t(("competitionsPage." + competition.name + ".title") as any)}</H3>
                                         <P2>{t(("competitionsPage." + competition.name + ".description") as any)}</P2>
                                         
                                         {/* { competition.driveLink ? <a href={competition.driveLink}>Lien Drive!</a> : null }  */}
                                     </Card>
-                                    {i%2===1 ? <div class="min-h-fit mr-auto md:w-6 bg-slate-900 bg-repeat-y border-x-4 border-emerald-600" style={"background-image: url('/misc/up_road.svg');"}></div> : null}
+                                    {i%2===1 ? <div class="min-h-fit mr-auto md:w-6 bg-slate-900 bg-repeat-y md:border-x-4 md:border-emerald-600" style={"background-image: url('/misc/up_road.svg');"}></div> : null}
                                 </div>
                                 {/* MiddleRoad */}
                                 {
