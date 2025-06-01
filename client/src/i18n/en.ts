@@ -1,3 +1,4 @@
+import Countdown from "../components/Countdown"
 import globals from "../stores/globalInfoNumbers"
 
 const HostingUniversityName = "University of Québec at Trois-Rivières, Drummondville's campus"
@@ -8,6 +9,7 @@ const homePage = {
     hours: `hours`,
     minutes: `minutes`,
     seconds: `seconds`,
+    countdown: "Countdown to the competition!",
     cqi: `Québec Engineering Competition`,
     edition: `${globals.EDITION_NUMBER}th edition`,
     date: `${globals.FIRST_DAY_COMPETITION} to ${globals.LAST_DAY_COMPETITION} January ${globals.YEAR}`,

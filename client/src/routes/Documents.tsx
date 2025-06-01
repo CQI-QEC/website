@@ -7,14 +7,14 @@ const Documents = () => {
     return (
         <div class="flex w-full flex-col items-center justify-center">
             <NavHeader background={true}/>
-            <FixedImage url="/banners/documents.svg" height="32rem">
+            <FixedImage url="/banners/documents.jpg" height="32rem" bg_position="bg-center">
                 <h1 class="text-center font-futur text-6xl text-white">
                     Documents
                 </h1>
             </FixedImage>
-            <div class="-mt-32 flex h-full w-full flex-col items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+            <div class=" flex h-full w-full flex-col items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
                 <P>{t("documents.description")}</P>
-                <div class="-mt-4 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
+                <div class="flex h-full w-full flex-row items-center flex-wrap justify-center gap-4 p-4 font-futur text-xl font-bold">
                     <a
                         href="/doc/Politique_BIPCV.pdf"
                         target="_blank"

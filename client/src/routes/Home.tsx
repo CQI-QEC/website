@@ -60,7 +60,7 @@ const Home = () => {
                 </a>
             </FixedImage>
             <div class="flex flex-col px-2 md:px-32 pt-8 box-border gap-4" id="about">
-                <H3>{t("aboutPage.about")}</H3>
+                <H3 additional_classes="mt-2">{t("aboutPage.about")}</H3>
                 <P>{t("aboutPage.description1")}</P>
                 <P>{t("aboutPage.description2")}</P>
                 <P>{t("aboutPage.description3")}</P>
@@ -104,6 +104,7 @@ const Home = () => {
                 </div>
             </div>
             {/* TODO : <img src="/banners/infographie.svg" width="100%" /> */} 
+            <H3 additional_classes=" mx-auto mt-4">{t("homePage.countdown")}</H3>
             <Countdown />
         </div>
     )

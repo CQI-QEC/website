@@ -6,6 +6,7 @@ interface CardProps {
     small?: boolean
     children: JSX.Element
     extra_classes?: string
+    color?: string
 }
 
 export default function Cards(props: CardProps) {
@@ -24,7 +25,13 @@ export default function Cards(props: CardProps) {
                         props.img +
                         "');"
                     }
-                ></div>
+                >
+                    {
+                        props.color ? (
+                            <div class={`mr-1 ml-auto bg-${props.color}-500 h-5 w-3 z-14 relative`}></div>
+                        ) : null
+                    }
+                </div>
             )}
             <div class="p-5">{props.children}</div>
         </div>

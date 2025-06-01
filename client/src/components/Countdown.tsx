@@ -49,7 +49,7 @@ export default function Countdown() {
     onCleanup(() => clearInterval(timer))
 
     return (
-        <div class="flex flex-row items-center justify-center gap-3">
+        <div class="flex flex-row items-center justify-center gap-3 mt-4 mb-8">
             <CountdownCard
                 id="days"
                 label={() => {

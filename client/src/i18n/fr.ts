@@ -8,6 +8,7 @@ const homePage = {
     hours: `heures`,
     minutes: `minutes`,
     seconds: `secondes`,
+    countdown: "Décompte avant le début de la compétition!",
     cqi: `Compétition Québécoise d'Ingénierie`,
     edition: `${globals.EDITION_NUMBER}e édition`,
     date: `${globals.FIRST_DAY_COMPETITION} au ${globals.LAST_DAY_COMPETITION} janvier ${globals.YEAR}`,

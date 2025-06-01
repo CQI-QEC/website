@@ -10,6 +10,13 @@ interface Presidents {
     email?: string;
 }
 
+interface Director {
+    name: string;
+    role: string;
+    image: string;
+    competitions?: string[]; // TODO : Add flags to show different affiliations (duo senior, junior, etc.)
+}
+
 // TODO: add all the emails
 const Team = () => {
     let team : Presidents[] = [
@@ -57,7 +64,7 @@ const Team = () => {
         },
     ]
 
-    const director = [
+    const director: Director[] = [
         {   
             name: "Ély Thomas",
             role: "Directeur Partenariats",
@@ -74,19 +81,44 @@ const Team = () => {
             image: "tyrone.jpg",
         },
         {
+            name: "Isaac Soucy",
+            role: "Directeur Bénévoles",
+            image: "soucy.jpg",
+        },
+        {
             name: "Rémi Drouin",
-            role: "Directeur Expérience Participant",
+            role: "Directeur Technique",
             image: "drouin.jpg",
+        },
+        {
+            name:"Sarah Roberge",
+            role: "Directrice Chefferie",
+            image: "roberge.jpg",
+        },
+        {
+            name: "Sunnee Chevalier",
+            role: "Directeur Site Web",
+            image: "chevalier.jpg",
+        },
+        {
+            name: "Joanie Théroux",
+            role: "Coordinatrice Junior & Senior",
+            image: "theroux.jpg",
+        },
+        {
+            name: "Médéric Chalifour",
+            role: "Directeur Sénior",
+            image: "chalifour.jpg",
+        },
+        {
+            name: "Pierre-Olivier Leroueil",
+            role: "Directeur Sénior",
+            image: "leroueil.jpg",
         },
         {
             name: "Alexandre Boucher",
             role: "Directeur Junior",
             image: "boucher.jpg",
-        },
-        {
-            name: "Joanie Théroux",
-            role: "Directrice Junior",
-            image: "theroux.jpg",
         },
         {
             name: "Zachary Désaulniers",
@@ -97,6 +129,11 @@ const Team = () => {
             name: "Dylan Renaud",
             role: "Directeur Réingénierie",
             image: "renaud.jpg",
+        },
+        {
+            name: "Antoine Gamache",
+            role: "Directeur Réingénierie",
+            image: "gamache.jpg",
         },
         {
             name: "Nicolas Payeur",
@@ -119,6 +156,11 @@ const Team = () => {
             image: "heroux.jpg",
         },
         {
+            name: "Jean-Christophe Anctil",
+            role: "Directeur Conception Innovatrice",
+            image: "anctil.jpg",
+        },
+        {
             name: "Philippine Grimont",
             role: "Directrice Génie Conseil",
             image: "grimont.jpg",
@@ -138,10 +180,30 @@ const Team = () => {
             role: "Directeur Programmation",
             image: "girard.jpg",
         },
+                {
+            name: "Samuel Côté",
+            role: "Directeur Programmation",
+            image: "cote.jpg",
+        },
         {
-            name: "Médéric Chalifour",
-            role: "Directeur Sénior",
-            image: "chalifour.jpg",
+            name: "Samuel Grenier",
+            role: "Directeur Programmation",
+            image: "grenier.jpg",
+        },
+        {
+            name: "William Sylvain",
+            role: "Directeur Cycles Supérieurs",
+            image: "sylvain.jpg",
+        },
+        {
+            name: "Justine Major",
+            role: "Directrice Communication Scientifique",
+            image: "major.jpg",
+        },
+        {
+            name: "Ghita Lemrini",
+            role: "Directrice Débats Oratoires",
+            image: "lemrini.jpg",
         },
     ]
 
@@ -157,7 +219,8 @@ const Team = () => {
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-12 sm:px-48 mx-auto">
                     {team.map((member) => {
                         return (
-                            <Cards small={true} img={member.image}>
+                            <Cards small={true} img={member.image}> {/*TODO color={"red"}  */}
+                                
                                 <h2>{member.name}</h2>
                                 <p>{member.role}</p>
                                 {member.email ? <a href={"mailto:" + member.email} class="text-emerald-500 hover:underline">{member.email}</a> : null}
