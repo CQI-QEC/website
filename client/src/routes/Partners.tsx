@@ -64,14 +64,14 @@ const Partners = () => {
             <div class="flex w-full flex-col items-center gap-4 px-16">
                 <div class="mt-4 flex h-full w-full flex-row items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
                     <a
-                        href="/doc/Plan de partenariat 2025 FR.pdf"
+                        href="/doc/Plan de partenariat 2026 FR.pdf"
                         target="_blank"
                         class="rounded-xl bg-green-400 p-4"
                     >
                         Plan de partenariat FR
                     </a>
                     <a
-                        href="/doc/Plan de partenariat 2025 EN.pdf"
+                        href="/doc/Partnership plan 2026 EN.pdf"
                         target="_blank"
                         class="rounded-xl bg-green-400 p-4"
                     >
