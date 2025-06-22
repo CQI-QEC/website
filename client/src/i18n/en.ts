@@ -23,7 +23,7 @@ const aboutPage = {
     description1:
         `The ${globals.EDITION_NUMBER}th edition of the QEC will be held from ${globals.FIRST_DAY_COMPETITION} to ${globals.LAST_DAY_COMPETITION} January ${globals.YEAR} at the ${HostingUniversityName}. This engineering competition brings together ${globals.QUANTITY_DELEGATIONS} campuses from ${globals.QUANTITY_UNIVERSITIES} different universities across Quebec so that hundreds of engineering students in the province can compete.`,
     description2:
-        `The Quebec Engineering Competition (QEC) is overseen by the Quebec Student Engineering Confederation (CRÉIQ) and allows engineering students to demonstrate their talents through theoretical and practical tests.`,
+        `The Quebec Engineering Competition (QEC) is overseen by the Quebec Confederation for Engineering Student Outreach (QCESO) and allows engineering students to demonstrate their talents through theoretical and practical tests.`,
     description3:
         `The competition is organized by a committee of undergraduate and graduate students who are committed to student involvement.`,
     delegations: {
