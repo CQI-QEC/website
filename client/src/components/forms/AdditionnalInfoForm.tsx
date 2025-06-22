@@ -521,7 +521,7 @@ export function AdditionalInfoForm() {
                                 target="_blank"
                                 class="text-blue-500"
                             >
-                                the CREIQ disciplinary policy.
+                                the QCESO disciplinary policy.
                             </a>
                         </li>
                         <li>
@@ -541,13 +541,13 @@ export function AdditionalInfoForm() {
                                 target="_blank"
                                 class="text-blue-500"
                             >
-                                the CQI rules.
+                                the QEC rules.
                             </a>
                         </li>
                         <li>
                             I consent to my image in photographs, as well as my
                             voice and image in video recordings, being used for
-                            any type of promotion of CQI or CREIQ.
+                            any type of promotion of QEC or QCESO.
                         </li>
                         <li>
                             I consent to my email address being shared with

@@ -20,7 +20,7 @@ const homePage = {
 const aboutPage = {
     about: `À propos`,
     description1:
-        `La ${globals.EDITION_NUMBER}e édition de la CQI se tiendra du ${globals.FIRST_DAY_COMPETITION} au ${globals.LAST_DAY_COMPETITION} janvier ${globals.YEAR} à l'${HostingUniversityName}. Cette compétition d’ingénierie réunit ${globals.QUANTITY_DELEGATIONS} campus de ${globals.QUANTITY_UNIVERSITIES} universités différentes partout au Québec pour que des centaines d’étudiants en génie de la province s’affronte.`,
+        `La ${globals.EDITION_NUMBER}e édition de la CQI se tiendra du ${globals.FIRST_DAY_COMPETITION} au ${globals.LAST_DAY_COMPETITION} janvier ${globals.YEAR} à l'${HostingUniversityName}. Cette compétition d’ingénierie réunit ${globals.QUANTITY_DELEGATIONS} campus de ${globals.QUANTITY_UNIVERSITIES} universités différentes partout au Québec pour que des centaines d’étudiants en génie de la province s’affrontent.`,
     description2:
         `La Compétition Québécoise d’Ingénierie (CQI) est chapeautée par la Confédération pour le Rayonnement Étudiant en Ingénierie du Québec (CRÉIQ) et permet aux étudiants en génie de démontrer leurs talents par le biais d’épreuves théoriques et pratiques.`,
     description3:
@@ -36,7 +36,7 @@ const aboutPage = {
             `Dans une approche littéraire, l’expression « sortons des sentiers battus » évoque le cadre naturel dans lequel s’ancre le campus, renforçant son lien avec l’environnement boisé qui l’entoure.`,
         description2:
             "Par ailleurs, cette phrase illustre une volonté d’innovation et de dépassement des conventions, soulignant une démarche audacieuse et créative.",
-        description3: "Formulé de manière inclusive, ce thème encourage la solidarité entre les participants et reflète l’esprit de cohésion et d’entraide propre à la communauté étudiante drummondvilloise, véritable « famille tissée serrée »."
+        description3: "Formulé de manière inclusive, ce thème encourage la solidarité entre les participants et reflète l’esprit de cohésion et d’entraide propre à la communauté étudiante drummondvilloise, une véritable « famille tissée serrée »."
     },
 }
 
@@ -52,17 +52,17 @@ const competitionsPage = {
     junior: {
         title: `Conception junior`,
         description:
-            `La conception junior similaire à la conception senior, consiste à fabriquer une solution mécanique, qui devra répondre à la problématique imposée le jour de la compétition. Cette épreuve est réservée aux participants ayant complété moins de 60 crédits accumulés dans leur baccalauréat.`,
+            `La conception junior, similaire à la conception senior, consiste à fabriquer une solution mécanique, qui devra répondre à la problématique imposée le jour de la compétition. Cette épreuve est réservée aux participants ayant complété moins de 60 crédits accumulés dans leur baccalauréat.`,
     },
     debate: {
         title: `Débats oratoires`,
         description:
-            `La compétition de débat oratoire permet de faire ressortir les talents en argumentation et en persuasion de la communauté étudiante en ingénierie. Grâce à leur éloquence et leur pensée critique, les participantes et participants doivent défendre une position dans un thème qui leur est imposée.`,
+            `La compétition de débat oratoire permet de faire ressortir les talents en argumentation et en persuasion de la communauté étudiante en ingénierie. Grâce à leur éloquence et leur pensée critique, les participantes et participants doivent défendre une position dans un thème qui leur est imposé.`,
     },
     reengineering: {
-        title: `Reingénierie`,
+        title: `Réingénierie`,
         description:
-            `La compétition de réingénierie vise à tester les capacités des équipes à améliorer et à optimiser de produits existants placés dans de nouvelles contraintes. Les solutions sont présentées devant un jury permettant de faire valoir leurs compétences techniques, créativité et talents oratoires.`,
+            `La compétition de réingénierie vise à tester les capacités des équipes à améliorer et à optimiser de produits existants placés dans de nouvelles contraintes. Les solutions sont présentées devant un jury permettant de faire valoir leurs compétences techniques, leur créativité et leurs talents oratoires.`,
     },
     consulting: {
         title: `Génie-conseil`,
@@ -82,12 +82,12 @@ const competitionsPage = {
     design: {
         title: `Conception innovatrice`,
         description:
-            `La compétition de conception innovatrice permet aux équipes de faire valoir leur esprit entrepreneurial en concevant un produit, service ou procédé innovant. Les différents produits sont présentés à tous grâce à des kiosques. La créativité et l’innovation de la solution sont évalués par les membres du jury.`,
+            `La compétition de conception innovatrice permet aux équipes de faire valoir leur esprit entrepreneurial en concevant un produit, service ou procédé innovant. Les différents produits sont présentés à tous grâce à des kiosques. La créativité et l’innovation de la solution sont évaluées par les membres du jury.`,
     },
     superiorcycle: {
         title: `Projet de recherche au cycle supérieur`,
         description:
-            `Cette compétition permet aux participants.es de présenter leur projet de recherche d’études aux cycles supérieurs. Elle se déroule sous trois volets : la rédaction d’un court article résumé, une présentation devant un public et une évaluation par les juges dans une rencontre à huis clos.`,
+            `Cette compétition permet aux participant.e.s de présenter leur projet de recherche d’études aux cycles supérieurs. Elle se déroule sous trois volets : la rédaction d’un court article résumé, une présentation devant un public et une évaluation par les juges dans une rencontre à huis clos.`,
     },
 }
 

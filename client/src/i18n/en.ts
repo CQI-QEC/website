@@ -15,13 +15,13 @@ const homePage = {
     date: `${globals.FIRST_DAY_COMPETITION} to ${globals.LAST_DAY_COMPETITION} January ${globals.YEAR}`,
     location: `${HostingUniversityName}`,
     description:
-        `The ${globals.EDITION_NUMBER}th edition of the QEC will be held in ${globals.YEAR} at the ${HostingUniversityName}. This engineering competition brings together 14 campuses from 11 different universities across Quebec so that hundreds of engineering students in the province can compete. The Quebec Engineering Competition is overseen by the CRÉIQ and allows engineering students to demonstrate their talents in theoretical and practical tests.`,
+        `The ${globals.EDITION_NUMBER}th edition of the QEC will be held in ${globals.YEAR} at the ${HostingUniversityName}. This engineering competition brings together ${globals.QUANTITY_DELEGATIONS} campuses from ${globals.QUANTITY_UNIVERSITIES} different universities across Quebec so that hundreds of engineering students in the province can compete. The Quebec Engineering Competition is overseen by the CRÉIQ and allows engineering students to demonstrate their talents in theoretical and practical tests.`,
 }
 
 const aboutPage = {
     about: `About`,
     description1:
-        `The ${globals.EDITION_NUMBER}th edition of the QEC will be held from ${globals.FIRST_DAY_COMPETITION} to ${globals.LAST_DAY_COMPETITION} January ${globals.YEAR} at the ${HostingUniversityName}. This engineering competition brings together 14 campuses from 11 different universities across Quebec so that hundreds of engineering students in the province can compete.`,
+        `The ${globals.EDITION_NUMBER}th edition of the QEC will be held from ${globals.FIRST_DAY_COMPETITION} to ${globals.LAST_DAY_COMPETITION} January ${globals.YEAR} at the ${HostingUniversityName}. This engineering competition brings together ${globals.QUANTITY_DELEGATIONS} campuses from ${globals.QUANTITY_UNIVERSITIES} different universities across Quebec so that hundreds of engineering students in the province can compete.`,
     description2:
         `The Quebec Engineering Competition (QEC) is overseen by the Quebec Student Engineering Confederation (CRÉIQ) and allows engineering students to demonstrate their talents through theoretical and practical tests.`,
     description3:
@@ -35,7 +35,7 @@ const aboutPage = {
     thematic: {
         title: `Theme`,
         description:
-            `In a literary approach, the expression “let’s step off the beaten path” evokes the natural setting in which the campus is rooted, reinforcing its connection to the surrounding wooded environment.`,
+            `In a literary approach, the expression “off the trails” evokes the natural setting in which the campus is rooted, reinforcing its connection to the surrounding wooded environment.`,
         description2: "Moreover, this phrase illustrates a desire for innovation and a break from convention, highlighting a bold and creative mindset.",
         description3:"Framed in an inclusive way, this theme fosters solidarity among participants and reflects the spirit of cohesion and mutual support that defines the Drummondville student community, a true “tight-knit family.”"
     },
@@ -68,7 +68,7 @@ const competitionsPage = {
     consulting: {
         title: `Consulting engineering`,
         description:
-            `Consultation is one of the most popular discipline of engineering, the Quebec Engineering Competition makes a point to present, each year, the competition of consulting engineering. During this competition, the participants, paired in teams of four, have approximately six hours to propose a complete solution to a complex problem. Their solution then needs to be presented in front of a jury, thus leveraging their communication and persuasion talents.`,
+            `Consultation is one of the most popular discipline of engineering. The Quebec Engineering Competition makes a point to present, each year, the competition of consulting engineering. During this competition, the participants, paired in teams of four, have approximately six hours to propose a complete solution to a complex problem. Their solution then needs to be presented in front of a jury, thus leveraging their communication and persuasion talents.`,
     },
     scientific: {
         title: `Scientific communication`,
@@ -78,7 +78,7 @@ const competitionsPage = {
     programming: {
         title: `Programming`,
         description:
-            `The programming competition tests various important skills in computer and software engineering such as software architecture, algorithmic thinking, and the ability to solve complex problems. The objective of this competition is to design a functional program that addresses a real-world case and present it to a jury.`,
+            `The programming competition tests various important skills in computer and software engineering such as software architecture, algorithmic thinking, and the ability to solve complex problems. The goal of this competition is to design a functional program that addresses a real-world case and present it to a jury.`,
     },
     design: {
         title: `Innovative design`,
