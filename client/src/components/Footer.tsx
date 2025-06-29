@@ -6,11 +6,11 @@ export default function Footer() {
         //
         <footer class="flex w-full flex-col items-center gap-1 p-2 bg-orange-100">
             <p>
-                <a href="https://www.facebook.com/profile.php?id=61576017996819" class="text-black hover:text-white transition-colors">
+                <a href="https://www.facebook.com/CompQuebIng" class="text-black hover:text-white transition-colors">
                     <FacebookLogo size={24} class="inline mx-2" />
                 </a>
                 |
-                <a href="https://www.instagram.com/cqi.qec?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                <a href="https://www.instagram.com/cqi.qec">
                     <InstagramLogo size={24} class="inline mx-2 hover:text-white transition-colors" />
                 </a>
                 |

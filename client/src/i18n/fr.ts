@@ -24,7 +24,7 @@ const aboutPage = {
     description2:
         `La Compétition Québécoise d’Ingénierie (CQI) est chapeautée par la Confédération pour le Rayonnement Étudiant en Ingénierie du Québec (CRÉIQ) et permet aux étudiants en génie de démontrer leurs talents par le biais d’épreuves théoriques et pratiques.`,
     description3:
-        `La compétition est mise sur pied par un comité organisateur regroupant des étudiant.e.s au 1er cycle ainsi qu’au 2e cycle qui ont à coeur l’implication étudiante.`,
+        `La compétition est mise sur pied par un comité organisateur regroupant des étudiant.e.s et des gradué.e.s qui ont à coeur l’implication étudiante.`,
     delegations: {
         title: `Les délégations`,
         description:
