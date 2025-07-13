@@ -9,7 +9,7 @@ const links = () => {
     return [
         {
             to: "/#about",
-            file: "About",
+            file: "Home",
             name: t("aboutPage.about"),
         },
         {
