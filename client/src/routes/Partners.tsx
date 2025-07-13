@@ -3,18 +3,38 @@ import NavHeader from "../components/NewHeader"
 import { H1 } from "../components/Text"
 import { t } from "../stores/locale"
 
+interface Partner {
+    name: string;
+    logo: string;
+    //description?: string; Not used présentement
+}
+
 const Partners = () => {
     // Define the partner tiers and their respective logos
-    const partners: any = {
-        diamant: [],
-        platine: [],
-        or: ["agehc.png", "oiq.png"],
-        argent: ["lotoquebec.png", ],
-        bronze: ["microbird.svg", "reid.webp"],
-        officiel: ["genium360.png"], // "marmen.png"
-        autre: ["alten.svg", "fondation.png"],
-    }
+    const partners: Map<string, Partner[]> = new Map();
+    partners.set("diamant", []);
+    partners.set("platine", []);
+    partners.set("or", [
+        { name: "Ordre des ingénieurs du Québec (OIQ)", logo: "oiq.png"},
+        { name: "Association générale des étudiants hors campus de l'UQTR (AGEHC)", logo: "agehc.png" },
+    ]);
+    partners.set("argent", [
+        { name: "Loto-Québec", logo: "lotoquebec.png" }
+    ]);
+    partners.set("bronze", [
+        { name: "Microbird", logo: "microbird.svg" },
+        { name: "Regroupement étudiant en Ingénierie de Drummondville (RÉID)", logo: "reid.webp" },
+    ]);
+    partners.set("officiel", [
+        { name: "Genium360", logo: "genium360.png"},
+        // { name: "Marmen", logo: "marmen.png" }, // Uncomment if needed
+    ]);
+    partners.set("autre", [
+        { name: "Alten", logo: "alten.svg" },
+        { name: "Fondation UQTR", logo: "fondation.png" },
+    ]);
 
+    // Pour la page des partenaires individuels
     const description: any = {
         // "marmen.png": "Marmen",
         "oiq.png": "OIQ",
@@ -82,16 +102,18 @@ const Partners = () => {
                                 {tierTitles[tier]}
                             </h2>
                             <div class="flex flex-wrap gap-8">
-                                {partners[tier].map((partner: any) => (
+                                {partners.get(tier)?.map((partner: Partner) => (
                                     <a
                                         href={
-                                            description[partner] &&
-                                            "/partners/" + description[partner]
+                                            description[partner.logo] &&
+                                            "/partners/" + description[partner.logo]
                                         }
+                                        class="tooltip"
                                     >
+                                        <span class="tooltiptext">{partner.name}</span>
                                         <img
-                                            src={`/partners/${tier}/${partner}`}
-                                            alt={partner}
+                                            src={`/partners/${tier}/${partner.logo}`}
+                                            alt={partner.name}
                                             style={
                                                 "height:" +
                                                 tierImageSizes[tier] +
