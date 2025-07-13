@@ -6,31 +6,24 @@ import { t } from "../stores/locale"
 const Partners = () => {
     // Define the partner tiers and their respective logos
     const partners: any = {
-        diamant: ["hatch.jpg"],
-        platine: [
-            "abb.png",
-            "aep.png",
-            "polytechnique.png",
-            "prattwhitney.png",
-        ],
-        or: ["alstom.jpg", "cascades.png", "excelpro.png", "oiq.png"],
-        argent: ["lotoquebec.png", "marmen.png"],
-        bronze: ["exp.png"],
-        officiel: ["genium360.png"],
+        diamant: [],
+        platine: [],
+        or: ["agehc.png", "oiq.png"],
+        argent: ["lotoquebec.png", ],
+        bronze: ["microbird.svg", "reid.webp"],
+        officiel: ["genium360.png"], // "marmen.png"
+        autre: ["alten.svg", "fondation.png"],
     }
 
     const description: any = {
-        "marmen.png": "Marmen",
-        "aep.png": "AEP",
-        "cascades.png": "Cascades",
+        // "marmen.png": "Marmen",
         "oiq.png": "OIQ",
         "genium360.png": "Genium360",
-        "excelpro.png": "Excelpro",
         "lotoquebec.png": "Loto-Quebec",
     }
 
     // Order of tiers to display
-    const tiers = ["officiel", "diamant", "platine", "or", "argent", "bronze"]
+    const tiers = ["officiel", "diamant", "platine", "or", "argent", "bronze", "autre"]
 
     // Image sizes for each tier
     const tierImageSizes: any = {
@@ -40,6 +33,7 @@ const Partners = () => {
         or: "3.5",
         argent: "3",
         bronze: "2",
+        autre: "2",
     }
 
     // Titles for each tier
@@ -49,6 +43,7 @@ const Partners = () => {
         or: "Partenaires Or",
         argent: "Partenaires Argent",
         bronze: "Partenaires Bronze",
+        autre: "Partenaires",
         officiel: "Partenaires Officiel",
     }
 
