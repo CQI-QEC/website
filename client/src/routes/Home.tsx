@@ -48,7 +48,7 @@ const Home = () => {
     return (
         <div class="flex w-full flex-col">
             <NavHeader background={true}/>
-            <FixedImage url="/campus2.jpg" extra_classes="h-[100vh] justify-center items-center">
+            <FixedImage url="/home.jpg" extra_classes="h-[100vh] justify-center items-center">
                 <div class="flex flex-col items-center justify-center my-auto">
                     <p class="font-futur text-2xl text-emerald-400">{t("homePage.edition")}</p>
                     <h1 class="font-futur text-white text-center text-6xl" style="word-spacing: 100vw;">{t("homePage.cqi")}</h1>
