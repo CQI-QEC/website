@@ -65,8 +65,7 @@ export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
     const HamburgerMenu = (): JSX.Element => {
         return (
             <div ref={hamburgerMenu} class={menuIsOpen() ? "" : "hidden"}>
-                {/* Modify the Hamburger menu below */}
-                <div class="absolute right-0 top-0 z-10 flex h-screen w-full flex-col justify-center bg-black bg-opacity-60 p-2 text-4xl font-bold">
+                <div class="absolute right-0 top-0 z-10 flex h-screen w-1/3 flex-col justify-center bg-black bg-opacity-80 p-2 text-4xl font-bold">
                     <div class="flex items-center justify-between">
                         <button
                             onClick={toggleLanguage}
@@ -96,7 +95,7 @@ export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
                                         to={link.to}
                                         file={link.file}
                                         onClick={toggleHamburgerMenu}
-                                        class="transition hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight"
+                                        class="text-base transition hover:border-b-2 hover:border-b-light-highlight hover:text-light-highlight"
                                     >
                                         {link.name}
                                     </PrefetchLink>
