@@ -3,7 +3,7 @@ import Countdown from "../components/Countdown"
 import FixedImage from "../components/FixedImage";
 import { P, H3 } from "../components/Text";
 import { t } from "../stores/locale";
-import NavHeader from "../components/NewHeader";
+import NavHeader from "../components/Header";
 import ExternalLink from "../components/ExternalLink";
 
 const scrollToAbout = () => {
@@ -55,7 +55,7 @@ const Home = () => {
                     <p class="font-futur text-emerald-400 text-2xl text-wrap">{t("homePage.location")}</p>
                     <p class="font-futur text-emerald-400 text-2xl text-wrap">{t("homePage.date")}</p>
                 </div>
-                <a class="animate-bounce font-futur text-2xl float-bottom mb-20 cursor-pointer absolute bottom-20" onClick={scrollToAbout}>
+                <a class="animate-bounce font-futur text-2xl float-bottom mb-20 cursor-pointer bottom-20" onClick={scrollToAbout}>
                     <CaretDoubleDown size={32} weight="bold" class="text-emerald-400" />
                 </a>
             </FixedImage>

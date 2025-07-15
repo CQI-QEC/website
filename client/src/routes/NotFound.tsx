@@ -1,4 +1,4 @@
-import NavHeader from "../components/NewHeader"
+import NavHeader from "../components/Header"
 import PrefetchLink from "../components/PrefetchLink"
 
 const NotFound = () => {

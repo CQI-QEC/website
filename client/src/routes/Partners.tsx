@@ -1,5 +1,5 @@
 import FixedImage from "../components/FixedImage"
-import NavHeader from "../components/NewHeader"
+import NavHeader from "../components/Header"
 import { H1 } from "../components/Text"
 import { t } from "../stores/locale"
 
@@ -50,10 +50,10 @@ const Partners = () => {
         officiel: "8",
         diamant: "6",
         platine: "4",
-        or: "3.5",
-        argent: "3",
-        bronze: "2",
-        autre: "2",
+        or: "4",
+        argent: "4",
+        bronze: "4",
+        autre: "4",
     }
 
     // Titles for each tier
@@ -95,7 +95,7 @@ const Partners = () => {
                 </div>
                 <H1>Partenaires de la CQI 2025</H1>
 
-                <div class="flex w-full flex-col gap-8">
+                <div class="flex w-full flex-col gap-8 mb-8">
                     {tiers.map((tier) => (
                         <div class="flex flex-col gap-4">
                             <h2 class="text-2xl font-bold">

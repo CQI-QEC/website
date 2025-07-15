@@ -1,6 +1,6 @@
 import Card from "../components/Card";
 import FixedImage from "../components/FixedImage";
-import NavHeader from "../components/NewHeader";
+import NavHeader from "../components/Header";
 import { H3, P2 } from "../components/Text";
 import { t } from "../stores/locale";
 

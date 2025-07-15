@@ -1,19 +1,19 @@
 import Cards from "../components/Card"
 import FixedImage from "../components/FixedImage"
-import NavHeader from "../components/NewHeader";
+import NavHeader from "../components/Header";
 import { t } from "../stores/locale"
 
 interface Presidents {
     name: string;
     role: string;
-    image: string;
+    image?: string;
     email?: string;
 }
 
 interface Director {
     name: string;
     role: string;
-    image: string;
+    image?: string;
     competitions?: string[]; // TODO : Add flags to show different affiliations (duo senior, junior, etc.)
 }
 
@@ -76,14 +76,14 @@ const Team = () => {
             image: "desaulniers.jpg",
         },
         {
-            name:"Jérome Lussier",
+            name:"Jérôme Lussier",
             role: "Directeur Bénévoles",
             image: "tyrone.jpg",
         },
         {
             name: "Isaac Soucy",
             role: "Directeur Bénévoles",
-            image: "soucy.jpg",
+            // image: "soucy.jpg",
         },
         {
             name: "Rémi Drouin",
@@ -93,12 +93,12 @@ const Team = () => {
         {
             name:"Sarah Roberge",
             role: "Directrice Chefferie",
-            image: "roberge.jpg",
+            //image: "roberge.jpg",
         },
         {
             name: "Sunnee Chevalier",
             role: "Directeur Site Web",
-            image: "chevalier.jpg",
+            //image: "chevalier.jpg",
         },
         {
             name: "Joanie Théroux",
@@ -113,7 +113,7 @@ const Team = () => {
         {
             name: "Pierre-Olivier Leroueil",
             role: "Directeur Sénior",
-            image: "leroueil.jpg",
+            //image: "leroueil.jpg",
         },
         {
             name: "Alexandre Boucher",
@@ -128,12 +128,12 @@ const Team = () => {
         {
             name: "Dylan Renaud",
             role: "Directeur Réingénierie",
-            image: "renaud.jpg",
+            //image: "renaud.jpg",
         },
         {
             name: "Antoine Gamache",
             role: "Directeur Réingénierie",
-            image: "gamache.jpg",
+            //image: "gamache.jpg",
         },
         {
             name: "Nicolas Payeur",
@@ -158,7 +158,7 @@ const Team = () => {
         {
             name: "Jean-Christophe Anctil",
             role: "Directeur Conception Innovatrice",
-            image: "anctil.jpg",
+            //image: "anctil.jpg",
         },
         {
             name: "Philippine Grimont",
@@ -180,30 +180,30 @@ const Team = () => {
             role: "Directeur Programmation",
             image: "girard.jpg",
         },
-                {
+        {
             name: "Samuel Côté",
             role: "Directeur Programmation",
-            image: "cote.jpg",
+            //image: "cote.jpg",
         },
         {
             name: "Samuel Grenier",
             role: "Directeur Programmation",
-            image: "grenier.jpg",
+            //image: "grenier.jpg",
         },
         {
             name: "William Sylvain",
             role: "Directeur Cycles Supérieurs",
-            image: "sylvain.jpg",
+            //image: "sylvain.jpg",
         },
         {
             name: "Justine Major",
             role: "Directrice Communication Scientifique",
-            image: "major.jpg",
+            //image: "major.jpg",
         },
         {
             name: "Ghita Lemrini",
             role: "Directrice Débats Oratoires",
-            image: "lemrini.jpg",
+            //image: "lemrini.jpg",
         },
     ]
 
@@ -219,7 +219,7 @@ const Team = () => {
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-12 sm:px-48 mx-auto">
                     {team.map((member) => {
                         return (
-                            <Cards small={true} img={member.image}> {/*TODO color={"red"}  */}
+                            <Cards small={true} img={member.image ? member.image : "logo.png"}> {/*TODO color={"red"}  */}
                                 
                                 <h2>{member.name}</h2>
                                 <p>{member.role}</p>
@@ -228,10 +228,10 @@ const Team = () => {
                         )
                     })}
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4 px-12">
+                <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4 px-12">
                     {director.map((member) => {
                         return (
-                            <Cards img={"/team/directeur/" + member.image}>
+                            <Cards img={member.image ? ("/team/directeur/" + member.image) : "logo.png"}>
                                 <h2>{member.name}</h2>
                                 <p>{member.role}</p>
                             </Cards>

@@ -1,5 +1,5 @@
 import FixedImage from "../components/FixedImage"
-import NavHeader from "../components/NewHeader"
+import NavHeader from "../components/Header"
 import { P } from "../components/Text"
 import { t } from "../stores/locale"
 

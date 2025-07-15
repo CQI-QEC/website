@@ -3,7 +3,7 @@ import FixedImage from "../components/FixedImage"
 import { t } from "../stores/locale"
 import { useNavigate } from "@solidjs/router"
 import LoginForm from "../components/forms/LoginForm"
-import NavHeader from "../components/NewHeader"
+import NavHeader from "../components/Header"
 
 export default function Login() {
     const navigate = useNavigate()

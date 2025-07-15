@@ -3,7 +3,7 @@ import FixedImage from "../components/FixedImage"
 import PrefetchLink from "../components/PrefetchLink"
 import { CaretCircleLeft } from "phosphor-solid-js"
 import { t } from "../stores/locale"
-import NavHeader from "../components/NewHeader"
+import NavHeader from "../components/Header"
 
 export default function Dashboard() {
     const params = useParams()
