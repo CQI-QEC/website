@@ -1,10 +1,11 @@
 import { CaretDoubleDown } from "phosphor-solid-js";
 import Countdown from "../components/Countdown"
 import FixedImage from "../components/FixedImage";
-import { P, H3 } from "../components/Text";
+import { P, H3, P3 } from "../components/Text";
 import { t } from "../stores/locale";
 import NavHeader from "../components/Header";
 import ExternalLink from "../components/ExternalLink";
+import ImageDisplay from "../components/ImageDisplay";
 
 const scrollToAbout = () => {
     const moreSection = document.getElementById("about");
@@ -29,8 +30,6 @@ const asso = [
     {asso: "uqo", url: "https://uqo.ca/vie-etudiante/associations-regroupements-comites-0"},
 ];
 const universities = [
-    {uni: "uqac", url: "https://www.uqac.ca/"},
-    {uni: "uqar", url: "https://www.uqar.ca/"},
     {uni: "uqat", url: "https://www.uqat.ca/"},
     {uni: "uqo", url: "https://uqo.ca/"},
     {uni: "uqtr", url: "https://www.uqtr.ca/"},
@@ -40,7 +39,9 @@ const universities = [
     {uni: "poly", url: "https://www.polymtl.ca/"},
     {uni: "ulaval", url: "https://www.ulaval.ca/"},
     {uni: "sherb", url: "https://www.usherbrooke.ca/"},
+    {uni: "uqac", url: "https://www.uqac.ca/"},
     {uni: "macdonald", url: "https://www.mcgill.ca/macdonald/"},
+    {uni: "uqar", url: "https://www.uqar.ca/"},
 ];
 
 const Home = () => {
@@ -60,16 +61,30 @@ const Home = () => {
                 </a>
             </FixedImage>
             <div class="flex flex-col px-2 md:px-32 pt-8 box-border gap-4" id="about">
-                <H3 additional_classes="mt-2">{t("aboutPage.about")}</H3>
-                <P>{t("aboutPage.description1")}</P>
-                <P>{t("aboutPage.description2")}</P>
-                <P>{t("aboutPage.description3")}</P>
-                <H3>{t("aboutPage.thematic.title")}</H3>
-                <P>{t("aboutPage.thematic.description")}</P>
-                <P>{t("aboutPage.thematic.description2")}</P>
-                <P>{t("aboutPage.thematic.description3")}</P>
-                <H3>{t("aboutPage.delegations.title")}</H3>
-                <P>{t("aboutPage.delegations.description")}</P>
+                <div class="flex flex-col lg:flex-row justify-center items-center">
+                    <div class="flex flex-col lg:w-1/2">
+                        <H3 additional_classes="">{t("aboutPage.about")}</H3>
+                        <P>{t("aboutPage.description1")}</P>
+                        <P>{t("aboutPage.description2")}</P>
+                        <P>{t("aboutPage.description3")}</P>
+                    </div>
+                    <ImageDisplay src="/others/fun.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/3 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
+                </div>
+                <div class="flex flex-col lg:flex-row justify-center items-center">
+                    <div class="flex flex-col lg:w-1/2">
+                        <H3 additional_classes="">{t("aboutPage.thematic.title")}</H3>
+                        <P>{t("aboutPage.thematic.description")}</P>
+                        <P>{t("aboutPage.thematic.description2")}</P>
+                        <P>{t("aboutPage.thematic.description3")}</P>
+                    </div>
+                    <ImageDisplay src="/others/fun2.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/3 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
+                </div>
+                
+                <div class="mx-auto flex flex-col lg:w-1/2 text-center mt-4">
+                    <H3 additional_classes="">{t("aboutPage.delegations.title")}</H3>
+                    <P3 additional_classes="">{t("aboutPage.delegations.description")}</P3>
+                </div>
+
                 <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
                     {
                         universities.map(({uni, url}) => {

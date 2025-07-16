@@ -28,7 +28,7 @@ const aboutPage = {
     delegations: {
         title: `Les délégations`,
         description:
-            `La Compétition Québécoise d’Ingénierie regroupe ${globals.QUANTITY_DELEGATIONS} délégations de ${globals.QUANTITY_UNIVERSITIES} Universités différentes. Chaque délégation est chapeautée par son association étudiante.`,
+            `${globals.QUANTITY_DELEGATIONS} délégations de ${globals.QUANTITY_UNIVERSITIES} universités représentées par leurs associations étudiantes.`
     },
     thematic: {
         title: `Thématique`,

@@ -65,7 +65,9 @@ export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
     const HamburgerMenu = (): JSX.Element => {
         return (
             <div ref={hamburgerMenu} class={menuIsOpen() ? "" : "hidden"}>
-                <div class="absolute right-0 top-0 z-10 flex h-screen w-1/3 flex-col justify-center bg-black bg-opacity-80 p-2 text-4xl font-bold">
+                {/* https://flowbite.com/docs/components/sidebar/#off-canvas-sidebar */}
+                {/* TODO: Watch how to make sidebar follow? */}
+                <div class="absolute right-0 top-0 z-10 flex h-screen w-1/2 flex-col justify-center bg-black bg-opacity-80 p-2 text-4xl font-bold">
                     <div class="flex items-center justify-between">
                         <button
                             onClick={toggleLanguage}
@@ -141,9 +143,9 @@ export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
     //#endregion
 
     return (
-        <header class= {"top-0 h-[10vh] flex w-full items-center justify-between p-4 text-white absolute " + (navHeaderProps.background ? " bg-red-900/50 bg-blend-luminosity backdrop-blur-md" : " ")}>
+        <header class= {"top-0 min-h-[10vh] flex w-full items-center justify-between p-4 text-white absolute " + (navHeaderProps.background ? " bg-red-900/50 bg-blend-luminosity backdrop-blur-md" : " ")}>
             <h1 class="font-condensed text-3xl font-bold md:pl-0 lg:pl-8">
-                <A href="/" class="flex items-center gap-2 bg-white p-1 rounded-lg m-2">
+                <A href="/" class="min-w-max flex items-center gap-2 bg-white p-1 rounded-lg m-2">
                     <img src="/logo.png" class="h-16"></img>
                     <img src="/logo_letters.png" class="h-16"></img>
                 </A>
@@ -153,7 +155,7 @@ export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
                 <button
                     ref={hamburgerButton}
                     onClick={toggleHamburgerMenu}
-                    class="lg:hidden"
+                    class="lg:hidden min-w-max"
                 >
                     <img
                         src={menuIcon}

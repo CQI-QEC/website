@@ -9,7 +9,6 @@ export const App = (props: ParentProps) => {
             <main class="flex h-full w-full grow flex-col items-center">
                 {props.children}
             </main>
-
             <Footer />
         </div>
     )

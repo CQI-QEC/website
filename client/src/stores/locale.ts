@@ -22,3 +22,5 @@ export const [locale, setLocale] = createSignal<Locale>(lang as Locale);
 const dict = createMemo(() => i18n.flatten(dictionaries[locale()]));
 
 export const t = i18n.translator(dict);
+// TODO
+// https://stackoverflow.com/questions/65975098/i18next-bold-text-in-the-middle-of-a-translation

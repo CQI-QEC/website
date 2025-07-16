@@ -1,4 +1,3 @@
-import Countdown from "../components/Countdown"
 import globals from "../stores/globalInfoNumbers"
 
 const HostingUniversityName = "University of Québec at Trois-Rivières, Drummondville's campus"
