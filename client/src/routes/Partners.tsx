@@ -49,11 +49,11 @@ const Partners = () => {
     const tierImageSizes: any = {
         officiel: "8",
         diamant: "6",
-        platine: "4",
-        or: "4",
-        argent: "4",
-        bronze: "4",
-        autre: "4",
+        platine: "5",
+        or: "5",
+        argent: "5",
+        bronze: "5",
+        autre: "5",
     }
 
     // Titles for each tier

@@ -60,32 +60,35 @@ const Home = () => {
                     <CaretDoubleDown size={32} weight="bold" class="text-emerald-400" />
                 </a>
             </FixedImage>
-            <div class="flex flex-col px-2 md:px-32 pt-8 box-border gap-4" id="about">
-                <div class="flex flex-col lg:flex-row justify-center items-center">
+            <div class="flex flex-col box-border" id="about">
+                <div class="px-2 pb-2 md:px-32 flex flex-col lg:flex-row justify-center items-center pt-4">
                     <div class="flex flex-col lg:w-1/2">
                         <H3 additional_classes="">{t("aboutPage.about")}</H3>
                         <P>{t("aboutPage.description1")}</P>
                         <P>{t("aboutPage.description2")}</P>
                         <P>{t("aboutPage.description3")}</P>
                     </div>
-                    <ImageDisplay src="/others/fun.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/3 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
+                    <ImageDisplay src="/others/fun.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/2 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
                 </div>
-                <div class="flex flex-col lg:flex-row justify-center items-center">
+                <div class="px-2 md:px-32 flex flex-col lg:flex-row justify-center items-center pt-4 pb-2 lg:bg-orange-100 shadow-[inset_0_1px_8px_0_rgba(0,0,0,0.7)]">
                     <div class="flex flex-col lg:w-1/2">
                         <H3 additional_classes="">{t("aboutPage.thematic.title")}</H3>
                         <P>{t("aboutPage.thematic.description")}</P>
                         <P>{t("aboutPage.thematic.description2")}</P>
                         <P>{t("aboutPage.thematic.description3")}</P>
                     </div>
-                    <ImageDisplay src="/others/fun2.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/3 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
+                    <ImageDisplay src="/others/fun2.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/2 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
                 </div>
-                
-                <div class="mx-auto flex flex-col lg:w-1/2 text-center mt-4">
-                    <H3 additional_classes="">{t("aboutPage.delegations.title")}</H3>
-                    <P3 additional_classes="">{t("aboutPage.delegations.description")}</P3>
+                <div class="pb-4 pt-4">
+                    {/*  shadow-amber-500 */}
+                    <div class="px-2 lg:px-32 mx-auto flex flex-col lg:w-fit text-center pt-4 shadow-md">
+                        <H3 additional_classes="">{t("aboutPage.delegations.title")}</H3>
+                        <P3 additional_classes="">{t("aboutPage.delegations.description")}</P3>
+                    </div>
                 </div>
 
-                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
+
+                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4 w-5/6 mx-auto">
                     {
                         universities.map(({uni, url}) => {
                             let src = "/uni/" + uni + "Logo.webp";
@@ -101,7 +104,7 @@ const Home = () => {
                         })
                     }
                 </div>
-                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4">
+                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4 w-5/6 mx-auto">
                     {
                         asso.map(({asso, url}) => {
                             let src = "/asso/" + asso + "Logo.webp";
