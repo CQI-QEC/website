@@ -4,6 +4,7 @@ import PrefetchLink from "../components/PrefetchLink"
 import { CaretCircleLeft } from "phosphor-solid-js"
 import { t } from "../stores/locale"
 import NavHeader from "../components/Header"
+import globalInfoNumbers from "../stores/globalInfoNumbers"
 
 export default function Dashboard() {
     const params = useParams()
@@ -14,7 +15,7 @@ export default function Dashboard() {
         OIQ: 
             "Avec plus de 72 000 membres et futur.e.s membres, l’Ordre des ingénieurs du Québec se classe au 2e rang d’importance parmi les 46 ordres professionnels de la province. L’Ordre a pour mission d’encadrer la pratique des ingénieurs et ingénieures et de soutenir la profession afin d’assurer la protection du public. Plus largement, il constitue à la fois l’instance de régulation et la vitrine du génie québécois.",
         Genium360:
-            "La Compétition Québécoise d’Ingénierie (CQI) est bien plus qu’un défi : c’est une occasion unique pour les esprits novateurs de démontrer leur ingéniosité, leur rigueur et leur créativité. Genium360, partenaire officiel de cette 40e édition, est honorée de célébrer cette relève talentueuse qui façonne l’avenir du génie au Québec.",
+            `La Compétition Québécoise d’Ingénierie (CQI) est bien plus qu’un défi : c’est une occasion unique pour les esprits novateurs de démontrer leur ingéniosité, leur rigueur et leur créativité. Genium360, partenaire officiel de cette ${globalInfoNumbers.EDITION_NUMBER}e édition, est honorée de célébrer cette relève talentueuse qui façonne l’avenir du génie au Québec.`,
         }
 
     const description =

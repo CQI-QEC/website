@@ -1,6 +1,6 @@
 import FixedImage from "../components/FixedImage"
 import NavHeader from "../components/Header"
-import { P } from "../components/Text"
+import { P2 } from "../components/Text"
 import { t } from "../stores/locale"
 
 const Documents = () => {
@@ -13,7 +13,7 @@ const Documents = () => {
                 </h1>
             </FixedImage>
             <div class=" flex h-full w-full flex-col items-center justify-center gap-4 p-4 font-futur text-xl font-bold">
-                <P>{t("documents.description")}</P>
+                <P2 additional_classes=" mx-auto">{t("documents.description")}</P2>
                 <div class="flex h-full w-full flex-row items-center flex-wrap justify-center gap-4 p-4 font-futur text-xl font-bold">
                     <a
                         href="/doc/Politique_BIPCV.pdf"

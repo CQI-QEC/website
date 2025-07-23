@@ -20,7 +20,6 @@ const Competition = () => {
         { name: "programming" },
         { name: "design" },
         { name: "superiorcycle" },
-        // TODO: Add PuzzleHero
     ];
     return (
         <div>
@@ -31,7 +30,6 @@ const Competition = () => {
             <div class="flex w-full h-2 bg-red-900"></div>
             <div class="flex w-full flex-col items-center justify-center px-8 pt-8 md:px-24 md:pt-18 w-1/3 text-center">
                 <p class="text-3xl text-justify w-fit px-2 font-condensed transition mr-auto">{t("competitionsPage.description")}</p>
-                {/* TODO: Becomes 10 competitions with PuzzleHero being official */}
                 <div class="grid grid-flow-row grid-cols-1 w-full">
                     {
                         competitions.map((competition,i) => {
@@ -65,7 +63,7 @@ const Competition = () => {
                 </div>
             </div>
             {/* Road at the end of the page */}
-            <div class="flex w-full h-4 bg-emerald-600"></div>
+            <div class="flex w-full h-4 bg-emerald-600 mt-2"></div>
             <div class="flex w-full h-8 bg-slate-900" style={"background-image: url('/misc/road_bright.svg');"}></div>
             <div class="flex w-full h-4 bg-emerald-600"></div>
         </div>

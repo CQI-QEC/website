@@ -93,7 +93,7 @@ const Partners = () => {
                         Sponsorship Plan EN
                     </a>
                 </div>
-                <H1>Partenaires de la CQI 2025</H1>
+                <H1>{t("partnersPage.header")}</H1>
 
                 <div class="flex w-full flex-col gap-8 mb-8">
                     {tiers.map((tier) => (

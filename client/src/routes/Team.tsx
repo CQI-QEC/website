@@ -219,7 +219,7 @@ const Team = () => {
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-12 sm:px-48 mx-auto pb-4">
                     {team.map((member) => {
                         return (
-                            <Cards small={true} img={member.image ? member.image : "logo.png"}> {/*TODO color={"red"}  */}
+                            <Cards small={true} img={member.image ? member.image : "logo.png"}>
                                 
                                 <h2>{member.name}</h2>
                                 <p>{member.role}</p>

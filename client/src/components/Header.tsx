@@ -67,6 +67,7 @@ export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
             <div ref={hamburgerMenu} class={menuIsOpen() ? "" : "hidden"}>
                 {/* https://flowbite.com/docs/components/sidebar/#off-canvas-sidebar */}
                 {/* TODO: Watch how to make sidebar follow? */}
+                {/* TODO: Add flip for UNI x Asso? */}
                 <div class="absolute right-0 top-0 z-10 flex h-screen w-1/2 flex-col justify-center bg-black bg-opacity-80 p-2 text-4xl font-bold">
                     <div class="flex items-center justify-between">
                         <button

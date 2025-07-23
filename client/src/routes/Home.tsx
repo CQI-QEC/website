@@ -81,7 +81,7 @@ const Home = () => {
                 </div>
                 <div class="pb-4 pt-4">
                     {/*  shadow-amber-500 */}
-                    <div class="px-2 lg:px-32 mx-auto flex flex-col lg:w-fit text-center pt-4 shadow-md">
+                    <div class="px-2 lg:px-32 mx-auto flex flex-col lg:w-fit text-center pt-4 lg:shadow-xl">
                         <H3 additional_classes="">{t("aboutPage.delegations.title")}</H3>
                         <P3 additional_classes="">{t("aboutPage.delegations.description")}</P3>
                     </div>
@@ -104,7 +104,7 @@ const Home = () => {
                         })
                     }
                 </div>
-                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4 w-5/6 mx-auto">
+                <div class="flex flex-wrap flex-row gap-4 bg-light-primary p-4 w-5/6 mx-auto mt-4">
                     {
                         asso.map(({asso, url}) => {
                             let src = "/asso/" + asso + "Logo.webp";
@@ -121,7 +121,6 @@ const Home = () => {
                     }
                 </div>
             </div>
-            {/* TODO : <img src="/banners/infographie.svg" width="100%" /> */} 
             <H3 additional_classes=" mx-auto mt-4">{t("homePage.countdown")}</H3>
             <Countdown />
         </div>

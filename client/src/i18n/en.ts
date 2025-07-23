@@ -2,6 +2,17 @@ import globals from "../stores/globalInfoNumbers"
 
 const HostingUniversityName = "University of Québec at Trois-Rivières, Drummondville's campus"
 
+const partnersPage = {
+    header : `Partners`,
+    diamond : `Diamond partners`,
+    platinum : `Platinum partners`,
+    gold : `Gold partners`,
+    silver : `Silver partners`,
+    bronze : `Bronze partners`,
+    official: `Official partners`,
+    other: `Partners`,
+}
+
 const homePage = {
     home: `Home`,
     days: `days`,
@@ -30,7 +41,6 @@ const aboutPage = {
         description:
             `The Quebec Engineering Competition gathers ${globals.QUANTITY_DELEGATIONS} delegations of ${globals.QUANTITY_UNIVERSITIES} different universities. Each delegation is overseen by its student association.`,
     },
-    // TODO : Change the Theme
     thematic: {
         title: `Theme`,
         description:
@@ -168,4 +178,5 @@ export const dict = {
     additionalInfo: additionalInfo,
     participantsList: participantsList,
     madeBy: `Made by`,
+    partnersPage: partnersPage,
 }

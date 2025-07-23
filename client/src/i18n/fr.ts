@@ -2,6 +2,17 @@ import globals from "../stores/globalInfoNumbers"
 
 const HostingUniversityName = "Université du Québec à Trois-Rivières, campus de Drummondville"
 
+const partnersPage = {
+    header : `Partenaires de la CQI ${globals.YEAR}`,
+    diamond : `Partenaires Diamant`,
+    platinum : `Partenaires Platine`,
+    gold : `Partenaires Or`,
+    silver : `Partenaires Argent`,
+    bronze : `Partenaires Bronze`,
+    official: `Partenaires Officiels`,
+    other: `Partenaires`,
+}
+
 const homePage = {
     home: `Accueil`,
     days: `jours`,
@@ -169,4 +180,5 @@ export const dict = {
     dashboard: dashboard,
     participantsList: participantsList,
     additionalInfo: additionalInfo,
+    partnersPage: partnersPage,
 }
