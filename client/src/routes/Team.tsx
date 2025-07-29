@@ -60,7 +60,7 @@ const Team = () => {
             name: "Jacob Rioux",
             role: "Trésorerie",
             email: "jrioux@cqi-qec.qc.ca",
-            image: ""
+            image: "/team/co/rioux.jpg"
         },
     ]
 

@@ -27,7 +27,7 @@ Clonez le dépôt et installez les dépendances pour le frontend.
 
 ```bash
 git clone <lien https://xyz.git>
-cd cqi-qec2025
+cd [nom-du-répertoire]
 
 # Installer les dépendances du frontend
 cd client
