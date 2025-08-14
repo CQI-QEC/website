@@ -12,7 +12,9 @@ interface Partner {
 const Partners = () => {
     // Define the partner tiers and their respective logos
     const partners: Map<string, Partner[]> = new Map();
-    partners.set("diamant", []);
+    partners.set("diamant", [
+        { name: "Hatch", logo: "hatch.png" },
+    ]);
     partners.set("platine", []);
     partners.set("or", [
         { name: "Ordre des ingénieurs du Québec (OIQ)", logo: "oiq.png"},
