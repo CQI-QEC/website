@@ -16,11 +16,11 @@ const Documents = () => {
                 <P2 additional_classes=" mx-auto">{t("documents.description")}</P2>
                 <div class="flex h-full w-full flex-row items-center flex-wrap justify-center gap-4 p-4 font-futur text-xl font-bold">
                     <a
-                        href="/doc/Politique_BIPCV.pdf"
+                        href="/doc/Politique_Vacs.pdf"
                         target="_blank"
                         class="rounded-xl bg-green-400 p-4"
                     >
-                        Politique BIPCV
+                        Politique de prévention et du combats des VACS
                     </a>
                     <a
                         href="/doc/Politique_de_discipline_EN.pdf"

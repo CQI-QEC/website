@@ -93,7 +93,7 @@ const Team = () => {
         {
             name:"Sarah Roberge",
             role: "Directrice Chefferie",
-            //image: "roberge.jpg",
+            image: "roberge.jpg",
         },
         {
             name: "Sunnee Chevalier",
@@ -128,12 +128,12 @@ const Team = () => {
         {
             name: "Dylan Renaud",
             role: "Directeur Réingénierie",
-            //image: "renaud.jpg",
+            image: "renaud.jpg",
         },
         {
             name: "Antoine Gamache",
             role: "Directeur Réingénierie",
-            //image: "gamache.jpg",
+            image: "gamache.jpg",
         },
         {
             name: "Nicolas Payeur",
@@ -183,7 +183,7 @@ const Team = () => {
         {
             name: "Samuel Côté",
             role: "Directeur Programmation",
-            //image: "cote.jpg",
+            image: "cote.jpg",
         },
         {
             name: "Samuel Grenier",
@@ -193,12 +193,12 @@ const Team = () => {
         {
             name: "William Sylvain",
             role: "Directeur Cycles Supérieurs",
-            //image: "sylvain.jpg",
+            image: "sylvain.jpg",
         },
         {
             name: "Justine Major",
             role: "Directrice Communication Scientifique",
-            //image: "major.jpg",
+            image: "major.jpg",
         },
         {
             name: "Ghita Lemrini",

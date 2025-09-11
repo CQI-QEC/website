@@ -167,7 +167,7 @@ const participantsList = {
 
 export const dict = {
     cqi: `CQI`,
-    lang: `FR`,
+    lang: `EN`,// We want to show the other language
     homePage: homePage,
     aboutPage: aboutPage,
     competitionsPage: competitionsPage,
