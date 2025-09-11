@@ -28,7 +28,7 @@ export default function Dashboard() {
                     {partnerName}
                 </h1>
             </FixedImage>
-            <div class="relative -mt-32 flex h-full w-full flex-col items-center justify-center gap-4 p-4 text-justify font-futur text-xl font-bold">
+            <div class="relative -mt-32 flex h-full w-full flex-col items-center justify-center gap-4 p-4 lg:text-justify font-futur text-xl font-bold">
                 <PrefetchLink
                     to="/partners"
                     file="Dashboard"

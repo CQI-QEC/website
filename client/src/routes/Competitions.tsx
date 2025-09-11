@@ -29,7 +29,7 @@ const Competition = () => {
             </FixedImage>
             <div class="flex w-full h-2 bg-red-900"></div>
             <div class="flex w-full flex-col items-center justify-center px-8 pt-8 md:px-24 md:pt-18 w-1/3 text-center">
-                <p class="text-3xl text-justify w-fit px-2 font-condensed transition mr-auto">{t("competitionsPage.description")}</p>
+                <p class="text-3xl lg:text-justify w-fit px-2 font-condensed transition mr-auto">{t("competitionsPage.description")}</p>
                 <div class="grid grid-flow-row grid-cols-1 w-full">
                     {
                         competitions.map((competition,i) => {
