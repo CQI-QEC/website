@@ -17,10 +17,11 @@ if (!lang) {
 
 export type Locale = "en" | "fr";
 
-export const [locale, setLocale] = createSignal<Locale>(lang as Locale);
+export const [useLocale, setLocale] = createSignal<Locale>(lang as Locale);
 
-const dict = createMemo(() => i18n.flatten(dictionaries[locale()]));
+const dict = createMemo(() => i18n.flatten(dictionaries[useLocale()]));
+const keys = i18n.flatten(dictionaries[useLocale()]);
+export type TranslationKey = keyof typeof keys;
 
-export const t = i18n.translator(dict);
-// TODO
+export const t = i18n.translator(dict) as <T extends keyof typeof keys>(key: T) => string;
 // https://stackoverflow.com/questions/65975098/i18next-bold-text-in-the-middle-of-a-translation

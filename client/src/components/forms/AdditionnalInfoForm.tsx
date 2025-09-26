@@ -10,7 +10,7 @@ import { Select } from "../forms-component/Select"
 import { FileInput } from "../forms-component/FileInput"
 import { getParticipant, patchParticipantInfo } from "../../request/routes"
 import { createEffect, createSignal } from "solid-js"
-import { locale, t } from "../../stores/locale"
+import { useLocale, t } from "../../stores/locale"
 import { SubmitError } from "../forms-component/SubmitError"
 import { SubmitSuccess } from "../forms-component/SubmitSuccess"
 import { YesNo } from "../forms-component/YesNo"
@@ -456,7 +456,7 @@ export function AdditionalInfoForm() {
                 )}
             </Field>
 
-            {locale() == "fr" && (
+            {useLocale() == "fr" && (
                 <div class="text-xl">
                     <p>
                         En cliquant sur mettre à jour les renseignements
@@ -510,7 +510,7 @@ export function AdditionalInfoForm() {
                 </div>
             )}
 
-            {locale() == "en" && (
+            {useLocale() == "en" && (
                 <div class="text-xl">
                     <p>By clicking on "Update personal information":</p>
                     <ul class="list-disc">

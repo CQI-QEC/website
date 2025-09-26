@@ -1,64 +1,72 @@
 import Cards from "../components/Card"
 import FixedImage from "../components/FixedImage"
 import NavHeader from "../components/Header";
-import { t } from "../stores/locale"
+import { t, TranslationKey, useLocale } from "../stores/locale"
+import { createEffect } from "solid-js";
 
 interface Presidents {
     name: string;
-    role: string;
+    role: TranslationKey;
     image?: string;
     email?: string;
 }
 
 interface Director {
     name: string;
-    role: string;
+    role: TranslationKey;
     image?: string;
     competitions?: string[]; // TODO : Add flags to show different affiliations (duo senior, junior, etc.)
 }
 
-// TODO: add all the emails
 const Team = () => {
+    // Get the current locale and make sure translations are loaded
+    const locale = useLocale();
+
+    createEffect(() => {
+        // Forcing re-render when locale changes to ensure translations update (the hack to make the translations work needs this)
+        console.log("Current locale:", locale);
+    }, [locale]);
+    
     let team : Presidents[] = [
         {
             name: "Marc-André Baril",
-            role: "Président",
+            role: "roles.president",
             image: "/team/co/baril.jpg",
             email: "mabaril@cqi-qec.qc.ca"
         },
         {
             name: "Britany Lévesque",
-            role: "VP-Logistique",
+            role: "roles.vicePresidentLogisticsF",
             image: "/team/co/levesque.jpg",
             email: "blevesque@cqi-qec.qc.ca"
         },
         {
             name: "Alexandrine Ducharme",
-            role: "VP-Compétitions",
+            role: "roles.vicePresidentCompetitionsF",
             image: "/team/co/ducharme.jpg",
             email: "aducharme@cqi-qec.qc.ca"
         },
         {
             name: "Dahly Ann Smith",
-            role: "VP-Communications",
+            role: "roles.vicePresidentCommunicationsF",
             image: "/team/co/smith.jpg",
             email: "dasmith@cqi-qec.qc.ca"
         },
         {
             name: "Gabriel Lapointe",
-            role: "VP-Partenariats",
+            role: "roles.vicePresidentPartnerships",
             image: "/team/co/lapointe.jpg",
             email: "glapointe@cqi-qec.qc.ca"
         },
         {
             name: "Juliane Barrette",
-            role: "VP-Conscience Sociale",
+            role: "roles.vicePresidentSocialConscienceF",
             image: "/team/co/barette.jpg",
             email: "jbarrette@cqi-qec.qc.ca"
         },
         {
             name: "Jacob Rioux",
-            role: "Trésorerie",
+            role: "roles.treasurer",
             email: "jrioux@cqi-qec.qc.ca",
             image: "/team/co/rioux.jpg"
         },
@@ -67,142 +75,142 @@ const Team = () => {
     const director: Director[] = [
         {   
             name: "Ély Thomas",
-            role: "Directeur Partenariats",
+            role: "roles.directorPartnerships",
             image: "thomas.jpg",
         },
         {
             name:"Émy Désaulniers",
-            role: "Directrice Logistique",
+            role: "roles.directorLogisticsF",
             image: "desaulniers.jpg",
         },
         {
             name:"Jérôme Lussier",
-            role: "Directeur Bénévoles",
+            role: "roles.directorVolunteers",
             image: "tyrone.jpg",
         },
         {
             name: "Isaac Soucy",
-            role: "Directeur Bénévoles",
+            role: "roles.directorVolunteers",
             // image: "soucy.jpg",
         },
         {
             name: "Rémi Drouin",
-            role: "Directeur Technique",
+            role: "roles.directorTechnical",
             image: "drouin.jpg",
         },
         {
             name:"Sarah Roberge",
-            role: "Directrice Chefferie",
+            role: "roles.directorChiefF",
             image: "roberge.jpg",
         },
         {
             name: "Sunnee Chevalier",
-            role: "Directeur Site Web",
+            role: "roles.directorWebsite",
             //image: "chevalier.jpg",
         },
         {
             name: "Joanie Théroux",
-            role: "Coordinatrice Junior & Senior",
+            role: "roles.coordinatorJuniorSeniorF",
             image: "theroux.jpg",
         },
         {
             name: "Médéric Chalifour",
-            role: "Directeur Sénior",
+            role: "roles.directorSenior",
             image: "chalifour.jpg",
         },
         {
             name: "Pierre-Olivier Leroueil",
-            role: "Directeur Sénior",
+            role: "roles.directorSenior",
             //image: "leroueil.jpg",
         },
         {
             name: "Alexandre Boucher",
-            role: "Directeur Junior",
+            role: "roles.directorJunior",
             image: "boucher.jpg",
         },
         {
             name: "Zachary Désaulniers",
-            role: "Directeur Junior",
+            role: "roles.directorJunior",
             image: "deso.jpg",
         },
         {
             name: "Dylan Renaud",
-            role: "Directeur Réingénierie",
+            role: "roles.directorReengineering",
             image: "renaud.jpg",
         },
         {
             name: "Antoine Gamache",
-            role: "Directeur Réingénierie",
+            role: "roles.directorReengineering",
             image: "gamache.jpg",
         },
         {
             name: "Nicolas Payeur",
-            role: "Directeur Puzzle hero",
+            role: "roles.directorPuzzleHero",
             image: "payeur.jpg",
         },
         {
             name: "Émile Reny-Déry",
-            role: "Directeur Puzzle hero",
+            role: "roles.directorPuzzleHero",
             image: "reny-dery.jpg",
         },
         {
             name: "Antony Martel",
-            role: "Directeur Puzzle hero",
+            role: "roles.directorPuzzleHero",
             image: "martel.jpg",
         },
         {
             name: "Justin Héroux",
-            role: "Directeur Conception Innovatrice",
+            role: "roles.directorInnovativeDesign",
             image: "heroux.jpg",
         },
         {
             name: "Jean-Christophe Anctil",
-            role: "Directeur Conception Innovatrice",
+            role: "roles.directorInnovativeDesign",
             //image: "anctil.jpg",
         },
         {
             name: "Philippine Grimont",
-            role: "Directrice Génie Conseil",
+            role: "roles.directorConsultingEngineeringF",
             image: "grimont.jpg",
         },
         {
             name: "Laure Jalbert-Drouin",
-            role: "Directrice Génie Conseil",
+            role: "roles.directorConsultingEngineeringF",
             image: "laure.jpg",
         },
         {
             name: "Nathaniel Girard",
-            role: "Directeur Programmation",
+            role: "roles.directorProgramming",
             image: "nate.jpg",
         },
         {
             name: "Marc-Anthony Girard",
-            role: "Directeur Programmation",
+            role: "roles.directorProgramming",
             image: "girard.jpg",
         },
         {
             name: "Samuel Côté",
-            role: "Directeur Programmation",
+            role: "roles.directorProgramming",
             image: "cote.jpg",
         },
         {
             name: "Samuel Grenier",
-            role: "Directeur Programmation",
+            role: "roles.directorProgramming",
             //image: "grenier.jpg",
         },
         {
             name: "William Sylvain",
-            role: "Directeur Cycles Supérieurs",
+            role: "roles.directorGraduateStudies",
             image: "sylvain.jpg",
         },
         {
             name: "Justine Major",
-            role: "Directrice Communication Scientifique",
+            role: "roles.directorScientificCommunicationF",
             image: "major.jpg",
         },
         {
             name: "Ghita Lemrini",
-            role: "Directrice Débats Oratoires",
+            role: "roles.directorDebateF",
             //image: "lemrini.jpg",
         },
     ]
@@ -222,7 +230,8 @@ const Team = () => {
                             <Cards small={true} img={member.image ? member.image : "logo.png"}>
                                 
                                 <h2>{member.name}</h2>
-                                <p>{member.role}</p>
+                                <p>{t(member.role)}</p>
+                                {/* The cast above isnt pretty but it works */}
                                 {member.email ? <a href={"mailto:" + member.email} class="text-emerald-500 hover:underline">{member.email}</a> : null}
                             </Cards>
                         )
@@ -234,7 +243,8 @@ const Team = () => {
                         return (
                             <Cards img={member.image ? ("/team/directeur/" + member.image) : "logo.png"}>
                                 <h2>{member.name}</h2>
-                                <p>{member.role}</p>
+                                <p>{t(member.role)}</p>
+                                {/* The cast above isnt pretty but it works */}
                             </Cards>
                         )
                     })}

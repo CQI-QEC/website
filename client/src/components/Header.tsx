@@ -1,5 +1,5 @@
 import { JSX, createSignal } from "solid-js"
-import { locale, setLocale, t } from "../stores/locale"
+import { useLocale, setLocale, t } from "../stores/locale"
 import { A } from "@solidjs/router"
 import PrefetchLink from "./PrefetchLink"
 import closeMenuIcon from "../../assets/close.svg"
@@ -36,7 +36,7 @@ const links = () => {
 }
 
 const toggleLanguage = (): void => {
-    if (locale() === "en") {
+    if (useLocale() === "en") {
         localStorage.setItem("locale", "fr")
         setLocale("fr")
     } else {

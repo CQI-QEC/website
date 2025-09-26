@@ -163,9 +163,42 @@ const participantsList = {
     cancel: `Cancel`,
 }
 
+const roles = {
+    president: "President",
+    treasurer: "Treasurer",
+    vicePresidentLogistics: "Vice-President of Logistics",
+    vicePresidentLogisticsF: "Vice-President of Logistics",
+    vicePresidentCompetitions: "Vice-President of Competitions",
+    vicePresidentCompetitionsF: "Vice-President of Competitions",
+    vicePresidentCommunications: "Vice-President of Communications",
+    vicePresidentCommunicationsF: "Vice-President of Communications",
+    vicePresidentPartnerships: "Vice-President of Partnerships",
+    vicePresidentSocialConscience: "Vice-President of Social Conscience",
+    vicePresidentSocialConscienceF: "Vice-President of Social Conscience",
+    directorPartnerships: "Partnerships Director",
+    directorLogistics: "Logistics Director",
+    directorLogisticsF: "Logistics Director",
+    directorVolunteers: "Volunteers Director",
+    directorTechnical: "Technical Director",
+    directorChief: "Chiefdom Director",
+    directorChiefF: "Chiefdom Director",
+    directorWebsite: "Website Director",
+    coordinatorJuniorSeniorF: "Junior & Senior Coordinator",
+    directorSenior: "Senior's Director",
+    directorJunior: "Junior's Director",
+    directorReengineering: "Reengineering's Director",
+    directorPuzzleHero: "Puzzle Hero's Director",
+    directorInnovativeDesign: "Innovative Design's Director",
+    directorConsultingEngineeringF: "Consulting Engineering's Director",
+    directorProgramming: "Programming's Director",
+    directorGraduateStudies: "Superior Studies's Director",
+    directorScientificCommunicationF: "Scientific Communication's Director",
+    directorDebateF: "Debate's Director",
+}
+
 export const dict = {
     cqi: `QEC`,
-    lang: `FR`,// We want to show the other language
+    lang: `EN`,// We want to show the other language
     homePage: homePage,
     aboutPage: aboutPage,
     competitionsPage: competitionsPage,
@@ -179,4 +212,5 @@ export const dict = {
     participantsList: participantsList,
     madeBy: `Made by`,
     partnersPage: partnersPage,
+    roles: roles,
 }

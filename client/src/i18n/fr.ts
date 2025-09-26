@@ -165,6 +165,40 @@ const participantsList = {
     confirmDeleteTitle: `Confirmer la suppression`,
 }
 
+export const roles = {
+    president: "Président",
+    treasurer: "Trésorier",
+    vicePresidentLogistics: "VP Logistique",
+    vicePresidentLogisticsF: "VP Logistique",
+    vicePresidentCompetitions: "VP Compétitions",
+    vicePresidentCompetitionsF: "VP Compétitions",
+    vicePresidentCommunications: "VP Communications",
+    vicePresidentCommunicationsF: "VP Communications",
+    vicePresidentPartnerships: "VP Partenariats",
+    vicePresidentSocialConscience: "VP Conscience Sociale",
+    vicePresidentSocialConscienceF: "VP Conscience Sociale",
+
+    directorPartnerships: "Directeur Partenariats",
+    directorLogistics: "Directeur Logistique",
+    directorLogisticsF: "Directrice Logistique",
+    directorVolunteers: "Directeur Bénévoles",
+    directorTechnical: "Directeur Technique",
+    directorChief: "Directeur Chefferie",
+    directorChiefF: "Directrice Chefferie",
+    directorWebsite: "Directeur Site Web",
+    coordinatorJuniorSeniorF: "Coordonnatrice Junior & Senior",
+    directorSenior: "Directeur Senior",
+    directorJunior: "Directeur Junior",
+    directorReengineering: "Directeur Réingénierie",
+    directorPuzzleHero: "Directeur Puzzle Hero",
+    directorInnovativeDesign: "Directeur Conception Innovatrice",
+    directorConsultingEngineeringF: "Directrice Génie-Conseil",
+    directorProgramming: "Directeur Programmation",
+    directorGraduateStudies: "Directeur Cycles Supérieurs",
+    directorScientificCommunicationF: "Directrice Communication Scientifique",
+    directorDebateF: "Directrice Débats Oratoires",
+}
+
 export const dict = {
     cqi: `CQI`,
     lang: `EN`,// We want to show the other language
@@ -181,4 +215,5 @@ export const dict = {
     participantsList: participantsList,
     additionalInfo: additionalInfo,
     partnersPage: partnersPage,
+    roles: roles,
 }
