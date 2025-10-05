@@ -166,15 +166,15 @@ const participantsList = {
 const roles = {
     president: "President",
     treasurer: "Treasurer",
-    vicePresidentLogistics: "Vice-President of Logistics",
-    vicePresidentLogisticsF: "Vice-President of Logistics",
-    vicePresidentCompetitions: "Vice-President of Competitions",
-    vicePresidentCompetitionsF: "Vice-President of Competitions",
-    vicePresidentCommunications: "Vice-President of Communications",
-    vicePresidentCommunicationsF: "Vice-President of Communications",
-    vicePresidentPartnerships: "Vice-President of Partnerships",
-    vicePresidentSocialConscience: "Vice-President of Social Conscience",
-    vicePresidentSocialConscienceF: "Vice-President of Social Conscience",
+    vicePresidentLogistics: "VP Logistics",
+    vicePresidentLogisticsF: "VP Logistics",
+    vicePresidentCompetitions: "VP Competitions",
+    vicePresidentCompetitionsF: "VP Competitions",
+    vicePresidentCommunications: "VP Communications",
+    vicePresidentCommunicationsF: "VP Communications",
+    vicePresidentPartnerships: "VP Partnerships",
+    vicePresidentSocialConscience: "VP Social Conscience",
+    vicePresidentSocialConscienceF: "VP Social Conscience",
     directorPartnerships: "Partnerships Director",
     directorLogistics: "Logistics Director",
     directorLogisticsF: "Logistics Director",
@@ -198,7 +198,7 @@ const roles = {
 
 export const dict = {
     cqi: `QEC`,
-    lang: `EN`,// We want to show the other language
+    lang: `FR`,// We want to show the other language
     homePage: homePage,
     aboutPage: aboutPage,
     competitionsPage: competitionsPage,
