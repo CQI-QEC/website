@@ -27,11 +27,11 @@ const asso = [
     {asso: "reid", url: "https://www.facebook.com/REIDUQTR/"},
     {asso: "rgegr", url: "https://rgegr.uqar.ca/"},
     {asso: "seegat", url: "https://www.facebook.com/seegat/"},
-    {asso: "uqo", url: "https://uqo.ca/vie-etudiante/associations-regroupements-comites-0"},
+    //{asso: "uqo", url: "https://uqo.ca/vie-etudiante/associations-regroupements-comites-0"}, // UQO is part of Creiq, but not participating this year
 ];
 const universities = [
     {uni: "uqat", url: "https://www.uqat.ca/"},
-    {uni: "uqo", url: "https://uqo.ca/"},
+    //{uni: "uqo", url: "https://uqo.ca/"}, // UQO is part of Creiq, but not participating this year
     {uni: "uqtr", url: "https://www.uqtr.ca/"},
     {uni: "mcgill", url: "https://www.mcgill.ca/"},
     {uni: "concordia", url: "https://www.concordia.ca/"},
@@ -42,6 +42,7 @@ const universities = [
     {uni: "uqac", url: "https://www.uqac.ca/"},
     {uni: "macdonald", url: "https://www.mcgill.ca/macdonald/"},
     {uni: "uqar", url: "https://www.uqar.ca/"},
+    {uni: "drummondville", url: "https://www.uqtr.ca/campus/index.shtml#campus-dr"},
 ];
 
 const Home = () => {

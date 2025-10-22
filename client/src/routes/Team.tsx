@@ -121,7 +121,7 @@ const Team = () => {
         {
             name: "Pierre-Olivier Leroueil",
             role: "roles.directorSenior",
-            //image: "leroueil.jpg",
+            image: "leroueil.jpg",
         },
         {
             name: "Alexandre Boucher",
