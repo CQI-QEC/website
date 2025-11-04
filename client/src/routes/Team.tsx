@@ -104,6 +104,11 @@ const Team = () => {
             image: "roberge.jpg",
         },
         {
+            name: "Cassie-Anais Savoie",
+            role: "roles.directorEventsF",
+            image: "cassie.jpg",
+        },
+        {
             name: "Sunnee Chevalier",
             role: "roles.directorWebsite",
             //image: "chevalier.jpg",

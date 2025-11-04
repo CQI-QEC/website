@@ -197,6 +197,7 @@ export const roles = {
     directorGraduateStudies: "Directeur Cycles Supérieurs",
     directorScientificCommunicationF: "Directrice Communication Scientifique",
     directorDebateF: "Directrice Débats Oratoires",
+    directorEventsF: "Directrice Événementiel",
 }
 
 export const dict = {

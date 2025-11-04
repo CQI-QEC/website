@@ -194,6 +194,7 @@ const roles = {
     directorGraduateStudies: "Superior Studies's Director",
     directorScientificCommunicationF: "Scientific Communication's Director",
     directorDebateF: "Debate's Director",
+    directorEventsF: "Events Director",
 }
 
 export const dict = {
