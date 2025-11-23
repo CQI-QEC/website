@@ -73,11 +73,6 @@ const Team = () => {
     ]
 
     const director: Director[] = [
-        {   
-            name: "Ély Thomas",
-            role: "roles.directorPartnerships",
-            image: "thomas.jpg",
-        },
         {
             name:"Émy Désaulniers",
             role: "roles.directorLogisticsF",
@@ -111,7 +106,7 @@ const Team = () => {
         {
             name: "Sunnee Chevalier",
             role: "roles.directorWebsite",
-            //image: "chevalier.jpg",
+            image: "chevalier.jpg",
         },
         {
             name: "Joanie Théroux",
@@ -171,7 +166,7 @@ const Team = () => {
         {
             name: "Jean-Christophe Anctil",
             role: "roles.directorInnovativeDesign",
-            //image: "anctil.jpg",
+            image: "anctil.jpg",
         },
         {
             name: "Philippine Grimont",
@@ -201,7 +196,7 @@ const Team = () => {
         {
             name: "Samuel Grenier",
             role: "roles.directorProgramming",
-            //image: "grenier.jpg",
+            image: "grenier.jpg",
         },
         {
             name: "William Sylvain",
@@ -216,7 +211,7 @@ const Team = () => {
         {
             name: "Ghita Lemrini",
             role: "roles.directorDebateF",
-            //image: "lemrini.jpg",
+            image: "lemrini.jpg",
         },
     ]
 
