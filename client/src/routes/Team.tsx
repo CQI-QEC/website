@@ -86,7 +86,7 @@ const Team = () => {
         {
             name: "Isaac Soucy",
             role: "roles.directorVolunteers",
-            // image: "soucy.jpg",
+            image: "soucy.jpg",
         },
         {
             name: "Rémi Drouin",
