@@ -97,7 +97,7 @@ const Partners = () => {
                                     <h2 class="text-2xl font-bold">
                                         {tierTitles[tier]}
                                     </h2>
-                                    <div class="flex flex-wrap gap-8">
+                                    <div class="flex flex-wrap sm:flex-col gap-8">
                                         {partners.get(tier)?.map((partner: Partner) => (
                                             <PartnerCard 
                                             small={false} 
