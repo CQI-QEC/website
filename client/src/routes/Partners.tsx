@@ -1,5 +1,6 @@
 import FixedImage from "../components/FixedImage"
 import NavHeader from "../components/Header"
+import PartnerCard from "../components/PartnerCardWIP";
 import { H1 } from "../components/Text"
 import { t } from "../stores/locale"
 
@@ -40,23 +41,11 @@ const Partners = () => {
     const description: any = {
         // "marmen.png": "Marmen",
         "oiq.png": "OIQ",
-        "genium360.png": "Genium360",
-        "lotoquebec.png": "Loto-Quebec",
+        "genium360.png": "Genium360"
     }
 
     // Order of tiers to display
     const tiers = ["officiel", "diamant", "platine", "or", "argent", "bronze", "autre"]
-
-    // Image sizes for each tier
-    const tierImageSizes: any = {
-        officiel: "8",
-        diamant: "6",
-        platine: "5",
-        or: "5",
-        argent: "5",
-        bronze: "5",
-        autre: "5",
-    }
 
     // Titles for each tier
     const tierTitles: any = {
@@ -95,38 +84,31 @@ const Partners = () => {
                         Sponsorship Plan EN
                     </a>
                 </div>
-                <H1>{t("partnersPage.header")}</H1>
 
-                <div class="flex w-full flex-col gap-8 mb-8">
+                <H1>{t("partnersPage.header")}</H1>
+                <div class="bg-black h-2 w-1/2"></div>
+
+                <div class="flex w-full flex-col justify-center gap-8 mb-8">
                     {tiers.map((tier) => (
-                        <div class="flex flex-col gap-4">
-                            <h2 class="text-2xl font-bold">
-                                {tierTitles[tier]}
-                            </h2>
-                            <div class="flex flex-wrap gap-8">
-                                {partners.get(tier)?.map((partner: Partner) => (
-                                    <a
-                                        href={
-                                            description[partner.logo] &&
-                                            "/partners/" + description[partner.logo]
-                                        }
-                                        class="tooltip"
-                                    >
-                                        <span class="tooltiptext">{partner.name}</span>
-                                        <img
-                                            src={`/partners/${tier}/${partner.logo}`}
-                                            alt={partner.name}
-                                            style={
-                                                "height:" +
-                                                tierImageSizes[tier] +
-                                                "rem"
-                                            }
-                                            class="object-contain"
-                                        />
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
+                        <>{
+                            // Only display the tier if there are partners in it
+                            partners.get(tier) && partners.get(tier)!.length > 0 ? (
+                                <div class="flex flex-col gap-4 items-center">
+                                    <h2 class="text-2xl font-bold">
+                                        {tierTitles[tier]}
+                                    </h2>
+                                    <div class="flex flex-wrap gap-8">
+                                        {partners.get(tier)?.map((partner: Partner) => (
+                                            <PartnerCard 
+                                            small={false} 
+                                            img={"/partners/" + tier + "/" + partner.logo} 
+                                            extra_classes=" tooltip" name={partner.name} 
+                                            link={description[partner.logo] ? ("/partners/" + description[partner.logo]) : undefined}/>
+                                        ))}
+                                    </div>
+                                </div>
+                            ) : null
+                        }</>
                     ))}
                 </div>
             </div>
