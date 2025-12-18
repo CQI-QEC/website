@@ -88,16 +88,16 @@ const Partners = () => {
                 <H1>{t("partnersPage.header")}</H1>
                 <div class="bg-black h-2 w-1/2"></div>
 
-                <div class="flex w-full flex-col justify-center gap-8 mb-8">
+                <div class="flex justify-center items-center w-full flex-col justify-center gap-8 mb-8">
                     {tiers.map((tier) => (
                         <>{
                             // Only display the tier if there are partners in it
                             partners.get(tier) && partners.get(tier)!.length > 0 ? (
-                                <div class="flex flex-col gap-4 items-center">
+                                <div class="flex flex-col gap-4 items-center justify-center items-center">
                                     <h2 class="text-2xl font-bold">
                                         {tierTitles[tier]}
                                     </h2>
-                                    <div class="flex flex-wrap sm:flex-col gap-8">
+                                    <div class="flex flex-wrap gap-8 justify-center items-center">
                                         {partners.get(tier)?.map((partner: Partner) => (
                                             <PartnerCard 
                                             small={false} 
