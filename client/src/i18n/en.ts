@@ -2,6 +2,17 @@ import globals from "../stores/globalInfoNumbers"
 
 const HostingUniversityName = "University of Québec at Trois-Rivières, Drummondville's campus"
 
+
+const individualPartnersDescription = {
+    //OIQ: "Avec plus de 72 000 membres et futur.e.s membres, l’Ordre des ingénieurs du Québec se classe au 2e rang d’importance parmi les 46 ordres professionnels de la province. L’Ordre a pour mission d’encadrer la pratique des ingénieurs et ingénieures et de soutenir la profession afin d’assurer la protection du public. Plus largement, il constitue à la fois l’instance de régulation et la vitrine du génie québécois.",
+    Genium360: `Genium360 est la communauté du génie au Québec réunissant plus de 100 000 membres. Véritable force mobilisatrice, l’organisme à but non lucratif cultive un écosystème dynamique où les professionnel·les et les étudiant·es unissent leurs talents pour propulser l’innovation et relever les défis de demain. Ensemble, ils façonnent l’avenir de leur profession et contribuent à l’essor de la société québécoise. \nGenium360, partenaire officiel de cette 41e édition, est honorée de célébrer cette relève talentueuse qui façonne l’avenir du génie au Québec.`,
+    Hatch: "Our diverse teams build the extraordinary every day, pushing progress in ways that are most meaningful.\nAt Hatch, we’re not just solving the problems of today—we’re answering the challenges of tomorrow.\nLet’s build positive change, together.\nVisit us at hatch.com",
+    notfound:{
+        title: "Partner not found",
+        description: "The partner you are looking for does not have a dedicated page yet. Please contact us if you wish to have more information about this partner."
+    }
+}
+
 const partnersPage = {
     header : `Partners`,
     diamond : `Diamond partners`,
@@ -214,4 +225,5 @@ export const dict = {
     madeBy: `Made by`,
     partnersPage: partnersPage,
     roles: roles,
+    individual: individualPartnersDescription,
 }

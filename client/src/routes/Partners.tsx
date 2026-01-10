@@ -14,32 +14,41 @@ const Partners = () => {
     // Define the partner tiers and their respective logos
     const partners: Map<string, Partner[]> = new Map();
     partners.set("diamant", [
-        { name: "Hatch", logo: "hatch.png" },
+        { name: "Hatch", logo: "hatch.png", },
+        { name: "Pratt", logo: "pratt.png" },
+        { name: "UQTR", logo: "uqtr.png" },
     ]);
-    partners.set("platine", []);
+    partners.set("platine", [
+        { name: "Fempro", logo: "fempro.png" },
+    ]);
     partners.set("or", [
         { name: "Ordre des ingénieurs du Québec (OIQ)", logo: "oiq.png"},
         { name: "Association générale des étudiants hors campus de l'UQTR (AGEHC)", logo: "agehc.png" },
     ]);
     partners.set("argent", [
-        { name: "Loto-Québec", logo: "lotoquebec.png" }
+        { name: "Loto-Québec", logo: "lotoquebec.png" },
+        { name: "EXCELPRO / GÉNIK", logo: "excelpro.png" },
+        { name: "EXP", logo: "exp.png" },
     ]);
     partners.set("bronze", [
         { name: "Microbird", logo: "microbird.svg" },
         { name: "Regroupement étudiant en Ingénierie de Drummondville (RÉID)", logo: "reid.webp" },
     ]);
     partners.set("officiel", [
-        { name: "Genium360", logo: "genium360.png"},
-        // { name: "Marmen", logo: "marmen.png" }, // Uncomment if needed
+        { name: "Genium360", logo: "genium360.png"}
     ]);
+
     partners.set("autre", [
         { name: "Alten", logo: "alten.svg" },
         { name: "Fondation UQTR", logo: "fondation.png" },
+        { name: "École d'ingénierie UQTR", logo: "ecole_ingenierie_uqtr.png" },
+        { name: "BBA", logo: "bba.png" },
+        { name: "Premier Tech", logo: "premiertech.png" },
+        { name: "Machinex", logo: "machinex.png" },
     ]);
 
-    // Pour la page des partenaires individuels
     const description: any = {
-        // "marmen.png": "Marmen",
+        "hatch.png": "Hatch",
         "oiq.png": "OIQ",
         "genium360.png": "Genium360"
     }
@@ -88,7 +97,7 @@ const Partners = () => {
                 <H1>{t("partnersPage.header")}</H1>
                 <div class="bg-black h-2 w-1/2"></div>
 
-                <div class="flex justify-center items-center w-full flex-col justify-center gap-8 mb-8">
+                <div class="flex justify-center items-center w-full xl:w-3/5 flex-col justify-center gap-8 mb-8">
                     {tiers.map((tier) => (
                         <>{
                             // Only display the tier if there are partners in it

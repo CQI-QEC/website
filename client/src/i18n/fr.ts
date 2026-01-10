@@ -2,6 +2,16 @@ import globals from "../stores/globalInfoNumbers"
 
 const HostingUniversityName = "Université du Québec à Trois-Rivières, campus de Drummondville"
 
+const individualPartnersDescription = {
+    OIQ: "Avec plus de 72 000 membres et futur.e.s membres, l’Ordre des ingénieurs du Québec se classe au 2e rang d’importance parmi les 46 ordres professionnels de la province. L’Ordre a pour mission d’encadrer la pratique des ingénieurs et ingénieures et de soutenir la profession afin d’assurer la protection du public. Plus largement, il constitue à la fois l’instance de régulation et la vitrine du génie québécois.",
+    Genium360: `Genium360 est la communauté du génie au Québec réunissant plus de 100 000 membres. Véritable force mobilisatrice, l’organisme à but non lucratif cultive un écosystème dynamique où les professionnel·les et les étudiant·es unissent leurs talents pour propulser l’innovation et relever les défis de demain. Ensemble, ils façonnent l’avenir de leur profession et contribuent à l’essor de la société québécoise. \nGenium360, partenaire officiel de cette 41e édition, est honorée de célébrer cette relève talentueuse qui façonne l’avenir du génie au Québec.`,
+    Hatch: "Nos équipes diversifiées bâtissent l’extraordinaire jour après jour, faisant progresser les choses de manière significative.\nChez Hatch, nous ne nous contentons pas de résoudre les problèmes d’aujourd’hui; nous relevons les défis de demain.\nEnsemble, créons des changements positifs.\nVisitez-nous sur hatch.com",
+    notfound: {
+        title: "Partenaire non trouvé",
+        description: `Nous n'avons pas pu trouver de description pour ce partenaire. Veuillez retourner à la page des partenaires et sélectionner un autre partenaire.`,
+    }
+}
+
 const partnersPage = {
     header : `Partenaires de la CQI ${globals.YEAR}`,
     diamond : `Partenaires Diamant`,
@@ -217,4 +227,5 @@ export const dict = {
     additionalInfo: additionalInfo,
     partnersPage: partnersPage,
     roles: roles,
+    individual: individualPartnersDescription,
 }
