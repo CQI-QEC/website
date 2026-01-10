@@ -25,30 +25,44 @@ const Documents = () => {
                     <a
                         href="/doc/Politique_de_discipline_EN.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-400 p-4"
+                        class="rounded-xl bg-green-300 p-4"
                     >
-                        Politique de discipline EN
+                        Discipline Policy EN
                     </a>
                     <a
                         href="/doc/Politique_de_discipline_FR.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-400 p-4"
+                        class="rounded-xl bg-green-300 p-4"
                     >
                         Politique de discipline FR
                     </a>
                     <a
                         href="/doc/Reglement_CQI_FR.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-400 p-4"
+                        class="rounded-xl bg-green-500 p-4"
                     >
                         Règlement CQI FR
                     </a>
                     <a
                         href="/doc/Rulebook_QEC_EN.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-400 p-4"
+                        class="rounded-xl bg-green-500 p-4"
                     >
-                        Règlement CQI EN
+                        Rules QEC EN
+                    </a>
+                    <a
+                        href="/doc/GUIDE_DE_PARTICIPATION.pdf"
+                        target="_blank"
+                        class="rounded-xl bg-green-800 p-4"
+                    >
+                        Guide de participation
+                    </a>
+                    <a
+                        href="/doc/PARTICIPATION_GUIDE.pdf"
+                        target="_blank"
+                        class="rounded-xl bg-green-800 p-4"
+                    >
+                        Participation Guide
                     </a>
                 </div>
             </div>
