@@ -186,6 +186,7 @@ const roles = {
     vicePresidentPartnerships: "VP Partnerships",
     vicePresidentSocialConscience: "VP Social Conscience",
     vicePresidentSocialConscienceF: "VP Social Conscience",
+    vpAdmin: "VP Administrative",
     directorPartnerships: "Partnerships Director",
     directorLogistics: "Logistics Director",
     directorLogisticsF: "Logistics Director",

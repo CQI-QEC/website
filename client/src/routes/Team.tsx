@@ -70,6 +70,11 @@ const Team = () => {
             email: "jrioux@cqi-qec.qc.ca",
             image: "/team/co/rioux.jpg"
         },
+        {
+            name:"Sarah Roberge",
+            role: "roles.vpAdmin",
+            image: "/team/co/roberge.jpg",
+        },
     ]
 
     const director: Director[] = [
@@ -92,11 +97,6 @@ const Team = () => {
             name: "Rémi Drouin",
             role: "roles.directorTechnical",
             image: "drouin.jpg",
-        },
-        {
-            name:"Sarah Roberge",
-            role: "roles.directorChiefF",
-            image: "roberge.jpg",
         },
         {
             name: "Cassie-Anais Savoie",
