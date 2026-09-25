@@ -31,7 +31,7 @@ export function P(props: Props) {
 
 export function P2(props: Props) {
     return (
-        <p class={"text-2xl text-gray-700 lg:text-justify transition font-condensed " + (props.additional_classes? props.additional_classes : "")}>{props.children}</p>
+        <p class={"text-2xl lg:text-justify transition font-condensed " + (props.additional_classes? props.additional_classes : "")}>{props.children}</p>
     );
 }
 

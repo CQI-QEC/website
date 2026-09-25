@@ -1,10 +1,10 @@
-# Site web CQI 2026
+# Site web CQI 2027
 
 Bienvenue dans le site web de la CQI! Ce projet est une application web construite avec SolidJS pour le frontend et Axum (Rust) pour le backend. L'application est conçue pour être performante, sécurisée et facile à maintenir.
 
 ## Table des matières
 
-- [Site web CQI 2026](#site-web-cqi-2026)
+- [Site web CQI 2027](#site-web-cqi-2027)
   - [Table des matières](#table-des-matières)
   - [Prérequis](#prérequis)
   - [Installation](#installation)
@@ -50,7 +50,7 @@ bun dev
 Voici un aperçu de la structure du projet :
 
 ```
-cqi-qec2025/
+cqi-qec2027/
 ├── client/                # Code source du frontend
 │   ├── public/            # Fichiers statiques
 │   ├── src/               # Code source de l'application SolidJS

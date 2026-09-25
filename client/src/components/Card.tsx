@@ -13,7 +13,7 @@ export default function Cards(props: CardProps) {
     return (
         <div
             class={
-                "rounded-lg border border-zinc-200 bg-white shadow transition" +
+                "rounded-xl border-4 border-[rgb(var(--tertiary-color))] bg-white shadow transition" +
                 props.theme + (props.extra_classes ? " " + props.extra_classes : "")
             }
         >

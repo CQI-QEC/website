@@ -5,9 +5,9 @@ import { t } from "../stores/locale"
 
 const Documents = () => {
     return (
-        <div class="flex w-full flex-col items-center justify-center">
+        <div class="flex w-full flex-col items-center justify-center" style={{"color": "rgb(var(--primary-color))"}}>
             <NavHeader background={true}/>
-            <FixedImage url="/banners/documents.jpg" height="32rem" bg_position="bg-center">
+            <FixedImage url="/banners/documents.jpg" height="32rem" bg_position="bg-[center_30%]">
                 <h1 class="text-center font-futur text-6xl text-white">
                     Documents
                 </h1>
@@ -16,41 +16,46 @@ const Documents = () => {
                 <P2 additional_classes=" mx-auto">{t("documents.description")}</P2>
                 <div class="flex h-full w-full flex-row items-center flex-wrap justify-center gap-4 p-4 font-futur text-xl font-bold">
                     <a
-                        href="/doc/Politique_Vacs.pdf"
+                        href="/doc/Politique_VACS_UQAR.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-400 p-4"
+                        class="rounded-xl p-4"
+                        style={{"background-color": "rgb(var(--tertiary-color))", color: "white"}}
                     >
                         Politique de prévention et du combats des VACS
                     </a>
                     <a
+                        href="/doc/Politique_de_discipline_FR.pdf"
+                        target="_blank"
+                        class="rounded-xl p-4"
+                        style={{"background-color": "rgb(var(--tertiary-color))", color: "white"}}
+                    >
+                        Politique de discipline FR
+                    </a>
+                                        <a
                         href="/doc/Politique_de_discipline_EN.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-300 p-4"
+                        class="rounded-xl p-4"
+                        style={{"background-color": "rgb(var(--tertiary-color))", color: "white"}}
                     >
                         Discipline Policy EN
                     </a>
                     <a
-                        href="/doc/Politique_de_discipline_FR.pdf"
-                        target="_blank"
-                        class="rounded-xl bg-green-300 p-4"
-                    >
-                        Politique de discipline FR
-                    </a>
-                    <a
                         href="/doc/Reglement_CQI_FR.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-500 p-4"
+                        class="rounded-xl p-4"
+                        style={{"background-color": "rgb(var(--tertiary-color))", color: "white"}}
                     >
                         Règlement CQI FR
                     </a>
                     <a
                         href="/doc/Rulebook_QEC_EN.pdf"
                         target="_blank"
-                        class="rounded-xl bg-green-500 p-4"
+                        class="rounded-xl p-4"
+                        style={{"background-color": "rgb(var(--tertiary-color))", color: "white"}}
                     >
                         Rules QEC EN
                     </a>
-                    <a
+                    {/* <a
                         href="/doc/GUIDE_DE_PARTICIPATION.pdf"
                         target="_blank"
                         class="rounded-xl bg-green-800 p-4"
@@ -63,7 +68,7 @@ const Documents = () => {
                         class="rounded-xl bg-green-800 p-4"
                     >
                         Participation Guide
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </div>

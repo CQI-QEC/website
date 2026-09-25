@@ -10,7 +10,7 @@ export default function CountdownCard(props: Props) {
     return (
         <div class="justify-center relative perspective">
             <div
-                class="flex items-center justify-center relative rounded-t-lg h-10 w-20 lg:h-20 lg:w-44"
+                class="flex items-center justify-center relative rounded-t-lg h-10 w-20 lg:h-20 lg:w-44" style={{"color": "rgb(var(--primary-color))"}}
             >
                 <p class="absolute top-5 lg:top-12 text-center text-4xl lg:text-7xl font-bold z-10">
                     {props.current()}
@@ -21,7 +21,7 @@ export default function CountdownCard(props: Props) {
                         <circle r="8" fill="#000" cx="0" cy="100%" />
                         <circle r="8" fill="#000" cx="100%" cy="100%" />
                     </mask>
-                    <use href={`#${props.id}-r`} fill={"hsl(236 , 21%, 69%)"} mask={`url(#${props.id}-m)`} />
+                    <use href={`#${props.id}-r`} fill={"rgb(var(--tertiary-color)/0.9)"} mask={`url(#${props.id}-m)`} />
                 </svg>
             </div>
 
@@ -34,7 +34,7 @@ export default function CountdownCard(props: Props) {
                         <circle r="8" fill="#000" cx="0" cy="0" />
                         <circle r="8" fill="#000" cx="100%" cy="0" />
                     </mask>
-                    <use href={`#${props.id}-r2`} fill={"hsl(236 , 21%, 80%)"} mask={`url(#${props.id}-m2)`} />
+                    <use href={`#${props.id}-r2`} fill={"rgb(var(--tertiary-color)/0.75)"} mask={`url(#${props.id}-m2)`} />
                 </svg>
             </div>
 

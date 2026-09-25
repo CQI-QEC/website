@@ -1,6 +1,6 @@
 import globals from "../stores/globalInfoNumbers"
 
-const HostingUniversityName = "Université du Québec à Trois-Rivières, campus de Drummondville"
+const HostingUniversityName = "Université du Québec à Rimouski, campus de Rimouski"
 
 const individualPartnersDescription = {
     //OIQ: "Avec plus de 72 000 membres et futur.e.s membres, l’Ordre des ingénieurs du Québec se classe au 2e rang d’importance parmi les 46 ordres professionnels de la province. L’Ordre a pour mission d’encadrer la pratique des ingénieurs et ingénieures et de soutenir la profession afin d’assurer la protection du public. Plus largement, il constitue à la fois l’instance de régulation et la vitrine du génie québécois.",
@@ -54,10 +54,11 @@ const aboutPage = {
     thematic: {
         title: `Thématique`,
         description:
-            `Dans une approche littéraire, l’expression « sortons des sentiers battus » évoque le cadre naturel dans lequel s’ancre le campus, renforçant son lien avec l’environnement boisé qui l’entoure.`,
+            `Dans un monde où il est facile de suivre le courant, oser aller à contre-courant devient une force.`,
         description2:
-            "Par ailleurs, cette phrase illustre une volonté d’innovation et de dépassement des conventions, soulignant une démarche audacieuse et créative.",
-        description3: "Formulé de manière inclusive, ce thème encourage la solidarité entre les participants et reflète l’esprit de cohésion et d’entraide propre à la communauté étudiante drummondvilloise, une véritable « famille tissée serrée »."
+            "Cette thématique met de l’avant l’audace, la créativité et la capacité à remettre en question les standards pour imaginer des solutions nouvelles.",
+        description3:`Inspirée du fleuve Saint-Laurent, symbole fort de la région, elle reflète la capacité des futurs ingénieurs à naviguer dans la complexité, à s’adapter et à influencer leur environnement. `,
+        description4: `À travers cette vision, la CQI 2027 souhaite valoriser les parcours atypiques, encourager l’innovation et célébrer celles et ceux qui osent penser autrement.`
     },
 }
 

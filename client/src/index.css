@@ -3,6 +3,10 @@ body,
 #app {
     height: 100svh;
     scroll-behavior: smooth;
+    --primary-color: 32 47 84;
+    --secondary-color: 55 123 191;
+    --tertiary-color: 240 81 79;
+    --quaternary-color: 255 205 9;
 }
 
 @tailwind base;

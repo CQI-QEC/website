@@ -27,11 +27,11 @@ const asso = [
     {asso: "reid", url: "https://www.facebook.com/REIDUQTR/"},
     {asso: "rgegr", url: "https://rgegr.uqar.ca/"},
     {asso: "seegat", url: "https://www.facebook.com/seegat/"},
-    //{asso: "uqo", url: "https://uqo.ca/vie-etudiante/associations-regroupements-comites-0"}, // UQO is part of Creiq, but not participating this year
+    {asso: "uqo", url: "https://uqo.ca/vie-etudiante/associations-regroupements-comites-0"},
 ];
 const universities = [
     {uni: "uqat", url: "https://www.uqat.ca/"},
-    //{uni: "uqo", url: "https://uqo.ca/"}, // UQO is part of Creiq, but not participating this year
+    {uni: "uqo", url: "https://uqo.ca/"},
     {uni: "uqtr", url: "https://www.uqtr.ca/"},
     {uni: "mcgill", url: "https://www.mcgill.ca/"},
     {uni: "concordia", url: "https://www.concordia.ca/"},
@@ -48,37 +48,42 @@ const universities = [
 const Home = () => {
 
     return (
-        <div class="flex w-full flex-col">
+        <div class="flex w-full flex-col z-20" style={{"color": "rgb(var(--primary-color))"}}>
             <NavHeader background={true}/>
-            <FixedImage url="/home.jpg" extra_classes="h-[100vh] justify-center items-center">
-                <div class="flex flex-col items-center justify-center my-auto">
-                    <p class="font-futur text-2xl text-emerald-400">{t("homePage.edition")}</p>
+            <FixedImage url="/home.jpg" extra_classes="h-[100vh] justify-center z-10items-center">
+                <div class="flex flex-col items-center justify-center my-auto z-10">
+                    <p class="font-futur text-2xl" style={{color: 'rgb(var(--quaternary-color))'}}>{t("homePage.edition")}</p>
                     <h1 class="font-futur text-white text-center text-6xl" style="word-spacing: 100vw;">{t("homePage.cqi")}</h1>
-                    <p class="font-futur text-emerald-400 text-2xl text-wrap">{t("homePage.location")}</p>
-                    <p class="font-futur text-emerald-400 text-2xl text-wrap">{t("homePage.date")}</p>
+                    <p class="font-futur text-2xl text-wrap" style={{color: 'rgb(var(--quaternary-color))'}}>{t("homePage.location")}</p>
+                    <p class="font-futur text-2xl text-wrap" style={{color: 'rgb(var(--quaternary-color))'}}>{t("homePage.date")}</p>
                 </div>
                 <a class="animate-bounce font-futur text-2xl float-bottom mb-20 cursor-pointer bottom-20" onClick={scrollToAbout}>
-                    <CaretDoubleDown size={32} weight="bold" class="text-emerald-400" />
+                    <CaretDoubleDown size={32} weight="bold" style={{color: 'rgb(var(--quaternary-color))'}} />
                 </a>
             </FixedImage>
             <div class="flex flex-col box-border" id="about">
-                <div class="px-2 pb-2 md:px-32 flex flex-col lg:flex-row justify-center items-center pt-4">
+                <div class="px-10 pb-6 md:px-32 flex flex-col lg:flex-row justify-center items-center pt-4">
                     <div class="flex flex-col lg:w-1/2">
                         <H3 additional_classes="">{t("aboutPage.about")}</H3>
                         <P>{t("aboutPage.description1")}</P>
                         <P>{t("aboutPage.description2")}</P>
                         <P>{t("aboutPage.description3")}</P>
                     </div>
-                    <ImageDisplay src="/others/fun.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/2 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
+                    <div class="lg:pl-4 lg:pt-4 lg:pb-4 lg:w-1/2 lg:max-w-[550px] lg:ml-5 justify-center items-center">
+                        <ImageDisplay src="/others/a_propos.jpg" extra_classes="rounded-lg border-4 border-[rgb(var(--tertiary-color))]"/>
+                    </div>
                 </div>
-                <div class="px-2 md:px-32 flex flex-col lg:flex-row justify-center items-center pt-4 pb-2 lg:bg-orange-100 shadow-[inset_0_1px_8px_0_rgba(0,0,0,0.7)]">
-                    <div class="flex flex-col lg:w-1/2">
+                <div class="px-10 pb-6 lg:px-32 flex flex-col lg:flex-row justify-center items-center pt-4 pb-2 lg:bg-[rgb(var(--secondary-color)/0.85)] shadow-[inset_0_1px_8px_0_rgba(0,0,0,0.7)]">
+                    <div class="flex flex-col lg:w-1/2 text-white">
                         <H3 additional_classes="">{t("aboutPage.thematic.title")}</H3>
                         <P>{t("aboutPage.thematic.description")}</P>
                         <P>{t("aboutPage.thematic.description2")}</P>
                         <P>{t("aboutPage.thematic.description3")}</P>
+                        <P>{t("aboutPage.thematic.description4")}</P>
                     </div>
-                    <ImageDisplay src="/others/fun2.jpg" extra_classes="lg:pt-4 lg:pb-4 lg:w-1/2 lg:max-w-[550px] lg:ml-5 justify-center items-center"/>
+                    <div class="lg:pl-4 lg:pt-4 lg:pb-4 lg:w-1/2 lg:max-w-[550px] lg:ml-5 justify-center items-center">
+                        <ImageDisplay src="/others/thematique.jpg" extra_classes="rounded-lg border-4 border-[rgb(var(--tertiary-color))]"/>
+                    </div>
                 </div>
                 <div class="pb-4 pt-4">
                     {/*  shadow-amber-500 */}
@@ -122,7 +127,7 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <H3 additional_classes=" mx-auto mt-4">{t("homePage.countdown")}</H3>
+            <H3 additional_classes=" mx-auto mt-4 ">{t("homePage.countdown")}</H3>
             <Countdown />
         </div>
     )
