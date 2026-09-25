@@ -26,7 +26,7 @@ export default function PartnerCard(props: CardProps) {
             {
                 props.link && (
                 <a href={props.link} class="px-2">
-                    <CaretDoubleDown size={32} weight="bold" class="text-emerald-400 -rotate-90" />
+                    <CaretDoubleDown size={32} weight="bold" class="text-[rgb(var(--tertiary-color))] -rotate-90" />
                 </a>)
             }
             
