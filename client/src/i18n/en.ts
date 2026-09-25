@@ -1,6 +1,6 @@
 import globals from "../stores/globalInfoNumbers"
 
-const HostingUniversityName = "University of Québec at Trois-Rivières, Drummondville's campus"
+const HostingUniversityName = "University of Québec at Rimouski, Rimouski's campus"
 
 
 const individualPartnersDescription = {
@@ -55,9 +55,10 @@ const aboutPage = {
     thematic: {
         title: `Theme`,
         description:
-            `In a literary approach, the expression “off the trails” evokes the natural setting in which the campus is rooted, reinforcing its connection to the surrounding wooded environment.`,
-        description2: "Moreover, this phrase illustrates a desire for innovation and a break from convention, highlighting a bold and creative mindset.",
-        description3:"Framed in an inclusive way, this theme fosters solidarity among participants and reflects the spirit of cohesion and mutual support that defines the Drummondville student community, a true “tight-knit family.”"
+            `In a world where it is easy to follow the current, daring to go against it becomes a strength. This theme highlights boldness, creativity, and the ability to challenge convention in order to imagine new solutions.`,
+        description2: "Inspired by the St. Lawrence River, a defining symbol of the region, it reflects the ability of future engineers to navigate complexity, adapt to change, and make a meaningful impact on their environment. ",
+        description3:"Through this vision, QEC 2027 aims to celebrate unconventional paths, encourage innovation, and recognize those who dare to think differently.",
+        description4: ''
     },
 }
 

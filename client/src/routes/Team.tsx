@@ -28,197 +28,197 @@ const Team = () => {
     }, [locale]);
     
     let team : Presidents[] = [
-        {
-            name: "Marc-André Baril",
-            role: "roles.president",
-            image: "/team/co/baril.jpg",
-            email: "mabaril@cqi-qec.qc.ca"
-        },
-        {
-            name: "Britany Lévesque",
-            role: "roles.vicePresidentLogisticsF",
-            image: "/team/co/levesque.jpg",
-            email: "blevesque@cqi-qec.qc.ca"
-        },
-        {
-            name: "Alexandrine Ducharme",
-            role: "roles.vicePresidentCompetitionsF",
-            image: "/team/co/ducharme.jpg",
-            email: "aducharme@cqi-qec.qc.ca"
-        },
-        {
-            name: "Dahly Ann Smith",
-            role: "roles.vicePresidentCommunicationsF",
-            image: "/team/co/smith.jpg",
-            email: "dasmith@cqi-qec.qc.ca"
-        },
-        {
-            name: "Gabriel Lapointe",
-            role: "roles.vicePresidentPartnerships",
-            image: "/team/co/lapointe.jpg",
-            email: "glapointe@cqi-qec.qc.ca"
-        },
-        {
-            name: "Juliane Barrette",
-            role: "roles.vicePresidentSocialConscienceF",
-            image: "/team/co/barette.jpg",
-            email: "jbarrette@cqi-qec.qc.ca"
-        },
-        {
-            name: "Jacob Rioux",
-            role: "roles.treasurer",
-            email: "jrioux@cqi-qec.qc.ca",
-            image: "/team/co/rioux.jpg"
-        },
-        {
-            name:"Sarah Roberge",
-            role: "roles.vpAdmin",
-            image: "/team/co/roberge.jpg",
-        },
+        // {
+        //     name: "Marc-André Baril",
+        //     role: "roles.president",
+        //     image: "/team/co/baril.jpg",
+        //     email: "mabaril@cqi-qec.qc.ca"
+        // },
+        // {
+        //     name: "Britany Lévesque",
+        //     role: "roles.vicePresidentLogisticsF",
+        //     image: "/team/co/levesque.jpg",
+        //     email: "blevesque@cqi-qec.qc.ca"
+        // },
+        // {
+        //     name: "Alexandrine Ducharme",
+        //     role: "roles.vicePresidentCompetitionsF",
+        //     image: "/team/co/ducharme.jpg",
+        //     email: "aducharme@cqi-qec.qc.ca"
+        // },
+        // {
+        //     name: "Dahly Ann Smith",
+        //     role: "roles.vicePresidentCommunicationsF",
+        //     image: "/team/co/smith.jpg",
+        //     email: "dasmith@cqi-qec.qc.ca"
+        // },
+        // {
+        //     name: "Gabriel Lapointe",
+        //     role: "roles.vicePresidentPartnerships",
+        //     image: "/team/co/lapointe.jpg",
+        //     email: "glapointe@cqi-qec.qc.ca"
+        // },
+        // {
+        //     name: "Juliane Barrette",
+        //     role: "roles.vicePresidentSocialConscienceF",
+        //     image: "/team/co/barette.jpg",
+        //     email: "jbarrette@cqi-qec.qc.ca"
+        // },
+        // {
+        //     name: "Jacob Rioux",
+        //     role: "roles.treasurer",
+        //     email: "jrioux@cqi-qec.qc.ca",
+        //     image: "/team/co/rioux.jpg"
+        // },
+        // {
+        //     name:"Sarah Roberge",
+        //     role: "roles.vpAdmin",
+        //     image: "/team/co/roberge.jpg",
+        // },
     ]
 
     const director: Director[] = [
-        {
-            name:"Émy Désaulniers",
-            role: "roles.directorLogisticsF",
-            image: "desaulniers.jpg",
-        },
-        {
-            name:"Jérôme Lussier",
-            role: "roles.directorVolunteers",
-            image: "tyrone.jpg",
-        },
-        {
-            name: "Isaac Soucy",
-            role: "roles.directorVolunteers",
-            image: "soucy.jpg",
-        },
-        {
-            name: "Rémi Drouin",
-            role: "roles.directorTechnical",
-            image: "drouin.jpg",
-        },
-        {
-            name: "Cassie-Anais Savoie",
-            role: "roles.directorEventsF",
-            image: "cassie.jpg",
-        },
-        {
-            name: "Sunnee Chevalier",
-            role: "roles.directorWebsite",
-            image: "chevalier.jpg",
-        },
-        {
-            name: "Joanie Théroux",
-            role: "roles.coordinatorJuniorSeniorF",
-            image: "theroux.jpg",
-        },
-        {
-            name: "Médéric Chalifour",
-            role: "roles.directorSenior",
-            image: "chalifour.jpg",
-        },
-        {
-            name: "Pierre-Olivier Leroueil",
-            role: "roles.directorSenior",
-            image: "leroueil.jpg",
-        },
-        {
-            name: "Alexandre Boucher",
-            role: "roles.directorJunior",
-            image: "boucher.jpg",
-        },
-        {
-            name: "Zachary Désaulniers",
-            role: "roles.directorJunior",
-            image: "deso.jpg",
-        },
-        {
-            name: "Dylan Renaud",
-            role: "roles.directorReengineering",
-            image: "renaud.jpg",
-        },
-        {
-            name: "Antoine Gamache",
-            role: "roles.directorReengineering",
-            image: "gamache.jpg",
-        },
-        {
-            name: "Nicolas Payeur",
-            role: "roles.directorPuzzleHero",
-            image: "payeur.jpg",
-        },
-        {
-            name: "Émile Reny-Déry",
-            role: "roles.directorPuzzleHero",
-            image: "reny-dery.jpg",
-        },
-        {
-            name: "Antony Martel",
-            role: "roles.directorPuzzleHero",
-            image: "martel.jpg",
-        },
-        {
-            name: "Justin Héroux",
-            role: "roles.directorInnovativeDesign",
-            image: "heroux.jpg",
-        },
-        {
-            name: "Jean-Christophe Anctil",
-            role: "roles.directorInnovativeDesign",
-            image: "anctil.jpg",
-        },
-        {
-            name: "Philippine Grimont",
-            role: "roles.directorConsultingEngineeringF",
-            image: "grimont.jpg",
-        },
-        {
-            name: "Laure Jalbert-Drouin",
-            role: "roles.directorConsultingEngineeringF",
-            image: "laure.jpg",
-        },
-        {
-            name: "Nathaniel Girard",
-            role: "roles.directorProgramming",
-            image: "nate.jpg",
-        },
-        {
-            name: "Marc-Anthony Girard",
-            role: "roles.directorProgramming",
-            image: "girard.jpg",
-        },
-        {
-            name: "Samuel Côté",
-            role: "roles.directorProgramming",
-            image: "cote.jpg",
-        },
-        {
-            name: "Samuel Grenier",
-            role: "roles.directorProgramming",
-            image: "grenier.jpg",
-        },
-        {
-            name: "William Sylvain",
-            role: "roles.directorGraduateStudies",
-            image: "sylvain.jpg",
-        },
-        {
-            name: "Justine Major",
-            role: "roles.directorScientificCommunicationF",
-            image: "major.jpg",
-        },
-        {
-            name: "Ghita Lemrini",
-            role: "roles.directorDebateF",
-            image: "lemrini.jpg",
-        },
+        // {
+        //     name:"Émy Désaulniers",
+        //     role: "roles.directorLogisticsF",
+        //     image: "desaulniers.jpg",
+        // },
+        // {
+        //     name:"Jérôme Lussier",
+        //     role: "roles.directorVolunteers",
+        //     image: "tyrone.jpg",
+        // },
+        // {
+        //     name: "Isaac Soucy",
+        //     role: "roles.directorVolunteers",
+        //     image: "soucy.jpg",
+        // },
+        // {
+        //     name: "Rémi Drouin",
+        //     role: "roles.directorTechnical",
+        //     image: "drouin.jpg",
+        // },
+        // {
+        //     name: "Cassie-Anais Savoie",
+        //     role: "roles.directorEventsF",
+        //     image: "cassie.jpg",
+        // },
+        // {
+        //     name: "Sunnee Chevalier",
+        //     role: "roles.directorWebsite",
+        //     image: "chevalier.jpg",
+        // },
+        // {
+        //     name: "Joanie Théroux",
+        //     role: "roles.coordinatorJuniorSeniorF",
+        //     image: "theroux.jpg",
+        // },
+        // {
+        //     name: "Médéric Chalifour",
+        //     role: "roles.directorSenior",
+        //     image: "chalifour.jpg",
+        // },
+        // {
+        //     name: "Pierre-Olivier Leroueil",
+        //     role: "roles.directorSenior",
+        //     image: "leroueil.jpg",
+        // },
+        // {
+        //     name: "Alexandre Boucher",
+        //     role: "roles.directorJunior",
+        //     image: "boucher.jpg",
+        // },
+        // {
+        //     name: "Zachary Désaulniers",
+        //     role: "roles.directorJunior",
+        //     image: "deso.jpg",
+        // },
+        // {
+        //     name: "Dylan Renaud",
+        //     role: "roles.directorReengineering",
+        //     image: "renaud.jpg",
+        // },
+        // {
+        //     name: "Antoine Gamache",
+        //     role: "roles.directorReengineering",
+        //     image: "gamache.jpg",
+        // },
+        // {
+        //     name: "Nicolas Payeur",
+        //     role: "roles.directorPuzzleHero",
+        //     image: "payeur.jpg",
+        // },
+        // {
+        //     name: "Émile Reny-Déry",
+        //     role: "roles.directorPuzzleHero",
+        //     image: "reny-dery.jpg",
+        // },
+        // {
+        //     name: "Antony Martel",
+        //     role: "roles.directorPuzzleHero",
+        //     image: "martel.jpg",
+        // },
+        // {
+        //     name: "Justin Héroux",
+        //     role: "roles.directorInnovativeDesign",
+        //     image: "heroux.jpg",
+        // },
+        // {
+        //     name: "Jean-Christophe Anctil",
+        //     role: "roles.directorInnovativeDesign",
+        //     image: "anctil.jpg",
+        // },
+        // {
+        //     name: "Philippine Grimont",
+        //     role: "roles.directorConsultingEngineeringF",
+        //     image: "grimont.jpg",
+        // },
+        // {
+        //     name: "Laure Jalbert-Drouin",
+        //     role: "roles.directorConsultingEngineeringF",
+        //     image: "laure.jpg",
+        // },
+        // {
+        //     name: "Nathaniel Girard",
+        //     role: "roles.directorProgramming",
+        //     image: "nate.jpg",
+        // },
+        // {
+        //     name: "Marc-Anthony Girard",
+        //     role: "roles.directorProgramming",
+        //     image: "girard.jpg",
+        // },
+        // {
+        //     name: "Samuel Côté",
+        //     role: "roles.directorProgramming",
+        //     image: "cote.jpg",
+        // },
+        // {
+        //     name: "Samuel Grenier",
+        //     role: "roles.directorProgramming",
+        //     image: "grenier.jpg",
+        // },
+        // {
+        //     name: "William Sylvain",
+        //     role: "roles.directorGraduateStudies",
+        //     image: "sylvain.jpg",
+        // },
+        // {
+        //     name: "Justine Major",
+        //     role: "roles.directorScientificCommunicationF",
+        //     image: "major.jpg",
+        // },
+        // {
+        //     name: "Ghita Lemrini",
+        //     role: "roles.directorDebateF",
+        //     image: "lemrini.jpg",
+        // },
     ]
 
     return (
         <div class="flex w-full flex-col items-center justify-center">
             <NavHeader background={true}/>
-            <FixedImage url="/banners/team.jpg" height="40rem">
+            <FixedImage url="/banners/team.jpg" height="40rem" bg_position="top">
                 <h1 class="text-center font-futur text-6xl text-white">
                     {t("team")}
                 </h1>

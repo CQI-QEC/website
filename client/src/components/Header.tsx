@@ -144,11 +144,11 @@ export default function NavHeader(navHeaderProps: NavHeaderProps): JSX.Element {
     //#endregion
 
     return (
-        <header class= {"top-0 min-h-[10vh] flex w-full items-center justify-between p-4 text-white absolute " + (navHeaderProps.background ? " bg-red-900/50 bg-blend-luminosity backdrop-blur-md" : " ")}>
+        <header class= {"z-10 top-0 min-h-[10vh] flex w-full items-center justify-between p-4 text-white absolute " + (navHeaderProps.background ? "bg-[rgb(var(--secondary-color)/0.75)] bg-blend-luminosity backdrop-blur-md" : " ")}>
             <h1 class="font-condensed text-3xl font-bold md:pl-0 lg:pl-8">
                 <A href="/" class="min-w-max flex items-center gap-2 bg-white p-1 rounded-lg m-2">
-                    <img src="/logo.png" class="h-16"></img>
-                    <img src="/logo_letters.png" class="h-16"></img>
+                    <img src="/logo_fr.jpg" class="h-16"></img>
+                    {/* <img src="/logo_letters.png" class="h-16"></img> */}
                 </A>
             </h1>
 

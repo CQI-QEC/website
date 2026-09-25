@@ -11,7 +11,7 @@ export default {
                     // This color is also inlined in `index.html`.
                     primary: "#f8f9fa",
                     secondary: "#131313",
-                    highlight: "#17d87d",
+                    highlight: "#ffcd09",
                 },
             },
         },
